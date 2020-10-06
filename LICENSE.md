@@ -1,1 +1,0 @@
-Gnu Public License v3 or later.
