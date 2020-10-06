@@ -2,5 +2,5 @@
 
 * [[./about.html][About me]]
 * Blog Posts
-** [[./blogs/2020-10-06-raspberrypi.html][如何配置你的树莓派]]
+** [[./blogs/2020-10-06-raspberrypi.html][如何配置你的树莓派(写于2017-09-27)]]
 
