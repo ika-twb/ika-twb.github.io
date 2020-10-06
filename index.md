@@ -1,5 +1,5 @@
 ## This is Ilghar_kus' personal site.
-And embarrassingly a scruffy hacker like me still doesn't have a personal site.<br>
+And embarrassingly a scruffy hacker like me still doesn't have a personal site.
 But I will get one as soon as I have money to rent a usable Cloud server and time to write a blog engine.
 
 ## And about me
