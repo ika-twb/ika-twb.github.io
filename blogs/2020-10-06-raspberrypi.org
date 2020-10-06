@@ -1,0 +1,124 @@
+#+TITLE: 如何配置树莓派
+
+* 系统下载和安装
+
+老手可以自行下载并安装任意支持ARM架构的 GNU/Linux 发行版。
+
+对于新手，建议下载树莓派基金会官方推荐的 Raspbian GNU/Linux（基于Debian）。
+
+下载地址： 
+
+完全版（桌面环境和推荐软件包）： [[https://downloads.raspberrypi.org/raspbian_full_latest.torrent][Torrent]]   [[https://downloads.raspberrypi.org/raspbian_full_latest][Zip]]
+
+完整版（桌面环境）： [[https://downloads.raspberrypi.org/raspbian_latest.torrent][Torrent]]   [[https://downloads.raspberrypi.org/raspbian_latest][Zip]]
+
+轻量版（无桌面）：[[https://downloads.raspberrypi.org/raspbian_lite_latest.torrent][Torrent]]  [[https://downloads.raspberrypi.org/raspbian_lite_latest][Zip]]
+
+下载完毕之后，解压Zip文件，便可以找到对应的 img 映像文件，用来刻录映像到SD卡。
+
+访问 [[https://www.balena.io/etcher/][Balena Etcher]] 来获取最新版本的 Etcher 软件，以便将 img 映像刻录到SD卡。
+
+如果你了解并且可以熟练使用某个其他的刻录程序，也可以使用那个程序而非Etcher来进行刻录。
+
+Linux 以及 OS X 用户可以使用 dd 命令：
+
+#+BEGIN_SRC sh
+sudo dd if=./2018-11-13-raspbian-stretch-full.img of=/dev/sdX  conv=fsync
+#+END_SRC
+
+注意在img映像文件所在的目录运行此命令。
+
+以及将`/dev/sdX`换成你的SD卡设备名。
+
+*注意：dd命令将会覆盖目标设备文件系统的所有文件，如果你使用了错误的设备名，你将会失去该设备上存储的所有文件！*
+
+运行完成后，你便可以将SD卡插入树莓派，接入电源，使用HDMI线将视频信号接入你的显示器，开始使用你的树莓派了。
+
+* 如何安装采用GPIO引脚的LCD触摸显示屏驱动程序
+
+如果你的触摸屏插到显示屏上白屏，可能是你的触摸屏驱动没有安装。
+
+[[https://github.com/goodtft/LCD-show/archive/master.zip][驱动下载链接]] 下载完后解压。
+
+或者使用Git：
+
+#+BEGIN_SRC sh
+git clone https://github.com/goodtft/LCD-show.git
+#+END_SRC
+
+将解压后的文件夹拷贝到 =rootfs= 分区的 =/home/pi/= 目录下。
+
+*如果你有支持HDMI输入的显示器，请将你的树莓派和显示器通过HDMI线缆连接起来，启动树莓派，并直接跳到第5步。*
+
+1. 在 =boot= 分区下创建一个名为 =SSH= 的空文件，注意文件不能有后缀名，这样树莓派启动之后就会自动启动SSH服务。
+
+2. Windows用户请下载 [[https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html][PuTTY]] SSH 客户端。Linux以及OS X用户可以直接使用ssh命令。
+
+3. 请将你的树莓派和计算机连接在同一局域网内，并在路由器开启DHCP功能，保证树莓派可以自动分配到IP地址。
+
+4. 通过路由器查询或内网扫描工具等手段扫描到树莓派的IP地址，Windows用户输入到PuTTY中进行链接，Linux和OS X用户运行 =ssh pi@x.x.x.x= ,将 =x.x.x.x= 换成树莓派的IP地址。密码为 =raspberry= 
+
+5. 在终端中输入： =cd ./LCD-show-master/ && ls= ，找到你的触摸屏对应的配置文件。如果你是3.5吋
+   LCD屏，那你的配置文件就是LCD35-show，以此类推。
+
+6. 在终端中输入 =chmod u+x ./file_name= ，将 =file_name= 换成你对应的触摸屏配置文件。
+
+7. 在终端中输入 =./file_name= ，将 =file_name= 换成你对应的触摸屏配置文件，树莓派会重启，如果你是用HDMI接入的显示屏，请断开HDMI连接，并将你的显示屏插在对应的GPIO引脚上。
+
+8. 重启之后，显示屏便会显示正常。
+
+注：
+
+在使用LCD显示屏的情况下，HDMI输出默认关闭，如果要切换到HDMI输出，可以运行 :
+
+#+BEGIN_SRC sh
+./LCD-show-master/LCD-hdmi
+#+END_SRC
+
+如果HDMI输出和触摸屏输出之间的切换未正常运行，请尝试在命令前加 =sudo= 再次运行，尽管不加 =sudo= 依旧会提示输入密码。
+
+如果你想设置显示旋转，可以在 =./file_name= 命令后面接旋转角度参数，例如，旋转90度，便可以运行 =./file_name 90= 。
+
+* 如果你的触摸屏有点不太正常
+
+如果你的触摸屏触摸有些问题，比如你的滑动方向和屏幕上指针的移动方向不同，可能是你的触摸屏判断坐标轴出了问题，别担心，通过很简单的配置文件更改就可以解决这个问题。
+
+运行以下命令：
+
+
+#+BEGIN_SRC sh
+sudo apt-get install xserver-xorg-input-libinput
+sudo sudo mkdir /etc/X11/xorg.conf.d
+sudo cp /usr/share/X11/xorg.conf.d/40-libinput.conf -r /etc/X11/xorg.conf.d/
+cd /etc/X11/xorg.conf.d/
+sudo nano 40-libinput.conf
+#+END_SRC
+
+找到TouchScreen Section：
+
+#+BEGIN_SRC sh
+Section "InputClass"
+        Identifier "libinput touchscreen catchall"
+        MatchIsTouchscreen "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "libinput"
+EndSection
+#+END_SRC
+
+
+如果你在触摸屏上右划，指针往上移，那么在TouchScreen Section里添加以下一行设置。
+
+=Option "CalibrationMatrix" "0 -1 1 1 0 0 0 0 1=
+
+如果你在触摸屏上右划，指针往左移，那么添加以下一行设置。
+
+=Option "CalibrationMatrix" "-1 0 1 0 -1 1 0 0 1"=
+
+如果你在触摸屏上右划，指针往下移，那么添加以下一行设置。
+
+=Option "CalibrationMatrix" "0 1 0 -1 0 1 0 0 1=
+
+重启即可。
+
+
+
