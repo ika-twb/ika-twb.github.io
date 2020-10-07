@@ -1,0 +1,861 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Learning Perl(持续更新)</title>
+<!-- 2020-10-08 Thu 00:30 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Org-mode">
+
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+/* org mode styles on top of twbs */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-size: 18px;
+    margin-bottom: 105px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 101px;
+    background-color: #f5f5f5;
+}
+
+footer > div {
+    padding: 10px;
+}
+
+footer p {
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#table-of-contents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+blockquote p {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.footpara {
+    display: inline-block;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  padding-bottom: 15px;
+}
+
+/* from twbs docs */
+
+.bs-docs-sidebar.affix {
+    position: static;
+}
+@media (min-width: 768px) {
+    .bs-docs-sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* All levels of nav */
+.bs-docs-sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #A1283B;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #A1283B;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: bold;
+    color: #A1283B;
+    background-color: transparent;
+    border-left: 2px solid #A1283B;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.bs-docs-sidebar .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+
+/* Nav: third level (shown on .active) */
+.bs-docs-sidebar .nav .nav .nav {
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav .nav > li > a:focus {
+    padding-left: 39px;
+}
+.bs-docs-sidebar .nav .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
+    padding-left: 38px;
+    font-weight: 500;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-docs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-docs-sidebar.affix,
+    .bs-docs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-docs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 20px;
+    }
+    .bs-docs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-docs-sidebar.affix-bottom,
+    .bs-docs-sidebar.affix {
+        width: 263px;
+    }
+}
+</style>
+<script>
+$(function() {
+    'use strict';
+
+    $('.bs-docs-sidebar li').first().addClass('active');
+
+    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
+
+    $('.bs-docs-sidebar').affix();
+});
+</script>
+</head>
+<body>
+<div id="content" class="container">
+<div class="row"><div class="col-md-3 col-md-push-9"><nav id="table-of-contents">
+<div id="text-table-of-contents" class="bs-docs-sidebar">
+<ul class="nav">
+<li><a href="#sec-">总述：</a></li>
+<li><a href="#sec-1">1. CH.1 Introduction</a></li>
+<li><a href="#sec-2">2. CH.2 Scalar Data</a>
+<ul class="nav">
+<li><a href="#sec-2-1">2.1. Numbers</a></li>
+<li><a href="#sec-2-2">2.2. Strings</a></li>
+<li><a href="#sec-2-3">2.3. Perl's Built-in Warnings</a></li>
+<li><a href="#sec-2-4">2.4. Scalar Variables</a></li>
+<li><a href="#sec-2-5">2.5. Scalar Assignment</a></li>
+<li><a href="#sec-2-6">2.6. Output with print</a></li>
+<li><a href="#sec-2-7">2.7. Interpolation of Scalar Variables into Strings</a></li>
+<li><a href="#sec-2-8">2.8. Operator Precedence and Associativity</a></li>
+<li><a href="#sec-2-9">2.9. Comparison Operators</a></li>
+<li><a href="#sec-2-10">2.10. The if Control Structure</a></li>
+<li><a href="#sec-2-11">2.11. Getting User Input</a></li>
+<li><a href="#sec-2-12">2.12. The chomp Operator</a></li>
+<li><a href="#sec-2-13">2.13. The while Control Structure</a></li>
+<li><a href="#sec-2-14">2.14. The undel Value</a></li>
+<li><a href="#sec-2-15">2.15. The defined Function</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3. CH.3 List and Arrays</a>
+<ul class="nav">
+<li><a href="#sec-3-1">3.1. Finish this later.</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+</div><div class="col-md-9 col-md-pull-3"><h1 class="title">Learning Perl(持续更新)</h1>
+<div id="outline-container-sec-" class="outline-2">
+<h2 id="sec-">总述：</h2>
+<div class="outline-text-2" id="text-">
+<p>
+这篇文章是我在阅读 <i>Learning Perl</i> (<i>Randal Schwartz, Tom Phoenix, brain d foy, 2008, O'Reilly Media</i> <code>978-0-596-52010-6</code>)(又称小骆驼书) 时做的笔记。
+</p>
+
+<p>
+当然通过阅读这些笔记可能使你比起阅读原书更加快速的上手Perl，但是如果你有足够的时间我会推荐去阅读原书来形成比较流畅而且牢固的知识体系，而且我可能会在这篇笔记中填入一些自己先入为主的观念，这对你的学习可能会造成一点影响。
+</p>
+
+<p>
+如果你找到错误或者不严谨的表述，欢迎你来信告诉我。我的联系方式可以在 <code>About</code> 页面中找到。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> CH.1 Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+这一章没有多少有关Perl技术上的论述。
+</p>
+
+<p>
+大部分都是对于本书、其作者以及Perl的介绍和几页FAQ，所以在这里跳过。
+</p>
+
+<p>
+有兴趣的读者可以去阅读原书。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> CH.2 Scalar Data</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+当然这里所指的Scalar与数学、物理领域内的Scalar并不相同。Scalar只是对Perl当中一种数据泛类型的称呼。
+Scalar通常（大部分情况下）以数字或字符串的形式表现。这里我们可以先将数字与字符串独立审视，就像其他的编程语言那样。
+</p>
+</div>
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Numbers</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+我们可以先看数字这部分。
+</p>
+</div>
+<div id="outline-container-sec-2-1-1" class="outline-4">
+<h4 id="sec-2-1-1"><span class="section-number-4">2.1.1</span> Decimal Numbers</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+在Perl，所有的数字内部都是以相同的格式存在。你可以指定整数或者浮点数，但是在Perl内部都是以双精度浮点数（ <code>double-precision floating-point value</code> ）进行计算的。
+所以可以理解为对于Perl不存在整数。所有的“整数”都是以 <code>DPFP</code> 类型进行计算的。
+</p>
+
+<p>
+所以以下这些数字在Perl都是合法的。
+<code>25, 25.5, 25.255, 25.0, 25.000, 25e25, -25e25, -25e-25</code> 
+</p>
+
+<p>
+在Perl中，数字通过下划线标记位数是允许的。
+例如：
+</p>
+
+<p>
+<code>1000000</code> 可以被写为 <code>1_000_000</code> ，这在Perl内部是相同的两个数字。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-1-2" class="outline-4">
+<h4 id="sec-2-1-2"><span class="section-number-4">2.1.2</span> Nondecimal Integer</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+在编程中，非十进制数字使用最广泛的有：二进制 <code>binary</code> 、八进制 <code>octal</code> 、十六进制 <code>hexademical</code> 。
+二进制用 <code>0b</code> 标识，八进制用 <code>0</code> ，十六进制用 <code>0x</code> 。所以以下的数字都是 <b>相同</b> 的。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">0b1010 012 0xA 10 10.000
+</pre>
+</div>
+
+<p>
+当然，对于非十进制的数字也可以用下划线标记位数，例如 <code>0b10_11_10_00</code> 是合法的。
+</p>
+
+<p>
+需要注意的是，所谓的 <code>"Leading zero" Indicator</code> 只针对于普通的Literal数据，自动的字符串-&gt;数字变换是不支持的。也就是说你不可以将 <code>"0b11"</code> 这个字符串与 <code>3</code> 等同，但是 <code>0b11</code> 与 <code>"3"</code> 可以。
+你可以使用 <code>oct()</code> 与 <code>hex()</code> 函数进行字符串到非十进制数字之间的转换。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-1-3" class="outline-4">
+<h4 id="sec-2-1-3"><span class="section-number-4">2.1.3</span> Numeric Operators</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<p>
+Perl当然支持最普通的四则运算 <code>+ - * /</code> 与模运算 <code>%</code> ，当然也支持浮点数与整数混合运算。
+在浮点数进行模运算时，Perl会自动将浮点数取整，所以 <code>15.6 % 2.4</code> 与 <code>15 % 2</code> 结果相同。
+</p>
+
+<p>
+Perl同时也支持幂运算，例如 <code>2**3</code> 结果为 <code>8</code> 。
+</p>
+
+<p>
+当你需要计算负数的分数幂的时候，你可以调用 <code>Math::Complex</code> 模块进行复数运算。
+</p>
+
+<p>
+Perl还有其他一些数字运算符，当我们需要的时候会进行讲解。
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> Strings</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+字符串可以理解为串在一起的一堆字符。
+</p>
+</div>
+<div id="outline-container-sec-2-2-1" class="outline-4">
+<h4 id="sec-2-2-1"><span class="section-number-4">2.2.1</span> Single and Double Quoted Strings.</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+原书中有一段话：
+</p>
+
+<p>
+<i>This is in accordance with the principle of “no built-in limits” that Perl follows at every opportunity.</i> 
+</p>
+
+<p>
+所以你既可以在一段字符串中加入可打印的字符，也可以加入不可打印的字符，比如二进制数据，然后对他们进行各种操作。这在Perl内都是合法的。
+</p>
+
+<p>
+Perl内的字符串有两种表示形式， <code>Single-Quoted String Literals</code> 与 <code>Double-Quoted String Literals</code> 。
+</p>
+
+<p>
+在单引号字符串中，只支持单引号 <code>'</code> 与反斜杠 <code>\</code> 的字符转义，所以，单引号字符串是最简单最纯粹的字符串表示形式。
+</p>
+
+<p>
+然而，在双引号字符串中，支持所有的转义字符，换行 <code>\n</code> ,制表符Tab <code>\t</code>,和对ASCII值的引用等。
+</p>
+
+<p>
+同时，你可以在双引号字符串中插入变量，所以，
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-perl">$<span style="color: #7590db;">foo</span> = <span style="color: #2d9574;">"bar"</span>;
+print <span style="color: #2d9574;">"$foo is bar"</span>;
+</pre>
+</div>
+
+<p>
+结果会输出 <code>bar is bar</code> 。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2-2" class="outline-4">
+<h4 id="sec-2-2-2"><span class="section-number-4">2.2.2</span> String Operators</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+字符串之间可以通过 <code>.</code> 进行连接，对，就是一个点。
+所以：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-perl"><span style="color: #2d9574;">"hello"</span>.<span style="color: #2d9574;">"world"</span> == <span style="color: #2d9574;">"hel"</span>.<span style="color: #2d9574;">"lowo"</span>.<span style="color: #2d9574;">"rld"</span>
+</pre>
+</div>
+
+<p>
+字符串可以用 <code>x</code> 字符进行复制倍增， <code>x</code> 前的Literal会被视为字符或字符串，其后的Literal会被视为数字，所以：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-perl"><span style="color: #2d9574;">"foo"</span> x 3 == <span style="color: #2d9574;">"foo"</span> x <span style="color: #2d9574;">"3"</span> == <span style="color: #2d9574;">"foofoofoo"</span>
+<span style="color: #2d9574;">"5"</span> x <span style="color: #2d9574;">"3"</span> == 5 x <span style="color: #2d9574;">"3"</span> == 5 x 3 == 5 x 3.3 == 5 x <span style="color: #2d9574;">"3.3"</span> == 555
+</pre>
+</div>
+<p>
+当倍增的数字小于1时，会输出空字符串 <code>""</code> 。
+</p>
+
+<p>
+这是关于Perl一个神奇的特性。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-2-3" class="outline-4">
+<h4 id="sec-2-2-3"><span class="section-number-4">2.2.3</span> Automatic Conversion Between Numbers and Strings</h4>
+<div class="outline-text-4" id="text-2-2-3">
+<p>
+关于这部分，原书有很好的诠释:
+</p>
+
+<p>
+<i>For the most part, Perl automatically converts between numbers and strings as needed.How does it know which is needed? It all depends upon the operator being used on thescalar value. If an operator expects a number (like + does), Perl will see the value as anumber. If an operator expects a string (like . does), Perl will see the value as a string.So you don’t need to worry about the difference between numbers and strings; just usethe proper operators, and Perl will make it all work.</i>
+</p>
+
+<p>
+所以:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-perl"><span style="color: #2d9574;">"12"</span> * <span style="color: #2d9574;">"3"</span> == 12 * 3 == 36
+<span style="color: #2d9574;">"12foo"</span> * <span style="color: #2d9574;">"3bar"</span> == 36
+</pre>
+</div>
+
+<p>
+但是在执行第二条计算的时候，Perl会抛出一个Warning： <code>Argument "3bar" isn't numeric in multiplication (*)</code>
+所以可以视为，当一个数字与字母混合的字符串被转换为字符时，Perl会在字符串头部寻识别数字，如果没有则返回0.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> Perl's Built-in Warnings</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+在这里需要插入一个Perl内置警告的单元。
+</p>
+
+<p>
+如果你要开启Perl的内置警告，可以在运行脚本时使用 <code>-w</code> 参数，或者直接在脚本头部添加 <code>-w</code> 参数，例如
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">$ perl -w some_script
+</pre>
+</div>
+
+<p>
+或者：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-perl"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">!/usr/bin/perl -w</span>
+</pre>
+</div>
+
+<p>
+甚至简略为：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-perl"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">!perl -w</span>
+</pre>
+</div>
+
+<p>
+在Perl5.6或更新的Perl中，你可以这样写：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-perl"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">!/usr/bin/perl</span>
+<span style="color: #a45bad;">use</span> warnings;
+</pre>
+</div>
+
+<p>
+当你需要更长的诊断类描述时，可以这样写：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-perl"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">!/usr/bin/perl</span>
+<span style="color: #a45bad;">use</span> diagnostics;
+</pre>
+</div>
+
+<p>
+显然，这样做会使程序运行得更慢一些，当你不需要或者已经编写或Debug完了程序，应该注释掉这一行。
+</p>
+
+<p>
+但是对于这种Diagnostic有一种优化便是使用 <code>-M</code> 参数，原书对于 <code>-M</code> 参数的诠释是这样的：
+</p>
+
+<p>
+<i>A  further optimization can be had by using one of Perl’s command-line options, -M, toload the pragma only when needed instead of editing the source code each time toenable and disable diagnostics.</i>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> Scalar Variables</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+<i>A variable is a name for a container that holds one or more values. The name of thevariable stays the same throughout the program, but the value or values contained inthat variable typically change over and over again throughout the execution of theprogram.</i>
+</p>
+
+<p>
+所以在Perl中变量的特性与用法在其他编程语言中并没有区别。
+</p>
+
+<p>
+在Perl中一个scalar variable只能储存一个scalar value,
+</p>
+
+<p>
+但是Perl中的Scalar Variable需要一个代表变量名的符号，以便与其他Literals区别开来，在这里使用的是美元符号 <code>$</code> 。
+在Perl中这类符号称作 <code>Sigil</code> , 对于不同的变量需要不同的Sigil，在后面
+变量名（通常使用的表述是 <code>Perl Identifier</code> ）不可以以数字开头，而且大小写区分。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5"><span class="section-number-3">2.5</span> Scalar Assignment</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+对于Scalar Variable的赋值操作，与其他的编程语言大致相似。赋值操作通过 <code>=</code> 来进行，例如：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-perl">$<span style="color: #7590db;">foo</span> = 3;
+$<span style="color: #7590db;">foo</span> = $<span style="color: #7590db;">foo</span> + 3;
+$<span style="color: #7590db;">foo</span> += 3;
+$<span style="color: #7590db;">foo</span> = <span style="color: #2d9574;">"bar"</span>;
+$<span style="color: #7590db;">foo</span> = $<span style="color: #7590db;">foo</span> . <span style="color: #2d9574;">"foo"</span>;
+$<span style="color: #7590db;">foo</span> = $<span style="color: #7590db;">foo</span> x 3;
+$<span style="color: #7590db;">foo</span> x= 3;
+$<span style="color: #7590db;">foo</span> .= <span style="color: #2d9574;">"foo"</span>;
+</pre>
+</div>
+
+<p>
+类似的操作都是合法的。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-6" class="outline-3">
+<h3 id="sec-2-6"><span class="section-number-3">2.6</span> Output with print</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+Perl中的 <code>print()</code> 函数与其他语言中的类似，而且可以携带或不携带括号 <code>()</code> 。例如：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-perl">print <span style="color: #2d9574;">"hello world\n"</span>;    <span style="color: #2aa1ae; background-color: #292e34;"># &#36755;&#20986;&#20026; &#8220;hello world&#8221;&#20197;&#21450;&#19968;&#20010;&#26032;&#34892;&#12290;</span>
+
+print <span style="color: #2d9574;">"the answer is "</span>;
+print 2*<span style="color: #7590db;">3</span>;
+print <span style="color: #2d9574;">".\n"</span>;    <span style="color: #2aa1ae; background-color: #292e34;"># &#36755;&#20986;&#20026;&#8220;the answer is 6.&#8221;&#20197;&#21450;&#19968;&#20010;&#26032;&#34892;&#12290;</span>
+
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">&#24403;&#28982;&#20063;&#21487;&#20197;&#36825;&#20040;&#25805;&#20316;&#12290;</span>
+
+print <span style="color: #2d9574;">"the answer is"</span>. 6*<span style="color: #7590db;">7</span> .<span style="color: #2d9574;">".\n"</span>;
+
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">&#36755;&#20986;&#26159;&#30456;&#21516;&#30340;&#12290;</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-7" class="outline-3">
+<h3 id="sec-2-7"><span class="section-number-3">2.7</span> Interpolation of Scalar Variables into Strings</h3>
+<div class="outline-text-3" id="text-2-7">
+<p>
+在双引号字符串中引用scalar variable，可以自动替换为该变量的值。例如：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-perl">$<span style="color: #7590db;">foo</span> = <span style="color: #2d9574;">"bar"</span>;
+print <span style="color: #2d9574;">"$foo is bar"</span>;
+</pre>
+</div>
+
+<p>
+结果会输出 <code>bar is bar</code> 。
+</p>
+
+<p>
+在被引用的变量没有被赋值或声明时，会以 <code>""</code> (空字符串)或 <code>0</code> 来代替。
+</p>
+
+<p>
+<b>注意</b>,这种Interpolation只能在双引号字符串中进行，单引号字符串是没有这种效果的。
+</p>
+
+<p>
+同时，在这种Interpolation中，Perl会寻找所谓的 <i>Longest Possible Variable</i> ，所以为了避免程序出Bug，你可能想要用一些可用的分割符来进行变量名与字符串之间的分割。
+例如：
+</p>
+
+
+<div class="org-src-container">
+
+<pre class="src src-perl">$<span style="color: #7590db;">foo</span> = 1;
+$<span style="color: #7590db;">foobar</span> = 2;
+print <span style="color: #2d9574;">"$foos"</span>;        <span style="color: #2aa1ae; background-color: #292e34;">#&#20250;&#36755;&#20986;&#8220;1s&#8221;</span>
+print <span style="color: #2d9574;">"$foobar"</span>;      <span style="color: #2aa1ae; background-color: #292e34;">#&#20250;&#36755;&#20986;&#8220;2&#8221;</span>
+print <span style="color: #2d9574;">"$foo"</span>.<span style="color: #2d9574;">"bar"</span>;   <span style="color: #2aa1ae; background-color: #292e34;">#&#20250;&#36755;&#20986;&#8220;1bar&#8221;</span>
+print <span style="color: #2d9574;">"${foo}bar"</span>;    <span style="color: #2aa1ae; background-color: #292e34;">#&#20250;&#36755;&#20986;&#8220;1bar&#8221;</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-8" class="outline-3">
+<h3 id="sec-2-8"><span class="section-number-3">2.8</span> Operator Precedence and Associativity</h3>
+<div class="outline-text-3" id="text-2-8">
+<p>
+操作优先级这方面没有什么好讲的，Perl的各种操作优先级（包括二进制位操作）都与C语言相同。
+</p>
+
+<p>
+<i>So should you just memorize the precedence chart? No! Nobody actually does that.Instead, just use parentheses when you don’t remember the order of operations, orwhen you’re too busy to look in the chart. After all, if you can’t remember it withoutthe parentheses, your maintenance programmer is going to have the same trouble. Sobe nice to your maintenance programmer: you may be that person one day.</i>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-9" class="outline-3">
+<h3 id="sec-2-9"><span class="section-number-3">2.9</span> Comparison Operators</h3>
+<div class="outline-text-3" id="text-2-9">
+<p>
+对于数字之间的比较，Perl有以下几种操作符：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-perl">&lt; &lt;= == &gt;= !=
+</pre>
+</div>
+
+<p>
+他们进行判断的返回值都是真或假 <code>true / false</code> 。
+</p>
+
+<p>
+对于字符串之间的比较，Perl有以下集中操作符：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-perl">lt le eq ge gt ne
+</pre>
+</div>
+
+<p>
+分别代表 <code>less than , less or equal , equal , greater or equal , greater than , not equal</code> 。
+</p>
+
+<p>
+Perl中字符串的比较方法是从头至为比较单个字符的ASCII值，而且需要注意的是在ASCII码表中大写字母在小写字母前面，所以表达式 <code>"Ab" lt "ab"</code> 返回 <code>true</code> 。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-10" class="outline-3">
+<h3 id="sec-2-10"><span class="section-number-3">2.10</span> The if Control Structure</h3>
+<div class="outline-text-3" id="text-2-10">
+<p>
+又到了喜闻乐见的条件选择环节。
+</p>
+
+<p>
+在Perl中， <code>if</code> 结构与C语言大致相同，例如：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-perl"><span style="color: #4f97d7; font-weight: bold;">if</span> (&lt;<span style="color: #a45bad;">condition</span>&gt;){
+    <span style="color: #2aa1ae; background-color: #292e34;"># do something;</span>
+}  <span style="color: #4f97d7; font-weight: bold;">elsif</span> (&lt;<span style="color: #a45bad;">condition</span>&gt;) {
+    <span style="color: #2aa1ae; background-color: #292e34;"># do another something;</span>
+}  <span style="color: #4f97d7; font-weight: bold;">else</span> {
+    <span style="color: #2aa1ae; background-color: #292e34;"># ok let's do this;</span>
+}
+</pre>
+</div>
+
+<p>
+在Perl的if语句中，括号是必须的。
+</p>
+
+<p>
+Condition 返回的可以为True or False，当Condition为一个数字，除0外所有数字均为 <code>True</code> ，当Condition为一个字符串，除了空字符串 <code>''</code> 以外所有字符串均为真，否则（该Scalar Data为除字符串或数字以外的值）将该值转换为数字或字符串然后在进行判断。
+</p>
+
+<p>
+而且这里有一个little trick：在Perl中字符 <code>'0'</code> 与数字 <code>0</code> 是可互相转化的，所以 <code>'0'</code> 是Perl中唯一可以被判断为假的非空字符串。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-11" class="outline-3">
+<h3 id="sec-2-11"><span class="section-number-3">2.11</span> Getting User Input</h3>
+<div class="outline-text-3" id="text-2-11">
+<p>
+在Perl中获取输入有一种很简单的方式， <code>&lt;STDIN&gt;</code> ，例如：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-perl">$<span style="color: #7590db;">foo</span> = &lt;<span style="color: #a45bad;">STDIN</span>&gt;;
+</pre>
+</div>
+
+<p>
+需要注意的是，&lt;STDIN&gt;返回的是一串字符串，以换行符做结尾，所以&lt;STDIN&gt;的返回值不可能是空字符串，最短返回值为 <code>'\n'</code> 。
+</p>
+
+<p>
+但是在大部分情况下并不需要这个结尾的换行符，所以我们需要另一个函数去去除输入时的换行符。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-12" class="outline-3">
+<h3 id="sec-2-12"><span class="section-number-3">2.12</span> The chomp Operator</h3>
+<div class="outline-text-3" id="text-2-12">
+<p>
+<code>chomp()</code> 的使用方法类似这样：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-perl">$<span style="color: #7590db;">foo</span> = &lt;<span style="color: #a45bad;">STDIN</span>&gt;;
+chomp($<span style="color: #7590db;">foo</span>);    <span style="color: #2aa1ae; background-color: #292e34;"># &#36825;&#37324;&#30340;&#25324;&#21495;&#26159;&#21487;&#20197;&#30465;&#30053;&#30340;&#12290;</span>
+</pre>
+</div>
+
+<p>
+或者再短一点：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-perl">chomp($<span style="color: #7590db;">foo</span>=&lt;<span style="color: #a45bad;">STDIN</span>&gt;);    <span style="color: #2aa1ae; background-color: #292e34;">#&#36825;&#37324;&#30340;&#25324;&#21495;&#19981;&#21487;&#20197;&#30465;&#30053;&#12290;</span>
+</pre>
+</div>
+
+<p>
+作为一个函数， <code>chomp()</code> 是有返回值的，它会返回去除的字符的数量————通常情况下这个数字为1,因为在有多个换行符作为末尾的情况下， <code>chomp()</code> 也只会移除一个。但是当输入为空字符串或无末尾换行符的字符串， <code>chomp()</code> 会返回0。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-13" class="outline-3">
+<h3 id="sec-2-13"><span class="section-number-3">2.13</span> The while Control Structure</h3>
+<div class="outline-text-3" id="text-2-13">
+<p>
+又是一个十分常用的结构。同样，Perl的while语句也和C类似：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-perl"><span style="color: #4f97d7; font-weight: bold;">while</span>(&lt;<span style="color: #a45bad;">condition</span>&gt;){
+    <span style="color: #2aa1ae; background-color: #292e34;"># do something;</span>
+}
+</pre>
+</div>
+
+<p>
+<code>condition</code> 的判断方式已经介绍过，这里不再赘述。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-14" class="outline-3">
+<h3 id="sec-2-14"><span class="section-number-3">2.14</span> The undel Value</h3>
+<div class="outline-text-3" id="text-2-14">
+<p>
+Perl的一个很有趣的特性便是这个 <code>undef</code> 值，它适用于引用未声明或赋值的变量时，可以被自动转换为 <code>0</code> 或 <code>''</code> ，所以：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-perl">$<span style="color: #7590db;">unassigned_variable</span> = <span style="color: #2d9574;">"foo"</span>;
+
+$<span style="color: #7590db;">another_unassigned_variable</span> .= <span style="color: #2d9574;">"foo"</span>;
+</pre>
+</div>
+
+<p>
+两者是相等的。
+</p>
+
+<p>
+原书中写道：
+<i>Many operators return undef when the arguments are out of range or don’t make sense&#x2026;. But you should know that when warnings are turned on, Perl willtypically warn about unusual uses of the undefined value, since that may indicate abug. For example, simply copying undef from one variable into another isn’t a problem,but trying to print it would generally cause a warning.</i>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-15" class="outline-3">
+<h3 id="sec-2-15"><span class="section-number-3">2.15</span> The defined Function</h3>
+<div class="outline-text-3" id="text-2-15">
+<p>
+<code>&lt;STDIN&gt;</code> 操作通常会返回一个字符串，但是也有特例。当你在扫描一个文件时，如果遇到 <code>EOF</code> ，那么 <code>&lt;STDIN&gt;</code> 会返回 <code>undef</code> ，这时你可以用 <code>defined()</code> 函数来判断某个变量是否被赋值。
+<code>defined()</code> 当输入的值为 <code>undef</code> 时返回假，其他情况均返回真。
+</p>
+
+<p>
+当然，你也可以为某个变量赋值 <code>undef</code> ，虽然这与没声明该变量没有什么区别，但是某些情况下这个特性是很有用的。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> CH.3 List and Arrays</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> <span class="label label-primary TODO">TODO</span> Finish this later.</h3>
+</div>
+</div>
+</div></div></div>
+<footer id="postamble" class="">
+<div><p class="date">Created: 2020-10-08 Thu 00:30</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 27.1 (<a href="http://orgmode.org">Org-mode</a> 9.3)</p>
+</div>
+</footer>
+</body>
+</html>
