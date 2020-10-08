@@ -22,4 +22,6 @@
 
 我的PGP指纹为 =1A64866B328C6A9092F02DD11C360F7878D2377B= ， 你可以在GnuPG的密钥服务器下载我的公钥。
 
-我现在还只想到这些，如果突然想起来别的我会在这里更新。
+* 我的联系方式
+** [[https://github.com/ilgharkus][GitHub]]
+** [[https://twitter.com/Ilghar_kus][Twitter]]
