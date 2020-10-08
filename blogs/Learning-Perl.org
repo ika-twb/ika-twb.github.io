@@ -17,7 +17,7 @@
 * CH.2 Scalar Data
 当然这里所指的Scalar与数学、物理领域内的Scalar并不相同。Scalar只是对Perl当中一种数据泛类型的称呼。
 Scalar通常（大部分情况下）以数字或字符串的形式表现。这里我们可以先将数字与字符串独立审视，就像其他的编程语言那样。
-** Numbers
+p** Numbers
 我们可以先看数字这部分。
 *** Decimal Numbers
 在Perl，所有的数字内部都是以相同的格式存在。你可以指定整数或者浮点数，但是在Perl内部都是以双精度浮点数（ =double-precision floating-point value= ）进行计算的。
@@ -55,9 +55,9 @@ Perl还有其他一些数字运算符，当我们需要的时候会进行讲解�
 字符串可以理解为串在一起的一堆字符。
 *** Single and Double Quoted Strings.
 原书中有一段话：
-
- /This is in accordance with the principle of “no built-in limits” that Perl follows at every opportunity./ 
-
+#+BEGIN_QUOTE 
+This is in accordance with the principle of “no built-in limits” that Perl follows at every opportunity.
+#+END_QUOTE
 所以你既可以在一段字符串中加入可打印的字符，也可以加入不可打印的字符，比如二进制数据，然后对他们进行各种操作。这在Perl内都是合法的。
 
 Perl内的字符串有两种表示形式， =Single-Quoted String Literals= 与 =Double-Quoted String Literals= 。
@@ -94,8 +94,9 @@ print "$foo is bar";
 这是关于Perl一个神奇的特性。
 *** Automatic Conversion Between Numbers and Strings
 关于这部分，原书有很好的诠释:
-
- /For the most part, Perl automatically converts between numbers and strings as needed.How does it know which is needed? It all depends upon the operator being used on thescalar value. If an operator expects a number (like + does), Perl will see the value as anumber. If an operator expects a string (like . does), Perl will see the value as a string.So you don’t need to worry about the difference between numbers and strings; just usethe proper operators, and Perl will make it all work./
+#+BEGIN_QUOTE
+For the most part, Perl automatically converts between numbers and strings as needed.How does it know which is needed? It all depends upon the operator being used on thescalar value. If an operator expects a number (like + does), Perl will see the value as anumber. If an operator expects a string (like . does), Perl will see the value as a string.So you don’t need to worry about the difference between numbers and strings; just usethe proper operators, and Perl will make it all work.
+#+END_QUOTE
 
 所以:
 
@@ -145,10 +146,13 @@ use diagnostics;
 显然，这样做会使程序运行得更慢一些，当你不需要或者已经编写或Debug完了程序，应该注释掉这一行。
 
 但是对于这种Diagnostic有一种优化便是使用 =-M= 参数，原书对于 =-M= 参数的诠释是这样的：
-
- /A  further optimization can be had by using one of Perl’s command-line options, -M, toload the pragma only when needed instead of editing the source code each time toenable and disable diagnostics./
+#+BEGIN_QUOTE
+A further optimization can be had by using one of Perl’s command-line options, -M, toload the pragma only when needed instead of editing the source code each time toenable and disable diagnostics.
+#+END_QUOTE
 ** Scalar Variables
- /A variable is a name for a container that holds one or more values. The name of thevariable stays the same throughout the program, but the value or values contained inthat variable typically change over and over again throughout the execution of theprogram./
+#+BEGIN_QUOTE
+A variable is a name for a container that holds one or more values. The name of thevariable stays the same throughout the program, but the value or values contained inthat variable typically change over and over again throughout the execution of theprogram.
+#+END_QUOTE
 
 所以在Perl中变量的特性与用法在其他编程语言中并没有区别。
 
@@ -218,9 +222,9 @@ print "${foo}bar";    #会输出“1bar”
 
 ** Operator Precedence and Associativity
 操作优先级这方面没有什么好讲的，Perl的各种操作优先级（包括二进制位操作）都与C语言相同。
-
-/So should you just memorize the precedence chart? No! Nobody actually does that.Instead, just use parentheses when you don’t remember the order of operations, orwhen you’re too busy to look in the chart. After all, if you can’t remember it withoutthe parentheses, your maintenance programmer is going to have the same trouble. Sobe nice to your maintenance programmer: you may be that person one day./
-
+#+BEGIN_QUOTE
+So should you just memorize the precedence chart? No! Nobody actually does that.Instead, just use parentheses when you don’t remember the order of operations, orwhen you’re too busy to look in the chart. After all, if you can’t remember it withoutthe parentheses, your maintenance programmer is going to have the same trouble. Sobe nice to your maintenance programmer: you may be that person one day.
+#+END_QUOTE
 ** Comparison Operators
 对于数字之间的比较，Perl有以下几种操作符：
 
@@ -310,7 +314,9 @@ $another_unassigned_variable .= "foo";
 两者是相等的。
 
 原书中写道：
+#+BEGIN_QUOTE
 /Many operators return undef when the arguments are out of range or don’t make sense.... But you should know that when warnings are turned on, Perl willtypically warn about unusual uses of the undefined value, since that may indicate abug. For example, simply copying undef from one variable into another isn’t a problem,but trying to print it would generally cause a warning./
+#+END_QUOTE
 
 ** The defined Function
 =<STDIN>= 操作通常会返回一个字符串，但是也有特例。当你在扫描一个文件时，如果遇到 =EOF= ，那么 =<STDIN>= 会返回 =undef= ，这时你可以用 =defined()= 函数来判断某个变量是否被赋值。
