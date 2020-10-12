@@ -3,7 +3,7 @@
 #+OPTIONS: num:0
 ** [[./about.html][About me]]
 ** [[./copyleft.html][版权须知（README）]]
-* Blog Posts
-** [[./blogs/Learning-Perl.html][Learning Perl(持续更新)]]
-** [[./blogs/2020-10-06-raspberrypi.html][如何配置你的树莓派(写于2017-09-27)]]
-
+* Articles
+** [[./articles/Learning-Perl.html][Learning Perl(持续更新)]]
+** [[./articles/2020-10-06-raspberrypi.html][如何配置你的树莓派(写于2017-09-27)]]
+* [[./blog.org][Personal Blog]] 
