@@ -5,6 +5,29 @@
 这里是我的一些想法以及心情的汇总，如果想看技术类文章请返回到主页并在 =Articles= 栏中点选。
 
 * Blogs
+** 2020/10/13 
+今天把昨天写到的函数写掉了，写起来还觉得挺简单。
+然后这里是代码，写的很lowb
+
+
+#+BEGIN_SRC emacs-lisp
+  (defun blog-add-article-to-index (article-name)
+  "自动在我的博客主页目录里更新新写的文章。"
+	(if (file-exists-p "../index.org") ;; 判断文件是否存在，防止乱用。
+	    ()
+	  (write-line "Index.org doesn't exist!"))
+	(interactive
+	 (list (file-name-nondirectory(buffer-file-name)))) ;; 获取当前buffer的文件名
+	(progn
+	  (find-file "../index.org")  
+	  (goto-line 7)  ;; 到达“article”那一行然后新建行
+	  (open-line 1)
+	  (insert "** [[" "./article/" article-name "][" (replace-in-string article-name ".org" "") "]]")
+	;; 插入链接
+	  (save-buffer) ;; 保存
+  ))
+#+END_SRC
+
 ** 2020/10/12 
 今天是开通Blog功能的第一天。
 
