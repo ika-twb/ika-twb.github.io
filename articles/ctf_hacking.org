@@ -1,0 +1,41 @@
+#+TITLE: CTF 与渗透测试资源总结
+#+AUTHOR: Ilghar Kus
+
+* 学习与练习
+** [[https://pentesterlab.com/bootcamp/][PentesterLab]]
+** [[http://www.wechall.net/forum][We Chall]]
+** [[https://adworld.xctf.org.cn/][XCTF]]
+** [[https://github.com/ctfs/][Github CTFs]]
+** [[https://github.com/apsdehal/awesome-ctf][Awesome CTF]]
+** [[https://hackme.inndy.tw/scoreboard/][Hack Me]]
+** [[https://pwnhub.cn/index][Pwnhub]]
+
+* 知识点
+** [[https://zhuanlan.zhihu.com/p/103650970][Alix10的刷题记录]]
+** [[https://ctf-wiki.github.io/ctf-wiki/index.html][CTF-Wiki]]
+** [[https://github.com/firmianay/CTF-All-In-One][CTF-All-in-one]]
+** [[https://github.com/bigyank/Pentest-Notes][Pentest Notes]]
+** [[https://github.com/wtsxDev/Penetration-Testing][Awesome Pentest]]
+** [[https://github.com/husnainfareed/Awesome-Ethical-Hacking-Resources][Awesome Hacking Resource]]
+** [[https://github.com/vitalysim/Awesome-Hacking-Resources][Awesome Hacking Resources]]
+** [[https://github.com/Snowming04/The-Hacker-Playbook-3-Translation][The Hacker Playbook 3 中文翻译版]]
+** [[https://github.com/sbilly/awesome-security][Awesome Security]]
+** [[https://github.com/enaqx/awesome-pentest][Awesome Pentesting]]
+** [[https://zhuanlan.zhihu.com/c_1268957663368167424][小白入门]]
+
+* CTF
+** [[https://tctf.qq.com/][Tencent CTF]]
+** [[https://www.xctf.org.cn/][XCTF]]
+** [[https://realworldctf.com/about][Real World CTF]]
+** [[https://code-breaking.com/][代码审计星球二周年CTF]]
+
+* 信息
+** [[https://ctftime.org/][CTFtime]]
+** [[http://hackinglab.cn/][HackingLab]]
+** [[https://www.blackhat.com/][BlackHat]]
+** [[https://www.exploit-db.com/][Exploit DB]]
+** [[https://github.com/Han0nly/SecurityRSS][Security RSS]]
+
+* 游戏
+** [[http://www.fj543.com/hack/][丛林游戏]]
+* [[../library.zip][书籍（综合）]]
