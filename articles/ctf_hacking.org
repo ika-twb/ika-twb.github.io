@@ -1,6 +1,6 @@
 #+TITLE: CTF 与渗透测试资源总结
 #+AUTHOR: Ilghar Kus
-
+#+OPTIONS: num:1
 * 学习与练习
 ** [[https://pentesterlab.com/bootcamp/][PentesterLab]]
 ** [[http://www.wechall.net/forum][We Chall]]
@@ -14,6 +14,7 @@
 ** [[https://www.kanxue.com/chm.htm][看雪知识库]]
 ** [[https://www.jarvisoj.com/][Jarvis OJ]]
 ** [[https://ctflearn.com/][CTF Learn]]
+** [[https://book.nu1l.com/tasks/#/][从0到1 by Nu1L-Team]]
 
 * 学习路线
 ** [[https://skills.bugbank.cn/][Bugbank]]
