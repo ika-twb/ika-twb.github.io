@@ -9,6 +9,17 @@
 ** [[https://github.com/apsdehal/awesome-ctf][Awesome CTF]]
 ** [[https://hackme.inndy.tw/scoreboard/][Hack Me]]
 ** [[https://pwnhub.cn/index][Pwnhub]]
+** [[http://hackinglab.cn/][HackingLab]]
+** [[https://ctf.bugku.com/][Bugku CTF]]
+** [[https://www.kanxue.com/chm.htm][看雪知识库]]
+** [[https://www.jarvisoj.com/][Jarvis OJ]]
+** [[https://ctflearn.com/][CTF Learn]]
+
+* 学习路线
+** [[https://skills.bugbank.cn/][Bugbank]]
+** [[https://evilcos.me/security_skill_tree_basic/index.html][安全技能树 by 余弦]]
+** [[https://github.com/phith0n/Mind-Map][思维导图 by phith0n]]
+** [[https://github.com/riusksk/secbook][书籍推荐 by riusksk]]
 
 * 知识点
 ** [[https://zhuanlan.zhihu.com/p/103650970][Alix10的刷题记录]]
@@ -35,7 +46,15 @@
 ** [[https://www.blackhat.com/][BlackHat]]
 ** [[https://www.exploit-db.com/][Exploit DB]]
 ** [[https://github.com/Han0nly/SecurityRSS][Security RSS]]
-
+** [[https://www.4hou.com/][嘶吼]]
+** [[https://bbs.pediy.com/][看雪BBS]]
+** [[https://xz.aliyun.com/][先知社区]]
+** 
 * 游戏
 ** [[http://www.fj543.com/hack/][丛林游戏]]
-
+* 在线工具
+** [[http://ctf.ssleye.com/][ssleye]]
+** [[https://tool.bugku.com/][tools by bugku]]
+** [[https://ctftools.com/down/][ctftools]]
+** [[https://gchq.github.io/CyberChef/][CyberChef]]
+** [[https://github.com/zardus/ctf-tools][Tools List]]
