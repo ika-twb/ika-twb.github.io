@@ -325,7 +325,43 @@ $another_unassigned_variable .= "foo";
 当然，你也可以为某个变量赋值 =undef= ，虽然这与没声明该变量没有什么区别，但是某些情况下这个特性是很有用的。
 
 * CH.3 List and Arrays
-** TODO Finish this later.
+首先我觉得需要澄清一下的是，在Perl社区中，List和Array其实通常可以互相代换。
+但是严格意义上来说，List是一些Scalar Data按照一定的顺序排列在一起组成的数据结构，而Array是指向某个List的变量。
+例如：
+
+#+BEGIN_SRC perl
+  @an_array = qw[this that foo bar];    #这是一个数列
+  print $an_array[1];                   #输出 "that"
+#+END_SRC
+
+两者之间并没有一个十分严格的界限，所以书中也写道：
+
+#+BEGIN_QUOTE
+ A list is an ordered collection of scalars. An array is a variable that contains a list. In Perl, the two terms are often used as if they’re interchangeable. But, to be accurate, the list is the data, and the array is the variable. 
+#+END_QUOTE
+
+** List
+列表中的每一个元素都是一个 =Scalar Variable= 而且拥有一个 =Scalar value=, 这些变量是有一定顺序的，而且从零开始计数。
+列表中的元素不一定要是同一种类型，数字，字符串， =undef= 都是可以放到同一个列表中的。
+Perl不对列表的大小做限制，只要你的内存是足够的，你可以创建一个任意大的列表。所以最小的列表就是那些没有任何元素的列表。
+** 调用数列中的元素
+Perl调用数列元素的方式也很简单，例如：
+
+#+BEGIN_SRC perl
+$foo[0]="foo";
+$foo[1]="bar";
+print $foo[1];    #输出 "bar"
+#+END_SRC
+
+在Perl当中， =Array= 和 =Scalar Variable= 使用的是两种不同的命名域，所以你可以使某个变量和数列使用同一个名字。
+例如：
+
+#+BEGIN_SRC perl
+$foo="foo";
+$foo[0]="bar";
+print $foo.$foo[0];
+#+END_SRC
+
 
 
 
