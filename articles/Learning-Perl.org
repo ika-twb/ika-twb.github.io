@@ -359,9 +359,40 @@ print $foo[1];    #输出 "bar"
 #+BEGIN_SRC perl
 $foo="foo";
 $foo[0]="bar";
-print $foo.$foo[0];
+print $foo.$foo[0];    #结果会输出 "foobar"
 #+END_SRC
 
+但是为了你的代码的可维护性，没人会建议你这么做。
+
+在调用数列元素的时候，你也可以在 =index= 的位置输入字符串或者浮点数或者是其他变量，Perl会自动转换为对应的整数。
+例如：
+
+#+BEGIN_SRC perl
+$foo[0]="foo";
+$foo[1]="bar";
+$the_number=1.618
+print $foo[$the_number-1].$foo["1H4T3SCH00L"]    #结果会输出 "foobar"
+#+END_SRC
+
+当调用超出数列元素数的元素时，Perl会返回 =undef= .
+例如：
+
+#+BEGIN_SRC perl
+$foo[0]=0;
+$foo[1]=1;
+if(!defined($foo[99])){
+    print "Not defined!";}    #结果会输出 "Not defined!"
+#+END_SRC
+
+** Special Array Indices
+在Perl中，当你给一个超出数列范围的元素赋值时，数列会自动扩张到合适的大小并给对应的元素赋值，而且新增加的元素会被赋值为 =undef= 。例如：
+
+#+BEGIN_SRC perl
+$foo[0]="foo";
+$foo[1]="bar";
+$foo[99]="well that was quite a gap!";
+# 从 $foo[2] 到 $foo[98] 之间的元素均为 undef 
+#+END_SRC
 
 
 

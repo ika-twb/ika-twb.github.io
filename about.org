@@ -14,7 +14,7 @@
 
 我使用Arch Linux和FreeBSD作为工作的主力系统，使用GNU Emacs作为代码编辑器、写作软件以及GTD软件。
 
-我使用 Dell Inspiron 7590 作为主力工作站，GNOME 3作WM（在我阅读完i3的文档并且组出来一套能用的配置后，我或许会切换到i3）。
+我使用 Dell Inspiron 7590 作为主力工作站，MATE作WM（在我阅读完i3的文档并且组出来一套能用的配置后，我或许会切换到i3）。
 
 我使用中文和英文写作。
 
@@ -22,6 +22,7 @@
 
 我的PGP指纹为 =1A64866B328C6A9092F02DD11C360F7878D2377B= ， 你可以在GnuPG的密钥服务器下载我的公钥。
 
-* 我的联系方式
+* 你可以在这里找到我
 ** [[https://github.com/ilgharkus][GitHub]]
-** [[https://twitter.com/Ilghar_kus][Twitter]]
+** [[https://keybase.io/ilghar_kus][KeyBase]]
+** 你可以私聊我来获得我的 Status，Discord，Element 以及其他好友链接。
