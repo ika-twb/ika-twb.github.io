@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title>Ilghar Kus 的 Blog</title>
-<!-- 2020-10-17 Sat 08:53 -->
+<!-- 2021-02-01 Mon 02:21 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -220,6 +220,7 @@ $(function() {
 <li><a href="#sec-">Before reading</a></li>
 <li><a href="#sec-">Blogs</a>
 <ul class="nav">
+<li><a href="#sec-">2021/02/01</a></li>
 <li><a href="#sec-">2020/10/17</a></li>
 <li><a href="#sec-">2020/10/13</a></li>
 <li><a href="#sec-">2020/10/12</a></li>
@@ -243,6 +244,30 @@ $(function() {
 <h2 id="sec-">Blogs</h2>
 <div class="outline-text-2" id="text-">
 </div><div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">2021/02/01</h3>
+<div class="outline-text-3" id="text-">
+<p>
+还是心累，这段时间也没时间打理博客或者写东西。
+</p>
+
+<p>
+学校的屁事太多太忙。忙里偷闲过了一个学期然后期末绩点成功爆炸。
+</p>
+
+<p>
+然后寒假还住了次院，然后现在心态平和至极。
+</p>
+
+<p>
+本来自己也不是什么喜欢社交的人，结果偌大的邯郸校区硬是没有找到几个合适的人去组织一个squad。
+</p>
+
+<p>
+人都快抑郁了。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-" class="outline-3">
 <h3 id="sec-">2020/10/17</h3>
 <div class="outline-text-3" id="text-">
 <p>
@@ -282,20 +307,20 @@ $(function() {
 
 <div class="org-src-container">
 
-<pre class="src src-emacs-lisp">(<span style="color: #4f97d7; font-weight: bold;">defun</span> <span style="color: #bc6ec5; font-weight: bold;">blog-add-article-to-index</span> (article-name)
-<span style="color: #9f8766;">"&#33258;&#21160;&#22312;&#25105;&#30340;&#21338;&#23458;&#20027;&#39029;&#30446;&#24405;&#37324;&#26356;&#26032;&#26032;&#20889;&#30340;&#25991;&#31456;&#12290;"</span>
-      (<span style="color: #4f97d7; font-weight: bold;">if</span> (file-exists-p <span style="color: #2d9574;">"../index.org"</span>) <span style="color: #2aa1ae; background-color: #292e34;">;; </span><span style="color: #2aa1ae; background-color: #292e34;">&#21028;&#26029;&#25991;&#20214;&#26159;&#21542;&#23384;&#22312;&#65292;&#38450;&#27490;&#20081;&#29992;&#12290;</span>
+<pre class="src src-emacs-lisp">(<span style="color: #ffb86c;">defun</span> <span style="color: #57c7ff;">blog-add-article-to-index</span> (article-name)
+<span style="color: #f5fab5;">"&#33258;&#21160;&#22312;&#25105;&#30340;&#21338;&#23458;&#20027;&#39029;&#30446;&#24405;&#37324;&#26356;&#26032;&#26032;&#20889;&#30340;&#25991;&#31456;&#12290;"</span>
+      (<span style="color: #ffb86c;">if</span> (file-exists-p <span style="color: #f3f99d;">"../index.org"</span>) <span style="color: #606580;">;; </span><span style="color: #606580;">&#21028;&#26029;&#25991;&#20214;&#26159;&#21542;&#23384;&#22312;&#65292;&#38450;&#27490;&#20081;&#29992;&#12290;</span>
           ()
-        (write-line <span style="color: #2d9574;">"Index.org doesn't exist!"</span>))
-      (<span style="color: #4f97d7; font-weight: bold;">interactive</span>
-       (list (file-name-nondirectory(buffer-file-name)))) <span style="color: #2aa1ae; background-color: #292e34;">;; </span><span style="color: #2aa1ae; background-color: #292e34;">&#33719;&#21462;&#24403;&#21069;buffer&#30340;&#25991;&#20214;&#21517;</span>
-      (<span style="color: #4f97d7; font-weight: bold;">progn</span>
-        (find-file <span style="color: #2d9574;">"../index.org"</span>)  
-        (goto-line 7)  <span style="color: #2aa1ae; background-color: #292e34;">;; </span><span style="color: #2aa1ae; background-color: #292e34;">&#21040;&#36798;&#8220;article&#8221;&#37027;&#19968;&#34892;&#28982;&#21518;&#26032;&#24314;&#34892;</span>
+        (write-line <span style="color: #f3f99d;">"Index.org doesn't exist!"</span>))
+      (<span style="color: #ffb86c;">interactive</span>
+       (list (file-name-nondirectory(buffer-file-name)))) <span style="color: #606580;">;; </span><span style="color: #606580;">&#33719;&#21462;&#24403;&#21069;buffer&#30340;&#25991;&#20214;&#21517;</span>
+      (<span style="color: #ffb86c;">progn</span>
+        (find-file <span style="color: #f3f99d;">"../index.org"</span>)  
+        (goto-line 7)  <span style="color: #606580;">;; </span><span style="color: #606580;">&#21040;&#36798;&#8220;article&#8221;&#37027;&#19968;&#34892;&#28982;&#21518;&#26032;&#24314;&#34892;</span>
         (open-line 1)
-        (insert <span style="color: #2d9574;">"** [["</span> <span style="color: #2d9574;">"./article/"</span> article-name <span style="color: #2d9574;">"]["</span> (replace-in-string article-name <span style="color: #2d9574;">".org"</span> <span style="color: #2d9574;">""</span>) <span style="color: #2d9574;">"]]"</span>)
-      <span style="color: #2aa1ae; background-color: #292e34;">;; </span><span style="color: #2aa1ae; background-color: #292e34;">&#25554;&#20837;&#38142;&#25509;</span>
-        (save-buffer) <span style="color: #2aa1ae; background-color: #292e34;">;; </span><span style="color: #2aa1ae; background-color: #292e34;">&#20445;&#23384;</span>
+        (insert <span style="color: #f3f99d;">"** [["</span> <span style="color: #f3f99d;">"./article/"</span> article-name <span style="color: #f3f99d;">"]["</span> (replace-in-string article-name <span style="color: #f3f99d;">".org"</span> <span style="color: #f3f99d;">""</span>) <span style="color: #f3f99d;">"]]"</span>)
+      <span style="color: #606580;">;; </span><span style="color: #606580;">&#25554;&#20837;&#38142;&#25509;</span>
+        (save-buffer) <span style="color: #606580;">;; </span><span style="color: #606580;">&#20445;&#23384;</span>
 ))
 </pre>
 </div>

@@ -16,13 +16,15 @@
 
 我使用 Dell Inspiron 7590 作为主力工作站，MATE作WM（在我阅读完i3的文档并且组出来一套能用的配置后，我或许会切换到i3）。
 
+#+UPDATE: 最近感觉bspwm也不错，看有没有时间折腾折腾。
+
 我使用中文和英文写作。
 
 我的个人邮箱是 =ilghar_kus [at] protonmail.com= 。欢迎你来信，当然推荐使用PGP进行加密。
 
-我的PGP指纹为 =1A64866B328C6A9092F02DD11C360F7878D2377B= ， 你可以在GnuPG的密钥服务器下载我的公钥。
+我的PGP指纹为 =1A64866B328C6A9092F02DD11C360F7878D2377B= ， 你可以在[[./ilghar_kus.asc][这里]]下载我的公钥。
 
 * 你可以在这里找到我
 ** [[https://github.com/ilgharkus][GitHub]]
 ** [[https://keybase.io/ilghar_kus][KeyBase]]
-** 你可以私聊我来获得我的 Status，Discord，Element 以及其他好友链接。
+** 你可以私聊我来获得我的 Telegram，Status，Discord，Element 以及其他好友链接。
