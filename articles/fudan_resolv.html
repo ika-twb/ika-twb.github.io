@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Linux平台上连接复旦校园网以及故障修复指南</title>
+<!-- 2021-03-07 Sun 16:10 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Ilghar Kus">
+
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+/* org mode styles on top of twbs */
+
+html {
+    position: relative;
+    min-height: 100%;
+    background-color: #232323;
+    color: #efefef;
+}
+
+h1.title {
+    font-weight: bold;
+    color: #669999;
+}
+
+body {
+    font-size: 18px;
+    margin-bottom: 105px;
+    background-color: #232323;
+    color: #efefef;
+}
+
+code {
+    color: #66ffcc;
+    background-color: #454545;
+}
+
+src {
+    color: #efefef;
+    background-color: #232323;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 101px;
+    background-color: #f5f5f5;
+}
+
+a {
+    color: #00ff99;
+}
+
+footer > div {
+    padding: 10px;
+}
+
+footer p {
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#table-of-contents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+blockquote p {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.footpara {
+    display: inline-block;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #777;
+  font-style: italic;
+  padding-bottom: 15px;
+}
+
+/* from twbs docs */
+
+.bs-docs-sidebar.affix {
+    position: static;
+}
+@media (min-width: 768px) {
+    .bs-docs-sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* All levels of nav */
+.bs-docs-sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #66ff99;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #66ffcc;
+}
+.bs-docs-sidebar .nav > .acptive > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: bold;
+    color: #66ff99;
+    background-color: transparent;
+    border-left: 2px solid #669999;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.bs-docs-sidebar .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+
+/* Nav: third level (shown on .active) */
+.bs-docs-sidebar .nav .nav .nav {
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav .nav > li > a:focus {
+    padding-left: 39px;
+}
+.bs-docs-sidebar .nav .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
+    padding-left: 38px;
+    font-weight: 500;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-docs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-docs-sidebar.affix,
+    .bs-docs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-docs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 20px;
+    }
+    .bs-docs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-docs-sidebar.affix-bottom,
+    .bs-docs-sidebar.affix {
+        width: 263px;
+    }
+}
+</style>
+<script>
+$(function() {
+    'use strict';
+
+    $('.bs-docs-sidebar li').first().addClass('active');
+
+    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
+
+    $('.bs-docs-sidebar').affix();
+});
+</script>
+</head>
+<body>
+<div id="content" class="container">
+<div class="row"><div class="col-md-3 col-md-push-9"><nav id="table-of-contents">
+<div id="text-table-of-contents" class="bs-docs-sidebar">
+<ul class="nav">
+<li><a href="#sec-1">1. 前言</a></li>
+<li><a href="#sec-2">2. 设备信息</a></li>
+<li><a href="#sec-3">3. The Hacky Trick</a>
+<ul class="nav">
+<li><a href="#sec-">Step 1</a></li>
+<li><a href="#sec-">Step 2</a></li>
+<li><a href="#sec-">Step 3</a></li>
+<li><a href="#sec-">Step 4</a></li>
+<li><a href="#sec-">Step 5</a></li>
+<li><a href="#sec-">Step 6</a></li>
+<li><a href="#sec-">Step 7</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+</div><div class="col-md-9 col-md-pull-3"><h1 class="title">Linux平台上连接复旦校园网以及故障修复指南</h1>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 前言</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+从来到复旦校园的第一天开始校园网在Linux平台的连接失败问题就一直存在着，
+能不能成功连接纯粹靠运气，在比较重要的场合因为无法连接到校园网而耽误时间
+甚至社会性死亡的情况频有发生。
+经过询问几个同样使用Linux的朋友发现这个问题可以说是普遍存在。
+</p>
+
+<p>
+具体情况为下图：
+<img src="./Screenshot_2021-03-07_15-20-47.png" class="img-responsive" alt="Screenshot_2021-03-07_15-20-47.png">
+</p>
+
+<p>
+在连接到校园网的无线AP后，浏览器会提示此网络需要登录，并打开登录页面。
+在输入用户名与密码过后，有一部分几率会弹出所示窗口，提示认证失败。
+而且在大部分情况下断开并重新连接网络或者刷新页面都无法解决当前问题。
+</p>
+
+<p>
+在上学期（指2020年秋季）信息办下发的问卷当中我也反映了这一问题，
+而且也留下了自己的邮箱并表示如果可以自己希望参与调试与修复过程。
+但是直到现在我也没有接到任何消息，而且在这个过程中通过不断的尝试和折腾，
+自己也摸索出来了一套可以正常工作的连接方法。
+</p>
+
+<p>
+但是具体的机制因为无法白盒测试所以暂不清晰，所以在以下的操作中会有一些十分鲁棒的行为。
+在有机会参与白盒测试的情况下我或许会研究出来更简单而且优雅的方法(虽然那时候可能也不需要这么做了），
+而且我也实在是没有精力去黑盒测试这种系统，我的需求是需要连接的时候可以正常连接上，
+这样就可以继续自己原来的工作流。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 设备信息</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<code>OS: Arch Linux</code>
+</p>
+
+<p>
+<code>Kernel: 5.11.1</code>
+</p>
+
+<p>
+<code>Shell: zsh</code>
+</p>
+
+<p>
+<code>WM: i3</code>
+</p>
+
+<p>
+<code>NW: NetworkManager</code>
+</p>
+
+<p>
+不同发行版与不同配置之间具体的操作与命令可能会有差别，我会解释每一个步骤中命令的具体含义。
+如果在你的发行版上找不到具体的文件或者命令，请参阅该发行版的Wiki以及社区论坛。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> The Hacky Trick</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">Step 1</h3>
+<div class="outline-text-3" id="text-">
+<p>
+打开终端（废话），准备好输入以下命令。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">Step 2</h3>
+<div class="outline-text-3" id="text-">
+<p>
+删除DNS客户机的配置文件，里面包含DNS服务器的IP地址以及本地域名。
+在Arch中这个文件是 <code>/etc/resolv.conf</code>.
+</p>
+
+<p>
+删除这个文件需要root权限。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">sudo rm /etc/resolv.conf
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">Step 3</h3>
+<div class="outline-text-3" id="text-">
+<p>
+将 <code>/run/resolvconf/</code> 中的DNS配置文件 <code>resolv.conf</code> 复制到 <code>/etc</code> 中。
+当然创建一个软链接是最好的。
+这一步也需要root权限
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">sudo ln -s /run/resolvconf/resolv.conf /etc/resolv.conf
+</pre>
+</div>
+<p>
+在这里我也没搞懂这两步的意义，删除一个文件然后又建立一个软链接。理论上来说这两个文件内容是同样的。
+但是在某些时候不这样做也会导致连接失败，或许以后会研究清楚这个问题。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">Step 4</h3>
+<div class="outline-text-3" id="text-">
+<p>
+运行 <code>resolvconf</code> ，从当前的DNS服务器获取更新。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">sudo resolvconf -u
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">Step 5</h3>
+<div class="outline-text-3" id="text-">
+<p>
+重启你的网络管理工具，我使用的是 <code>NetworkManager</code> 。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">sudo systemctl restart NetworkManager
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">Step 6</h3>
+<div class="outline-text-3" id="text-">
+<p>
+启动或者重启 <code>DHCP client</code> 。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">sudo dhcpcd
+</pre>
+</div>
+<p>
+如果你是用的是IPv6网络请使用 <code>dhclient</code> 。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">Step 7</h3>
+<div class="outline-text-3" id="text-">
+<p>
+接下来，切换到浏览器并且随便打开一个网页，例如 <a href="https://duckduckgo.com">https://duckduckgo.com</a> 。
+你的浏览器会提示该网络需要登录，打开登录界面。
+</p>
+
+<p>
+输入用户名与密码，点击登录。
+</p>
+
+<p>
+提示连接成功。
+</p>
+</div>
+</div>
+</div>
+</div></div></div>
+</body>
+</html>

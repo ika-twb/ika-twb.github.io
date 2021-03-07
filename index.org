@@ -4,7 +4,10 @@
 ** [[./about.html][About me]]
 ** [[./copyleft.html][版权须知（README）]]
 * Articles
+** [[./articles/fudan_resolv.html][Linux平台上连接复旦校园网以及故障修复指南]]
 ** [[./articles/ctf_hacking.org][CTF与渗透测试资料分享]]
 ** [[./articles/Learning-Perl.html][Learning Perl(持续更新)]]
 ** [[./articles/2020-10-06-raspberrypi.html][如何配置你的树莓派(写于2017-09-27)]]
 * [[./blog.org][Personal Blog]] 
+* 文章笔记
+** 
