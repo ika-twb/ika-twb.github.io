@@ -1,0 +1,7 @@
+#+TITLE: GNU Project
+#+OPTIONS: num:0 toc:nil
+* 自由软件，自由未来
+
+* 欢迎通过访问 [[https://gnu.org][GNU项目]] 以及 [[https://fsf.org][自由软件基金会]]
+* 来了解并支持自由软件运动的历史，贡献及哲学。
+* 感谢您的支持
