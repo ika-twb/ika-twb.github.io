@@ -1,251 +1,256 @@
-<!doctype html>
-<html lang="en">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2021-11-11 Thu 13:38 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ilghar Kus 的 Blog</title>
-<!-- 2021-02-01 Mon 02:21 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="generator" content="Org-mode">
-
-<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<style>
-/* org mode styles on top of twbs */
-
-html {
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
     position: relative;
-    min-height: 100%;
-    background-color: #232323;
-    color: #efefef;
-}
-
-h1.title {
-    font-weight: bold;
-    color: #669999;
-}
-
-body {
-    font-size: 18px;
-    margin-bottom: 105px;
-    background-color: #232323;
-    color: #efefef;
-}
-
-code {
-    color: #66ffcc;
-    background-color: #454545;
-}
-
-src {
-    color: #efefef;
-    background-color: #232323;
-}
-
-footer {
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
     position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 101px;
-    background-color: #f5f5f5;
-}
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
 
-a {
-    color: #00ff99;
-}
-
-footer > div {
-    padding: 10px;
-}
-
-footer p {
-    margin: 0 0 5px;
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
     text-align: center;
-    font-size: 16px;
-}
-
-#table-of-contents {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-blockquote p {
-    font-size: 18px;
-}
-
-pre {
-    font-size: 16px;
-}
-
-.footpara {
-    display: inline-block;
-}
-
-figcaption {
-  font-size: 16px;
-  color: #777;
-  font-style: italic;
-  padding-bottom: 15px;
-}
-
-/* from twbs docs */
-
-.bs-docs-sidebar.affix {
-    position: static;
-}
-@media (min-width: 768px) {
-    .bs-docs-sidebar {
-        padding-left: 20px;
-    }
-}
-
-/* All levels of nav */
-.bs-docs-sidebar .nav > li > a {
-    display: block;
-    padding: 4px 20px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #999;
-}
-.bs-docs-sidebar .nav > li > a:hover,
-.bs-docs-sidebar .nav > li > a:focus {
-    padding-left: 19px;
-    color: #66ff99;
-    text-decoration: none;
-    background-color: transparent;
-    border-left: 1px solid #66ffcc;
-}
-.bs-docs-sidebar .nav > .acptive > a,
-.bs-docs-sidebar .nav > .active:hover > a,
-.bs-docs-sidebar .nav > .active:focus > a {
-    padding-left: 18px;
-    font-weight: bold;
-    color: #66ff99;
-    background-color: transparent;
-    border-left: 2px solid #669999;
-}
-
-/* Nav: second level (shown on .active) */
-.bs-docs-sidebar .nav .nav {
-    display: none; /* Hide by default, but at >768px, show it */
-    padding-bottom: 10px;
-}
-.bs-docs-sidebar .nav .nav > li > a {
-    padding-top: 1px;
-    padding-bottom: 1px;
-    padding-left: 30px;
-    font-size: 12px;
-    font-weight: normal;
-}
-.bs-docs-sidebar .nav .nav > li > a:hover,
-.bs-docs-sidebar .nav .nav > li > a:focus {
-    padding-left: 29px;
-}
-.bs-docs-sidebar .nav .nav > .active > a,
-.bs-docs-sidebar .nav .nav > .active:hover > a,
-.bs-docs-sidebar .nav .nav > .active:focus > a {
-    padding-left: 28px;
-    font-weight: 500;
-}
-
-/* Nav: third level (shown on .active) */
-.bs-docs-sidebar .nav .nav .nav {
-    padding-bottom: 10px;
-}
-.bs-docs-sidebar .nav .nav .nav > li > a {
-    padding-top: 1px;
-    padding-bottom: 1px;
-    padding-left: 40px;
-    font-size: 12px;
-    font-weight: normal;
-}
-.bs-docs-sidebar .nav .nav .nav > li > a:hover,
-.bs-docs-sidebar .nav .nav .nav > li > a:focus {
-    padding-left: 39px;
-}
-.bs-docs-sidebar .nav .nav .nav > .active > a,
-.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
-.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
-    padding-left: 38px;
-    font-weight: 500;
-}
-
-/* Show and affix the side nav when space allows it */
-@media (min-width: 992px) {
-    .bs-docs-sidebar .nav > .active > ul {
-        display: block;
-    }
-    /* Widen the fixed sidebar */
-    .bs-docs-sidebar.affix,
-    .bs-docs-sidebar.affix-bottom {
-        width: 213px;
-    }
-    .bs-docs-sidebar.affix {
-        position: fixed; /* Undo the static from mobile first approach */
-        top: 20px;
-    }
-    .bs-docs-sidebar.affix-bottom {
-        position: absolute; /* Undo the static from mobile first approach */
-    }
-    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
-        margin-top: 0;
-        margin-bottom: 0
-    }
-}
-@media (min-width: 1200px) {
-    /* Widen the fixed sidebar again */
-    .bs-docs-sidebar.affix-bottom,
-    .bs-docs-sidebar.affix {
-        width: 263px;
-    }
-}
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
 </style>
-<script>
-$(function() {
-    'use strict';
-
-    $('.bs-docs-sidebar li').first().addClass('active');
-
-    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
-
-    $('.bs-docs-sidebar').affix();
-});
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 </head>
 <body>
-<div id="content" class="container">
-<div class="row"><div class="col-md-3 col-md-push-9"><nav id="table-of-contents">
-<div id="text-table-of-contents" class="bs-docs-sidebar">
-<ul class="nav">
-<li><a href="#sec-">Before reading</a></li>
-<li><a href="#sec-">Blogs</a>
-<ul class="nav">
-<li><a href="#sec-">2021/02/01</a></li>
-<li><a href="#sec-">2020/10/17</a></li>
-<li><a href="#sec-">2020/10/13</a></li>
-<li><a href="#sec-">2020/10/12</a></li>
+<div id="content">
+<h1 class="title">Ilghar Kus 的 Blog</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org3af52f0">Before reading</a></li>
+<li><a href="#org9a214a9">Blogs</a>
+<ul>
+<li><a href="#org2480396">2021/02/01</a></li>
+<li><a href="#orge294dc5">2020/10/17</a></li>
+<li><a href="#orgce6deb6">2020/10/13</a></li>
+<li><a href="#org839daad">2020/10/12</a></li>
 </ul>
 </li>
 </ul>
 </div>
-</nav>
-</div><div class="col-md-9 col-md-pull-3"><h1 class="title">Ilghar Kus 的 Blog</h1>
+</div>
 
-<div id="outline-container-sec-" class="outline-2">
-<h2 id="sec-">Before reading</h2>
-<div class="outline-text-2" id="text-">
+<div id="outline-container-org3af52f0" class="outline-2">
+<h2 id="org3af52f0">Before reading</h2>
+<div class="outline-text-2" id="text-org3af52f0">
 <p>
 这里是我的一些想法以及心情的汇总，如果想看技术类文章请返回到主页并在 <code>Articles</code> 栏中点选。
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-" class="outline-2">
-<h2 id="sec-">Blogs</h2>
-<div class="outline-text-2" id="text-">
-</div><div id="outline-container-sec-" class="outline-3">
-<h3 id="sec-">2021/02/01</h3>
-<div class="outline-text-3" id="text-">
+<div id="outline-container-org9a214a9" class="outline-2">
+<h2 id="org9a214a9">Blogs</h2>
+<div class="outline-text-2" id="text-org9a214a9">
+</div>
+<div id="outline-container-org2480396" class="outline-3">
+<h3 id="org2480396">2021/02/01</h3>
+<div class="outline-text-3" id="text-org2480396">
 <p>
 还是心累，这段时间也没时间打理博客或者写东西。
 </p>
@@ -267,9 +272,9 @@ $(function() {
 </p>
 </div>
 </div>
-<div id="outline-container-sec-" class="outline-3">
-<h3 id="sec-">2020/10/17</h3>
-<div class="outline-text-3" id="text-">
+<div id="outline-container-orge294dc5" class="outline-3">
+<h3 id="orge294dc5">2020/10/17</h3>
+<div class="outline-text-3" id="text-orge294dc5">
 <p>
 心累，已经好几天没有接受或产出有质量的东西了。
 </p>
@@ -296,9 +301,9 @@ $(function() {
 </div>
 </div>
 
-<div id="outline-container-sec-" class="outline-3">
-<h3 id="sec-">2020/10/13</h3>
-<div class="outline-text-3" id="text-">
+<div id="outline-container-orgce6deb6" class="outline-3">
+<h3 id="orgce6deb6">2020/10/13</h3>
+<div class="outline-text-3" id="text-orgce6deb6">
 <p>
 今天把昨天写到的函数写掉了，写起来还觉得挺简单。
 然后这里是代码，写的很lowb
@@ -306,30 +311,29 @@ $(function() {
 
 
 <div class="org-src-container">
-
-<pre class="src src-emacs-lisp">(<span style="color: #ffb86c;">defun</span> <span style="color: #57c7ff;">blog-add-article-to-index</span> (article-name)
-<span style="color: #f5fab5;">"&#33258;&#21160;&#22312;&#25105;&#30340;&#21338;&#23458;&#20027;&#39029;&#30446;&#24405;&#37324;&#26356;&#26032;&#26032;&#20889;&#30340;&#25991;&#31456;&#12290;"</span>
-      (<span style="color: #ffb86c;">if</span> (file-exists-p <span style="color: #f3f99d;">"../index.org"</span>) <span style="color: #606580;">;; </span><span style="color: #606580;">&#21028;&#26029;&#25991;&#20214;&#26159;&#21542;&#23384;&#22312;&#65292;&#38450;&#27490;&#20081;&#29992;&#12290;</span>
+<pre class="src src-emacs-lisp">(<span style="color: #0f2050; font-weight: bold;">defun</span> <span style="color: #6c1f1c;">blog-add-article-to-index</span> (article-name)
+<span style="color: #603a60;">"&#33258;&#21160;&#22312;&#25105;&#30340;&#21338;&#23458;&#20027;&#39029;&#30446;&#24405;&#37324;&#26356;&#26032;&#26032;&#20889;&#30340;&#25991;&#31456;&#12290;"</span>
+      (<span style="color: #0f2050; font-weight: bold;">if</span> (file-exists-p <span style="color: #336c6c;">"../index.org"</span>) <span style="color: #a080a0;">;; </span><span style="color: #806080;">&#21028;&#26029;&#25991;&#20214;&#26159;&#21542;&#23384;&#22312;&#65292;&#38450;&#27490;&#20081;&#29992;&#12290;</span>
           ()
-        (write-line <span style="color: #f3f99d;">"Index.org doesn't exist!"</span>))
-      (<span style="color: #ffb86c;">interactive</span>
-       (list (file-name-nondirectory(buffer-file-name)))) <span style="color: #606580;">;; </span><span style="color: #606580;">&#33719;&#21462;&#24403;&#21069;buffer&#30340;&#25991;&#20214;&#21517;</span>
-      (<span style="color: #ffb86c;">progn</span>
-        (find-file <span style="color: #f3f99d;">"../index.org"</span>)  
-        (goto-line 7)  <span style="color: #606580;">;; </span><span style="color: #606580;">&#21040;&#36798;&#8220;article&#8221;&#37027;&#19968;&#34892;&#28982;&#21518;&#26032;&#24314;&#34892;</span>
+        (write-line <span style="color: #336c6c;">"Index.org doesn't exist!"</span>))
+      (<span style="color: #0f2050; font-weight: bold;">interactive</span>
+       (list (file-name-nondirectory(buffer-file-name)))) <span style="color: #a080a0;">;; </span><span style="color: #806080;">&#33719;&#21462;&#24403;&#21069;buffer&#30340;&#25991;&#20214;&#21517;</span>
+      (<span style="color: #0f2050; font-weight: bold;">progn</span>
+        (find-file <span style="color: #336c6c;">"../index.org"</span>)  
+        (goto-line 7)  <span style="color: #a080a0;">;; </span><span style="color: #806080;">&#21040;&#36798;&#8220;article&#8221;&#37027;&#19968;&#34892;&#28982;&#21518;&#26032;&#24314;&#34892;</span>
         (open-line 1)
-        (insert <span style="color: #f3f99d;">"** [["</span> <span style="color: #f3f99d;">"./article/"</span> article-name <span style="color: #f3f99d;">"]["</span> (replace-in-string article-name <span style="color: #f3f99d;">".org"</span> <span style="color: #f3f99d;">""</span>) <span style="color: #f3f99d;">"]]"</span>)
-      <span style="color: #606580;">;; </span><span style="color: #606580;">&#25554;&#20837;&#38142;&#25509;</span>
-        (save-buffer) <span style="color: #606580;">;; </span><span style="color: #606580;">&#20445;&#23384;</span>
+        (insert <span style="color: #336c6c;">"** [["</span> <span style="color: #336c6c;">"./article/"</span> article-name <span style="color: #336c6c;">"]["</span> (replace-in-string article-name <span style="color: #336c6c;">".org"</span> <span style="color: #336c6c;">""</span>) <span style="color: #336c6c;">"]]"</span>)
+      <span style="color: #a080a0;">;; </span><span style="color: #806080;">&#25554;&#20837;&#38142;&#25509;</span>
+        (save-buffer) <span style="color: #a080a0;">;; </span><span style="color: #806080;">&#20445;&#23384;</span>
 ))
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-" class="outline-3">
-<h3 id="sec-">2020/10/12</h3>
-<div class="outline-text-3" id="text-">
+<div id="outline-container-org839daad" class="outline-3">
+<h3 id="org839daad">2020/10/12</h3>
+<div class="outline-text-3" id="text-org839daad">
 <p>
 今天是开通Blog功能的第一天。
 </p>
@@ -392,6 +396,10 @@ $(function() {
 </div>
 </div>
 </div>
-</div></div></div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2021-11-11 Thu 13:38</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
 </body>
 </html>
