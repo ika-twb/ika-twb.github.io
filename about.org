@@ -10,11 +10,11 @@
 
 我现在还是学生。
 
-我感兴趣的是信息安全，自由软件，计算理论，数学以及一些复古的事物。
+我感兴趣的是信息安全，自由软件，数学，金属乐以及一些复古的事物。
 
-我使用Arch Linux和FreeBSD作为工作的主力系统，使用GNU Emacs作为代码编辑器、写作软件以及GTD软件。
+我使用 =Arch Linux= 和 =FreeBSD= 作为工作的主力系统，使用 =GNU Emacs= 作为代码编辑器、写作软件以及GTD软件。
 
-我使用 Dell Inspiron 7590 作为主力工作站，使用i3wm以及polybar。
+我使用 Dell Inspiron 7590 作为主力工作站，使用 =i3wm= 以及 =polybar= 。
 
 我使用中文和英文写作。
 
