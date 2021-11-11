@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-11 Thu 13:40 -->
+<!-- 2021-11-11 Thu 17:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Learning Perl(持续更新)</title>
@@ -222,52 +222,52 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orged31430">总述：</a></li>
-<li><a href="#org6633906">1. CH.1 Introduction</a></li>
-<li><a href="#org63a85c0">2. CH.2 Scalar Data</a>
+<li><a href="#orge7092d6">总述：</a></li>
+<li><a href="#orgb563f00">1. CH.1 Introduction</a></li>
+<li><a href="#orgd323ca2">2. CH.2 Scalar Data</a>
 <ul>
-<li>
+<li><a href="#org5fd5d63">2.1. Numbers</a>
 <ul>
-<li><a href="#org59c4e7f">2.0.1. Decimal Numbers</a></li>
-<li><a href="#org8e6a447">2.0.2. Nondecimal Integer</a></li>
-<li><a href="#org7270d85">2.0.3. Numeric Operators</a></li>
+<li><a href="#orgb25f7d6">2.1.1. Decimal Numbers</a></li>
+<li><a href="#org573af86">2.1.2. Nondecimal Integer</a></li>
+<li><a href="#orgbe29e17">2.1.3. Numeric Operators</a></li>
 </ul>
 </li>
-<li><a href="#orgab3090b">2.1. Strings</a>
+<li><a href="#org59b53d0">2.2. Strings</a>
 <ul>
-<li><a href="#orgb797bc7">2.1.1. Single and Double Quoted Strings.</a></li>
-<li><a href="#org50d3937">2.1.2. String Operators</a></li>
-<li><a href="#orgb5d4bab">2.1.3. Automatic Conversion Between Numbers and Strings</a></li>
+<li><a href="#org19a594e">2.2.1. Single and Double Quoted Strings.</a></li>
+<li><a href="#org72c9a69">2.2.2. String Operators</a></li>
+<li><a href="#org2d4f79f">2.2.3. Automatic Conversion Between Numbers and Strings</a></li>
 </ul>
 </li>
-<li><a href="#orgd7d714a">2.2. Perl's Built-in Warnings</a></li>
-<li><a href="#orgb1fc6f4">2.3. Scalar Variables</a></li>
-<li><a href="#orgcadff48">2.4. Scalar Assignment</a></li>
-<li><a href="#orgfc7ac7f">2.5. Output with print</a></li>
-<li><a href="#org8e66a24">2.6. Interpolation of Scalar Variables into Strings</a></li>
-<li><a href="#org46e8aed">2.7. Operator Precedence and Associativity</a></li>
-<li><a href="#org2b51cbd">2.8. Comparison Operators</a></li>
-<li><a href="#org49b5e97">2.9. The if Control Structure</a></li>
-<li><a href="#org8521116">2.10. Getting User Input</a></li>
-<li><a href="#orgd9c1c3a">2.11. The chomp Operator</a></li>
-<li><a href="#orgf508f92">2.12. The while Control Structure</a></li>
-<li><a href="#org9f14cf1">2.13. The undel Value</a></li>
-<li><a href="#org94c432a">2.14. The defined Function</a></li>
+<li><a href="#org4c93e31">2.3. Perl's Built-in Warnings</a></li>
+<li><a href="#orgabca393">2.4. Scalar Variables</a></li>
+<li><a href="#orgcda6345">2.5. Scalar Assignment</a></li>
+<li><a href="#orgcf659d7">2.6. Output with print</a></li>
+<li><a href="#org49192b7">2.7. Interpolation of Scalar Variables into Strings</a></li>
+<li><a href="#org7933db1">2.8. Operator Precedence and Associativity</a></li>
+<li><a href="#orgac4417d">2.9. Comparison Operators</a></li>
+<li><a href="#orgcc09f6e">2.10. The if Control Structure</a></li>
+<li><a href="#orgc3286bc">2.11. Getting User Input</a></li>
+<li><a href="#org1366c6f">2.12. The chomp Operator</a></li>
+<li><a href="#orgbeca499">2.13. The while Control Structure</a></li>
+<li><a href="#org8b94adb">2.14. The undel Value</a></li>
+<li><a href="#org9cefe20">2.15. The defined Function</a></li>
 </ul>
 </li>
-<li><a href="#orgc1cc495">3. CH.3 List and Arrays</a>
+<li><a href="#org560e763">3. CH.3 List and Arrays</a>
 <ul>
-<li><a href="#orgce3792f">3.1. List</a></li>
-<li><a href="#org9c58391">3.2. 调用数列中的元素</a></li>
-<li><a href="#org7895c87">3.3. Special Array Indices</a></li>
+<li><a href="#orgbad891b">3.1. List</a></li>
+<li><a href="#orge42b4e6">3.2. 调用数列中的元素</a></li>
+<li><a href="#org4bf912e">3.3. Special Array Indices</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orged31430" class="outline-2">
-<h2 id="orged31430">总述：</h2>
-<div class="outline-text-2" id="text-orged31430">
+<div id="outline-container-orge7092d6" class="outline-2">
+<h2 id="orge7092d6">总述：</h2>
+<div class="outline-text-2" id="text-orge7092d6">
 <p>
 这篇文章是我在阅读 <i>Learning Perl</i> (<i>Randal Schwartz, Tom Phoenix, brain d foy, 2008, O'Reilly Media</i> <code>978-0-596-52010-6</code>)(又称小骆驼书) 时做的笔记。
 </p>
@@ -281,8 +281,8 @@
 </p>
 </div>
 </div>
-<div id="outline-container-org6633906" class="outline-2">
-<h2 id="org6633906"><span class="section-number-2">1</span> CH.1 Introduction</h2>
+<div id="outline-container-orgb563f00" class="outline-2">
+<h2 id="orgb563f00"><span class="section-number-2">1</span> CH.1 Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 这一章没有多少有关Perl技术上的论述。
@@ -297,19 +297,24 @@
 </p>
 </div>
 </div>
-<div id="outline-container-org63a85c0" class="outline-2">
-<h2 id="org63a85c0"><span class="section-number-2">2</span> CH.2 Scalar Data</h2>
+<div id="outline-container-orgd323ca2" class="outline-2">
+<h2 id="orgd323ca2"><span class="section-number-2">2</span> CH.2 Scalar Data</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 当然这里所指的Scalar与数学、物理领域内的Scalar并不相同。Scalar只是对Perl当中一种数据泛类型的称呼。
 Scalar通常（大部分情况下）以数字或字符串的形式表现。这里我们可以先将数字与字符串独立审视，就像其他的编程语言那样。
-p** Numbers
+</p>
+</div>
+<div id="outline-container-org5fd5d63" class="outline-3">
+<h3 id="org5fd5d63"><span class="section-number-3">2.1</span> Numbers</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
 我们可以先看数字这部分。
 </p>
 </div>
-<div id="outline-container-org59c4e7f" class="outline-4">
-<h4 id="org59c4e7f"><span class="section-number-4">2.0.1</span> Decimal Numbers</h4>
-<div class="outline-text-4" id="text-2-0-1">
+<div id="outline-container-orgb25f7d6" class="outline-4">
+<h4 id="orgb25f7d6"><span class="section-number-4">2.1.1</span> Decimal Numbers</h4>
+<div class="outline-text-4" id="text-2-1-1">
 <p>
 在Perl，所有的数字内部都是以相同的格式存在。你可以指定整数或者浮点数，但是在Perl内部都是以双精度浮点数（ <code>double-precision floating-point value</code> ）进行计算的。
 所以可以理解为对于Perl不存在整数。所有的“整数”都是以 <code>DPFP</code> 类型进行计算的。
@@ -330,9 +335,9 @@ p** Numbers
 </p>
 </div>
 </div>
-<div id="outline-container-org8e6a447" class="outline-4">
-<h4 id="org8e6a447"><span class="section-number-4">2.0.2</span> Nondecimal Integer</h4>
-<div class="outline-text-4" id="text-2-0-2">
+<div id="outline-container-org573af86" class="outline-4">
+<h4 id="org573af86"><span class="section-number-4">2.1.2</span> Nondecimal Integer</h4>
+<div class="outline-text-4" id="text-2-1-2">
 <p>
 在编程中，非十进制数字使用最广泛的有：二进制 <code>binary</code> 、八进制 <code>octal</code> 、十六进制 <code>hexademical</code> 。
 二进制用 <code>0b</code> 标识，八进制用 <code>0</code> ，十六进制用 <code>0x</code> 。所以以下的数字都是 <b>相同</b> 的。
@@ -353,9 +358,9 @@ p** Numbers
 </p>
 </div>
 </div>
-<div id="outline-container-org7270d85" class="outline-4">
-<h4 id="org7270d85"><span class="section-number-4">2.0.3</span> Numeric Operators</h4>
-<div class="outline-text-4" id="text-2-0-3">
+<div id="outline-container-orgbe29e17" class="outline-4">
+<h4 id="orgbe29e17"><span class="section-number-4">2.1.3</span> Numeric Operators</h4>
+<div class="outline-text-4" id="text-2-1-3">
 <p>
 Perl当然支持最普通的四则运算 <code>+ - * /</code> 与模运算 <code>%</code> ，当然也支持浮点数与整数混合运算。
 在浮点数进行模运算时，Perl会自动将浮点数取整，所以 <code>15.6 % 2.4</code> 与 <code>15 % 2</code> 结果相同。
@@ -374,16 +379,17 @@ Perl还有其他一些数字运算符，当我们需要的时候会进行讲解�
 </p>
 </div>
 </div>
-<div id="outline-container-orgab3090b" class="outline-3">
-<h3 id="orgab3090b"><span class="section-number-3">2.1</span> Strings</h3>
-<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org59b53d0" class="outline-3">
+<h3 id="org59b53d0"><span class="section-number-3">2.2</span> Strings</h3>
+<div class="outline-text-3" id="text-2-2">
 <p>
 字符串可以理解为串在一起的一堆字符。
 </p>
 </div>
-<div id="outline-container-orgb797bc7" class="outline-4">
-<h4 id="orgb797bc7"><span class="section-number-4">2.1.1</span> Single and Double Quoted Strings.</h4>
-<div class="outline-text-4" id="text-2-1-1">
+<div id="outline-container-org19a594e" class="outline-4">
+<h4 id="org19a594e"><span class="section-number-4">2.2.1</span> Single and Double Quoted Strings.</h4>
+<div class="outline-text-4" id="text-2-2-1">
 <p>
 原书中有一段话：
 </p>
@@ -424,9 +430,9 @@ print <span style="color: #336c6c;">"$foo is bar"</span>;
 </div>
 </div>
 
-<div id="outline-container-org50d3937" class="outline-4">
-<h4 id="org50d3937"><span class="section-number-4">2.1.2</span> String Operators</h4>
-<div class="outline-text-4" id="text-2-1-2">
+<div id="outline-container-org72c9a69" class="outline-4">
+<h4 id="org72c9a69"><span class="section-number-4">2.2.2</span> String Operators</h4>
+<div class="outline-text-4" id="text-2-2-2">
 <p>
 字符串之间可以通过 <code>.</code> 进行连接，对，就是一个点。
 所以：
@@ -455,9 +461,9 @@ print <span style="color: #336c6c;">"$foo is bar"</span>;
 </p>
 </div>
 </div>
-<div id="outline-container-orgb5d4bab" class="outline-4">
-<h4 id="orgb5d4bab"><span class="section-number-4">2.1.3</span> Automatic Conversion Between Numbers and Strings</h4>
-<div class="outline-text-4" id="text-2-1-3">
+<div id="outline-container-org2d4f79f" class="outline-4">
+<h4 id="org2d4f79f"><span class="section-number-4">2.2.3</span> Automatic Conversion Between Numbers and Strings</h4>
+<div class="outline-text-4" id="text-2-2-3">
 <p>
 关于这部分，原书有很好的诠释:
 </p>
@@ -485,9 +491,9 @@ For the most part, Perl automatically converts between numbers and strings as ne
 </div>
 </div>
 
-<div id="outline-container-orgd7d714a" class="outline-3">
-<h3 id="orgd7d714a"><span class="section-number-3">2.2</span> Perl's Built-in Warnings</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-org4c93e31" class="outline-3">
+<h3 id="org4c93e31"><span class="section-number-3">2.3</span> Perl's Built-in Warnings</h3>
+<div class="outline-text-3" id="text-2-3">
 <p>
 在这里需要插入一个Perl内置警告的单元。
 </p>
@@ -553,9 +559,9 @@ A further optimization can be had by using one of Perl’s command-line options,
 </blockquote>
 </div>
 </div>
-<div id="outline-container-orgb1fc6f4" class="outline-3">
-<h3 id="orgb1fc6f4"><span class="section-number-3">2.3</span> Scalar Variables</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-orgabca393" class="outline-3">
+<h3 id="orgabca393"><span class="section-number-3">2.4</span> Scalar Variables</h3>
+<div class="outline-text-3" id="text-2-4">
 <blockquote>
 <p>
 A variable is a name for a container that holds one or more values. The name of thevariable stays the same throughout the program, but the value or values contained inthat variable typically change over and over again throughout the execution of theprogram.
@@ -577,9 +583,9 @@ A variable is a name for a container that holds one or more values. The name of 
 </p>
 </div>
 </div>
-<div id="outline-container-orgcadff48" class="outline-3">
-<h3 id="orgcadff48"><span class="section-number-3">2.4</span> Scalar Assignment</h3>
-<div class="outline-text-3" id="text-2-4">
+<div id="outline-container-orgcda6345" class="outline-3">
+<h3 id="orgcda6345"><span class="section-number-3">2.5</span> Scalar Assignment</h3>
+<div class="outline-text-3" id="text-2-5">
 <p>
 对于Scalar Variable的赋值操作，与其他的编程语言大致相似。赋值操作通过 <code>=</code> 来进行，例如：
 </p>
@@ -601,9 +607,9 @@ $<span style="color: #205070;">foo</span> .= <span style="color: #336c6c;">"foo"
 </p>
 </div>
 </div>
-<div id="outline-container-orgfc7ac7f" class="outline-3">
-<h3 id="orgfc7ac7f"><span class="section-number-3">2.5</span> Output with print</h3>
-<div class="outline-text-3" id="text-2-5">
+<div id="outline-container-orgcf659d7" class="outline-3">
+<h3 id="orgcf659d7"><span class="section-number-3">2.6</span> Output with print</h3>
+<div class="outline-text-3" id="text-2-6">
 <p>
 Perl中的 <code>print()</code> 函数与其他语言中的类似，而且可以携带或不携带括号 <code>()</code> 。例如：
 </p>
@@ -625,9 +631,9 @@ print <span style="color: #336c6c;">"the answer is"</span>. 6*<span style="color
 </div>
 </div>
 
-<div id="outline-container-org8e66a24" class="outline-3">
-<h3 id="org8e66a24"><span class="section-number-3">2.6</span> Interpolation of Scalar Variables into Strings</h3>
-<div class="outline-text-3" id="text-2-6">
+<div id="outline-container-org49192b7" class="outline-3">
+<h3 id="org49192b7"><span class="section-number-3">2.7</span> Interpolation of Scalar Variables into Strings</h3>
+<div class="outline-text-3" id="text-2-7">
 <p>
 在双引号字符串中引用scalar variable，可以自动替换为该变量的值。例如：
 </p>
@@ -668,9 +674,9 @@ print <span style="color: #336c6c;">"${foo}bar"</span>;    <span style="color: #
 </div>
 </div>
 
-<div id="outline-container-org46e8aed" class="outline-3">
-<h3 id="org46e8aed"><span class="section-number-3">2.7</span> Operator Precedence and Associativity</h3>
-<div class="outline-text-3" id="text-2-7">
+<div id="outline-container-org7933db1" class="outline-3">
+<h3 id="org7933db1"><span class="section-number-3">2.8</span> Operator Precedence and Associativity</h3>
+<div class="outline-text-3" id="text-2-8">
 <p>
 操作优先级这方面没有什么好讲的，Perl的各种操作优先级（包括二进制位操作）都与C语言相同。
 </p>
@@ -681,9 +687,9 @@ So should you just memorize the precedence chart? No! Nobody actually does that.
 </blockquote>
 </div>
 </div>
-<div id="outline-container-org2b51cbd" class="outline-3">
-<h3 id="org2b51cbd"><span class="section-number-3">2.8</span> Comparison Operators</h3>
-<div class="outline-text-3" id="text-2-8">
+<div id="outline-container-orgac4417d" class="outline-3">
+<h3 id="orgac4417d"><span class="section-number-3">2.9</span> Comparison Operators</h3>
+<div class="outline-text-3" id="text-2-9">
 <p>
 对于数字之间的比较，Perl有以下几种操作符：
 </p>
@@ -716,9 +722,9 @@ Perl中字符串的比较方法是从头至为比较单个字符的ASCII值，�
 </div>
 </div>
 
-<div id="outline-container-org49b5e97" class="outline-3">
-<h3 id="org49b5e97"><span class="section-number-3">2.9</span> The if Control Structure</h3>
-<div class="outline-text-3" id="text-2-9">
+<div id="outline-container-orgcc09f6e" class="outline-3">
+<h3 id="orgcc09f6e"><span class="section-number-3">2.10</span> The if Control Structure</h3>
+<div class="outline-text-3" id="text-2-10">
 <p>
 又到了喜闻乐见的条件选择环节。
 </p>
@@ -752,9 +758,9 @@ Condition 返回的可以为True or False，当Condition为一个数字，除0�
 </div>
 </div>
 
-<div id="outline-container-org8521116" class="outline-3">
-<h3 id="org8521116"><span class="section-number-3">2.10</span> Getting User Input</h3>
-<div class="outline-text-3" id="text-2-10">
+<div id="outline-container-orgc3286bc" class="outline-3">
+<h3 id="orgc3286bc"><span class="section-number-3">2.11</span> Getting User Input</h3>
+<div class="outline-text-3" id="text-2-11">
 <p>
 在Perl中获取输入有一种很简单的方式， <code>&lt;STDIN&gt;</code> ，例如：
 </p>
@@ -773,9 +779,9 @@ Condition 返回的可以为True or False，当Condition为一个数字，除0�
 </p>
 </div>
 </div>
-<div id="outline-container-orgd9c1c3a" class="outline-3">
-<h3 id="orgd9c1c3a"><span class="section-number-3">2.11</span> The chomp Operator</h3>
-<div class="outline-text-3" id="text-2-11">
+<div id="outline-container-org1366c6f" class="outline-3">
+<h3 id="org1366c6f"><span class="section-number-3">2.12</span> The chomp Operator</h3>
+<div class="outline-text-3" id="text-2-12">
 <p>
 <code>chomp()</code> 的使用方法类似这样：
 </p>
@@ -801,9 +807,9 @@ chomp($<span style="color: #205070;">foo</span>);    <span style="color: #806080
 </div>
 </div>
 
-<div id="outline-container-orgf508f92" class="outline-3">
-<h3 id="orgf508f92"><span class="section-number-3">2.12</span> The while Control Structure</h3>
-<div class="outline-text-3" id="text-2-12">
+<div id="outline-container-orgbeca499" class="outline-3">
+<h3 id="orgbeca499"><span class="section-number-3">2.13</span> The while Control Structure</h3>
+<div class="outline-text-3" id="text-2-13">
 <p>
 又是一个十分常用的结构。同样，Perl的while语句也和C类似：
 </p>
@@ -821,9 +827,9 @@ chomp($<span style="color: #205070;">foo</span>);    <span style="color: #806080
 </div>
 </div>
 
-<div id="outline-container-org9f14cf1" class="outline-3">
-<h3 id="org9f14cf1"><span class="section-number-3">2.13</span> The undel Value</h3>
-<div class="outline-text-3" id="text-2-13">
+<div id="outline-container-org8b94adb" class="outline-3">
+<h3 id="org8b94adb"><span class="section-number-3">2.14</span> The undel Value</h3>
+<div class="outline-text-3" id="text-2-14">
 <p>
 Perl的一个很有趣的特性便是这个 <code>undef</code> 值，它适用于引用未声明或赋值的变量时，可以被自动转换为 <code>0</code> 或 <code>''</code> ，所以：
 </p>
@@ -850,9 +856,9 @@ $<span style="color: #205070;">another_unassigned_variable</span> .= <span style
 </div>
 </div>
 
-<div id="outline-container-org94c432a" class="outline-3">
-<h3 id="org94c432a"><span class="section-number-3">2.14</span> The defined Function</h3>
-<div class="outline-text-3" id="text-2-14">
+<div id="outline-container-org9cefe20" class="outline-3">
+<h3 id="org9cefe20"><span class="section-number-3">2.15</span> The defined Function</h3>
+<div class="outline-text-3" id="text-2-15">
 <p>
 <code>&lt;STDIN&gt;</code> 操作通常会返回一个字符串，但是也有特例。当你在扫描一个文件时，如果遇到 <code>EOF</code> ，那么 <code>&lt;STDIN&gt;</code> 会返回 <code>undef</code> ，这时你可以用 <code>defined()</code> 函数来判断某个变量是否被赋值。
 <code>defined()</code> 当输入的值为 <code>undef</code> 时返回假，其他情况均返回真。
@@ -865,8 +871,8 @@ $<span style="color: #205070;">another_unassigned_variable</span> .= <span style
 </div>
 </div>
 
-<div id="outline-container-orgc1cc495" class="outline-2">
-<h2 id="orgc1cc495"><span class="section-number-2">3</span> CH.3 List and Arrays</h2>
+<div id="outline-container-org560e763" class="outline-2">
+<h2 id="org560e763"><span class="section-number-2">3</span> CH.3 List and Arrays</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 首先我觉得需要澄清一下的是，在Perl社区中，List和Array其实通常可以互相代换。
@@ -891,8 +897,8 @@ A list is an ordered collection of scalars. An array is a variable that contains
 </blockquote>
 </div>
 
-<div id="outline-container-orgce3792f" class="outline-3">
-<h3 id="orgce3792f"><span class="section-number-3">3.1</span> List</h3>
+<div id="outline-container-orgbad891b" class="outline-3">
+<h3 id="orgbad891b"><span class="section-number-3">3.1</span> List</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 列表中的每一个元素都是一个 <code>Scalar Variable</code> 而且拥有一个 <code>Scalar value</code>, 这些变量是有一定顺序的，而且从零开始计数。
@@ -901,8 +907,8 @@ Perl不对列表的大小做限制，只要你的内存是足够的，你可以�
 </p>
 </div>
 </div>
-<div id="outline-container-org9c58391" class="outline-3">
-<h3 id="org9c58391"><span class="section-number-3">3.2</span> 调用数列中的元素</h3>
+<div id="outline-container-orge42b4e6" class="outline-3">
+<h3 id="orge42b4e6"><span class="section-number-3">3.2</span> 调用数列中的元素</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Perl调用数列元素的方式也很简单，例如：
@@ -959,8 +965,8 @@ $<span style="color: #205070;">foo</span>[1]=1;
 </div>
 </div>
 
-<div id="outline-container-org7895c87" class="outline-3">
-<h3 id="org7895c87"><span class="section-number-3">3.3</span> Special Array Indices</h3>
+<div id="outline-container-org4bf912e" class="outline-3">
+<h3 id="org4bf912e"><span class="section-number-3">3.3</span> Special Array Indices</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 在Perl中，当你给一个超出数列范围的元素赋值时，数列会自动扩张到合适的大小并给对应的元素赋值，而且新增加的元素会被赋值为 <code>undef</code> 。例如：
@@ -978,7 +984,7 @@ $<span style="color: #205070;">foo</span>[99]=<span style="color: #336c6c;">"wel
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-11-11 Thu 13:40</p>
+<p class="date">Created: 2021-11-11 Thu 17:34</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

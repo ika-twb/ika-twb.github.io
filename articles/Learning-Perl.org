@@ -17,7 +17,7 @@
 * CH.2 Scalar Data
 当然这里所指的Scalar与数学、物理领域内的Scalar并不相同。Scalar只是对Perl当中一种数据泛类型的称呼。
 Scalar通常（大部分情况下）以数字或字符串的形式表现。这里我们可以先将数字与字符串独立审视，就像其他的编程语言那样。
-p** Numbers
+** Numbers
 我们可以先看数字这部分。
 *** Decimal Numbers
 在Perl，所有的数字内部都是以相同的格式存在。你可以指定整数或者浮点数，但是在Perl内部都是以双精度浮点数（ =double-precision floating-point value= ）进行计算的。
