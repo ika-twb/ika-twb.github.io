@@ -14,6 +14,12 @@
 
 我使用 =Arch Linux= 和 =FreeBSD= 作为工作的主力系统，使用 =GNU Emacs= 作为代码编辑器、写作软件以及GTD软件。
 
+#+BEGIN_QUOTE
+“讲道理就Pacman这个作死不怕事大的态度，我是搞不懂你为什么不转到Gentoo来。”
+#+END_QUOTE
+
+好吧，可能在未来一段时间内开始试用Gentoo。
+
 我使用 Dell Inspiron 7590 作为主力工作站，使用 =i3wm= 以及 =polybar= 。
 
 我使用中文和英文写作。
