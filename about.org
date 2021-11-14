@@ -20,7 +20,7 @@
 
 好吧，可能在未来一段时间内开始试用Gentoo。
 
-我使用 Dell Inspiron 7590 作为主力工作站，使用 =i3wm= 以及 =polybar= 。
+我使用 Dell Inspiron 7590 和一台 Thinkpad T480s 作为主力工作站，使用 =i3wm= 以及 =polybar= 。
 
 我使用中文和英文写作。
 
