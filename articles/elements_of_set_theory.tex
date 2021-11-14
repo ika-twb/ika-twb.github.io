@@ -1,0 +1,80 @@
+% Created 2021-11-14 Sun 16:17
+% Intended LaTeX compiler: xelatex
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\date{\today}
+\title{Elements of Set Theory : note}
+\hypersetup{
+ pdfauthor={},
+ pdftitle={Elements of Set Theory : note},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\#+AUTHOR Ilghar Kus
+
+This is my note during the reading
+of the book \emph{Elements of Set Theory} by \emph{Herbert B. Enderton} .
+
+The book is great.
+\section{Chapter 1 \emph{INTRODUCTION}}
+\label{sec:org94df578}
+\subsection{Baby Set Theory}
+\label{sec:org8b0b681}
+In a naive approach, here is some definition.
+\begin{itemize}
+\item A \emph{set} is a collection of things(called its \emph{members} or \emph{elements}),
+and the collection being regarded as a singel object.
+\item \(t\in A\) means \(t\) is a member of \(A\), and \(t\notin A\) means \(t\) is not a member of \(A\).
+\item \(A==B\) could be translated that \(A\) has the exact same members as \(B\), in which case,
+\(A\) could be \(\{2,3,5,7\}\) and \(B\) could be the set of all solutions to the equation
+\(x^4-17x^3+101x^2-247x+210=0\)
+
+to which, we say:
+\end{itemize}
+
+\textbf{Principle of Extensionality} \(\quad\) If two sets have exactly the same members, 
+then they are equal.
+
+In a less naive approach, we could say:
+
+\textbf{Principle of Extensionality} \(\quad\) If \(A\) and \(B\) are sets s.t. for \(\forall t\)
+\[
+   t\in A \iff t\in B
+   \]
+then \(A=B\).
+
+\begin{itemize}
+\item Empty set, noted as \(\emptyset\), has no members at all.
+and it's the only set with no members.
+
+\item \(\emptyset \in \{\emptyset\}\) and \(\emptyset \notin \emptyset\), so \(\emptyset \neq \{\emptyset\}\)
+
+\item \textbf{Union and Intersection} \(\quad\) noted respectively as \(\cup\) and \(\cap\),
+means all elements of \(A\) and/or \(B\) and all elements of \(A\) and \(B\)
+
+\item The set of all subsets of \(A\) is noted as \emph{power set} \(\mathscr{P} A\) of \(A\),
+also could be noted as \(2^{A}\)
+
+\item \emph{Method of abstraction} \(\quad\) is a very flexible way of naming a set.
+Notation used for the set of all objects \(x\) s.t. the condition P(x) holds is
+\[
+     \{x\|P(x)\}
+     \]
+\end{itemize}
+\end{document}
