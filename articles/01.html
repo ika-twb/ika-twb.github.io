@@ -3,12 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-14 Sun 20:06 -->
+<!-- 2021-11-29 Mon 21:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Elements of Set Theory : The Note</title>
+<title>问题剖析</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="Ilghar Kus" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -215,195 +214,127 @@
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
-<h1 class="title">Elements of Set Theory : The Note</h1>
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#orgca4b654">1. Chapter 1 <i>INTRODUCTION</i></a>
-<ul>
-<li><a href="#orge5833a9">1.1. Baby Set Theory</a></li>
-<li><a href="#orgd1daefb">1.2. Sets - An Informal View</a></li>
-<li><a href="#orgf068b9b">1.3. Classes</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<p>
-This is my note during the reading
-of the book <i>Elements of Set Theory</i> by <i>Herbert B. Enderton</i> .
-</p>
+<h1 class="title">问题剖析</h1>
 
-<p>
-The book is great.
-</p>
-<div id="outline-container-orgca4b654" class="outline-2">
-<h2 id="orgca4b654"><span class="section-number-2">1</span> Chapter 1 <i>INTRODUCTION</i></h2>
+<div id="outline-container-orgb3e37b5" class="outline-2">
+<h2 id="orgb3e37b5"><span class="section-number-2">1</span> 列表未初始化</h2>
 <div class="outline-text-2" id="text-1">
-</div>
-<div id="outline-container-orge5833a9" class="outline-3">
-<h3 id="orge5833a9"><span class="section-number-3">1.1</span> Baby Set Theory</h3>
-<div class="outline-text-3" id="text-1-1">
 <p>
-In a naive approach, here is some definition.
+从37行开始：
 </p>
-<ul class="org-ul">
-<li>A <i>set</i> is a collection of things(called its <i>members</i> or <i>elements</i>),
-and the collection being regarded as a singel object.</li>
-<li>\(t\in A\) means \(t\) is a member of \(A\), and \(t\notin A\) means \(t\) is not a member of \(A\).</li>
-<li><p>
-\(A==B\) could be translated that \(A\) has the exact same members as \(B\), in which case,
-\(A\) could be \(\{2,3,5,7\}\) and \(B\) could be the set of all solutions to the equation
-\(x^4-17x^3+101x^2-247x+210=0\)
-</p>
+<div class="org-src-container">
+<pre class="src src-python">
+<span style="color: #ff79c6; font-weight: bold;">else</span>:<span style="color: #6272a4;">#</span><span style="color: #6272a4;">&#36755;&#20837;&#20026;&#20195;&#21150;&#20107;&#39033;</span>
+       <span style="color: #f8f8f2; font-weight: bold;">user_input</span> = user_input.strip()
+       <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#36825;&#19968;&#34892;</span>
+       lis.append(user_input)
+       <span style="color: #f8f8f2; font-weight: bold;">date</span> = re.<span style="color: #ffb86c;">compile</span>(r<span style="color: #f1fa8c;">'(\d{4})-([0][1-9]|[1][0-2])-([0-2][0-9]|[3][0-1])'</span>)
+       <span style="color: #f8f8f2; font-weight: bold;">time</span> = re.<span style="color: #ffb86c;">compile</span>(r<span style="color: #f1fa8c;">'([0-1][0-9]|[2][0-3]):([0-5][0-9])'</span>)
+       <span style="color: #f8f8f2; font-weight: bold;">date_match</span> = date.search(user_input)
+       <span style="color: #f8f8f2; font-weight: bold;">time_match</span> = time.search(user_input)
+       <span style="color: #ff79c6; font-weight: bold;">if</span> date_match:
+           lis.append(<span style="color: #ffb86c;">str</span>(date_match.group(0)))
 
-<p>
-to which, we say:
-</p></li>
-</ul>
-
-<p>
-<b>Principle of Extensionality</b> \(\quad\) If two sets have exactly the same members, 
-then they are equal.
-</p>
-
-<p>
-In a less naive approach, we could say:
-</p>
-
-<p>
-<b>Principle of Extensionality</b> \(\quad\) If \(A\) and \(B\) are sets s.t. for \(\forall t\)
-\[
-   t\in A \iff t\in B
-   \]
-then \(A=B\).
-</p>
-
-<ul class="org-ul">
-<li>Empty set, noted as \(\emptyset\), has no members at all.
-and it's the only set with no members.</li>
-
-<li>\(\emptyset \in \{\emptyset\}\) and \(\emptyset \notin \emptyset\), so \(\emptyset \neq \{\emptyset\}\)</li>
-
-<li><b>Union and Intersection</b> \(\quad\) noted respectively as \(\cup\) and \(\cap\),
-means all elements of \(A\) and/or \(B\) and all elements of \(A\) and \(B\)</li>
-
-<li>The set of all subsets of \(A\) is noted as <i>power set</i> \(\mathscr{P} A\) of \(A\),
-also could be noted as \(2^{A}\)</li>
-
-<li><i>Method of abstraction</i> \(\quad\) is a very flexible way of naming a set.
-Notation used for the set of all objects \(x\) s.t. the condition P(x) holds is
-\[
-     \{x|P(x)\}
-     \]</li>
-</ul>
-
-<p>
-This method causes two disastrous paradoxes in set theory, which is
-</p>
-<ul class="org-ul">
-<li><b>Berry's Paradox</b> \(\quad\) an expression which is self-referenced negatively</li>
-<li><b>Russell's Paradox</b> \(\quad\) exemplified by \[\{x|x\notin x\}\]</li>
-</ul>
-</div>
+</pre>
 </div>
 
-<div id="outline-container-orgd1daefb" class="outline-3">
-<h3 id="orgd1daefb"><span class="section-number-3">1.2</span> Sets - An Informal View</h3>
-<div class="outline-text-3" id="text-1-2">
 <p>
-None of the later work will depend on this informal description.
+第39行的 <code>lis.append()</code> , 由于在文件头已经定义，所以每次循环时是不会清空的。
 </p>
 
 <p>
-Skip if you want.
+假设，我们输入第一个待办事项：
+</p>
+
+<pre class="example">
+test1 空 空
+</pre>
+
+<p>
+这时候 <code>lis</code> 的值就是 <code>['test', '空, '空']</code> ，
+58行的 <code>list1.append(lis)</code> 就会把 <code>lis</code> 列表添加到 <code>list1</code> 列表中。
 </p>
 
 <p>
-First we gather around all the things that are not sets
-but we want to have as members of our sets, call such things as atoms.
-Atoms are not sets of any kind. We put all of those atoms in a set
-which could be noted as \(A\), it is the first set in out description.
+但是在第二次循环开始，由于 <code>lis</code> 列表没有清空，这时候它的值依旧是  <code>['test', '空, '空']</code> ，
 </p>
 
 <p>
-And now imagine a hierarchy
-\[
-   V_0 \subseteq V_1 \subseteq V_2 \subseteq \cdot\cdot\cdot
-   \]
-of sets, and we take \(V_0 = A\), the set of all atoms, and we difine
-the rest of the sets recursively, for example:
-\[
-   V_1 = V_0 \cup \mathscr{P}V_0 = A \cup \mathscr{P}A
-   \]
-so, the general formula for constructing this hierarchy of sets would be:
-\[
-   V_{n+1} = V_n \cup \mathscr{P}V_n
-   \]
-Thus we obtain $V<sub>0</sub>, V<sub>1</sub>, V<sub>2</sub>,&#x2026;.$, but this infinite hierarchy
-does not include enough sets. For example, the infinite set
-\[
-   \{\emptyset,\{\emptyset\},\{\{\emptyset\}\},...\}
-   \]
-but we have \(\emptyset \in V_1\),$\{ &empty; \} &isin; V<sub>2</sub> $, etc.
-To remedy this lack, we contrust an infinite union
-\[
-   V_{\omega} = V_0\cup V_1 \cup \cdot\cdot\cdot
-   \]
-and then let \(V_{\omega+1} = V_{\omega} \cup \mathscr{P}V_{\omega}\),
-and in general for any \(\alpha\),
-\[
-   V_{\alpha+1} = V_{\alpha} \cup \mathscr{P} V_{\alpha}
-   \]
-so we could conclude that for each set \(S\), \(\exists \alpha\) s.t. \(S \in V_{\alpha}\)
+假设第二个待办事项为：
+</p>
+
+<pre class="example">
+test2 空 空
+</pre>
+
+<p>
+这时候由于 39 行以及后面的 <code>lis.append</code> 操作，输入数据直接被添加进了 <code>lis</code> 中，
+<code>lis</code> 这时的值为: <code>['test', '空, '空', 'test2', '空', '空']</code> 。
 </p>
 
 <p>
-And for now, if we banish the atoms, instead take \(A=\emptyset\), and here is the ordinals.
+接下来，在58行的 <code>list1.append(lis)</code> 把 <code>lis</code> 添加到 <code>list1</code> 中，这时 <code>list1</code> 的
+值便是：
+<code>[['test', '空, '空'], ['test', '空, '空', 'test2', '空, '空']]</code>
 </p>
+
+<p>
+在15行：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff79c6; font-weight: bold;">for</span> i <span style="color: #ff79c6; font-weight: bold;">in</span> <span style="color: #ffb86c;">range</span>(<span style="color: #ffb86c;">len</span>(list1)):
+    <span style="color: #ff79c6; font-weight: bold;">print</span>(<span style="color: #f1fa8c;">'&#24453;&#21150;&#20107;&#39033;&#65306;'</span>,list1[i][0],<span style="color: #f1fa8c;">'ddl&#26085;&#26399;&#26159;&#65306;'</span>,list1[i][1],<span style="color: #f1fa8c;">"ddl&#26102;&#38388;&#20026;"</span>,list1[i][2])
+</pre>
+</div>
+
+<p>
+于是便会打印：
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-txt">待办事项： test ddl日期是： 空 ddl时间为 空
+待办事项： test ddl日期是： 空 ddl时间为 空
+
+</pre>
+</div>
 </div>
 </div>
 
 
-<div id="outline-container-orgf068b9b" class="outline-3">
-<h3 id="orgf068b9b"><span class="section-number-3">1.3</span> Classes</h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-orgbad03d7" class="outline-2">
+<h2 id="orgbad03d7"><span class="section-number-2">2</span> 解决方法</h2>
+<div class="outline-text-2" id="text-2">
 <p>
-There is no "set of all sets", which is later presented as a theorem, provable from the axioms.
+在 37~38 行中间让 <code>lis</code> 列表清空，这样之前输入的待办事项组就不会再次被添加进 <code>list1</code>:
 </p>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #f8f8f2; font-weight: bold;">lis</span> = []
+</pre>
+</div>
+
+<p>
+输出为：
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-txt">待办事项： test ddl日期是： 空 ddl时间为 空
+待办事项： test2 ddl日期是： 空 ddl时间为 空
+
+</pre>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: Ilghar Kus</p>
-<p class="date">Created: 2021-11-14 Sun 20:06</p>
+<p class="date">Created: 2021-11-29 Mon 21:27</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

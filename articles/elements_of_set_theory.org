@@ -77,7 +77,7 @@ The book is great.
    \[
    \{\emptyset,\{\emptyset\},\{\{\emptyset\}\},...\}
    \]
-   but we have $\emptyset \in V_1$,$\{\emptyset\} \in V_2 $, etc.
+   but we have $\emptyset \in V_1$,$\{ \emptyset \} \in V_2 $, etc.
    To remedy this lack, we contrust an infinite union
    \[
    V_{\omega} = V_0\cup V_1 \cup \cdot\cdot\cdot
