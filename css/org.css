@@ -1,7 +1,76 @@
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
+@font-face {
+    font-family: 'Free Font Mono';
+    src: url('../gnu-freefonts/FreeMono.otf');
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Free Font Mono';
+    src: url('../gnu-freefonts/FreeMonoOblique.otf');
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Free Font Mono';
+    src: url('../gnu-freefonts/FreeMonoBold.otf');
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'Free Font Mono';
+    src: url('../gnu-freefonts/FreeMonoBoldOblique.otf');
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Free Font Sans';
+    src: url('../gnu-freefonts/FreeSans.otf');
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Free Font Sans';
+    src: url('../gnu-freefonts/FreeSansOblique.otf');
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Free Font Sans';
+    src: url('../gnu-freefonts/FreeSansBold.otf');
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'Free Font Sans';
+    src: url('../gnu-freefonts/FreeSansBoldOblique.otf');
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Free Font Serif';
+    src: url('../gnu-freefonts/FreeSerif.otf');
+    font-weight: normal;
+
+}
+@font-face {
+    font-family: 'Free Font Serif';
+    src: url('../gnu-freefonts/FreeSerifItalic.otf');
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Free Font Serif';
+    src: url('../gnu-freefonts/FreeSerifBold.otf');
+    font-weight: bold;
+
+}
+@font-face {
+    font-family: 'Free Font Serif';
+    src: url('../gnu-freefonts/FreeSerifBoldItalic.otf');
+    font-weight: bold;
+    font-style: italic;
+}
+
 
 html {
-	font-family: sans-serif;
+	font-family: "Free Font Sans",sans-serif;
 	line-height: 1.15;
 	background-color: #ffffff;
 	-ms-text-size-adjust: 100%;
@@ -9,7 +78,8 @@ html {
 }
 
 body {
-	margin: 0;
+    margin: 0;
+   
 }
 
 article,
@@ -117,7 +187,7 @@ code,
 kbd,
 pre,
 samp {
-	font-family: monospace, monospace;
+	font-family: "Free Font Mono", monospace, monospace;
 	font-size: 1em;
 }
 
@@ -2462,7 +2532,7 @@ body {
 	margin: 2% auto;
 	font-size: 14px;
 	line-height: 1.4em;
-	font-family: Georgia, serif;
+	font-family: "Free Font Serif", Georgia, serif;
 	color: #333;
 }
 
@@ -2588,7 +2658,7 @@ h5,
 h6 {
 	color: #314159;
 	line-height: 1em;
-	font-family: Helvetica, sans-serif;
+	font-family: "Free Font Sans", Helvetica, sans-serif;
 }
 
 h1,
@@ -2717,7 +2787,7 @@ kbd {
 	border-radius: 3px;
 	background-clip: padding-box;
 	font-size: 80%;
-	font-family: Lucida Console, monospace;
+	font-family: "Free Font Mono", Lucida Console, monospace;
 	line-height: 1;
 }
 
@@ -2727,7 +2797,7 @@ kbd {
 
 .priority {
 	color: orange;
-	font-family: Lucida Console, monospace;
+	font-family: "Free Font Mono", Lucida Console, monospace;
 }
 
 #table-of-contents li {
@@ -2735,7 +2805,7 @@ kbd {
 }
 
 .tag {
-	font-family: Lucida Console, monospace;
+	font-family: "Free Font Mono", Lucida Console, monospace;
 	font-size: .7em;
 	font-weight: 400;
 }
@@ -2806,7 +2876,7 @@ p.verse {
 .org-src-container {
 	border: 1px solid #ccc;
 	box-shadow: 3px 3px 3px #eee;
-	font-family: Lucida Console, monospace;
+	font-family: "Free Font Mono", Lucida Console, monospace;
 	font-size: 80%;
 	margin: 1em auto;
 	padding: .1em .5em;
