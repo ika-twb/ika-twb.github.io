@@ -22,7 +22,14 @@
   - 本协议保护我作为原作者以及由我的工作获得信誉不会因他人对我文档的修改而受损。
 * 版权声明
 - 本站使用 [[https://pages.github.com/][GitHub Pages]], 预计在未来不长的时间内弃用该服务。
-- 本站使用 [[https://github.com/gongzhitaao/orgcss][OrgCSS]], 使用 [[https://github.com/gongzhitaao/orgcss/blob/master/LICENSE.MIT][MIT Licence]] 以及 [[https://github.com/gongzhitaao/orgcss/blob/master/LICENSE.996ICU][Anti 996 License]]，进行了一定的修改。
+- 本站使用 [[https://github.com/gongzhitaao/orgcss][OrgCSS]], 使用 [[https://github.com/gongzhitaao/orgcss/blob/master/LICENSE.MIT][MIT Licence]] 以及 [[https://github.com/gongzhitaao/orgcss/blob/master/LICENSE.996ICU][Anti 996 License]]，我在使用时进行了一定的修改。
+  - *注意：* Anti 996 Licence 与 GNU Public License 或 GNU Free Document License [[https://www.gnu.org/licenses/license-list.html#Anti-996][不兼容]]。
+    
+    我正在开发一款以GPL许可证开源的类似的项目以代替这款软件。
+
+    我支持反996运动，但是我同时也尊重软件用户与文档读者的自由。
+    我虽然在感情上不希望任何侵犯员工劳动权益的实体使用我的软件或文档，但是为了保证自己的自由，我同样也要支持并尊重其他所有人的自由。
+
 - 本站使用 [[https://www.gnu.org/software/freefont/][GNU FreeFont]], 使用 [[https://www.gnu.org/licenses/gpl-3.0.html][GNU Public Licence ver.3.0+]]。
 - 本站使用 [[https://orgmode.org/][Org Mode]], 使用 [[https://www.gnu.org/licenses/gpl-3.0.html][GNU Public Licence ver.3.0+]]。
 
