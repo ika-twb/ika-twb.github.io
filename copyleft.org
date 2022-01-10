@@ -1,7 +1,7 @@
 #+TITLE: 版权须知（README）
 #+AUTHOR: Ilgharkus
 #+OPTIONS: num:1
-
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/org.css"/>
 * 博客读前须知
 *** 在该博客（或称个人站点） 发表的文章除以 =引用格式= 标记的文字外均为本人原创。
 #+BEGIN_QUOTE

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-11 Thu 13:40 -->
+<!-- 2022-01-10 Mon 12:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Linux平台上连接复旦校园网以及故障修复指南</title>
@@ -193,6 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="../css/org.css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -223,24 +224,24 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgfcec814">1. 前言</a></li>
-<li><a href="#orgc75b2b5">2. 设备信息</a></li>
-<li><a href="#org6891368">3. The Hacky Trick</a>
+<li><a href="#orgb72a5e5">1. 前言</a></li>
+<li><a href="#org07f2a01">2. 设备信息</a></li>
+<li><a href="#orgd47ac42">3. The Hacky Trick</a>
 <ul>
-<li><a href="#org8dfef74">Step 1</a></li>
-<li><a href="#orgdb1ec34">Step 2</a></li>
-<li><a href="#org6185538">Step 3</a></li>
-<li><a href="#orga0c57c3">Step 4</a></li>
-<li><a href="#org1e20a09">Step 5</a></li>
-<li><a href="#org7409cf4">Step 6</a></li>
-<li><a href="#org3132a94">Step 7</a></li>
+<li><a href="#org4b99510">Step 1</a></li>
+<li><a href="#org29d2b72">Step 2</a></li>
+<li><a href="#org4da5644">Step 3</a></li>
+<li><a href="#orgb98f71e">Step 4</a></li>
+<li><a href="#org47200d0">Step 5</a></li>
+<li><a href="#org67aaa58">Step 6</a></li>
+<li><a href="#orgdc82ca4">Step 7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfcec814" class="outline-2">
-<h2 id="orgfcec814"><span class="section-number-2">1</span> 前言</h2>
+<div id="outline-container-orgb72a5e5" class="outline-2">
+<h2 id="orgb72a5e5"><span class="section-number-2">1</span> 前言</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 从来到复旦校园的第一天开始校园网在Linux平台的连接失败问题就一直存在着，
@@ -275,8 +276,8 @@
 </p>
 </div>
 </div>
-<div id="outline-container-orgc75b2b5" class="outline-2">
-<h2 id="orgc75b2b5"><span class="section-number-2">2</span> 设备信息</h2>
+<div id="outline-container-org07f2a01" class="outline-2">
+<h2 id="org07f2a01"><span class="section-number-2">2</span> 设备信息</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <code>OS: Arch Linux</code>
@@ -305,21 +306,21 @@
 </div>
 </div>
 
-<div id="outline-container-org6891368" class="outline-2">
-<h2 id="org6891368"><span class="section-number-2">3</span> The Hacky Trick</h2>
+<div id="outline-container-orgd47ac42" class="outline-2">
+<h2 id="orgd47ac42"><span class="section-number-2">3</span> The Hacky Trick</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org8dfef74" class="outline-3">
-<h3 id="org8dfef74">Step 1</h3>
-<div class="outline-text-3" id="text-org8dfef74">
+<div id="outline-container-org4b99510" class="outline-3">
+<h3 id="org4b99510">Step 1</h3>
+<div class="outline-text-3" id="text-org4b99510">
 <p>
 打开终端（废话），准备好输入以下命令。
 </p>
 </div>
 </div>
-<div id="outline-container-orgdb1ec34" class="outline-3">
-<h3 id="orgdb1ec34">Step 2</h3>
-<div class="outline-text-3" id="text-orgdb1ec34">
+<div id="outline-container-org29d2b72" class="outline-3">
+<h3 id="org29d2b72">Step 2</h3>
+<div class="outline-text-3" id="text-org29d2b72">
 <p>
 删除DNS客户机的配置文件，里面包含DNS服务器的IP地址以及本地域名。
 在Arch中这个文件是 <code>/etc/resolv.conf</code>.
@@ -335,9 +336,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org6185538" class="outline-3">
-<h3 id="org6185538">Step 3</h3>
-<div class="outline-text-3" id="text-org6185538">
+<div id="outline-container-org4da5644" class="outline-3">
+<h3 id="org4da5644">Step 3</h3>
+<div class="outline-text-3" id="text-org4da5644">
 <p>
 将 <code>/run/resolvconf/</code> 中的DNS配置文件 <code>resolv.conf</code> 复制到 <code>/etc</code> 中。
 当然创建一个软链接是最好的。
@@ -354,9 +355,9 @@
 </div>
 </div>
 
-<div id="outline-container-orga0c57c3" class="outline-3">
-<h3 id="orga0c57c3">Step 4</h3>
-<div class="outline-text-3" id="text-orga0c57c3">
+<div id="outline-container-orgb98f71e" class="outline-3">
+<h3 id="orgb98f71e">Step 4</h3>
+<div class="outline-text-3" id="text-orgb98f71e">
 <p>
 运行 <code>resolvconf</code> ，从当前的DNS服务器获取更新。
 </p>
@@ -368,9 +369,9 @@
 </div>
 </div>
 
-<div id="outline-container-org1e20a09" class="outline-3">
-<h3 id="org1e20a09">Step 5</h3>
-<div class="outline-text-3" id="text-org1e20a09">
+<div id="outline-container-org47200d0" class="outline-3">
+<h3 id="org47200d0">Step 5</h3>
+<div class="outline-text-3" id="text-org47200d0">
 <p>
 重启你的网络管理工具，我使用的是 <code>NetworkManager</code> 。
 </p>
@@ -382,9 +383,9 @@
 </div>
 </div>
 
-<div id="outline-container-org7409cf4" class="outline-3">
-<h3 id="org7409cf4">Step 6</h3>
-<div class="outline-text-3" id="text-org7409cf4">
+<div id="outline-container-org67aaa58" class="outline-3">
+<h3 id="org67aaa58">Step 6</h3>
+<div class="outline-text-3" id="text-org67aaa58">
 <p>
 启动或者重启 <code>DHCP client</code> 。
 </p>
@@ -398,9 +399,9 @@
 </div>
 </div>
 
-<div id="outline-container-org3132a94" class="outline-3">
-<h3 id="org3132a94">Step 7</h3>
-<div class="outline-text-3" id="text-org3132a94">
+<div id="outline-container-orgdc82ca4" class="outline-3">
+<h3 id="orgdc82ca4">Step 7</h3>
+<div class="outline-text-3" id="text-orgdc82ca4">
 <p>
 接下来，切换到浏览器并且随便打开一个网页，例如 <a href="https://duckduckgo.com">https://duckduckgo.com</a> 。
 你的浏览器会提示该网络需要登录，打开登录界面。
@@ -419,7 +420,7 @@
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Ilghar Kus</p>
-<p class="date">Created: 2021-11-11 Thu 13:40</p>
+<p class="date">Created: 2022-01-10 Mon 12:10</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

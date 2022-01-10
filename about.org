@@ -1,5 +1,7 @@
 #+TITLE:About
 #+OPTIONS: num:0
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/org.css"/>
+
 * 这里是 Ilghar Kus 的个人站点。
 但是很尴尬的是，像我一个声称自己是个Hacker的人，有一天也会用GitHub Pages托管自己的个人网站。
 
