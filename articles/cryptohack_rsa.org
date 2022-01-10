@@ -1,6 +1,6 @@
 #+TITLE:记 Cryptohack 中的一道题： Privacy-Enhanced Mail?
 #+OPTIONS: num:1
-
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/org.css"/>
 * 总述
 [[https://cryptohack.org/][CryptoHack]]是一家密码学学习与练习的CTF平台，题目质量很好。
 

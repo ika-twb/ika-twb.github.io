@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-11 Thu 13:39 -->
+<!-- 2022-01-10 Mon 12:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>记 Cryptohack 中的一道题： Privacy-Enhanced Mail?</title>
@@ -192,6 +192,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="../css/org.css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -244,19 +245,18 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8644ba7">1. 总述</a></li>
-<li><a href="#org6a76fff">2. 题目</a></li>
-<li><a href="#orga0faddd">3. 代码</a>
+<li><a href="#org57951aa">1. 总述</a></li>
+<li><a href="#org8e6800b">2. 题目</a></li>
+<li><a href="#orgdf52df5">3. 代码</a>
 <ul>
-<li><a href="#org9034915">实现</a></li>
+<li><a href="#orgc59d238">实现</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-
-<div id="outline-container-org8644ba7" class="outline-2">
-<h2 id="org8644ba7"><span class="section-number-2">1</span> 总述</h2>
+<div id="outline-container-org57951aa" class="outline-2">
+<h2 id="org57951aa"><span class="section-number-2">1</span> 总述</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="https://cryptohack.org/">CryptoHack</a>是一家密码学学习与练习的CTF平台，题目质量很好。
@@ -272,8 +272,8 @@
 </div>
 </div>
 
-<div id="outline-container-org6a76fff" class="outline-2">
-<h2 id="org6a76fff"><span class="section-number-2">2</span> 题目</h2>
+<div id="outline-container-org8e6800b" class="outline-2">
+<h2 id="org8e6800b"><span class="section-number-2">2</span> 题目</h2>
 <div class="outline-text-2" id="text-2">
 <blockquote>
 <p>
@@ -496,8 +496,8 @@ privateExponent:
 </div>
 </div>
 
-<div id="outline-container-orga0faddd" class="outline-2">
-<h2 id="orga0faddd"><span class="section-number-2">3</span> 代码</h2>
+<div id="outline-container-orgdf52df5" class="outline-2">
+<h2 id="orgdf52df5"><span class="section-number-2">3</span> 代码</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li>大概分析一下整个流程，首先需要将 <code>openssl-rsa</code> 的输出结果做个处理，将 <code>privateExponent</code> 的部分挑出来。</li>
@@ -505,9 +505,9 @@ privateExponent:
 <li>将字符串转换为十六进制整数，然后输出。</li>
 </ol>
 </div>
-<div id="outline-container-org9034915" class="outline-3">
-<h3 id="org9034915">实现</h3>
-<div class="outline-text-3" id="text-org9034915">
+<div id="outline-container-orgc59d238" class="outline-3">
+<h3 id="orgc59d238">实现</h3>
+<div class="outline-text-3" id="text-orgc59d238">
 <p>
 针对第一步，因为我不会用 <code>sed</code> ，所以只好用 <code>awk</code> 。
 但是后来用 <code>awk</code> 整理了半天也没搞好怎么优雅地用正则表达式分段然后pattern识别。
@@ -515,7 +515,7 @@ privateExponent:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">cat ./rsa_private_key.pem | openssl rsa -text -noout | awk <span style="color: #336c6c;">'/privateExponent/'</span> <span style="color: #205070;">RS</span>=<span style="color: #336c6c;">'prime1'</span> | awk <span style="color: #336c6c;">'/privateExponent/'</span> <span style="color: #205070;">RS</span>=<span style="color: #336c6c;">')'</span>
+<pre class="src src-sh">cat ./rsa_private_key.pem | openssl rsa -text -noout | awk <span style="color: #afd75f;">'/privateExponent/'</span> <span style="color: #00cdcd;">RS</span>=<span style="color: #afd75f;">'prime1'</span> | awk <span style="color: #afd75f;">'/privateExponent/'</span> <span style="color: #00cdcd;">RS</span>=<span style="color: #afd75f;">')'</span>
 </pre>
 </div>
 
@@ -524,8 +524,8 @@ privateExponent:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python">astr.replace(<span style="color: #336c6c;">"privateExponent:"</span>,<span style="color: #336c6c;">""</span>).\
-    replace(<span style="color: #336c6c;">"\n"</span>,<span style="color: #336c6c;">""</span>).replace(<span style="color: #336c6c;">":"</span>,<span style="color: #336c6c;">""</span>).replace(<span style="color: #336c6c;">" "</span>,<span style="color: #336c6c;">""</span>)
+<pre class="src src-python">astr.replace(<span style="color: #afd75f;">"privateExponent:"</span>,<span style="color: #afd75f;">""</span>).\
+    replace(<span style="color: #afd75f;">"\n"</span>,<span style="color: #afd75f;">""</span>).replace(<span style="color: #afd75f;">":"</span>,<span style="color: #afd75f;">""</span>).replace(<span style="color: #afd75f;">" "</span>,<span style="color: #afd75f;">""</span>)
 </pre>
 </div>
 
@@ -534,7 +534,7 @@ privateExponent:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #205070;">anum</span> = ast.literal_eval(<span style="color: #336c6c;">'0x'</span>+astr)
+<pre class="src src-python"><span style="color: #00cdcd;">anum</span> = ast.literal_eval(<span style="color: #afd75f;">'0x'</span>+astr)
 </pre>
 </div>
 
@@ -547,31 +547,31 @@ privateExponent:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #0f2050; font-weight: bold;">from</span> os <span style="color: #0f2050; font-weight: bold;">import</span> popen        
-<span style="color: #0f2050; font-weight: bold;">from</span> ast <span style="color: #0f2050; font-weight: bold;">import</span> literal_eval
-<span style="color: #0f2050; font-weight: bold;">import</span> Crypto.Util.number   
-<span style="color: #0f2050; font-weight: bold;">import</span> argparse             
+<pre class="src src-python"><span style="color: #af87d7;">from</span> os <span style="color: #af87d7;">import</span> popen        
+<span style="color: #af87d7;">from</span> ast <span style="color: #af87d7;">import</span> literal_eval
+<span style="color: #af87d7;">import</span> Crypto.Util.number   
+<span style="color: #af87d7;">import</span> argparse             
 
-<span style="color: #0f2050; font-weight: bold;">def</span> <span style="color: #6c1f1c;">str_proc</span>(astr):
-    <span style="color: #205070;">anum</span> = literal_eval(<span style="color: #336c6c;">'0x'</span>+\
-                        astr.replace(<span style="color: #336c6c;">"privateExponent:"</span>,<span style="color: #336c6c;">""</span>).\
-                        replace(<span style="color: #336c6c;">"\n"</span>,<span style="color: #336c6c;">""</span>).replace(<span style="color: #336c6c;">":"</span>,<span style="color: #336c6c;">""</span>).replace(<span style="color: #336c6c;">" "</span>,<span style="color: #336c6c;">""</span>))
-    <span style="color: #0f2050; font-weight: bold;">return</span> anum
+<span style="color: #af87d7;">def</span> <span style="color: #5f87d7;">str_proc</span>(astr):
+    <span style="color: #00cdcd;">anum</span> = literal_eval(<span style="color: #afd75f;">'0x'</span>+\
+                        astr.replace(<span style="color: #afd75f;">"privateExponent:"</span>,<span style="color: #afd75f;">""</span>).\
+                        replace(<span style="color: #afd75f;">"\n"</span>,<span style="color: #afd75f;">""</span>).replace(<span style="color: #afd75f;">":"</span>,<span style="color: #afd75f;">""</span>).replace(<span style="color: #afd75f;">" "</span>,<span style="color: #afd75f;">""</span>))
+    <span style="color: #af87d7;">return</span> anum
 
 
-<span style="color: #0f2050; font-weight: bold;">def</span> <span style="color: #6c1f1c;">main</span>():
-    <span style="color: #205070;">parser</span> = argparse.ArgumentParser()
-    parser.add_argument(<span style="color: #336c6c;">'-f'</span>,<span style="color: #336c6c;">'--filename'</span>,<span style="color: #232333; font-weight: bold;">help</span>=<span style="color: #336c6c;">"Specify the PEM Private Key file."</span>)
-    <span style="color: #205070;">arg</span> = parser.parse_args()
-    <span style="color: #205070;">pem_filename</span> = arg.filename
+<span style="color: #af87d7;">def</span> <span style="color: #5f87d7;">main</span>():
+    <span style="color: #00cdcd;">parser</span> = argparse.ArgumentParser()
+    parser.add_argument(<span style="color: #afd75f;">'-f'</span>,<span style="color: #afd75f;">'--filename'</span>,<span style="color: #5f87d7;">help</span>=<span style="color: #afd75f;">"Specify the PEM Private Key file."</span>)
+    <span style="color: #00cdcd;">arg</span> = parser.parse_args()
+    <span style="color: #00cdcd;">pem_filename</span> = arg.filename
 
-    <span style="color: #205070;">system_obj</span> = popen(<span style="color: #336c6c;">"cat "</span> + pem_filename +\
-                       <span style="color: #336c6c;">" | openssl rsa -text -noout | awk '/privateExponent/'"</span>+\
-                       <span style="color: #336c6c;">" RS='prime1' | awk '/privateExponent/' RS=')' "</span>)
-    <span style="color: #205070;">astr</span> = system_obj.read()
-    <span style="color: #0f2050; font-weight: bold;">print</span>(str_proc(astr))
+    <span style="color: #00cdcd;">system_obj</span> = popen(<span style="color: #afd75f;">"cat "</span> + pem_filename +\
+                       <span style="color: #afd75f;">" | openssl rsa -text -noout | awk '/privateExponent/'"</span>+\
+                       <span style="color: #afd75f;">" RS='prime1' | awk '/privateExponent/' RS=')' "</span>)
+    <span style="color: #00cdcd;">astr</span> = system_obj.read()
+    <span style="color: #af87d7;">print</span>(str_proc(astr))
 
-<span style="color: #0f2050; font-weight: bold;">if</span> <span style="color: #232333; font-weight: bold;">__name__</span>==<span style="color: #336c6c;">"__main__"</span>:
+<span style="color: #af87d7;">if</span> <span style="color: #5f87d7;">__name__</span>==<span style="color: #afd75f;">"__main__"</span>:
     main()
 </pre>
 </div>
@@ -597,7 +597,7 @@ privateExponent:
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-11-11 Thu 13:39</p>
+<p class="date">Created: 2022-01-10 Mon 12:10</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

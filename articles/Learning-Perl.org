@@ -1,4 +1,5 @@
 #+TITLE: Learning Perl(持续更新)
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/org.css"/>
 * 总述：
 :PROPERTIES:
   :UNNUMBERED:
