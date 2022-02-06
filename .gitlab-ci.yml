@@ -9,7 +9,7 @@ image: busybox:latest
 
 pages:
   script:
-    - mv ./*.html/ ./public/
+    - mv ./*.html ./public/
   artifacts:
     paths:
       - public
