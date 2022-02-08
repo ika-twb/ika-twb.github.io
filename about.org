@@ -2,13 +2,9 @@
 #+OPTIONS: num:0
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/org.css"/>
 
-* 这里是 Ilghar Kus 的个人站点。
-但是很尴尬的是，像我一个声称自己是个Hacker的人，有一天也会用GitHub Pages托管自己的个人网站。
+* 这里是 Ilghar Kus 的博客。
 
-但是等我有了能租一台够用的云主机的钱，有了能写一个博客引擎的时间，我就立即做一个个人网站出来。
-
-* 然后关于我
-我的通用ID是 =ilghar_kus= ， 在一些不支持下划线作用户名的网站（比如这里），我会使用 =ilgharkus= 。当然，在某些成员比较少的社区，我也会使用 =ika= 。
+我的通用ID是 =ilghar_kus= ，或 =ilgharkus= 。在某些成员比较少的社区，我也会使用 =ika= 。
 
 我现在还是学生。
 
@@ -20,7 +16,7 @@
 “讲道理就Pacman这个作死不怕事大的态度，我是搞不懂你为什么不转到Gentoo来。”
 #+END_QUOTE
 
-好吧，可能在未来一段时间内开始试用Gentoo。
+好吧，可能在未来一段时间内开始 +试用Gentoo+ 正在安装Gentoo。
 
 我使用 Dell Inspiron 7590 和一台 Thinkpad T480s 作为主力工作站，使用 =i3wm= 以及 =polybar= 。
 
@@ -31,13 +27,5 @@
 我的PGP指纹为 =1A64866B328C6A9092F02DD11C360F7878D2377B= ， 你可以在[[./ilghar_kus.asc][这里]]下载我的公钥。
 
 * 你可以在这里找到我
-** [[https://gitlab.com/ilghar_kus][GitLab]]
-** [[https://github.com/ilgharkus][GitHub]]
-** 你可以通过私聊我来获得我在以下平台的好友链接
-   - Telegram
-   - Discord
-   - Steam
-   - Wechat
-   - Matrix.org
-   - Reddit
-   - Mastodon.sdf.org
+- [[https://gitlab.com/ilghar_kus][GitLab]]
+- [[https://mastodon.sdf.org/@ika][Mastodon]]
