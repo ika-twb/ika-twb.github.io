@@ -1,5 +1,5 @@
 #+TITLE: Ilghar Kus 的 Blog
-#+OPTIONS: num:0
+#+OPTIONS: num:0 toc:nil
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/org.css"/>
 
 * Before reading
@@ -9,6 +9,7 @@
 
 ** Blog ＃0
 <2022-03-13 Sun>
+
 把自己的主页清理了一下，Blog里面那些过时的哀怨差不多也都删掉了。
 
 准备写点CSS给主页加个Dark theme， 或许可以借鉴一下 [[https://protesilaos.com/emacs/modus-themes][modus-theme]] 的配色板。
