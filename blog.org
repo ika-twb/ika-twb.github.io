@@ -8,7 +8,7 @@
 * Blogs
 
 ** Blog ＃0
-SCHEDULED: <2022-03-13 Sun>
+<2022-03-13 Sun>
 把自己的主页清理了一下，Blog里面那些过时的哀怨差不多也都删掉了。
 
 准备写点CSS给主页加个Dark theme， 或许可以借鉴一下 [[https://protesilaos.com/emacs/modus-themes][modus-theme]] 的配色板。
