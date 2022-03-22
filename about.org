@@ -1,6 +1,6 @@
 #+TITLE:About
 #+OPTIONS: num:0
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/org.css"/>
+#+SETUPFILE:  theme-local.setup
 
 * 这里是 Ilghar Kus 的博客。
 

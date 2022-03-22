@@ -1,6 +1,7 @@
 #+TITLE: Ilghar Kus 的 Blog
 #+OPTIONS: num:0 toc:nil
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/org.css"/>
+#+SETUPFILE:  theme-local.setup
+
 
 * Before reading
 个人状态以及言论汇总，如想阅读技术类文章请回到主页。
