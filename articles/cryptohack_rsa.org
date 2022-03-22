@@ -1,6 +1,6 @@
 #+TITLE:记 Cryptohack 中的一道题： Privacy-Enhanced Mail?
 #+OPTIONS: num:1
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/org.css"/>
+#+SETUPFILE:  style-local.setup
 * 总述
 [[https://cryptohack.org/][CryptoHack]]是一家密码学学习与练习的CTF平台，题目质量很好。
 
@@ -169,7 +169,7 @@ coefficient:
 
 #+END_SRC
 
-获得了16进制的各密钥构造。 鉴于 =e= 与 =N= 在一起封装成公钥, 在里面是 =publicExponent= , 所以 =privateExponent= 
+获得了16进制的各密钥构造。 鉴于 =e= 与 =N= 在一起封装成公钥, 在里面是 =publicExponent= , 所以 =privateExponent=
 就是 =d= 。
 
 #+BEGIN_SRC
@@ -226,10 +226,10 @@ anum = ast.literal_eval('0x'+astr)
 就得出来了一个python程序。
 
 #+BEGIN_SRC python
-from os import popen        
+from os import popen
 from ast import literal_eval
-import Crypto.Util.number   
-import argparse             
+import Crypto.Util.number
+import argparse
 
 def str_proc(astr):
     anum = literal_eval('0x'+\
@@ -243,7 +243,7 @@ def main():
     parser.add_argument('-f','--filename',help="Specify the PEM Private Key file.")
     arg = parser.parse_args()
     pem_filename = arg.filename
-    
+
     system_obj = popen("cat " + pem_filename +\
                        " | openssl rsa -text -noout | awk '/privateExponent/'"+\
                        " RS='prime1' | awk '/privateExponent/' RS=')' ")

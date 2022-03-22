@@ -1,7 +1,7 @@
 #+TITLE: Linux平台上连接复旦校园网以及故障修复指南
 #+AUTHOR: Ilghar Kus
 #+OPTIONS: num:1
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/org.css"/>
+#+SETUPFILE:  style-local.setup
 * 前言
 从来到复旦校园的第一天开始校园网在Linux平台的连接失败问题就一直存在着，
 能不能成功连接纯粹靠运气，在比较重要的场合因为无法连接到校园网而耽误时间
@@ -88,4 +88,3 @@ sudo dhcpcd
 输入用户名与密码，点击登录。
 
 提示连接成功。
-

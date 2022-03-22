@@ -1,6 +1,6 @@
 #+title: Elements of Set Theory : The Note
 #+AUTHOR: Ilghar Kus
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/org.css"/>
+#+SETUPFILE:  style-local.setup
 #+OPTIONS: toc:nil
 
 This is my note during the reading
@@ -21,12 +21,12 @@ The book is great.
      $x^4-17x^3+101x^2-247x+210=0$
 
      to which, we say:
-     
-   *Principle of Extensionality* $\quad$ If two sets have exactly the same members, 
+
+   *Principle of Extensionality* $\quad$ If two sets have exactly the same members,
    then they are equal.
 
    In a less naive approach, we could say:
-   
+
    *Principle of Extensionality* $\quad$ If $A$ and $B$ are sets s.t. for $\forall t$
    \[
    t\in A \iff t\in B
@@ -37,7 +37,7 @@ The book is great.
      and it's the only set with no members.
 
    - $\emptyset \in \{\emptyset\}$ and $\emptyset \notin \emptyset$, so $\emptyset \neq \{\emptyset\}$
-     
+
    - *Union and Intersection* $\quad$ noted respectively as $\cup$ and $\cap$,
      means all elements of $A$ and/or $B$ and all elements of $A$ and $B$
 
@@ -53,7 +53,7 @@ The book is great.
    This method causes two disastrous paradoxes in set theory, which is
    - *Berry's Paradox* $\quad$ an expression which is self-referenced negatively
    - *Russell's Paradox* $\quad$ exemplified by \[\{x|x\notin x\}\]
-     
+
 ** Sets - An Informal View
    None of the later work will depend on this informal description.
 
@@ -96,8 +96,6 @@ The book is great.
 
    And for now, if we banish the atoms, instead take $A=\emptyset$, and here is the ordinals.
 
-   
+
 ** Classes
    There is no "set of all sets", which is later presented as a theorem, provable from the axioms.
-   
-
