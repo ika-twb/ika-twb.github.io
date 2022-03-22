@@ -1,6 +1,6 @@
 #+TITLE: Ilghar Kus 的个人站点
 #+AUTHOR: Ilgharkus
-#+OPTIONS: toc:nil
+#+OPTIONS: toc:ni
 #+SETUPFILE:  theme-local.setup
 
 欢迎，这里是 Ilghar Kus 的个人主页。
