@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-03-24 Thu 09:16 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SparkCharts' Study Tactics</title>
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<link rel="stylesheet" type="text/css" href="style/main.css"/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">SparkCharts' Study Tactics</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgaafb412">1. Focusing</a>
+<ul>
+<li><a href="#org76cbce7">1.1. Environment</a></li>
+<li><a href="#org25a10c8">1.2. Procrastination</a></li>
+</ul>
+</li>
+<li><a href="#orga2f1f89">2. Planning</a>
+<ul>
+<li><a href="#org735f863">2.1. Observe yourself</a></li>
+<li><a href="#org0298579">2.2. Budgeting time</a></li>
+<li><a href="#orgd000c8a">2.3. Calendars</a>
+<ul>
+<li><a href="#org81436a1">2.3.1. Use the schedules.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgfb79f6f">3. Remembering Information</a></li>
+<li><a href="#org0f0182b">4. Taking Notes</a>
+<ul>
+<li><a href="#orgf748944">4.1. Notes from class</a>
+<ul>
+<li><a href="#orgaeb645a">4.1.1. Be prepared.</a></li>
+<li><a href="#orgaadb2ad">4.1.2. Make friends.</a></li>
+<li><a href="#org563b997">4.1.3. Lecture courses.</a></li>
+<li><a href="#orgd29ac30">4.1.4. Discussion courses.</a></li>
+</ul>
+</li>
+<li><a href="#orgef23032">4.2. Notes From Reading</a></li>
+<li><a href="#orgbf06e83">4.3. Organize the Information</a></li>
+</ul>
+</li>
+<li><a href="#orgbb3f22a">5. In-class discussion</a>
+<ul>
+<li><a href="#orgbd0049d">5.1. Etiquette</a></li>
+</ul>
+</li>
+<li><a href="#org021839f">6. Exam Preparation</a>
+<ul>
+<li><a href="#orge6d6c2b">6.1. Strategizing</a></li>
+<li><a href="#orgb3ec24e">6.2. Reviewing</a></li>
+<li><a href="#orga9aaaa8">6.3. Condensing</a></li>
+<li><a href="#orgffbe647">6.4. Study groups</a></li>
+<li><a href="#org63ddd06">6.5. The night before:</a></li>
+<li><a href="#orgbb68031">6.6. Cramming</a></li>
+</ul>
+</li>
+<li><a href="#org205ad25">7. Taking tests.</a>
+<ul>
+<li><a href="#orga2ab75a">7.1. General Tips</a></li>
+<li><a href="#orgfceb75c">7.2. If you're stuck</a></li>
+<li><a href="#org0423d7b">7.3. Tips for different types of questions</a>
+<ul>
+<li><a href="#org2c3af23">7.3.1. Essays</a></li>
+<li><a href="#orgebbd1c9">7.3.2. Multiple-choice questions.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+  PDF version:
+<a href="study-tactics.pdf"> Here  </a>
+</p>
+
+<p>
+  Org-file version:
+  <a href="study-tactics.org"> Here  </a>
+
+</p>
+
+<div id="outline-container-orgaafb412" class="outline-2">
+<h2 id="orgaafb412"><span class="section-number-2">1.</span> Focusing</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Make sure your mind is attentive, active and focusing on the task at hand.
+</p>
+</div>
+<div id="outline-container-org76cbce7" class="outline-3">
+<h3 id="org76cbce7"><span class="section-number-3">1.1.</span> Environment</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Turn off distractions</li>
+<li>Set up rules about study time</li>
+<li>Find a place without distractions
+<ul class="org-ul">
+<li>Better find a specific study area.</li>
+<li>Or just go to library</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org25a10c8" class="outline-3">
+<h3 id="org25a10c8"><span class="section-number-3">1.2.</span> Procrastination</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Try the following when you start to procrastinate:
+</p>
+
+<ul class="org-ul">
+<li>Break the task into smaller parts.</li>
+<li>Tell other people what you're working on.</li>
+<li>Do first whatever portion of the work you are most reluctant to do.</li>
+<li>Rewards yourself.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga2f1f89" class="outline-2">
+<h2 id="orga2f1f89"><span class="section-number-2">2.</span> Planning</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Planning a.k.a. budgeting your time a.k.a. a key to being a successful student.
+</p>
+</div>
+
+<div id="outline-container-org735f863" class="outline-3">
+<h3 id="org735f863"><span class="section-number-3">2.1.</span> Observe yourself</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Record your time usage for a week at a measure of 30min
+</p>
+
+<ul class="org-ul">
+<li>Keep the record on a handy pad or notebook.</li>
+<li>Be honest.</li>
+<li>Analyze the result.</li>
+<li>Put the result to use, plan the upcoming week</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org0298579" class="outline-3">
+<h3 id="org0298579"><span class="section-number-3">2.2.</span> Budgeting time</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Look at your needs and obligations for the week and budget your necessary study time across the days.
+Remember you need a little downtime.
+Study time could be adjusted after a little trial and error.
+</p>
+
+<ul class="org-ul">
+<li>Decide how many hours you need to spend studying.
+<ul class="org-ul">
+<li>The amount could change from week to week, but there is a baseline.</li>
+<li>Before weeks of important exams, papers/projects due, you should budget more time.</li>
+</ul></li>
+<li>Every Sunday, take 15 mins to map out your week, scheduling in study time around your obligations.</li>
+<li>Know when you're at your most alert and use that time to study.
+<ul class="org-ul">
+<li>This consciousness needs experiment.</li>
+</ul></li>
+<li><b>Prioritize</b> based on the <b>importance</b> and <b>urgentness</b>. <i>maybe use the 4-quadrant method?</i></li>
+<li>Sleep time is extremely important.</li>
+</ul>
+
+<p>
+<code>Dead-time</code>:
+Spacing out/Waiting for people/Riding a bus o.s.
+Develop study aids for these times.
+</p>
+<ul class="org-ul">
+<li>Maybe store some regular softcore stuff on your phone to check out instantly.</li>
+<li>a.l.l. make use of your waiting time.</li>
+</ul>
+
+<p>
+<code>Down-time</code>:
+Have a level of studying that could be sustained, or you'll just wear yourself down.
+<i>e.g.</i>
+</p>
+<ul class="org-ul">
+<li>w/ friends.</li>
+<li>Listening to music/General entertainment.</li>
+<li>Any relaxation activity.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd000c8a" class="outline-3">
+<h3 id="orgd000c8a"><span class="section-number-3">2.3.</span> Calendars</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+You'll need several Calendars.
+</p>
+<p>
+I use org-mode so this part ill just practice with org-agenda.
+</p>
+<ul class="org-ul">
+<li>A calendar with just your classes and standing obligations. (<i>the where-you-have-to-be calendar</i>)</li>
+<li>A calendar with just the due dates.
+Display this prominently in your work area to indicate the big picture of the <b>whole semester</b>.</li>
+<li>A calendar of planner that you add to and refer to daily.
+Incorporate long-term ddls and weekly assignments w/ due dates.</li>
+<li>A quick to-do list in the morning or before go to bed.
+Refer to the weekly calendar.
+Work it like any to-do lists.</li>
+</ul>
+</div>
+
+<div id="outline-container-org81436a1" class="outline-4">
+<h4 id="org81436a1"><span class="section-number-4">2.3.1.</span> Use the schedules.</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<p>
+For unforseen events:
+</p>
+<ul class="org-ul">
+<li>Stick to the schedule as firm as you can.</li>
+<li>Adjust when you have to.</li>
+<li>Be aware of the priorities.</li>
+<li>Refer to the semester calendar and syllabus
+Anticipate the demands on the time several weeks in advance.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfb79f6f" class="outline-2">
+<h2 id="orgfb79f6f"><span class="section-number-2">3.</span> Remembering Information</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+The best way is always to understand them. But for more unrelated/fragmented bullet points:
+</p>
+<ul class="org-ul">
+<li>Mnemonic devices and methods.</li>
+<li>Acronyms.</li>
+<li>Acrostics.</li>
+<li>Linking information to physical locations.</li>
+<li>Word association.</li>
+<li>Reviewing.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0f0182b" class="outline-2">
+<h2 id="org0f0182b"><span class="section-number-2">4.</span> Taking Notes</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Huge differences exist in taking class notes and taking material notes.
+</p>
+
+<p>
+The general method for all kinds of notes:
+</p>
+<ul class="org-ul">
+<li>Review the notes w/i 24 hrs.</li>
+<li>Make your notes organizable
+(The original article says: '''
+<i>Use a three-ring binder and write on one side only (so you can move pages around later).</i>
+'''
+In case you need it bc you still use the traditional way.)</li>
+<li>Refer back to notes as the course progresses.
+And ask yourself what still seems important and what seems trivial.</li>
+<li>Periodically <b>combine</b> the reading notes and lecture notes into <b>a single set of notes</b>.</li>
+</ul>
+</div>
+
+<div id="outline-container-orgf748944" class="outline-3">
+<h3 id="orgf748944"><span class="section-number-3">4.1.</span> Notes from class</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+When the instructors speak, they do a lot of the work for you.
+They select what they feel is important and give the material an organized structure.
+</p>
+<p>
+This could fail sometimes bc the lecturer has no idea what he/she's talking about and
+hasn't done any research on the feedback from previous students.
+Change your focus when you feel something is fucked up hard.
+</p>
+<p>
+And some of the times the lecture doesn't organize on traditional outline format.
+For this kind of case you should keep the record of all bullets and organize them after class
+based on reading material.
+</p>
+<p>
+As a note-taker, you should get down as much as you can.
+Decide what really needs to focus later.
+</p>
+</div>
+
+<div id="outline-container-orgaeb645a" class="outline-4">
+<h4 id="orgaeb645a"><span class="section-number-4">4.1.1.</span> Be prepared.</h4>
+<div class="outline-text-4" id="text-4-1-1">
+<ul class="org-ul">
+<li>Skim the notes from previous class.
+There gotta be some continuity from lectures to lectures.</li>
+<li>Do the reading.
+Lectures and discussions coincide with some specific reading assignments.
+After the reading the following would be easier.</li>
+<li>Get to class on time.
+Avoid getting settled after the class begins.
+Avoid missing the Administrivia</li>
+<li>Bring all you need at class.
+Textbooks, class notes, reading assignments.
+Things that the lecturer might refer to during class.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgaadb2ad" class="outline-4">
+<h4 id="orgaadb2ad"><span class="section-number-4">4.1.2.</span> Make friends.</h4>
+<div class="outline-text-4" id="text-4-1-2">
+<ul class="org-ul">
+<li>Make a regular habit of exchanging notes with a friend.</li>
+<li>Your classmates can be your biggest resource.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org563b997" class="outline-4">
+<h4 id="org563b997"><span class="section-number-4">4.1.3.</span> Lecture courses.</h4>
+<div class="outline-text-4" id="text-4-1-3">
+<p>
+To avoid losing the lecturer:
+</p>
+<ul class="org-ul">
+<li><b>Listen for a synopsis</b> either at the beginning or <b>summary</b> at the end.</li>
+<li><b>Use abbreviations</b> or soem form of shorthand.</li>
+<li><b>Listen for clues</b>.</li>
+<li>Analyze the <b>ideosyncrasies</b> of the instructor.</li>
+<li>Don't ignore your <b>critical abilities</b> entirely.
+Make a note (or a drawer <code>C-c C-x d</code> ) to return to later.</li>
+<li>Pay attention to the handouts.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd29ac30" class="outline-4">
+<h4 id="orgd29ac30"><span class="section-number-4">4.1.4.</span> Discussion courses.</h4>
+<div class="outline-text-4" id="text-4-1-4">
+<p>
+Differences occur between noting a lecture course and a discussion course.
+</p>
+<ul class="org-ul">
+<li>Less factual material, More deelpy into the reading.</li>
+<li>You can stop the speaker and ask her to clarigy or repeat a point.</li>
+</ul>
+
+<p>
+In case of missing something of can't understand:
+</p>
+<ul class="org-ul">
+<li>Make a mark in notes, search and present it when you can ask.</li>
+<li>Leave a blank space for things couldn't be able to write down.
+(If you're using the traditional method.)</li>
+<li><b>If appropriate</b>, raise your hand and ask for clarification or repetition.</li>
+</ul>
+<p>
+This will be much nice to leave it after class to avoid interrupting the lecturer's flow.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgef23032" class="outline-3">
+<h3 id="orgef23032"><span class="section-number-3">4.2.</span> Notes From Reading</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Taking reading notes requires <b>more active intelligence and constant questioning</b>.
+Think critically. Interrogate what you read. Ask questions.
+</p>
+
+<p>
+Before starting reading;
+</p>
+<ul class="org-ul">
+<li>Why you're reading this assignment.</li>
+<li>Figure out the main point.</li>
+<li>Make a list of important terms and concepts.</li>
+<li>Get a sense of what you're reading before reading it.</li>
+<li>Write down the questions in the reading.</li>
+</ul>
+
+<p>
+As you read:
+</p>
+<ul class="org-ul">
+<li>Anticipate in the author's next move.
+<ul class="org-ul">
+<li>Pros n' Cons.</li>
+<li>Continuity n' change.</li>
+<li>Rules and exceptions.</li>
+<li>Cuases and effects.</li>
+<li>Lists and descriptions.</li>
+</ul></li>
+<li>Think critically about the information.</li>
+<li>Analyze the important information.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgbf06e83" class="outline-3">
+<h3 id="orgbf06e83"><span class="section-number-3">4.3.</span> Organize the Information</h3>
+<div class="outline-text-3" id="text-4-3">
+<ul class="org-ul">
+<li>Diagrams</li>
+<li>Tables</li>
+<li>Network</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbb3f22a" class="outline-2">
+<h2 id="orgbb3f22a"><span class="section-number-2">5.</span> In-class discussion</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li><b>Do the reading</b>, at least the general idea of it.</li>
+<li>Review the lecture notes.</li>
+</ul>
+</div>
+
+<div id="outline-container-orgbd0049d" class="outline-3">
+<h3 id="orgbd0049d"><span class="section-number-3">5.1.</span> Etiquette</h3>
+<div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li>Prepare one thing to say for each class.
+<i>Try never to let an entire class go by w/o making some contribution</i></li>
+<li>Don't feel like you have to comment on every subject.</li>
+<li>Keep your comments relevant.</li>
+<li>Listen attentively.</li>
+<li>Respect other people's opinions.</li>
+</ul>
+
+<p>
+If you didn't do the reading;
+Make a general comment or ask a general question early in the class.
+Or ask one of classmates to elaborate on what he/she just said.
+</p>
+
+<p>
+Bullshittery Detection
+</p>
+
+<ul class="org-ul">
+<li>"I didn't get to read the book, but it seems to me that&#x2026;"
+<ul class="org-ul">
+<li>Better tattoo it on your forehead instead of announcing to the instructor that you didn't do teh work.</li>
+<li>Rhetorically weakening whatever you're about to say.</li>
+</ul></li>
+<li>"That's the dumbest thing I've ever heard."</li>
+<li>Talking about random bullshittery
+Please. Please conserve oxygen.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org021839f" class="outline-2">
+<h2 id="org021839f"><span class="section-number-2">6.</span> Exam Preparation</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-orge6d6c2b" class="outline-3">
+<h3 id="orge6d6c2b"><span class="section-number-3">6.1.</span> Strategizing</h3>
+<div class="outline-text-3" id="text-6-1">
+<ul class="org-ul">
+<li>Find out what kind of material is bing tested.</li>
+<li>What kind of test it will be.</li>
+<li>Copies of old tests.</li>
+<li>Know your teacher's opinions on the issues in the course.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb3ec24e" class="outline-3">
+<h3 id="orgb3ec24e"><span class="section-number-3">6.2.</span> Reviewing</h3>
+<div class="outline-text-3" id="text-6-2">
+<ul class="org-ul">
+<li>Attend review sessions.
+Prepare w/ a list of questions.</li>
+<li>Get a hold on the generalized idea of the course.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga9aaaa8" class="outline-3">
+<h3 id="orga9aaaa8"><span class="section-number-3">6.3.</span> Condensing</h3>
+<div class="outline-text-3" id="text-6-3">
+<p>
+Condense your notes to the essential.
+Get everything you absolutely need to know onto <b>one sheet</b>, and as bare minumum to <b>own</b> that sheet.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgffbe647" class="outline-3">
+<h3 id="orgffbe647"><span class="section-number-3">6.4.</span> Study groups</h3>
+<div class="outline-text-3" id="text-6-4">
+<p>
+Depends on personal preference.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org63ddd06" class="outline-3">
+<h3 id="org63ddd06"><span class="section-number-3">6.5.</span> The night before:</h3>
+<div class="outline-text-3" id="text-6-5">
+<ul class="org-ul">
+<li>Review before you go to bed.</li>
+<li>Get a normal night's sleep.</li>
+<li>Review casually in the morning.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgbb68031" class="outline-3">
+<h3 id="orgbb68031"><span class="section-number-3">6.6.</span> Cramming</h3>
+<div class="outline-text-3" id="text-6-6">
+<ul class="org-ul">
+<li>What's the professor likely to focus on?</li>
+<li>Pick the important ones.</li>
+<li>Recite.</li>
+<li>Do the best you can.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org205ad25" class="outline-2">
+<h2 id="org205ad25"><span class="section-number-2">7.</span> Taking tests.</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-orga2ab75a" class="outline-3">
+<h3 id="orga2ab75a"><span class="section-number-3">7.1.</span> General Tips</h3>
+<div class="outline-text-3" id="text-7-1">
+<ul class="org-ul">
+<li>Approach the test calmly no matter how you feel.</li>
+<li>Scan the test.</li>
+<li>Read the general directions and directions for each question.</li>
+<li>Don't spend too much time on questions you know the least about.</li>
+<li>Check the time.</li>
+<li>Show your work and procedure on the test paper.</li>
+<li>For STEM tests, make a logical estimation of the answer before starting the work.</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgfceb75c" class="outline-3">
+<h3 id="orgfceb75c"><span class="section-number-3">7.2.</span> If you're stuck</h3>
+<div class="outline-text-3" id="text-7-2">
+<ul class="org-ul">
+<li>Rephrase a question in your own works.</li>
+<li><b>If acceptable</b>, ask for clarification.</li>
+<li>Get something down on paper.</li>
+<li>Sensibly leave some questions blank.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0423d7b" class="outline-3">
+<h3 id="org0423d7b"><span class="section-number-3">7.3.</span> Tips for different types of questions</h3>
+<div class="outline-text-3" id="text-7-3">
+</div>
+<div id="outline-container-org2c3af23" class="outline-4">
+<h4 id="org2c3af23"><span class="section-number-4">7.3.1.</span> Essays</h4>
+<div class="outline-text-4" id="text-7-3-1">
+<ul class="org-ul">
+<li>Read the directions carefully.</li>
+<li>Take a moment to outline your essay.</li>
+<li>Make distinct paragraphs.</li>
+<li>Begin strongly, End strongly.
+Deliver the verdict starkly, then back it up with subtleties.</li>
+<li>Make the essay easier for the grader to read.</li>
+</ul>
+<p>
+USE LaTeX WHENEVER YOU CAN
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgebbd1c9" class="outline-4">
+<h4 id="orgebbd1c9"><span class="section-number-4">7.3.2.</span> Multiple-choice questions.</h4>
+<div class="outline-text-4" id="text-7-3-2">
+<ul class="org-ul">
+<li>Read the question <b>VERY</b> carefully.</li>
+<li>Try to answer the question on your own.</li>
+<li>Read all hte choices.</li>
+<li>Process of elimination.
+If you still don't know what to do, eliminate the <b>extreme</b> awnsers.</li>
+<li>Skip if you need.</li>
+<li>Don't panic. Don't overthink.</li>
+<li>Don't trust extremely simple ones.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2022-03-24 Thu 09:16</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
