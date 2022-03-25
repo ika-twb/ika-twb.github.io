@@ -6,12 +6,11 @@
 欢迎，这里是 Ilghar Kus 的个人主页。
 
 * Articles
+** [[file:articles/study-tactics.html][SparkCharts' Study Tactics: The Note]]
 ** [[file:articles/elements_of_set_theory.html][Elements of Set Theory : The Note]]
 ** [[./articles/cryptohack_rsa.html][记 Cryptohack 中的一道题： Privacy-Enhanced Mail?]]
 ** [[./articles/fudan_resolv.html][Linux平台上连接复旦校园网以及故障修复指南]]
 ** [[./articles/Learning-Perl.html][Learning Perl(持续更新)]]
-** [[file:articles/study-tactics.html][SparkCharts' Study Tactics: The Note]]
-
 * Blog
 [[./blog.html][Blog]]
 
