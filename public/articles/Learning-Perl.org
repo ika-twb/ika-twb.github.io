@@ -1,0 +1,396 @@
+#+TITLE: Learning Perl(持续更新)
+#+SETUPFILE:  style-local.setup
+* 总述：
+:PROPERTIES:
+  :UNNUMBERED:
+:END:
+这篇文章是我在阅读 /Learning Perl/ (/Randal Schwartz, Tom Phoenix, brain d foy, 2008, O'Reilly Media/ =978-0-596-52010-6=)(又称小骆驼书) 时做的笔记。
+
+当然通过阅读这些笔记可能使你比起阅读原书更加快速的上手Perl，但是如果你有足够的时间我会推荐去阅读原书来形成比较流畅而且牢固的知识体系，而且我可能会在这篇笔记中填入一些自己先入为主的观念，这对你的学习可能会造成一点影响。
+
+如果你找到错误或者不严谨的表述，欢迎你来信告诉我。我的联系方式可以在 =About= 页面中找到。
+* CH.1 Introduction
+这一章没有多少有关Perl技术上的论述。
+
+大部分都是对于本书、其作者以及Perl的介绍和几页FAQ，所以在这里跳过。
+
+有兴趣的读者可以去阅读原书。
+* CH.2 Scalar Data
+当然这里所指的Scalar与数学、物理领域内的Scalar并不相同。Scalar只是对Perl当中一种数据泛类型的称呼。
+Scalar通常（大部分情况下）以数字或字符串的形式表现。这里我们可以先将数字与字符串独立审视，就像其他的编程语言那样。
+** Numbers
+我们可以先看数字这部分。
+*** Decimal Numbers
+在Perl，所有的数字内部都是以相同的格式存在。你可以指定整数或者浮点数，但是在Perl内部都是以双精度浮点数（ =double-precision floating-point value= ）进行计算的。
+所以可以理解为对于Perl不存在整数。所有的“整数”都是以 =DPFP= 类型进行计算的。
+
+所以以下这些数字在Perl都是合法的。
+=25, 25.5, 25.255, 25.0, 25.000, 25e25, -25e25, -25e-25=
+
+在Perl中，数字通过下划线标记位数是允许的。
+例如：
+
+=1000000= 可以被写为 =1_000_000= ，这在Perl内部是相同的两个数字。
+*** Nondecimal Integer
+在编程中，非十进制数字使用最广泛的有：二进制 =binary= 、八进制 =octal= 、十六进制 =hexademical= 。
+二进制用 =0b= 标识，八进制用 =0= ，十六进制用 =0x= 。所以以下的数字都是 *相同* 的。
+
+#+BEGIN_SRC sh
+0b1010 012 0xA 10 10.000
+#+END_SRC
+
+当然，对于非十进制的数字也可以用下划线标记位数，例如 =0b10_11_10_00= 是合法的。
+
+需要注意的是，所谓的 ="Leading zero" Indicator= 只针对于普通的Literal数据，自动的字符串->数字变换是不支持的。也就是说你不可以将 ="0b11"= 这个字符串与 =3= 等同，但是 =0b11= 与 ="3"= 可以。
+你可以使用 =oct()= 与 =hex()= 函数进行字符串到非十进制数字之间的转换。
+*** Numeric Operators
+Perl当然支持最普通的四则运算 =+ - * /= 与模运算 =%= ，当然也支持浮点数与整数混合运算。
+在浮点数进行模运算时，Perl会自动将浮点数取整，所以 =15.6 % 2.4= 与 =15 % 2= 结果相同。
+
+Perl同时也支持幂运算，例如 =2**3= 结果为 =8= 。
+
+当你需要计算负数的分数幂的时候，你可以调用 =Math::Complex= 模块进行复数运算。
+
+Perl还有其他一些数字运算符，当我们需要的时候会进行讲解。
+** Strings
+字符串可以理解为串在一起的一堆字符。
+*** Single and Double Quoted Strings.
+原书中有一段话：
+#+BEGIN_QUOTE
+This is in accordance with the principle of “no built-in limits” that Perl follows at every opportunity.
+#+END_QUOTE
+所以你既可以在一段字符串中加入可打印的字符，也可以加入不可打印的字符，比如二进制数据，然后对他们进行各种操作。这在Perl内都是合法的。
+
+Perl内的字符串有两种表示形式， =Single-Quoted String Literals= 与 =Double-Quoted String Literals= 。
+
+在单引号字符串中，只支持单引号 ='= 与反斜杠 =\= 的字符转义，所以，单引号字符串是最简单最纯粹的字符串表示形式。
+
+然而，在双引号字符串中，支持所有的转义字符，换行 =\n= ,制表符Tab =\t=,和对ASCII值的引用等。
+
+同时，你可以在双引号字符串中插入变量，所以，
+
+#+BEGIN_SRC perl
+$foo = "bar";
+print "$foo is bar";
+#+END_SRC
+
+结果会输出 =bar is bar= 。
+
+*** String Operators
+字符串之间可以通过 =.= 进行连接，对，就是一个点。
+所以：
+
+#+BEGIN_SRC perl
+"hello"."world" == "hel"."lowo"."rld"
+#+END_SRC
+
+字符串可以用 =x= 字符进行复制倍增， =x= 前的Literal会被视为字符或字符串，其后的Literal会被视为数字，所以：
+
+#+BEGIN_SRC perl
+"foo" x 3 == "foo" x "3" == "foofoofoo"
+"5" x "3" == 5 x "3" == 5 x 3 == 5 x 3.3 == 5 x "3.3" == 555
+#+END_SRC
+当倍增的数字小于1时，会输出空字符串 =""= 。
+
+这是关于Perl一个神奇的特性。
+*** Automatic Conversion Between Numbers and Strings
+关于这部分，原书有很好的诠释:
+#+BEGIN_QUOTE
+For the most part, Perl automatically converts between numbers and strings as needed.How does it know which is needed? It all depends upon the operator being used on thescalar value. If an operator expects a number (like + does), Perl will see the value as anumber. If an operator expects a string (like . does), Perl will see the value as a string.So you don’t need to worry about the difference between numbers and strings; just usethe proper operators, and Perl will make it all work.
+#+END_QUOTE
+
+所以:
+
+#+BEGIN_SRC perl
+"12" * "3" == 12 * 3 == 36
+"12foo" * "3bar" == 36
+#+END_SRC
+
+但是在执行第二条计算的时候，Perl会抛出一个Warning： =Argument "3bar" isn't numeric in multiplication (*)=
+所以可以视为，当一个数字与字母混合的字符串被转换为字符时，Perl会在字符串头部寻识别数字，如果没有则返回0.
+
+** Perl's Built-in Warnings
+在这里需要插入一个Perl内置警告的单元。
+
+如果你要开启Perl的内置警告，可以在运行脚本时使用 =-w= 参数，或者直接在脚本头部添加 =-w= 参数，例如
+
+#+BEGIN_SRC sh
+$ perl -w some_script
+#+END_SRC
+
+或者：
+
+#+BEGIN_SRC perl
+#!/usr/bin/perl -w
+#+END_SRC
+
+甚至简略为：
+
+#+BEGIN_SRC perl
+#!perl -w
+#+END_SRC
+
+在Perl5.6或更新的Perl中，你可以这样写：
+
+#+BEGIN_SRC perl
+#!/usr/bin/perl
+use warnings;
+#+END_SRC
+
+当你需要更长的诊断类描述时，可以这样写：
+
+#+BEGIN_SRC perl
+#!/usr/bin/perl
+use diagnostics;
+#+END_SRC
+
+显然，这样做会使程序运行得更慢一些，当你不需要或者已经编写或Debug完了程序，应该注释掉这一行。
+
+但是对于这种Diagnostic有一种优化便是使用 =-M= 参数，原书对于 =-M= 参数的诠释是这样的：
+#+BEGIN_QUOTE
+A further optimization can be had by using one of Perl’s command-line options, -M, toload the pragma only when needed instead of editing the source code each time toenable and disable diagnostics.
+#+END_QUOTE
+** Scalar Variables
+#+BEGIN_QUOTE
+A variable is a name for a container that holds one or more values. The name of thevariable stays the same throughout the program, but the value or values contained inthat variable typically change over and over again throughout the execution of theprogram.
+#+END_QUOTE
+
+所以在Perl中变量的特性与用法在其他编程语言中并没有区别。
+
+在Perl中一个scalar variable只能储存一个scalar value,
+
+但是Perl中的Scalar Variable需要一个代表变量名的符号，以便与其他Literals区别开来，在这里使用的是美元符号 =$= 。
+在Perl中这类符号称作 =Sigil= , 对于不同的变量需要不同的Sigil，在后面
+变量名（通常使用的表述是 =Perl Identifier= ）不可以以数字开头，而且大小写区分。
+** Scalar Assignment
+对于Scalar Variable的赋值操作，与其他的编程语言大致相似。赋值操作通过 === 来进行，例如：
+
+#+BEGIN_SRC perl
+$foo = 3;
+$foo = $foo + 3;
+$foo += 3;
+$foo = "bar";
+$foo = $foo . "foo";
+$foo = $foo x 3;
+$foo x= 3;
+$foo .= "foo";
+#+END_SRC
+
+类似的操作都是合法的。
+** Output with print
+Perl中的 =print()= 函数与其他语言中的类似，而且可以携带或不携带括号 =()= 。例如：
+
+#+BEGIN_SRC perl
+print "hello world\n";    # 输出为 “hello world”以及一个新行。
+
+print "the answer is ";
+print 2*3;
+print ".\n";    # 输出为“the answer is 6.”以及一个新行。
+
+# 当然也可以这么操作。
+
+print "the answer is". 6*7 .".\n";
+
+# 输出是相同的。
+#+END_SRC
+
+** Interpolation of Scalar Variables into Strings
+在双引号字符串中引用scalar variable，可以自动替换为该变量的值。例如：
+
+#+BEGIN_SRC perl
+$foo = "bar";
+print "$foo is bar";
+#+END_SRC
+
+结果会输出 =bar is bar= 。
+
+在被引用的变量没有被赋值或声明时，会以 =""= (空字符串)或 =0= 来代替。
+
+*注意*,这种Interpolation只能在双引号字符串中进行，单引号字符串是没有这种效果的。
+
+同时，在这种Interpolation中，Perl会寻找所谓的 /Longest Possible Variable/ ，所以为了避免程序出Bug，你可能想要用一些可用的分割符来进行变量名与字符串之间的分割。
+例如：
+
+
+#+BEGIN_SRC perl
+$foo = 1;
+$foobar = 2;
+print "$foos";        #会输出“1s”
+print "$foobar";      #会输出“2”
+print "$foo"."bar";   #会输出“1bar”
+print "${foo}bar";    #会输出“1bar”
+#+END_SRC
+
+** Operator Precedence and Associativity
+操作优先级这方面没有什么好讲的，Perl的各种操作优先级（包括二进制位操作）都与C语言相同。
+#+BEGIN_QUOTE
+So should you just memorize the precedence chart? No! Nobody actually does that.Instead, just use parentheses when you don’t remember the order of operations, orwhen you’re too busy to look in the chart. After all, if you can’t remember it withoutthe parentheses, your maintenance programmer is going to have the same trouble. Sobe nice to your maintenance programmer: you may be that person one day.
+#+END_QUOTE
+** Comparison Operators
+对于数字之间的比较，Perl有以下几种操作符：
+
+#+BEGIN_SRC perl
+< <= == >= !=
+#+END_SRC
+
+他们进行判断的返回值都是真或假 =true / false= 。
+
+对于字符串之间的比较，Perl有以下集中操作符：
+
+#+BEGIN_SRC perl
+lt le eq ge gt ne
+#+END_SRC
+
+分别代表 =less than , less or equal , equal , greater or equal , greater than , not equal= 。
+
+Perl中字符串的比较方法是从头至为比较单个字符的ASCII值，而且需要注意的是在ASCII码表中大写字母在小写字母前面，所以表达式 ="Ab" lt "ab"= 返回 =true= 。
+
+** The if Control Structure
+又到了喜闻乐见的条件选择环节。
+
+在Perl中， =if= 结构与C语言大致相同，例如：
+
+#+BEGIN_SRC perl
+  if (<condition>){
+      # do something;
+  }  elsif (<condition>) {
+      # do another something;
+  }  else {
+      # ok let's do this;
+  }
+#+END_SRC
+
+在Perl的if语句中，括号是必须的。
+
+Condition 返回的可以为True or False，当Condition为一个数字，除0外所有数字均为 =True= ，当Condition为一个字符串，除了空字符串 =''= 以外所有字符串均为真，否则（该Scalar Data为除字符串或数字以外的值）将该值转换为数字或字符串然后在进行判断。
+
+而且这里有一个little trick：在Perl中字符 ='0'= 与数字 =0= 是可互相转化的，所以 ='0'= 是Perl中唯一可以被判断为假的非空字符串。
+
+** Getting User Input
+在Perl中获取输入有一种很简单的方式， =<STDIN>= ，例如：
+
+#+BEGIN_SRC perl
+$foo = <STDIN>;
+#+END_SRC
+
+需要注意的是，<STDIN>返回的是一串字符串，以换行符做结尾，所以<STDIN>的返回值不可能是空字符串，最短返回值为 ='\n'= 。
+
+但是在大部分情况下并不需要这个结尾的换行符，所以我们需要另一个函数去去除输入时的换行符。
+** The chomp Operator
+=chomp()= 的使用方法类似这样：
+
+#+BEGIN_SRC perl
+$foo = <STDIN>;
+chomp($foo);    # 这里的括号是可以省略的。
+#+END_SRC
+
+或者再短一点：
+
+#+BEGIN_SRC perl
+chomp($foo=<STDIN>);    #这里的括号不可以省略。
+#+END_SRC
+
+作为一个函数， =chomp()= 是有返回值的，它会返回去除的字符的数量————通常情况下这个数字为1,因为在有多个换行符作为末尾的情况下， =chomp()= 也只会移除一个。但是当输入为空字符串或无末尾换行符的字符串， =chomp()= 会返回0。
+
+** The while Control Structure
+又是一个十分常用的结构。同样，Perl的while语句也和C类似：
+
+#+BEGIN_SRC perl
+while(<condition>){
+    # do something;
+}
+#+END_SRC
+
+=condition= 的判断方式已经介绍过，这里不再赘述。
+
+** The undel Value
+Perl的一个很有趣的特性便是这个 =undef= 值，它适用于引用未声明或赋值的变量时，可以被自动转换为 =0= 或 =''= ，所以：
+
+#+BEGIN_SRC perl
+$unassigned_variable = "foo";
+
+$another_unassigned_variable .= "foo";
+#+END_SRC
+
+两者是相等的。
+
+原书中写道：
+#+BEGIN_QUOTE
+/Many operators return undef when the arguments are out of range or don’t make sense.... But you should know that when warnings are turned on, Perl willtypically warn about unusual uses of the undefined value, since that may indicate abug. For example, simply copying undef from one variable into another isn’t a problem,but trying to print it would generally cause a warning./
+#+END_QUOTE
+
+** The defined Function
+=<STDIN>= 操作通常会返回一个字符串，但是也有特例。当你在扫描一个文件时，如果遇到 =EOF= ，那么 =<STDIN>= 会返回 =undef= ，这时你可以用 =defined()= 函数来判断某个变量是否被赋值。
+=defined()= 当输入的值为 =undef= 时返回假，其他情况均返回真。
+
+当然，你也可以为某个变量赋值 =undef= ，虽然这与没声明该变量没有什么区别，但是某些情况下这个特性是很有用的。
+
+* CH.3 List and Arrays
+首先我觉得需要澄清一下的是，在Perl社区中，List和Array其实通常可以互相代换。
+但是严格意义上来说，List是一些Scalar Data按照一定的顺序排列在一起组成的数据结构，而Array是指向某个List的变量。
+例如：
+
+#+BEGIN_SRC perl
+  @an_array = qw[this that foo bar];    #这是一个数列
+  print $an_array[1];                   #输出 "that"
+#+END_SRC
+
+两者之间并没有一个十分严格的界限，所以书中也写道：
+
+#+BEGIN_QUOTE
+ A list is an ordered collection of scalars. An array is a variable that contains a list. In Perl, the two terms are often used as if they’re interchangeable. But, to be accurate, the list is the data, and the array is the variable.
+#+END_QUOTE
+
+** List
+列表中的每一个元素都是一个 =Scalar Variable= 而且拥有一个 =Scalar value=, 这些变量是有一定顺序的，而且从零开始计数。
+列表中的元素不一定要是同一种类型，数字，字符串， =undef= 都是可以放到同一个列表中的。
+Perl不对列表的大小做限制，只要你的内存是足够的，你可以创建一个任意大的列表。所以最小的列表就是那些没有任何元素的列表。
+** 调用数列中的元素
+Perl调用数列元素的方式也很简单，例如：
+
+#+BEGIN_SRC perl
+$foo[0]="foo";
+$foo[1]="bar";
+print $foo[1];    #输出 "bar"
+#+END_SRC
+
+在Perl当中， =Array= 和 =Scalar Variable= 使用的是两种不同的命名域，所以你可以使某个变量和数列使用同一个名字。
+例如：
+
+#+BEGIN_SRC perl
+$foo="foo";
+$foo[0]="bar";
+print $foo.$foo[0];    #结果会输出 "foobar"
+#+END_SRC
+
+但是为了你的代码的可维护性，没人会建议你这么做。
+
+在调用数列元素的时候，你也可以在 =index= 的位置输入字符串或者浮点数或者是其他变量，Perl会自动转换为对应的整数。
+例如：
+
+#+BEGIN_SRC perl
+$foo[0]="foo";
+$foo[1]="bar";
+$the_number=1.618
+print $foo[$the_number-1].$foo["1H4T3SCH00L"]    #结果会输出 "foobar"
+#+END_SRC
+
+当调用超出数列元素数的元素时，Perl会返回 =undef= .
+例如：
+
+#+BEGIN_SRC perl
+$foo[0]=0;
+$foo[1]=1;
+if(!defined($foo[99])){
+    print "Not defined!";}    #结果会输出 "Not defined!"
+#+END_SRC
+
+** Special Array Indices
+在Perl中，当你给一个超出数列范围的元素赋值时，数列会自动扩张到合适的大小并给对应的元素赋值，而且新增加的元素会被赋值为 =undef= 。例如：
+
+#+BEGIN_SRC perl
+$foo[0]="foo";
+$foo[1]="bar";
+$foo[99]="well that was quite a gap!";
+# 从 $foo[2] 到 $foo[98] 之间的元素均为 undef
+#+END_SRC
