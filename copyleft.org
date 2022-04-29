@@ -1,14 +1,14 @@
 #+TITLE: 版权须知（README）
 #+AUTHOR: Ilgharkus
 #+OPTIONS: num:1
-#+SETUPFILE:  theme-local.setup
+#+SETUPFILE:  style-local.setup
 
 * 博客读前须知
 - 在该博客（或称个人站点） 发表的文章除以 =引用格式= 标记的文字外均为本人原创。
 #+BEGIN_QUOTE
 这种格式即是引用格式。
 #+END_QUOTE
-- 本站在GitHub Pages上托管，不会以任何形式或方法获取读者的个人信息。
+- 本站在GitLab Pages上托管，不会以任何形式或方法获取读者的个人信息。
 * GNU Free Document License
 - 本着知识共享的理念，在此站点上发表的原创文章均采用[[https://www.gnu.org/licenses/fdl-1.3.html][GNU FDL许可证]]，又称GNU 自由文档许可证（Free Document License），具体条例请参考指向 =gnu.org= 的链接。
   以下条例仅供参考：
@@ -23,12 +23,6 @@
   - 本协议保护我作为原作者以及由我的工作获得信誉不会因他人对我文档的修改而受损。
 * 版权声明
 - 本站使用 [[https://docs.gitlab.com/ee/user/project/pages/index.html][GitLab Pages]].
-- 本站使用 [[https://github.com/gongzhitaao/orgcss][OrgCSS]], 使用 [[https://github.com/gongzhitaao/orgcss/blob/master/LICENSE.MIT][MIT Licence]] 以及 [[https://github.com/gongzhitaao/orgcss/blob/master/LICENSE.996ICU][Anti 996 License]]，我在使用时进行了一定的修改。
-  - *注意：* Anti 996 Licence 与 GNU Public License 或 GNU Free Document License [[https://www.gnu.org/licenses/license-list.html#Anti-996][不兼容]], 因为其违反了[[https://www.gnu.org/philosophy/free-sw.html#four-freedoms][自由之零]] : The freedom to run the program as you wish, for any purpose.
-
-    我正在开发一款以GPL许可证开源的类似的项目以代替这款软件。
-
-- 本站使用 [[https://www.gnu.org/software/freefont/][GNU FreeFont]], 使用 [[https://www.gnu.org/licenses/gpl-3.0.html][GNU Public Licence ver.3.0+]]。
 - 本站使用 [[https://orgmode.org/][Org Mode]], 使用 [[https://www.gnu.org/licenses/gpl-3.0.html][GNU Public Licence ver.3.0+]]。
 
 本站的所有文件均可以在 [[https://gitlab.com/ilghar_kus/blog][源仓库]] 获取。
