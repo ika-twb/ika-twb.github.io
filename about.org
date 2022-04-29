@@ -1,6 +1,6 @@
 #+TITLE:About
 #+OPTIONS: num:0
-#+SETUPFILE:  theme-local.setup
+#+SETUPFILE:  style-local.setup
 
 * 这里是 Ilghar Kus 的博客。
 
