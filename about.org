@@ -16,7 +16,7 @@
 What's your favourite...
 1. *operating system*
 
-   Gentoo.
+   Gentoo GNU/Linux.
 2. *text editor*
 
    GNU Emacs.
@@ -25,7 +25,7 @@ What's your favourite...
    Bash for quick scripts; Perl for hacky scripts; Haskell for math & FP; C for Universal.
 4. *web browser*
 
-   Nyxt; Links; Firefox for compatibility.
+   Nyxt; Links; LibreWolf for compatibility.
 5. *command-line shell*
 
    Bash.
@@ -37,9 +37,9 @@ i hope ure happy now [[https://sqt.wtf/~ullard/the-five-questions.html][ullard]]
 
 我使用中文和英文写作。
 
-我的个人邮箱是 =ilghar_kus [at] protonmail.com= 。欢迎你来信，当然推荐使用PGP进行加密。
+我的个人邮箱是 =ika [at] thewizardbay.cc= 。欢迎你来信，当然推荐使用PGP进行加密。
 
-我的PGP指纹为 =1A64866B328C6A9092F02DD11C360F7878D2377B= ， 你可以在[[./ilghar_kus.asc][这里]]下载我的公钥。
+我的PGP指纹为 =2CEC 4DF5 9A6D 4187 3D44  25FB F174 A60B 548D EC09= ， 你可以在[[./ika.asc][这里]]下载我的公钥。
 
 * 你可以在这里找到我
 - [[https://gitlab.com/ilghar_kus][GitLab]]
