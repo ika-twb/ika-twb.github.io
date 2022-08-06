@@ -1,6 +1,6 @@
 #+TITLE:About
 #+OPTIONS: num:0
-#+SETUPFILE:  style-local.setup
+#+SETUPFILE:  dark.theme
 
 * 这里是 Ilghar Kus 的博客。
 

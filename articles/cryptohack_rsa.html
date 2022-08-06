@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-22 Tue 12:26 -->
+<!-- 2022-08-07 Sun 01:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>记 Cryptohack 中的一道题： Privacy-Enhanced Mail?</title>
@@ -192,28 +192,10 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
 </style>
-<link rel="stylesheet" type="text/css" href="style/main.css"/>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+<style type="text/css">
+/* Base */html,body {    background-color: #000;    min-height: 100%;    line-height: 1.5;}body {    color: #fafafa;    font-family: "Courier New";}::selection {    background-color:  #2ecc40;    color: white;}/* Responsive content positioning */@media only screen and (min-width: 1020px) /* Large screens */{    body{        padding: 10vh 25vw;    }}@media only screen and (max-width: 1020px) and (min-width: 750px) /* Small screens */{    body{        padding: 5vh 10vw;    }}@media only screen and (max-width: 750px) /* Small screens */{    body{        padding: 2vh 5vw;    }}/* Headers */h1{font-size: 2.5rem;}h2{font-size: 1.7rem;}h1 > .subtitle, h3, h4, h5, h6{font-size: 1.3rem;}.title{    margin-bottom: 2.5rem;}/* Padding & Margin */* {margin: 0; padding: 0;}pre, blockquote, ul, ol, p, table{    margin: 1rem 0;}h1, h2{margin-top: 2rem; line-height: 2rem;}h3, h4, h5, h6{margin-top: 1rem;}/* Links  */a, a:visited {    color: #01ff70;    text-decoration: underline;}a:hover, a:focus, a:active {    color: #2ecc40;}/* Code */pre {    font-family: "Courier New";    padding: .5rem;    background-color: #333;    padding: 0.5rem;    border-radius: 0.2rem;    font-size: 0.9rem;    color: #EEE;    overflow-x: auto;}.org-keyword{    color: #01ff70;}.org-rainbow-delimiters-depth-1{    color: #2ecc40;}.org-rainbow-delimiters-depth-2{    color: #01ff70;}/* Blockquotes */blockquote {    border-left: 3px solid #01ff70;    padding-left: 1rem;}li{    list-style-position: inside;}/* Tags */.tag{    margin-top: 0.5rem;    display: block;    color: white;    font-size: var(--font-size-xsmall);}.tag > span{		font-weight: 400;    font-size: 0.8rem;    background-color: #444;    text-transform: uppercase;    border-radius: 2px;    width: fit-content;    height: auto;    padding: 1px 5px;}/* Keywords */.todo{    color: #2ecc40;}.done{    color: #444;}/* Overflows */.outline-text-2, .outline-text-3, .outline-text-4{	  max-width: 100%;	  overflow-x: auto;}/* Table */tr:nth-child(even) {    background-color: #333;}th, td{    padding: 0.5rem;    text-align: center;}.underline{    text-decoration: underline;}img{    max-width: 100%;    height: auto;}
+</style>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 <body>
 <div id="content" class="content">
@@ -222,18 +204,18 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgd40e202">1. 总述</a></li>
-<li><a href="#org0ca162f">2. 题目</a></li>
-<li><a href="#org128896c">3. 代码</a>
+<li><a href="#orga45c582">1. 总述</a></li>
+<li><a href="#org37cc62e">2. 题目</a></li>
+<li><a href="#orgd485083">3. 代码</a>
 <ul>
-<li><a href="#org979be1e">实现</a></li>
+<li><a href="#orgcdbc400">实现</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd40e202" class="outline-2">
-<h2 id="orgd40e202"><span class="section-number-2">1.</span> 总述</h2>
+<div id="outline-container-orga45c582" class="outline-2">
+<h2 id="orga45c582"><span class="section-number-2">1.</span> 总述</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="https://cryptohack.org/">CryptoHack</a>是一家密码学学习与练习的CTF平台，题目质量很好。
@@ -249,8 +231,8 @@
 </div>
 </div>
 
-<div id="outline-container-org0ca162f" class="outline-2">
-<h2 id="org0ca162f"><span class="section-number-2">2.</span> 题目</h2>
+<div id="outline-container-org37cc62e" class="outline-2">
+<h2 id="org37cc62e"><span class="section-number-2">2.</span> 题目</h2>
 <div class="outline-text-2" id="text-2">
 <blockquote>
 <p>
@@ -473,8 +455,8 @@ privateExponent:
 </div>
 </div>
 
-<div id="outline-container-org128896c" class="outline-2">
-<h2 id="org128896c"><span class="section-number-2">3.</span> 代码</h2>
+<div id="outline-container-orgd485083" class="outline-2">
+<h2 id="orgd485083"><span class="section-number-2">3.</span> 代码</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li>大概分析一下整个流程，首先需要将 <code>openssl-rsa</code> 的输出结果做个处理，将 <code>privateExponent</code> 的部分挑出来。</li>
@@ -482,9 +464,9 @@ privateExponent:
 <li>将字符串转换为十六进制整数，然后输出。</li>
 </ol>
 </div>
-<div id="outline-container-org979be1e" class="outline-3">
-<h3 id="org979be1e">实现</h3>
-<div class="outline-text-3" id="text-org979be1e">
+<div id="outline-container-orgcdbc400" class="outline-3">
+<h3 id="orgcdbc400">实现</h3>
+<div class="outline-text-3" id="text-orgcdbc400">
 <p>
 针对第一步，因为我不会用 <code>sed</code> ，所以只好用 <code>awk</code> 。
 但是后来用 <code>awk</code> 整理了半天也没搞好怎么优雅地用正则表达式分段然后pattern识别。
@@ -492,7 +474,7 @@ privateExponent:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">cat ./rsa_private_key.pem | openssl rsa -text -noout | awk <span style="color: #00c06f;">'/privateExponent/'</span> <span style="color: #00bcff;">RS</span>=<span style="color: #00c06f;">'prime1'</span> | awk <span style="color: #00c06f;">'/privateExponent/'</span> <span style="color: #00bcff;">RS</span>=<span style="color: #00c06f;">')'</span>
+<pre class="src src-sh">cat ./rsa_private_key.pem | openssl rsa -text -noout | awk <span style="color: #00c06f;">'/privateExponent/'</span> <span style="color: #79a8ff;">RS</span>=<span style="color: #00c06f;">'prime1'</span> | awk <span style="color: #00c06f;">'/privateExponent/'</span> <span style="color: #79a8ff;">RS</span>=<span style="color: #00c06f;">')'</span>
 </pre>
 </div>
 
@@ -511,7 +493,7 @@ privateExponent:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #00bcff;">anum</span> = ast.literal_eval(<span style="color: #00c06f;">'0x'</span>+astr)
+<pre class="src src-python"><span style="color: #79a8ff;">anum</span> = ast.literal_eval(<span style="color: #00c06f;">'0x'</span>+astr)
 </pre>
 </div>
 
@@ -530,22 +512,22 @@ privateExponent:
 <span style="color: #00d3d0;">import</span> argparse
 
 <span style="color: #00d3d0;">def</span> <span style="color: #f78fe7;">str_proc</span>(astr):
-    <span style="color: #00bcff;">anum</span> = literal_eval(<span style="color: #00c06f;">'0x'</span>+\
+    <span style="color: #79a8ff;">anum</span> = literal_eval(<span style="color: #00c06f;">'0x'</span>+\
                         astr.replace(<span style="color: #00c06f;">"privateExponent:"</span>,<span style="color: #00c06f;">""</span>).\
                         replace(<span style="color: #00c06f;">"\n"</span>,<span style="color: #00c06f;">""</span>).replace(<span style="color: #00c06f;">":"</span>,<span style="color: #00c06f;">""</span>).replace(<span style="color: #00c06f;">" "</span>,<span style="color: #00c06f;">""</span>))
     <span style="color: #00d3d0;">return</span> anum
 
 
 <span style="color: #00d3d0;">def</span> <span style="color: #f78fe7;">main</span>():
-    <span style="color: #00bcff;">parser</span> = argparse.ArgumentParser()
+    <span style="color: #79a8ff;">parser</span> = argparse.ArgumentParser()
     parser.add_argument(<span style="color: #00c06f;">'-f'</span>,<span style="color: #00c06f;">'--filename'</span>,<span style="color: #feacd0;">help</span>=<span style="color: #00c06f;">"Specify the PEM Private Key file."</span>)
-    <span style="color: #00bcff;">arg</span> = parser.parse_args()
-    <span style="color: #00bcff;">pem_filename</span> = arg.filename
+    <span style="color: #79a8ff;">arg</span> = parser.parse_args()
+    <span style="color: #79a8ff;">pem_filename</span> = arg.filename
 
-    <span style="color: #00bcff;">system_obj</span> = popen(<span style="color: #00c06f;">"cat "</span> + pem_filename +\
+    <span style="color: #79a8ff;">system_obj</span> = popen(<span style="color: #00c06f;">"cat "</span> + pem_filename +\
                        <span style="color: #00c06f;">" | openssl rsa -text -noout | awk '/privateExponent/'"</span>+\
                        <span style="color: #00c06f;">" RS='prime1' | awk '/privateExponent/' RS=')' "</span>)
-    <span style="color: #00bcff;">astr</span> = system_obj.read()
+    <span style="color: #79a8ff;">astr</span> = system_obj.read()
     <span style="color: #00d3d0;">print</span>(str_proc(astr))
 
 <span style="color: #00d3d0;">if</span> <span style="color: #feacd0;">__name__</span>==<span style="color: #00c06f;">"__main__"</span>:
@@ -574,7 +556,7 @@ privateExponent:
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2022-03-22 Tue 12:26</p>
+<p class="date">Created: 2022-08-07 Sun 01:47</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

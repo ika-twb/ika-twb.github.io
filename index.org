@@ -1,21 +1,18 @@
-#+TITLE: Ilghar Kus 的个人站点
+#+TITLE: TheWizardBay
 #+AUTHOR: Ilgharkus
-#+OPTIONS: toc:ni
-#+SETUPFILE:  theme-local.setup
+#+OPTIONS: toc:nil
+#+SETUPFILE:  dark.theme
 
-欢迎，这里是 Ilghar Kus 的个人主页。
+[[file:media/thewizardbay.jpeg]]
 
-* Articles
-** [[file:articles/study-tactics.html][SparkCharts' Study Tactics: The Note]]
-** [[file:articles/elements_of_set_theory.html][Elements of Set Theory : The Note]]
-** [[./articles/cryptohack_rsa.html][记 Cryptohack 中的一道题： Privacy-Enhanced Mail?]]
-** [[./articles/fudan_resolv.html][Linux平台上连接复旦校园网以及故障修复指南]]
-** [[./articles/Learning-Perl.html][Learning Perl(持续更新)]]
-* Blog
-[[./blog.html][Blog]]
+#+begin_center
+Welcome, this is the personal site of Ilghar Kus (ika).
 
-* About Me
-[[./about.html][About me]]
 
-* 版权须知（README）
-[[./copyleft.html][Copyleft]]
+
+ [[./articles.org][Articles]]
+
+  [[./about.org][About me]]
+
+  [[./copyleft.org][Copyleft(README)]]
+#+end_center

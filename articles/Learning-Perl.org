@@ -1,5 +1,5 @@
 #+TITLE: Learning Perl(持续更新)
-#+SETUPFILE:  style-local.setup
+#+SETUPFILE:  dark.theme
 * 总述：
 :PROPERTIES:
   :UNNUMBERED:
