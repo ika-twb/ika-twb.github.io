@@ -1,6 +1,6 @@
 #+title: Elements of Set Theory : The Note
 #+AUTHOR: Ilghar Kus
-#+SETUPFILE:  style-local.setup
+#+SETUPFILE:  dark.theme
 #+OPTIONS: toc:nil
 
 This is my note during the reading
