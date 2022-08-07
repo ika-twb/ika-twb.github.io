@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-08-07 Sun 01:49 -->
+<!-- 2022-08-07 Sun 15:50 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Linux平台上连接复旦校园网以及故障修复指南</title>
@@ -195,7 +195,9 @@
 </style>
 <style type="text/css">
 /* Base */html,body {    background-color: #000;    min-height: 100%;    line-height: 1.5;}body {    color: #fafafa;    font-family: "Courier New";}::selection {    background-color:  #2ecc40;    color: white;}/* Responsive content positioning */@media only screen and (min-width: 1020px) /* Large screens */{    body{        padding: 10vh 25vw;    }}@media only screen and (max-width: 1020px) and (min-width: 750px) /* Small screens */{    body{        padding: 5vh 10vw;    }}@media only screen and (max-width: 750px) /* Small screens */{    body{        padding: 2vh 5vw;    }}/* Headers */h1{font-size: 2.5rem;}h2{font-size: 1.7rem;}h1 > .subtitle, h3, h4, h5, h6{font-size: 1.3rem;}.title{    margin-bottom: 2.5rem;}/* Padding & Margin */* {margin: 0; padding: 0;}pre, blockquote, ul, ol, p, table{    margin: 1rem 0;}h1, h2{margin-top: 2rem; line-height: 2rem;}h3, h4, h5, h6{margin-top: 1rem;}/* Links  */a, a:visited {    color: #01ff70;    text-decoration: underline;}a:hover, a:focus, a:active {    color: #2ecc40;}/* Code */pre {    font-family: "Courier New";    padding: .5rem;    background-color: #333;    padding: 0.5rem;    border-radius: 0.2rem;    font-size: 0.9rem;    color: #EEE;    overflow-x: auto;}.org-keyword{    color: #01ff70;}.org-rainbow-delimiters-depth-1{    color: #2ecc40;}.org-rainbow-delimiters-depth-2{    color: #01ff70;}/* Blockquotes */blockquote {    border-left: 3px solid #01ff70;    padding-left: 1rem;}li{    list-style-position: inside;}/* Tags */.tag{    margin-top: 0.5rem;    display: block;    color: white;    font-size: var(--font-size-xsmall);}.tag > span{		font-weight: 400;    font-size: 0.8rem;    background-color: #444;    text-transform: uppercase;    border-radius: 2px;    width: fit-content;    height: auto;    padding: 1px 5px;}/* Keywords */.todo{    color: #2ecc40;}.done{    color: #444;}/* Overflows */.outline-text-2, .outline-text-3, .outline-text-4{	  max-width: 100%;	  overflow-x: auto;}/* Table */tr:nth-child(even) {    background-color: #333;}th, td{    padding: 0.5rem;    text-align: center;}.underline{    text-decoration: underline;}img{    max-width: 100%;    height: auto;}
+.backlink{position: fixed; top: 0;left: 30px;}
 </style>
+<p class="backlink"><a href="/index.html">HomePage</a><br><br><a href="/articles.html">Articles</a></p>
 </head>
 <body>
 <div id="content" class="content">
@@ -204,24 +206,24 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgdbd0289">1. 前言</a></li>
-<li><a href="#orgc84648c">2. 设备信息</a></li>
-<li><a href="#org9ae5c7d">3. The Hacky Trick</a>
+<li><a href="#org7cc5e79">1. 前言</a></li>
+<li><a href="#orgc6026fa">2. 设备信息</a></li>
+<li><a href="#org958adea">3. The Hacky Trick</a>
 <ul>
-<li><a href="#org93cfc2b">Step 1</a></li>
-<li><a href="#org6358e37">Step 2</a></li>
-<li><a href="#orgfed52fd">Step 3</a></li>
-<li><a href="#orgbfd5a05">Step 4</a></li>
-<li><a href="#org5b2704d">Step 5</a></li>
-<li><a href="#org09c2fbd">Step 6</a></li>
-<li><a href="#orgef870c9">Step 7</a></li>
+<li><a href="#org006bffd">Step 1</a></li>
+<li><a href="#orgf42c135">Step 2</a></li>
+<li><a href="#org4f1fca1">Step 3</a></li>
+<li><a href="#org747e818">Step 4</a></li>
+<li><a href="#org172a721">Step 5</a></li>
+<li><a href="#orgafebf24">Step 6</a></li>
+<li><a href="#org6853d76">Step 7</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdbd0289" class="outline-2">
-<h2 id="orgdbd0289"><span class="section-number-2">1.</span> 前言</h2>
+<div id="outline-container-org7cc5e79" class="outline-2">
+<h2 id="org7cc5e79"><span class="section-number-2">1.</span> 前言</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 从来到复旦校园的第一天开始校园网在Linux平台的连接失败问题就一直存在着，
@@ -251,8 +253,8 @@
 </p>
 </div>
 </div>
-<div id="outline-container-orgc84648c" class="outline-2">
-<h2 id="orgc84648c"><span class="section-number-2">2.</span> 设备信息</h2>
+<div id="outline-container-orgc6026fa" class="outline-2">
+<h2 id="orgc6026fa"><span class="section-number-2">2.</span> 设备信息</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <code>OS: Arch Linux</code>
@@ -281,21 +283,21 @@
 </div>
 </div>
 
-<div id="outline-container-org9ae5c7d" class="outline-2">
-<h2 id="org9ae5c7d"><span class="section-number-2">3.</span> The Hacky Trick</h2>
+<div id="outline-container-org958adea" class="outline-2">
+<h2 id="org958adea"><span class="section-number-2">3.</span> The Hacky Trick</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org93cfc2b" class="outline-3">
-<h3 id="org93cfc2b">Step 1</h3>
-<div class="outline-text-3" id="text-org93cfc2b">
+<div id="outline-container-org006bffd" class="outline-3">
+<h3 id="org006bffd">Step 1</h3>
+<div class="outline-text-3" id="text-org006bffd">
 <p>
 打开终端（废话），准备好输入以下命令。
 </p>
 </div>
 </div>
-<div id="outline-container-org6358e37" class="outline-3">
-<h3 id="org6358e37">Step 2</h3>
-<div class="outline-text-3" id="text-org6358e37">
+<div id="outline-container-orgf42c135" class="outline-3">
+<h3 id="orgf42c135">Step 2</h3>
+<div class="outline-text-3" id="text-orgf42c135">
 <p>
 删除DNS客户机的配置文件，里面包含DNS服务器的IP地址以及本地域名。
 在Arch中这个文件是 <code>/etc/resolv.conf</code>.
@@ -311,9 +313,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgfed52fd" class="outline-3">
-<h3 id="orgfed52fd">Step 3</h3>
-<div class="outline-text-3" id="text-orgfed52fd">
+<div id="outline-container-org4f1fca1" class="outline-3">
+<h3 id="org4f1fca1">Step 3</h3>
+<div class="outline-text-3" id="text-org4f1fca1">
 <p>
 将 <code>/run/resolvconf/</code> 中的DNS配置文件 <code>resolv.conf</code> 复制到 <code>/etc</code> 中。
 当然创建一个软链接是最好的。
@@ -330,9 +332,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgbfd5a05" class="outline-3">
-<h3 id="orgbfd5a05">Step 4</h3>
-<div class="outline-text-3" id="text-orgbfd5a05">
+<div id="outline-container-org747e818" class="outline-3">
+<h3 id="org747e818">Step 4</h3>
+<div class="outline-text-3" id="text-org747e818">
 <p>
 运行 <code>resolvconf</code> ，从当前的DNS服务器获取更新。
 </p>
@@ -344,9 +346,9 @@
 </div>
 </div>
 
-<div id="outline-container-org5b2704d" class="outline-3">
-<h3 id="org5b2704d">Step 5</h3>
-<div class="outline-text-3" id="text-org5b2704d">
+<div id="outline-container-org172a721" class="outline-3">
+<h3 id="org172a721">Step 5</h3>
+<div class="outline-text-3" id="text-org172a721">
 <p>
 重启你的网络管理工具，我使用的是 <code>NetworkManager</code> 。
 </p>
@@ -358,9 +360,9 @@
 </div>
 </div>
 
-<div id="outline-container-org09c2fbd" class="outline-3">
-<h3 id="org09c2fbd">Step 6</h3>
-<div class="outline-text-3" id="text-org09c2fbd">
+<div id="outline-container-orgafebf24" class="outline-3">
+<h3 id="orgafebf24">Step 6</h3>
+<div class="outline-text-3" id="text-orgafebf24">
 <p>
 启动或者重启 <code>DHCP client</code> 。
 </p>
@@ -374,9 +376,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgef870c9" class="outline-3">
-<h3 id="orgef870c9">Step 7</h3>
-<div class="outline-text-3" id="text-orgef870c9">
+<div id="outline-container-org6853d76" class="outline-3">
+<h3 id="org6853d76">Step 7</h3>
+<div class="outline-text-3" id="text-org6853d76">
 <p>
 接下来，切换到浏览器并且随便打开一个网页，例如 <a href="https://duckduckgo.com">https://duckduckgo.com</a> 。
 你的浏览器会提示该网络需要登录，打开登录界面。
@@ -395,7 +397,7 @@
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Ilghar Kus</p>
-<p class="date">Created: 2022-08-07 Sun 01:49</p>
+<p class="date">Created: 2022-08-07 Sun 15:50</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
