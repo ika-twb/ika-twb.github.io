@@ -1,20 +1,17 @@
 #+TITLE: TheWizardBay
 #+AUTHOR: Ilgharkus
 #+OPTIONS: toc:nil
-#+SETUPFILE:  dark.theme
+#+SETUPFILE:  dark_index.theme
 
 [[file:media/thewizardbay.jpeg]]
 
 #+begin_center
 Welcome, this is the personal site of Ilghar Kus (ika).
 
+[[./articles.org][Articles]]
 
+[[./about.org][About me]]
 
- [[./articles.org][Articles]]
+[[./copyleft.org][Copyleft(README)]]
 
-  [[./about.org][About me]]
-
-  [[./copyleft.org][Copyleft(README)]]
-
- 
 #+end_center
