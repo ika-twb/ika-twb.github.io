@@ -97,7 +97,7 @@ print "$foo is bar";
 关于这部分，原书有很好的诠释:
 #+BEGIN_QUOTE
 For the most part, Perl automatically converts between numbers and strings as needed.How does it know which is needed? It all depends upon the operator being used on thescalar value. If an operator expects a number (like + does), Perl will see the value as anumber. If an operator expects a string (like . does), Perl will see the value as a string.So you don’t need to worry about the difference between numbers and strings; just usethe proper operators, and Perl will make it all work.
-#+END_QUOTE
+#+END_QUOTE 
 
 所以:
 
