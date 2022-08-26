@@ -1,7 +1,7 @@
 #+TITLE:About
 #+OPTIONS: num:0
 #+SETUPFILE:  dark.theme
-
+#+MACRO: imglnk @@html:<a href="$1"><img align="left" src="$2"></a>@@
 * 这里是 Ilghar Kus 的博客。
 
 我的通用ID是 =ilghar_kus= ，或 =ilgharkus= 。在某些成员比较少的社区，我也会使用 =ika= 。
@@ -42,5 +42,14 @@ i hope ure happy now [[https://sqt.wtf/~ullard/the-five-questions.html][ullard]]
 我的PGP指纹为 =2CEC 4DF5 9A6D 4187 3D44  25FB F174 A60B 548D EC09= ， 你可以在[[./ika.asc][这里]]下载我的公钥。
 
 * 你可以在这里找到我
-- [[https://gitlab.com/ilghar_kus][GitLab]]
-- [[https://mastodon.sdf.org/@ika][Mastodon]]
+{{{imglnk(https://mastodon.sdf.org/@ika,media/mastodon_banner.png)}}}
+
+{{{imglnk(https://gitlab.com/ilghar_kus,media/gitlab_banner.png)}}}
+
+{{{imglnk(https://github.com/ika-twb,media/github_banner.png)}}}
+
+{{{imglnk(https://www.hackthebox.com/home/users/profile/75894,media/htb_banner.png)}}}
+
+{{{imglnk(https://codeforces.com/profile/ilghar_kus,media/codeforces_banner.png)}}}
+
+{{{imglnk(https://www.hackerrank.com/ilghar_kus,media/hackerrank_banner.png)}}}
