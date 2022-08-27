@@ -1,8 +1,12 @@
 #+TITLE:About
-#+OPTIONS: num:0
+#+OPTIONS: num:0 toc:nil
 #+SETUPFILE:  dark.theme
 #+MACRO: imglnk @@html:<a href="$1"><img align="left" src="$2"></a>@@
-* 这里是 Ilghar Kus 的博客。
+* 这里是 Ilghar Kus 的个人主页。
+
+*This is the personal site of Ilghar Kus.*
+
+-------
 
 我的通用ID是 =ilghar_kus= ，或 =ilgharkus= 。在某些成员比较少的社区，我也会使用 =ika= 。
 
@@ -11,6 +15,18 @@
 我感兴趣的是信息安全，自由软件，数学，金属乐以及一些复古的事物。
 
 我使用 =Gentoo= 和 =FreeBSD= 作为工作的主力系统，使用 =GNU Emacs= 作为代码编辑器、写作软件以及GTD软件。
+
+--------
+
+You can find me under the username =ilghar_kus=, =ilgharkus=, or =ika= when that name is not taken.
+
+I'm a college student by now.
+
+I'm interested in InfoSec, Free Software, Math, Metal Music and some retro stuff.
+
+I daily drive =Gentoo= and =FreeBSD=, with =GNU Emacs= as the main text editor, writing software and GTD.
+
+-----
 
 #+BEGIN_QUOTE
 What's your favourite...
@@ -32,6 +48,7 @@ What's your favourite...
 
 i hope ure happy now [[https://sqt.wtf/~ullard/the-five-questions.html][ullard]].
 #+END_QUOTE
+---------
 
 我使用 Dell Inspiron 7590 和一台 Thinkpad T480s 作为主力工作站，使用 =i3wm= 以及 =polybar= 。
 
@@ -41,7 +58,24 @@ i hope ure happy now [[https://sqt.wtf/~ullard/the-five-questions.html][ullard]]
 
 我的PGP指纹为 =2CEC 4DF5 9A6D 4187 3D44  25FB F174 A60B 548D EC09= ， 你可以在[[./ika.asc][这里]]下载我的公钥。
 
+-------
+
+I daily use a Dell Inspiron 7590 and a Thinkpad T480s, with =i3wm= and =polybar=.
+
+I write in Chinese and English.
+
+My personal email address is =ika [at] thewizardbay.cc= . Emails are always welcome, especially those with PGP encrypted and signed.
+
+My PGP fingerprint is =2CEC 4DF5 9A6D 4187 3D44  25FB F174 A60B 548D EC09= ， and the public key could be downloaded [[./ika.asc][here]] or on any keyserver.
+
 * 你可以在这里找到我
+
+*Find me in these places.*
+
+-----
+
+{{{imglnk(ircs://irc.libera.chat:6697,media/libera_banner.png)}}}
+
 {{{imglnk(https://mastodon.sdf.org/@ika,media/mastodon_banner.png)}}}
 
 {{{imglnk(https://gitlab.com/ilghar_kus,media/gitlab_banner.png)}}}
@@ -53,3 +87,6 @@ i hope ure happy now [[https://sqt.wtf/~ullard/the-five-questions.html][ullard]]
 {{{imglnk(https://codeforces.com/profile/ilghar_kus,media/codeforces_banner.png)}}}
 
 {{{imglnk(https://www.hackerrank.com/ilghar_kus,media/hackerrank_banner.png)}}}
+
+
+

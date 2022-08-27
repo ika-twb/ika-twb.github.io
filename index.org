@@ -14,4 +14,5 @@ Welcome, this is the personal site of Ilghar Kus (ika).
 
 [[./copyleft.org][Copyleft(README)]]
 
+lizardwrangler, where's your webring?
 #+end_center
