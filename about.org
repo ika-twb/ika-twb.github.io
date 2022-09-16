@@ -87,6 +87,3 @@ My PGP fingerprint is =2CEC 4DF5 9A6D 4187 3D44  25FB F174 A60B 548D EC09= ， a
 {{{imglnk(https://codeforces.com/profile/ilghar_kus,media/codeforces_banner.png)}}}
 
 {{{imglnk(https://www.hackerrank.com/ilghar_kus,media/hackerrank_banner.png)}}}
-
-
-

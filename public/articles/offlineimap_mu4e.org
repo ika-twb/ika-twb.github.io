@@ -1,0 +1,8 @@
+#+TITLE: Offlineimap + MU4E 邮件收发全指南
+#+AUTHOR: Ilghar Kus
+
+#+BEGIN_QUOTE
+<ika> if i haven't fallen into the fucking rabbithole of emacs
+<ika> who knows
+<ika> maybe ill go use mutt
+#+END_QUOTE
