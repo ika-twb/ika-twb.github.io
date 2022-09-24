@@ -1,8 +1,142 @@
-#+TITLE: Offlineimap + MU4E 邮件收发全指南
+#+TITLE: Using Offlineimap + MU4E to Setup A Powerful Email Client
 #+AUTHOR: Ilghar Kus
-
 #+BEGIN_QUOTE
 <ika> if i haven't fallen into the fucking rabbithole of emacs
+
 <ika> who knows
+
 <ika> maybe ill go use mutt
 #+END_QUOTE
+
+* Introduction
+[[https://github.com/OfflineIMAP/offlineimap3][OfflineIMAP]] is an email syncing software that downloads your emails from the
+remote ESP servers as an local directory, and will synchronize both sides
+using IMAP protocol. You can use OfflineIMAP to setup multiple accounts with
+their own local mail directory, remote host, refresh rate, filter, hooks, etc.
+It's also extensible using Python, so you could automatically play your
+favourite true crime podcast episode everytime you get a new email.
+
+Mu4e is a mail client for emacs, shipped with Mu as a mail indexer and searcher
+to deal with your various maildirs and mail files. It's fully documented,
+asynchronous, support encryption, flow-optimized interface, and extensible,
+using Elisp of course.
+
+With OfflineIMAP as a backend synchronizer, and mu4e as a front-end interface
+and searcher, you could have a consistent, customized and fast experience
+dealing with emails, in your own and beloved text editor, and you won't ever
+need to suffer 30mins of 5000rpm fan noize of compiling thunderbird to update
+some feature you never use. (If you don't use Gentoo, at least we could agree
+on the part that Thunderbird is totally bloatware.)
+
+* Setup guide: OfflineIMAP
+
+** Installation
+If you have the offlineimap package in your distro repo and it's written in python3
+(python2 version is obsolete and archived, don't use that, either the package or
+the language), you could just download and install it using the package manager
+that came with the distro.
+
+If you're using Gentoo, however, the =offlineimap= package is not included in the
+=gentoo= repo, so unless you wrote your own ebuild file or you find one in other
+people's overlay, you have to download the code from the [[https://github.com/OfflineIMAP/offlineimap3][GitHub repo]].
+
+Clone the repo using =git=:
+
+#+BEGIN_SRC sh
+$ git clone https://github.com/OfflineIMAP/offlineimap3
+#+END_SRC
+
+Then create a symbolic link of it to dir =~/.local/bin/=
+
+#+BEGIN_SRC sh
+$ ln -s /path/to/offlineimap3/offlineimap.py ${HOME}/.local/bin/offlineimap
+#+END_SRC
+
+Then you're good to go.
+
+** Configuration
+The configutaion file have a default path of =~/.offlineimaprc=, and in the cloned
+repo you could find a =offlineimap.conf= file and a =offlineimap.conf.minimal= file.
+
+The first file is a detailed documentation with all the options, explainations
+and usage given, although the method of documentation in config files as comment
+lines was always spurned by me, this file by it self is written as an exellent
+document.
+
+*** [general]
+=general= segment is used to declare accounts, the python extension file, and
+other options related to the overall program-running and syncing mechanism.
+
+For the example below i'll use a test account =example@example.com=. And be aware
+that I won't demonstrate any other options provided by the program than the ones
+that my configuration file is using right now, so it is recommended to peruse
+the example config file if you want to use other features.
+
+#+BEGIN_SRC python
+  [general]
+  accounts = example
+  pythonfile = ~/.offlineimap_ext.py
+  maxsyncaccounts = 1
+#+END_SRC
+
+=accounts= is the part that you declare all your accounts, seperated by comma.
+The name you used here do not have to be your username at your ESP or your
+email account. It's just needed for account settings later in the config file.
+
+=pythonfile= is used to declare the python program you use to extend the program
+capability. It's imported and interpreted during parsing the config file,
+before running any core mechanism. You can basically use this to do anything
+you want, in my case it's used for extracting passwords from gpg encrypted files.
+
+=maxsyncaccounts= is used to specify the max amount of concurrent syncing, the
+developers and I both recommend this amount to be one, whether you decide to run
+multiple offlineimap instances for multiple accounts or using one instance for all
+accounts. The reason is that later in the section of post-sync hook, we need to
+call =mu= to index the mail directory for changes, and it cannot be ran concurrently
+with multiple instances.
+
+And in the next-next section you need to declare the account-specific settings.
+
+*** [mbnames]
+Mailbox name recording section, skipped cause I don't use it.
+
+*** [Account example]
+This part is for specifying, of course, account related settings.
+
+First of all there's two repository that you need to specify,
+a local one, and a remote one.
+
+#+BEGIN_SRC python
+  localrepository = LocalExample
+  remoterepository = RemoteExample
+#+END_SRC
+
+The repo name in here doesn't need to match up with anything,
+other than the name in the [Repository] section below.
+
+#+BEGIN_SRC python
+  autorefresh = 5
+  quick = 10
+  postsynchook = mu index
+#+END_SRC
+
+Offlineimap could run indefinitely, as long as you don't kill it.
+Such mechanism enables the feature of automatic syncing with the remote server,
+specified in the =autorefresh= variable. The time here uses unit of minute, and
+supports fractional values like 3.25.
+
+If your system uses systemd, it's probably better to use the systemd timer
+instead of this mechanism, for the sake of integrity and better system management.
+
+Option =postsynchook= offers a feature to run a shell one-liner after the a sync.
+Here the =mu= program is called to index the maildir.
+
+You can also add a notification command here, such as =notify-send=,
+to send a desktop popup, but given the condition that a mail sync
+doesn't neccessarily mean new emails, you could save that for the later part.
+
+Other Options such as =maxsize= for limited mailbox syncing, =maxage= for date-specified
+mail syncing, etc. could be found in the doc.
+
+*To be noticed*, if you're using Gmail there's a whole other category for gmail account
+configuration, which is also documented in the =offlineimap.conf=.

@@ -1,6 +1,6 @@
 #+TITLE:ARTICLES
 #+AUTHOR: Ilgharkus
-#+OPTIONS: toc:nil
+#+OPTIONS: toc:nil author:nil timestamp:nil
 #+SETUPFILE: dark.theme
 
 * [[file:articles/study-tactics.org][SparkCharts' Study Tactics: The Note]]
@@ -8,5 +8,3 @@
 * [[./articles/cryptohack_rsa.org][记 Cryptohack 中的一道题： Privacy-Enhanced Mail?]]
 * [[./articles/fudan_resolv.org][Linux平台上连接复旦校园网以及故障修复指南]]
 * [[./articles/Learning-Perl.org][Learning Perl(持续更新)]]
-
-
