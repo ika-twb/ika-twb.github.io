@@ -6,7 +6,7 @@
 <!-- 2022-11-19 Sat 03:21 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Linux平台上连接复旦校园网以及故障修复指南</title>
+<title>CTF 与渗透测试资源总结</title>
 <meta name="author" content="Ilghar Kus" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -197,197 +197,186 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Linux平台上连接复旦校园网以及故障修复指南</h1>
-<div id="table-of-contents" role="doc-toc">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
-<ul>
-<li><a href="#orge8b1788">1. 前言</a></li>
-<li><a href="#orgdc574d8">2. 设备信息</a></li>
-<li><a href="#org3e1b418">3. The Hacky Trick</a>
-<ul>
-<li><a href="#orga0056c4">Step 1</a></li>
-<li><a href="#org8a26873">Step 2</a></li>
-<li><a href="#org2c7a2db">Step 3</a></li>
-<li><a href="#org4f73b68">Step 4</a></li>
-<li><a href="#org396b731">Step 5</a></li>
-<li><a href="#orgda7b470">Step 6</a></li>
-<li><a href="#org978e18b">Step 7</a></li>
-</ul>
-</li>
-</ul>
+<h1 class="title">CTF 与渗透测试资源总结</h1>
+<div id="outline-container-orgfbf2a0d" class="outline-2">
+<h2 id="orgfbf2a0d">学习与练习</h2>
+<div class="outline-text-2" id="text-orgfbf2a0d">
 </div>
+<div id="outline-container-org188366c" class="outline-3">
+<h3 id="org188366c"><a href="https://pentesterlab.com/bootcamp/">PentesterLab</a></h3>
 </div>
-<div id="outline-container-orge8b1788" class="outline-2">
-<h2 id="orge8b1788"><span class="section-number-2">1.</span> 前言</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-从来到复旦校园的第一天开始校园网在Linux平台的连接失败问题就一直存在着，
-能不能成功连接纯粹靠运气，在比较重要的场合因为无法连接到校园网而耽误时间
-甚至社会性死亡的情况频有发生。
-经过询问几个同样使用Linux的朋友发现这个问题可以说是普遍存在。
-</p>
-
-<p>
-在连接到校园网的无线AP后，浏览器会提示此网络需要登录，并打开登录页面。
-在输入用户名与密码过后，有一部分几率会弹出所示窗口，提示认证失败。
-而且在大部分情况下断开并重新连接网络或者刷新页面都无法解决当前问题。
-</p>
-
-<p>
-在上学期（指2020年秋季）信息办下发的问卷当中我也反映了这一问题，
-而且也留下了自己的邮箱并表示如果可以自己希望参与调试与修复过程。
-但是直到现在我也没有接到任何消息，而且在这个过程中通过不断的尝试和折腾，
-自己也摸索出来了一套可以正常工作的连接方法。
-</p>
-
-<p>
-但是具体的机制因为无法白盒测试所以暂不清晰，所以在以下的操作中会有一些十分鲁棒的行为。
-在有机会参与白盒测试的情况下我或许会研究出来更简单而且优雅的方法(虽然那时候可能也不需要这么做了），
-而且我也实在是没有精力去黑盒测试这种系统，我的需求是需要连接的时候可以正常连接上，
-这样就可以继续自己原来的工作流。
-</p>
+<div id="outline-container-org5a49452" class="outline-3">
+<h3 id="org5a49452"><a href="http://www.wechall.net/forum">We Chall</a></h3>
 </div>
+<div id="outline-container-orgc899d3a" class="outline-3">
+<h3 id="orgc899d3a"><a href="https://adworld.xctf.org.cn/">XCTF</a></h3>
 </div>
-<div id="outline-container-orgdc574d8" class="outline-2">
-<h2 id="orgdc574d8"><span class="section-number-2">2.</span> 设备信息</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-<code>OS: Arch Linux</code>
-</p>
-
-<p>
-<code>Kernel: 5.11.1</code>
-</p>
-
-<p>
-<code>Shell: zsh</code>
-</p>
-
-<p>
-<code>WM: i3</code>
-</p>
-
-<p>
-<code>NW: NetworkManager</code>
-</p>
-
-<p>
-不同发行版与不同配置之间具体的操作与命令可能会有差别，我会解释每一个步骤中命令的具体含义。
-如果在你的发行版上找不到具体的文件或者命令，请参阅该发行版的Wiki以及社区论坛。
-</p>
+<div id="outline-container-orgc4724d4" class="outline-3">
+<h3 id="orgc4724d4"><a href="https://github.com/ctfs/">Github CTFs</a></h3>
+</div>
+<div id="outline-container-org926a110" class="outline-3">
+<h3 id="org926a110"><a href="https://github.com/apsdehal/awesome-ctf">Awesome CTF</a></h3>
+</div>
+<div id="outline-container-org374e881" class="outline-3">
+<h3 id="org374e881"><a href="https://hackme.inndy.tw/scoreboard/">Hack Me</a></h3>
+</div>
+<div id="outline-container-org080738d" class="outline-3">
+<h3 id="org080738d"><a href="https://pwnhub.cn/index">Pwnhub</a></h3>
+</div>
+<div id="outline-container-orgb4db4cd" class="outline-3">
+<h3 id="orgb4db4cd"><a href="http://hackinglab.cn/">HackingLab</a></h3>
+</div>
+<div id="outline-container-orgd5ad820" class="outline-3">
+<h3 id="orgd5ad820"><a href="https://ctf.bugku.com/">Bugku CTF</a></h3>
+</div>
+<div id="outline-container-org4b19b94" class="outline-3">
+<h3 id="org4b19b94"><a href="https://www.kanxue.com/chm.htm">看雪知识库</a></h3>
+</div>
+<div id="outline-container-org2497d5f" class="outline-3">
+<h3 id="org2497d5f"><a href="https://www.jarvisoj.com/">Jarvis OJ</a></h3>
+</div>
+<div id="outline-container-org3bfd2ce" class="outline-3">
+<h3 id="org3bfd2ce"><a href="https://ctflearn.com/">CTF Learn</a></h3>
+</div>
+<div id="outline-container-org9757c5a" class="outline-3">
+<h3 id="org9757c5a"><a href="https://book.nu1l.com/tasks/#/">从0到1 by Nu1L-Team</a></h3>
 </div>
 </div>
 
-<div id="outline-container-org3e1b418" class="outline-2">
-<h2 id="org3e1b418"><span class="section-number-2">3.</span> The Hacky Trick</h2>
-<div class="outline-text-2" id="text-3">
-</div>
-<div id="outline-container-orga0056c4" class="outline-3">
-<h3 id="orga0056c4">Step 1</h3>
-<div class="outline-text-3" id="text-orga0056c4">
-<p>
-打开终端（废话），准备好输入以下命令。
-</p>
-</div>
-</div>
-<div id="outline-container-org8a26873" class="outline-3">
-<h3 id="org8a26873">Step 2</h3>
-<div class="outline-text-3" id="text-org8a26873">
-<p>
-删除DNS客户机的配置文件，里面包含DNS服务器的IP地址以及本地域名。
-在Arch中这个文件是 <code>/etc/resolv.conf</code>.
-</p>
 
-<p>
-删除这个文件需要root权限。
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sh">sudo rm /etc/resolv.conf
-</pre>
+<div id="outline-container-org04b7224" class="outline-2">
+<h2 id="org04b7224">学习路线</h2>
+<div class="outline-text-2" id="text-org04b7224">
 </div>
+<div id="outline-container-orgf5aceec" class="outline-3">
+<h3 id="orgf5aceec"><a href="https://skills.bugbank.cn/">Bugbank</a></h3>
 </div>
+<div id="outline-container-org7e96f4d" class="outline-3">
+<h3 id="org7e96f4d"><a href="https://evilcos.me/security_skill_tree_basic/index.html">安全技能树 by 余弦</a></h3>
 </div>
-<div id="outline-container-org2c7a2db" class="outline-3">
-<h3 id="org2c7a2db">Step 3</h3>
-<div class="outline-text-3" id="text-org2c7a2db">
-<p>
-将 <code>/run/resolvconf/</code> 中的DNS配置文件 <code>resolv.conf</code> 复制到 <code>/etc</code> 中。
-当然创建一个软链接是最好的。
-这一步也需要root权限
-</p>
-<div class="org-src-container">
-<pre class="src src-sh">sudo ln -s /run/resolvconf/resolv.conf /etc/resolv.conf
-</pre>
+<div id="outline-container-org02befae" class="outline-3">
+<h3 id="org02befae"><a href="https://github.com/phith0n/Mind-Map">思维导图 by phith0n</a></h3>
 </div>
-<p>
-在这里我也没搞懂这两步的意义，删除一个文件然后又建立一个软链接。理论上来说这两个文件内容是同样的。
-但是在某些时候不这样做也会导致连接失败，或许以后会研究清楚这个问题。
-</p>
+<div id="outline-container-org9f25b9e" class="outline-3">
+<h3 id="org9f25b9e"><a href="https://github.com/riusksk/secbook">书籍推荐 by riusksk</a></h3>
 </div>
 </div>
 
-<div id="outline-container-org4f73b68" class="outline-3">
-<h3 id="org4f73b68">Step 4</h3>
-<div class="outline-text-3" id="text-org4f73b68">
-<p>
-运行 <code>resolvconf</code> ，从当前的DNS服务器获取更新。
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sh">sudo resolvconf -u
-</pre>
+<div id="outline-container-org757b91b" class="outline-2">
+<h2 id="org757b91b">知识点</h2>
+<div class="outline-text-2" id="text-org757b91b">
 </div>
+<div id="outline-container-org0420727" class="outline-3">
+<h3 id="org0420727"><a href="https://zhuanlan.zhihu.com/p/103650970">Alix10的刷题记录</a></h3>
 </div>
+<div id="outline-container-org32b5a71" class="outline-3">
+<h3 id="org32b5a71"><a href="https://ctf-wiki.github.io/ctf-wiki/index.html">CTF-Wiki</a></h3>
 </div>
-
-<div id="outline-container-org396b731" class="outline-3">
-<h3 id="org396b731">Step 5</h3>
-<div class="outline-text-3" id="text-org396b731">
-<p>
-重启你的网络管理工具，我使用的是 <code>NetworkManager</code> 。
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sh">sudo systemctl restart NetworkManager
-</pre>
+<div id="outline-container-orgcb4c798" class="outline-3">
+<h3 id="orgcb4c798"><a href="https://github.com/firmianay/CTF-All-In-One">CTF-All-in-one</a></h3>
 </div>
+<div id="outline-container-org7a92a64" class="outline-3">
+<h3 id="org7a92a64"><a href="https://github.com/bigyank/Pentest-Notes">Pentest Notes</a></h3>
 </div>
+<div id="outline-container-org75167ca" class="outline-3">
+<h3 id="org75167ca"><a href="https://github.com/wtsxDev/Penetration-Testing">Awesome Pentest</a></h3>
 </div>
-
-<div id="outline-container-orgda7b470" class="outline-3">
-<h3 id="orgda7b470">Step 6</h3>
-<div class="outline-text-3" id="text-orgda7b470">
-<p>
-启动或者重启 <code>DHCP client</code> 。
-</p>
-<div class="org-src-container">
-<pre class="src src-emacs-lisp">sudo dhcpcd
-</pre>
+<div id="outline-container-org08e55c0" class="outline-3">
+<h3 id="org08e55c0"><a href="https://github.com/husnainfareed/Awesome-Ethical-Hacking-Resources">Awesome Hacking Resource</a></h3>
 </div>
-<p>
-如果你是用的是IPv6网络请使用 <code>dhclient</code> 。
-</p>
+<div id="outline-container-org3654628" class="outline-3">
+<h3 id="org3654628"><a href="https://github.com/vitalysim/Awesome-Hacking-Resources">Awesome Hacking Resources</a></h3>
+</div>
+<div id="outline-container-org3c070e8" class="outline-3">
+<h3 id="org3c070e8"><a href="https://github.com/Snowming04/The-Hacker-Playbook-3-Translation">The Hacker Playbook 3 中文翻译版</a></h3>
+</div>
+<div id="outline-container-orgac50971" class="outline-3">
+<h3 id="orgac50971"><a href="https://github.com/sbilly/awesome-security">Awesome Security</a></h3>
+</div>
+<div id="outline-container-org03224f0" class="outline-3">
+<h3 id="org03224f0"><a href="https://github.com/enaqx/awesome-pentest">Awesome Pentesting</a></h3>
+</div>
+<div id="outline-container-org215cc78" class="outline-3">
+<h3 id="org215cc78"><a href="https://zhuanlan.zhihu.com/c_1268957663368167424">小白入门</a></h3>
 </div>
 </div>
 
-<div id="outline-container-org978e18b" class="outline-3">
-<h3 id="org978e18b">Step 7</h3>
-<div class="outline-text-3" id="text-org978e18b">
-<p>
-接下来，切换到浏览器并且随便打开一个网页，例如 <a href="https://duckduckgo.com">https://duckduckgo.com</a> 。
-你的浏览器会提示该网络需要登录，打开登录界面。
-</p>
-
-<p>
-输入用户名与密码，点击登录。
-</p>
-
-<p>
-提示连接成功。
-</p>
+<div id="outline-container-orgad7b268" class="outline-2">
+<h2 id="orgad7b268">CTF</h2>
+<div class="outline-text-2" id="text-orgad7b268">
 </div>
+<div id="outline-container-org52b227c" class="outline-3">
+<h3 id="org52b227c"><a href="https://tctf.qq.com/">Tencent CTF</a></h3>
+</div>
+<div id="outline-container-org2a7f500" class="outline-3">
+<h3 id="org2a7f500"><a href="https://www.xctf.org.cn/">XCTF</a></h3>
+</div>
+<div id="outline-container-org7323cc6" class="outline-3">
+<h3 id="org7323cc6"><a href="https://realworldctf.com/about">Real World CTF</a></h3>
+</div>
+<div id="outline-container-org13c5e6d" class="outline-3">
+<h3 id="org13c5e6d"><a href="https://code-breaking.com/">代码审计星球二周年CTF</a></h3>
+</div>
+</div>
+
+<div id="outline-container-org8da1670" class="outline-2">
+<h2 id="org8da1670">信息</h2>
+<div class="outline-text-2" id="text-org8da1670">
+</div>
+<div id="outline-container-orgf41f28f" class="outline-3">
+<h3 id="orgf41f28f"><a href="https://ctftime.org/">CTFtime</a></h3>
+</div>
+<div id="outline-container-orgbba778b" class="outline-3">
+<h3 id="orgbba778b"><a href="http://hackinglab.cn/">HackingLab</a></h3>
+</div>
+<div id="outline-container-org9b3db3e" class="outline-3">
+<h3 id="org9b3db3e"><a href="https://www.blackhat.com/">BlackHat</a></h3>
+</div>
+<div id="outline-container-orgbfac6fb" class="outline-3">
+<h3 id="orgbfac6fb"><a href="https://www.exploit-db.com/">Exploit DB</a></h3>
+</div>
+<div id="outline-container-orgac60886" class="outline-3">
+<h3 id="orgac60886"><a href="https://github.com/Han0nly/SecurityRSS">Security RSS</a></h3>
+</div>
+<div id="outline-container-orge4d0ddd" class="outline-3">
+<h3 id="orge4d0ddd"><a href="https://www.4hou.com/">嘶吼</a></h3>
+</div>
+<div id="outline-container-org1308f1d" class="outline-3">
+<h3 id="org1308f1d"><a href="https://bbs.pediy.com/">看雪BBS</a></h3>
+</div>
+<div id="outline-container-org4934da0" class="outline-3">
+<h3 id="org4934da0"><a href="https://xz.aliyun.com/">先知社区</a></h3>
+</div>
+<div id="outline-container-org474f1d0" class="outline-3">
+<h3 id="org474f1d0"></h3>
+</div>
+</div>
+<div id="outline-container-orga938729" class="outline-2">
+<h2 id="orga938729">游戏</h2>
+<div class="outline-text-2" id="text-orga938729">
+</div>
+<div id="outline-container-org5e5babd" class="outline-3">
+<h3 id="org5e5babd"><a href="http://www.fj543.com/hack/">丛林游戏</a></h3>
+</div>
+</div>
+<div id="outline-container-org98c8afa" class="outline-2">
+<h2 id="org98c8afa">在线工具</h2>
+<div class="outline-text-2" id="text-org98c8afa">
+</div>
+<div id="outline-container-org97a3ada" class="outline-3">
+<h3 id="org97a3ada"><a href="http://ctf.ssleye.com/">ssleye</a></h3>
+</div>
+<div id="outline-container-orgbe656ff" class="outline-3">
+<h3 id="orgbe656ff"><a href="https://tool.bugku.com/">tools by bugku</a></h3>
+</div>
+<div id="outline-container-org3935183" class="outline-3">
+<h3 id="org3935183"><a href="https://ctftools.com/down/">ctftools</a></h3>
+</div>
+<div id="outline-container-org5cb52c4" class="outline-3">
+<h3 id="org5cb52c4"><a href="https://gchq.github.io/CyberChef/">CyberChef</a></h3>
+</div>
+<div id="outline-container-org592ea43" class="outline-3">
+<h3 id="org592ea43"><a href="https://github.com/zardus/ctf-tools">Tools List</a></h3>
 </div>
 </div>
 </div>

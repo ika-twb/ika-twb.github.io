@@ -1,18 +1,18 @@
 #+TITLE: TheWizardBay
 #+AUTHOR: Ilgharkus
 #+OPTIONS: toc:nil
-#+SETUPFILE:  dark_index.theme
-
-[[file:media/thewizardbay.jpeg]]
+#+INDEX: MainPage
+[[file:media/thewizardbay.png]]
 
 #+begin_center
-Welcome, this is the personal site of Ilghar Kus (ika).
+Welcome, this is the blog site of Ilghar Kus (ika).
 
-[[./articles.org][Articles]]
+[[./sitemap.org][Sitemap]]
 
 [[./about.org][About me]]
 
 [[./copyleft.org][Copyleft(README)]]
 
 lizardwrangler, where's your webring?
+
 #+end_center
