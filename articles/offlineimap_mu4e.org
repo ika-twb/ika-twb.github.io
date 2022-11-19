@@ -189,29 +189,38 @@ This part is for setting up your local repository for mails.
 Each repo needs a type declaration, since this is your local mail directory, its type should be =Maildir=.
 If you're using Gmail, this can be =GmailMaildir=.
 
-=localfolders= is for specifying the folder to be your local repo. You could use other directories
-like =~/Maildir= or =~/mail= , as long as you keep it organized and secure.
+=localfolders= is for specifying the folder to be your local repo. You
+could use other directories like =~/Maildir= or =~/mail= , as long as you
+keep it organized and secure.
 
-=utime_from_header= is useful when you want to filter emails based on date, but doesn't want to parse
-the each message content. Turning this on will set the modification time of mails basing on the =Date= header,
-and is not compatible with quick mode option =-q= for =GmailMaildir= type repos.
+=utime_from_header= is useful when you want to filter emails based on
+date, but doesn't want to parse the each message content. Turning this
+on will set the modification time of mails basing on the =Date= header,
+and is not compatible with quick mode option =-q= for =GmailMaildir= type
+repos.
 
-=filename_use_mail_timestamp= is similar feature, which base the filename prefix to the =Date= header
-of the message, thus if fetching is done in multithreaded encironment, the filename could still be in order
-and thus your mailbox.
+=filename_use_mail_timestamp= is a similar feature, which base the
+filename prefix to the =Date= header of the message, thus if fetching is
+done in multithreaded environment, the filename could still be in
+order and thus your mailbox.
 
 There are also other options, such as:
-- =sep= for specifying "folder separator character", which is inserted in-between the components of the tree.
+- =sep= for specifying "folder separator character", which is inserted
+  in-between the components of the tree.
   #+BEGIN_QUOTE
   If you want your folders to be nested directories, set it to "/".
-  'sep' is ignored for IMAP repositories, as it is queried automatically.
-  Otherwise, default value is ".".
+  'sep' is ignored for IMAP repositories, as it is queried
+  automatically.  Otherwise, default value is ".".
   #+END_QUOTE
-- =startdate= for specifying start date of messages to be synced, the format is like =1970-01-01=
-- =sync_deletes= syncs your local mail-deletes to the remote server, default is =yes=
-- =restoreatime= to restore your last access time if you don't want it to be tampered by offlineimap
-- =customflag_x= to add letter =x= in the maildir filename if the specified keyword is found in the FLAGS.
-  =x= could be one of the letters in =[a-z]=
+- =startdate= for specifying start date of messages to be synced, the
+  format is like =1970-01-01=
+- =sync_deletes= syncs your local mail-deletes to the remote server,
+  default is =yes=
+- =restoreatime= to restore your last access time if you don't want it
+  to be tampered by offlineimap
+- =customflag_x= to add letter =x= in the maildir filename if the
+  specified keyword is found in the FLAGS.  =x= could be one of the
+  letters in =[a-z]=
 
 could be found in the doc.
 
@@ -531,19 +540,14 @@ Two key-bindings, one is on =global-map= for firing up =mu4e= whenever I need it
 attachments in mu4e.
 
 #+BEGIN_SRC emacs-lisp
-    :custom
-    (mu4e-user-mail-address-list '("user@example.com"
-                                   "user-alias1@example"
-                                   "user-alias2@example"))
+  :custom (mu4e-user-mail-address-list '("user@example.com"
+  "user-alias1@example" "user-alias2@example"))
 
-    (mu4e-maildir (expand-file-name "~/.maildir"))
-    (mu4e-view-show-addresses t)
+  (mu4e-maildir (expand-file-name "~/.maildir"))
+   (mu4e-view-show-addresses t)
 
-    (mu4e-maildir-shortcuts
-     '(("/acc1/INBOX" . ?f)
-       ("/acc2/INBOX" . ?g)
-       ))
-    (mu4e-attachment-dir  "~/Downloads/MailAttachments")
+  (mu4e-maildir-shortcuts '(("/acc1/INBOX" . ?f) ("/acc2/INBOX" . ?g) ))
+   (mu4e-attachment-dir "~/Downloads/MailAttachments")
 #+END_SRC
 
 Now we're at the proper mailbox configuration.

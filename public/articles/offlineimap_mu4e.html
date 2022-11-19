@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-19 Sat 03:21 -->
+<!-- 2022-11-19 Sat 17:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Using Offlineimap + MU4E to Setup A Powerful Email Client</title>
@@ -529,20 +529,24 @@ If you're using Gmail, this can be <code>GmailMaildir</code>.
 </p>
 
 <p>
-<code>localfolders</code> is for specifying the folder to be your local repo. You could use other directories
-like <code>~/Maildir</code> or <code>~/mail</code> , as long as you keep it organized and secure.
+<code>localfolders</code> is for specifying the folder to be your local repo. You
+could use other directories like <code>~/Maildir</code> or <code>~/mail</code> , as long as you
+keep it organized and secure.
 </p>
 
 <p>
-<code>utime_from_header</code> is useful when you want to filter emails based on date, but doesn't want to parse
-the each message content. Turning this on will set the modification time of mails basing on the <code>Date</code> header,
-and is not compatible with quick mode option <code>-q</code> for <code>GmailMaildir</code> type repos.
+<code>utime_from_header</code> is useful when you want to filter emails based on
+date, but doesn't want to parse the each message content. Turning this
+on will set the modification time of mails basing on the <code>Date</code> header,
+and is not compatible with quick mode option <code>-q</code> for <code>GmailMaildir</code> type
+repos.
 </p>
 
 <p>
-<code>filename_use_mail_timestamp</code> is similar feature, which base the filename prefix to the <code>Date</code> header
-of the message, thus if fetching is done in multithreaded encironment, the filename could still be in order
-and thus your mailbox.
+<code>filename_use_mail_timestamp</code> is a similar feature, which base the
+filename prefix to the <code>Date</code> header of the message, thus if fetching is
+done in multithreaded environment, the filename could still be in
+order and thus your mailbox.
 </p>
 
 <p>
@@ -550,20 +554,25 @@ There are also other options, such as:
 </p>
 <ul class="org-ul">
 <li><p>
-<code>sep</code> for specifying "folder separator character", which is inserted in-between the components of the tree.
+<code>sep</code> for specifying "folder separator character", which is inserted
+in-between the components of the tree.
 </p>
 <blockquote>
 <p>
 If you want your folders to be nested directories, set it to "/".
-'sep' is ignored for IMAP repositories, as it is queried automatically.
-Otherwise, default value is ".".
+'sep' is ignored for IMAP repositories, as it is queried
+automatically.  Otherwise, default value is ".".
 </p>
 </blockquote></li>
-<li><code>startdate</code> for specifying start date of messages to be synced, the format is like <code>1970-01-01</code></li>
-<li><code>sync_deletes</code> syncs your local mail-deletes to the remote server, default is <code>yes</code></li>
-<li><code>restoreatime</code> to restore your last access time if you don't want it to be tampered by offlineimap</li>
-<li><code>customflag_x</code> to add letter <code>x</code> in the maildir filename if the specified keyword is found in the FLAGS.
-<code>x</code> could be one of the letters in <code>[a-z]</code></li>
+<li><code>startdate</code> for specifying start date of messages to be synced, the
+format is like <code>1970-01-01</code></li>
+<li><code>sync_deletes</code> syncs your local mail-deletes to the remote server,
+default is <code>yes</code></li>
+<li><code>restoreatime</code> to restore your last access time if you don't want it
+to be tampered by offlineimap</li>
+<li><code>customflag_x</code> to add letter <code>x</code> in the maildir filename if the
+specified keyword is found in the FLAGS.  <code>x</code> could be one of the
+letters in <code>[a-z]</code></li>
 </ul>
 
 <p>
@@ -1011,19 +1020,14 @@ attachments in mu4e.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #feacd0;">:custom</span>
-(mu4e-user-mail-address-list '(<span style="color: #00c06f;">"user@example.com"</span>
-                               <span style="color: #00c06f;">"user-alias1@example"</span>
-                               <span style="color: #00c06f;">"user-alias2@example"</span>))
+<pre class="src src-emacs-lisp"><span style="color: #feacd0;">:custom</span> (mu4e-user-mail-address-list '(<span style="color: #00c06f;">"user@example.com"</span>
+<span style="color: #00c06f;">"user-alias1@example"</span> <span style="color: #00c06f;">"user-alias2@example"</span>))
 
 (mu4e-maildir (expand-file-name <span style="color: #00c06f;">"~/.maildir"</span>))
-(mu4e-view-show-addresses t)
+ (mu4e-view-show-addresses t)
 
-(mu4e-maildir-shortcuts
- '((<span style="color: #00c06f;">"/acc1/INBOX"</span> . ?f)
-   (<span style="color: #00c06f;">"/acc2/INBOX"</span> . ?g)
-   ))
-(mu4e-attachment-dir  <span style="color: #00c06f;">"~/Downloads/MailAttachments"</span>)
+(mu4e-maildir-shortcuts '((<span style="color: #00c06f;">"/acc1/INBOX"</span> . ?f) (<span style="color: #00c06f;">"/acc2/INBOX"</span> . ?g) ))
+ (mu4e-attachment-dir <span style="color: #00c06f;">"~/Downloads/MailAttachments"</span>)
 </pre>
 </div>
 
@@ -1036,7 +1040,7 @@ Now we're at the proper mailbox configuration.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Ilghar Kus</p>
-<p class="date">Created: 2022-11-19 Sat 03:21</p>
+<p class="date">Created: 2022-11-19 Sat 17:45</p>
 </div>
 </body>
 </html>
