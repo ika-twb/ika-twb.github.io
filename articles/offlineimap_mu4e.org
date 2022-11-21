@@ -21,23 +21,25 @@ to deal with your various maildirs and mail files. It's fully documented,
 asynchronous, support encryption, flow-optimized interface, and extensible,
 using Elisp of course.
 
-With OfflineIMAP as a backend synchronizer, and mu4e as a front-end interface
-and searcher, you could have a consistent, customized and fast experience
-dealing with emails, in your own and beloved text editor, and you won't ever
-need to suffer 30mins of 5000rpm fan noize of compiling thunderbird to update
-some feature you never use. (If you don't use Gentoo, at least we could agree
-on the part that Thunderbird is totally bloatware.)
+With OfflineIMAP as a backend synchronizer, and mu4e as a front-end
+interface and searcher, you could have a consistent, customized and
+fast experience dealing with emails, in your own and beloved text
+editor, and you won't ever need to suffer 30mins of 5000rpm fan noize
+of compiling thunderbird to update some feature you never use. (If you
+don't use a source-based Distro, at least we could agree on the part
+that Thunderbird is totally bloatware.)
 
 * Setup guide: OfflineIMAP
 ** Installation
-If you have the offlineimap package in your distro repo and it's written in python3
-(python2 version is obsolete and archived, don't use that, either the package or
-the language), you could just download and install it using the package manager
-that came with the distro.
+If you have the offlineimap package in your distro repo and it's
+written in python3 (python2 version is obsolete and archived, don't
+use that, either the package or the language), you could just download
+and install it using the package manager that came with the distro.
 
-If you're using Gentoo, however, the =offlineimap= package is not included in the
-=gentoo= repo, so unless you wrote your own ebuild file or you find one in other
-people's overlay, you have to download the code from the [[https://github.com/OfflineIMAP/offlineimap3][GitHub repo]].
+If you're using Gentoo, however, the =offlineimap= package is not
+included in the =gentoo= repo, so unless you wrote your own ebuild file
+or you find one in other people's overlay, you have to download the
+code from the [[https://github.com/OfflineIMAP/offlineimap3][GitHub repo]].
 
 Clone the repo using =git=:
 
@@ -377,17 +379,23 @@ Remember only use these options after you read the corresponding parts in the do
 
 * Setup guide: Mu & Mu4e
 ** Mu
-=Mu= does not need specific setup, just initiate a mail directory with your email addresses will be enough.
+=Mu= does not need specific setup, just initiate a mail directory with
+your email addresses will be enough.
 
-By the time of this article was written, the latest stable version in Gentoo Official Repo is =1.8.10=.
+By the time of this article was written, the latest stable version in
+Gentoo Official Repo is =1.8.10=, which is the version I'm currently
+using.
 
-If you don't want to use the latest version, at least pick a version after =1.7.0=, the software got a huge update and a lot of things were set obsolete since that version.
+If you don't want to use the latest version, at least pick a version
+after =1.7.0=, the software got a huge update and a lot of things were
+set obsolete since that version.
 
 #+BEGIN_SRC sh
 mu init --maildir=/path/to/maildir --my-address=user1@example.com --my-address=user2@example.com .....
 #+END_SRC
 
-After this, each time you do a sync with OfflineIMAP, =mu index= will be invoked as a post-sync hook to index all mails for =mu4e= to read.
+After this, each time you do a sync with OfflineIMAP, =mu index= will be
+invoked as a post-sync hook to index all mails for =mu4e= to read.
 ** Mu4e
 Mu4e is pretty easy to setup, since you only need it to display and search your already indexed mail.
 
