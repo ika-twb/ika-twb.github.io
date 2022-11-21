@@ -401,9 +401,6 @@ Mu4e is pretty easy to setup, since you only need it to display and search your 
 
 If you use =use-package=, the whole configuration is here:
 
-(use-package test
-:load-path "site-lisp/this")
-
 #+BEGIN_SRC emacs-lisp
   (use-package mu4e
     :load-path (lambda () (expand-file-name "site-lisp/mu4e"
