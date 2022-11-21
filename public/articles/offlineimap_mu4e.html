@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-20 Sun 02:02 -->
+<!-- 2022-11-21 Mon 13:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Using Offlineimap + MU4E to Setup A Powerful Email Client</title>
@@ -191,9 +191,9 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
+  .org-svg { width: 90%; }
 </style>
-<style type="text/css">html {max-width: 70ch;padding: 3em 1em;margin: auto;line-height: 1.75;font-size: 1.25em;} a:link{color:black;} a:visited{color:#565656;} .backlink{position: fixed; top: 70;left: 50px;}</style><p class="backlink"><a href="/sitemap.html">Sitemap</a></p>
+<style type="text/css">html {max-width: 70ch;padding: 3em 1em;margin: auto;line-height: 1.75;font-size: 1.25em;} a:link{color:black;} a:visited{color:#565656;} .backlink{position: fixed; top: 30;left: 30px;}</style><p class="backlink"><a href="/sitemap.html">Sitemap</a></p>
 </head>
 <body>
 <div id="content" class="content">
@@ -260,12 +260,13 @@ using Elisp of course.
 </p>
 
 <p>
-With OfflineIMAP as a backend synchronizer, and mu4e as a front-end interface
-and searcher, you could have a consistent, customized and fast experience
-dealing with emails, in your own and beloved text editor, and you won't ever
-need to suffer 30mins of 5000rpm fan noize of compiling thunderbird to update
-some feature you never use. (If you don't use Gentoo, at least we could agree
-on the part that Thunderbird is totally bloatware.)
+With OfflineIMAP as a backend synchronizer, and mu4e as a front-end
+interface and searcher, you could have a consistent, customized and
+fast experience dealing with emails, in your own and beloved text
+editor, and you won't ever need to suffer 30mins of 5000rpm fan noize
+of compiling thunderbird to update some feature you never use. (If you
+don't use a source-based Distro, at least we could agree on the part
+that Thunderbird is totally bloatware.)
 </p>
 </div>
 </div>
@@ -278,16 +279,17 @@ on the part that Thunderbird is totally bloatware.)
 <h3 id="orgd3f05d9">Installation</h3>
 <div class="outline-text-3" id="text-orgd3f05d9">
 <p>
-If you have the offlineimap package in your distro repo and it's written in python3
-(python2 version is obsolete and archived, don't use that, either the package or
-the language), you could just download and install it using the package manager
-that came with the distro.
+If you have the offlineimap package in your distro repo and it's
+written in python3 (python2 version is obsolete and archived, don't
+use that, either the package or the language), you could just download
+and install it using the package manager that came with the distro.
 </p>
 
 <p>
-If you're using Gentoo, however, the <code>offlineimap</code> package is not included in the
-<code>gentoo</code> repo, so unless you wrote your own ebuild file or you find one in other
-people's overlay, you have to download the code from the <a href="https://github.com/OfflineIMAP/offlineimap3">GitHub repo</a>.
+If you're using Gentoo, however, the <code>offlineimap</code> package is not
+included in the <code>gentoo</code> repo, so unless you wrote your own ebuild file
+or you find one in other people's overlay, you have to download the
+code from the <a href="https://github.com/OfflineIMAP/offlineimap3">GitHub repo</a>.
 </p>
 
 <p>
@@ -304,7 +306,7 @@ Then create a symbolic link of it to dir <code>~/.local/bin/</code>
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">$ ln -s /path/to/offlineimap3/offlineimap.py ${<span style="color: #79a8ff;">HOME</span>}/.local/bin/offlineimap
+<pre class="src src-sh">$ ln -s /path/to/offlineimap3/offlineimap.py ${<span style="color: #2544bb;">HOME</span>}/.local/bin/offlineimap
 </pre>
 </div>
 
@@ -347,9 +349,9 @@ the example config file if you want to use other features.
 
 <div class="org-src-container">
 <pre class="src src-python">[general]
-<span style="color: #79a8ff;">accounts</span> = example
-<span style="color: #79a8ff;">pythonfile</span> = ~/.offlineimap_ext.py
-<span style="color: #79a8ff;">maxsyncaccounts</span> = 1
+<span style="color: #2544bb;">accounts</span> = example
+<span style="color: #2544bb;">pythonfile</span> = ~/.offlineimap_ext.py
+<span style="color: #2544bb;">maxsyncaccounts</span> = 1
 </pre>
 </div>
 
@@ -383,7 +385,7 @@ desktop environment or window manager. <i>e.g.</i> for i3wm, I add this line int
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #00d3d0;">exec</span> --no-startup-id ${<span style="color: #79a8ff;">HOME</span>}/.local/bin/offlineimap -c ${<span style="color: #79a8ff;">HOME</span>}/.config/offlineimap/account1.conf 2&gt;${<span style="color: #79a8ff;">HOME</span>}/logs/offlineimap.account1.log
+<pre class="src src-sh"><span style="color: #00538b;">exec</span> --no-startup-id ${<span style="color: #2544bb;">HOME</span>}/.local/bin/offlineimap -c ${<span style="color: #2544bb;">HOME</span>}/.config/offlineimap/account1.conf 2&gt;${<span style="color: #2544bb;">HOME</span>}/logs/offlineimap.account1.log
 </pre>
 </div>
 
@@ -420,8 +422,8 @@ a local one, and a remote one.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #79a8ff;">localrepository</span> = LocalExample
-<span style="color: #79a8ff;">remoterepository</span> = RemoteExample
+<pre class="src src-python"><span style="color: #2544bb;">localrepository</span> = LocalExample
+<span style="color: #2544bb;">remoterepository</span> = RemoteExample
 </pre>
 </div>
 
@@ -431,9 +433,9 @@ other than the name in the [Repository] section below.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #79a8ff;">autorefresh</span> = 1
-<span style="color: #79a8ff;">quick</span> = 10
-<span style="color: #79a8ff;">postsynchook</span> = mu index
+<pre class="src src-python"><span style="color: #2544bb;">autorefresh</span> = 1
+<span style="color: #2544bb;">quick</span> = 10
+<span style="color: #2544bb;">postsynchook</span> = mu index
 </pre>
 </div>
 
@@ -516,10 +518,10 @@ This part is for setting up your local repository for mails.
 
 <div class="org-src-container">
 <pre class="src src-python">[Repository LocalExample]
-<span style="color: #feacd0;">type</span> = Maildir
-<span style="color: #79a8ff;">localfolders</span> = ~/.maildir/example
-<span style="color: #79a8ff;">utime_from_header</span> = yes
-<span style="color: #79a8ff;">filename_use_mail_timestamp</span> = yes
+<span style="color: #721045;">type</span> = Maildir
+<span style="color: #2544bb;">localfolders</span> = ~/.maildir/example
+<span style="color: #2544bb;">utime_from_header</span> = yes
+<span style="color: #2544bb;">filename_use_mail_timestamp</span> = yes
 </pre>
 </div>
 
@@ -586,13 +588,13 @@ could be found in the doc.
 <div class="outline-text-4" id="text-org2eff179">
 <div class="org-src-container">
 <pre class="src src-python">[Repository ika-remote]
-<span style="color: #feacd0;">type</span> = IMAP
-<span style="color: #79a8ff;">remotehost</span> = example.com
-<span style="color: #79a8ff;">remoteuser</span> = user@example.com
-<span style="color: #79a8ff;">remotepasseval</span> = mailpasswd(<span style="color: #00c06f;">"user@example.com"</span>)
-<span style="color: #79a8ff;">sslcacertfile</span> = /path/to/ca-certificates.crt
-<span style="color: #a8a8a8;">#</span><span style="color: #a8a8a8;">folderfilter = lambda foldername: foldername in ['INBOX', 'Sent']</span>
-newmail_hook = <span style="color: #00d3d0;">lambda</span>: os.system(<span style="color: #00c06f;">"cvlc --play-and-stop --play-and-exit ~/Videos/mail.mp3 &gt; /dev/null 2&gt;&amp;1"</span>)
+<span style="color: #721045;">type</span> = IMAP
+<span style="color: #2544bb;">remotehost</span> = example.com
+<span style="color: #2544bb;">remoteuser</span> = user@example.com
+<span style="color: #2544bb;">remotepasseval</span> = mailpasswd(<span style="color: #145c33;">"user@example.com"</span>)
+<span style="color: #2544bb;">sslcacertfile</span> = /path/to/ca-certificates.crt
+<span style="color: #505050;">#</span><span style="color: #505050;">folderfilter = lambda foldername: foldername in ['INBOX', 'Sent']</span>
+newmail_hook = <span style="color: #00538b;">lambda</span>: os.system(<span style="color: #145c33;">"cvlc --play-and-stop --play-and-exit ~/Videos/mail.mp3 &gt; /dev/null 2&gt;&amp;1"</span>)
 </pre>
 </div>
 
@@ -635,7 +637,7 @@ The use of STARTTLS or SSL is specified in <code>starttls</code> and <code>ssl</
 The simplist and the dumbest way, hardcode it in the config file.
 </p>
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #79a8ff;">remotepass</span> = h4ck_m3_c4use_m3_st00p1d
+<pre class="src src-python"><span style="color: #2544bb;">remotepass</span> = h4ck_m3_c4use_m3_st00p1d
 </pre>
 </div></li>
 </ol>
@@ -651,7 +653,7 @@ Just for the sake of completeness, remember to escape <code>%</code> by typing <
 <li>A slightly less dumber way, store it in another one-liner file.</li>
 </ol>
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #79a8ff;">remotepassfile</span> = ~/Password.IMAP.Account1
+<pre class="src src-python"><span style="color: #2544bb;">remotepassfile</span> = ~/Password.IMAP.Account1
 </pre>
 </div>
 <p>
@@ -709,7 +711,7 @@ Use arbitraty python code.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #79a8ff;">remotepasseval</span> = mailpasswd(<span style="color: #00c06f;">"user@example.com"</span>)
+<pre class="src src-python"><span style="color: #2544bb;">remotepasseval</span> = mailpasswd(<span style="color: #145c33;">"user@example.com"</span>)
 </pre>
 </div>
 
@@ -722,26 +724,26 @@ it is a function that extracts your password from a gpg-encrypted file.
 Here's my python file:
 </p>
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #a8a8a8;">#</span><span style="color: #a8a8a8;">!/usr/bin/env python3</span>
+<pre class="src src-python"><span style="color: #505050;">#</span><span style="color: #505050;">!/usr/bin/env python3</span>
 
-<span style="color: #00d3d0;">import</span> os
-<span style="color: #00d3d0;">import</span> subprocess
+<span style="color: #00538b;">import</span> os
+<span style="color: #00538b;">import</span> subprocess
 
-<span style="color: #00d3d0;">def</span> <span style="color: #f78fe7;">mailpasswd</span>(acct):
-        <span style="color: #79a8ff;">path</span> = <span style="color: #00c06f;">"~/.emails.gpg"</span>
-        <span style="color: #79a8ff;">args</span> = [<span style="color: #00c06f;">"gpg"</span>, <span style="color: #00c06f;">"--use-agent"</span>, <span style="color: #00c06f;">"--quiet"</span>, <span style="color: #00c06f;">"--batch"</span>, <span style="color: #00c06f;">"-d"</span>, path]
-        <span style="color: #00d3d0;">try</span>:
-                plainpassl = subprocess.check_output(args).strip().decode(<span style="color: #00c06f;">'ascii'</span>).split(<span style="color: #00c06f;">"\n"</span>)
-                <span style="color: #00d3d0;">for</span> each <span style="color: #00d3d0;">in</span> plainpassl:
-                        <span style="color: #00d3d0;">if</span> acct <span style="color: #00d3d0;">in</span> each:
-                                <span style="color: #00d3d0;">return</span> each.split(<span style="color: #00c06f;">" "</span>)[1]
-        <span style="color: #00d3d0;">except</span> subprocess.CalledProcessError:
-                <span style="color: #00d3d0;">return</span> <span style="color: #00c06f;">""</span>
-        <span style="color: #00d3d0;">except</span> <span style="color: #b6a0ff;">Exception</span> <span style="color: #00d3d0;">as</span> e:
-                <span style="color: #feacd0;">print</span>(<span style="color: #00c06f;">"[x] Error:"</span> + e)
+<span style="color: #00538b;">def</span> <span style="color: #8f0075;">mailpasswd</span>(acct):
+        <span style="color: #2544bb;">path</span> = <span style="color: #145c33;">"~/.emails.gpg"</span>
+        <span style="color: #2544bb;">args</span> = [<span style="color: #145c33;">"gpg"</span>, <span style="color: #145c33;">"--use-agent"</span>, <span style="color: #145c33;">"--quiet"</span>, <span style="color: #145c33;">"--batch"</span>, <span style="color: #145c33;">"-d"</span>, path]
+        <span style="color: #00538b;">try</span>:
+                plainpassl = subprocess.check_output(args).strip().decode(<span style="color: #145c33;">'ascii'</span>).split(<span style="color: #145c33;">"\n"</span>)
+                <span style="color: #00538b;">for</span> each <span style="color: #00538b;">in</span> plainpassl:
+                        <span style="color: #00538b;">if</span> acct <span style="color: #00538b;">in</span> each:
+                                <span style="color: #00538b;">return</span> each.split(<span style="color: #145c33;">" "</span>)[1]
+        <span style="color: #00538b;">except</span> subprocess.CalledProcessError:
+                <span style="color: #00538b;">return</span> <span style="color: #145c33;">""</span>
+        <span style="color: #00538b;">except</span> <span style="color: #5317ac;">Exception</span> <span style="color: #00538b;">as</span> e:
+                <span style="color: #721045;">print</span>(<span style="color: #145c33;">"[x] Error:"</span> + e)
 
-<span style="color: #00d3d0;">if</span> <span style="color: #feacd0;">__name__</span> == <span style="color: #00c06f;">"__main__"</span>:
-        <span style="color: #00d3d0;">pass</span>
+<span style="color: #00538b;">if</span> <span style="color: #721045;">__name__</span> == <span style="color: #145c33;">"__main__"</span>:
+        <span style="color: #00538b;">pass</span>
 </pre>
 </div>
 
@@ -816,15 +818,20 @@ Remember only use these options after you read the corresponding parts in the do
 <h3 id="org0f52fbd">Mu</h3>
 <div class="outline-text-3" id="text-org0f52fbd">
 <p>
-<code>Mu</code> does not need specific setup, just initiate a mail directory with your email addresses will be enough.
+<code>Mu</code> does not need specific setup, just initiate a mail directory with
+your email addresses will be enough.
 </p>
 
 <p>
-By the time of this article was written, the latest stable version in Gentoo Official Repo is <code>1.8.10</code>.
+By the time of this article was written, the latest stable version in
+Gentoo Official Repo is <code>1.8.10</code>, which is the version I'm currently
+using.
 </p>
 
 <p>
-If you don't want to use the latest version, at least pick a version after <code>1.7.0</code>, the software got a huge update and a lot of things were set obsolete since that version.
+If you don't want to use the latest version, at least pick a version
+after <code>1.7.0</code>, the software got a huge update and a lot of things were
+set obsolete since that version.
 </p>
 
 <div class="org-src-container">
@@ -833,7 +840,8 @@ If you don't want to use the latest version, at least pick a version after <code
 </div>
 
 <p>
-After this, each time you do a sync with OfflineIMAP, <code>mu index</code> will be invoked as a post-sync hook to index all mails for <code>mu4e</code> to read.
+After this, each time you do a sync with OfflineIMAP, <code>mu index</code> will be
+invoked as a post-sync hook to index all mails for <code>mu4e</code> to read.
 </p>
 </div>
 </div>
@@ -854,86 +862,86 @@ If you use <code>use-package</code>, the whole configuration is here:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #00d3d0;">use-package</span> <span style="color: #b6a0ff;">mu4e</span>
-  <span style="color: #feacd0;">:load-path</span> (<span style="color: #00d3d0;">lambda</span> () (expand-file-name <span style="color: #00c06f;">"site-lisp/mu4e"</span>
+<pre class="src src-emacs-lisp">(<span style="color: #00538b;">use-package</span> <span style="color: #5317ac;">mu4e</span>
+  <span style="color: #721045;">:load-path</span> (<span style="color: #00538b;">lambda</span> () (expand-file-name <span style="color: #145c33;">"site-lisp/mu4e"</span>
                                           user-emacs-directory))
-  <span style="color: #feacd0;">:commands</span> (mu4e)
-  <span style="color: #feacd0;">:init</span>
-  (<span style="color: #00d3d0;">use-package</span> <span style="color: #b6a0ff;">mu4e-alert</span>
-    <span style="color: #feacd0;">:defer</span> t
-    <span style="color: #feacd0;">:config</span>
-    (<span style="color: #00d3d0;">when</span> (executable-find <span style="color: #00c06f;">"notify-send"</span>)
+  <span style="color: #721045;">:commands</span> (mu4e)
+  <span style="color: #721045;">:init</span>
+  (<span style="color: #00538b;">use-package</span> <span style="color: #5317ac;">mu4e-alert</span>
+    <span style="color: #721045;">:defer</span> t
+    <span style="color: #721045;">:config</span>
+    (<span style="color: #00538b;">when</span> (executable-find <span style="color: #145c33;">"notify-send"</span>)
       (mu4e-alert-set-default-style 'libnotify))
-    <span style="color: #feacd0;">:hook</span>
+    <span style="color: #721045;">:hook</span>
     ((after-init . mu4e-alert-enable-notifications)
      (after-init . mu4e-alert-enable-mode-line-display)))
-  (<span style="color: #00d3d0;">use-package</span> <span style="color: #b6a0ff;">mu4e-overview</span> <span style="color: #feacd0;">:defer</span> t)
-  (<span style="color: #00d3d0;">use-package</span> <span style="color: #b6a0ff;">epg</span>)
-  (<span style="color: #00d3d0;">require</span> '<span style="color: #b6a0ff;">epa-file</span>)
-  <span style="color: #feacd0;">:bind</span>
-  ((<span style="color: #00c06f;">"C-c m"</span> . mu4e)
-   (<span style="color: #feacd0;">:map</span> mu4e-view-mode-map
-         (<span style="color: #00c06f;">"e"</span> . mu4e-view-save-attachment)))
-  <span style="color: #feacd0;">:custom</span>
-  (mu4e-user-mail-address-list '(<span style="color: #00c06f;">"user@example.com"</span>
-                                 <span style="color: #00c06f;">"user-alias1@example"</span>
-                                 <span style="color: #00c06f;">"user-alias2@example"</span>))
+  (<span style="color: #00538b;">use-package</span> <span style="color: #5317ac;">mu4e-overview</span> <span style="color: #721045;">:defer</span> t)
+  (<span style="color: #00538b;">use-package</span> <span style="color: #5317ac;">epg</span>)
+  (<span style="color: #00538b;">require</span> '<span style="color: #5317ac;">epa-file</span>)
+  <span style="color: #721045;">:bind</span>
+  ((<span style="color: #145c33;">"C-c m"</span> . mu4e)
+   (<span style="color: #721045;">:map</span> mu4e-view-mode-map
+         (<span style="color: #145c33;">"e"</span> . mu4e-view-save-attachment)))
+  <span style="color: #721045;">:custom</span>
+  (mu4e-user-mail-address-list '(<span style="color: #145c33;">"user@example.com"</span>
+                                 <span style="color: #145c33;">"user-alias1@example"</span>
+                                 <span style="color: #145c33;">"user-alias2@example"</span>))
 
-  (mu4e-maildir (expand-file-name <span style="color: #00c06f;">"~/.maildir"</span>))
+  (mu4e-maildir (expand-file-name <span style="color: #145c33;">"~/.maildir"</span>))
   (mu4e-view-show-addresses t)
 
   (mu4e-maildir-shortcuts
-   '((<span style="color: #00c06f;">"/acc1/INBOX"</span> . ?f)
-     (<span style="color: #00c06f;">"/acc2/INBOX"</span> . ?g)
+   '((<span style="color: #145c33;">"/acc1/INBOX"</span> . ?f)
+     (<span style="color: #145c33;">"/acc2/INBOX"</span> . ?g)
      ))
-  (mu4e-attachment-dir  <span style="color: #00c06f;">"~/Downloads/MailAttachments"</span>)
-  <span style="color: #feacd0;">:hook</span>
+  (mu4e-attachment-dir  <span style="color: #145c33;">"~/Downloads/MailAttachments"</span>)
+  <span style="color: #721045;">:hook</span>
   ((mu4e-view-mode . visual-line-mode)
-   (mu4e-compose-mode . (<span style="color: #00d3d0;">lambda</span> ()
+   (mu4e-compose-mode . (<span style="color: #00538b;">lambda</span> ()
                           (visual-line-mode)
                           (use-hard-newlines -1)
                           (flyspell-mode)))
-   (mu4e-view-mode . (<span style="color: #00d3d0;">lambda</span> ()
-                       (local-set-key (kbd <span style="color: #00c06f;">"&lt;tab&gt;"</span>) 'shr-next-link)
-                       (local-set-key (kbd <span style="color: #00c06f;">"&lt;backtab&gt;"</span>) 'shr-previous-link)))
-   (mu4e-headers-mode . (<span style="color: #00d3d0;">lambda</span> ()
-                          (<span style="color: #00d3d0;">interactive</span>)
-                          (<span style="color: #00d3d0;">setq</span> mu4e-headers-fields
-                                `((<span style="color: #feacd0;">:human-date</span> . 25)
-                                  (<span style="color: #feacd0;">:flags</span> . 6)
-                                  (<span style="color: #feacd0;">:from</span> . 22)
-                                  (<span style="color: #feacd0;">:thread-subject</span> . ,(- (window-body-width) 70))
-                                  (<span style="color: #feacd0;">:size</span> . 7))))))
-  <span style="color: #feacd0;">:config</span>
-  (<span style="color: #00d3d0;">setq</span> mail-user-agent (mu4e-user-agent))
+   (mu4e-view-mode . (<span style="color: #00538b;">lambda</span> ()
+                       (local-set-key (kbd <span style="color: #145c33;">"&lt;tab&gt;"</span>) 'shr-next-link)
+                       (local-set-key (kbd <span style="color: #145c33;">"&lt;backtab&gt;"</span>) 'shr-previous-link)))
+   (mu4e-headers-mode . (<span style="color: #00538b;">lambda</span> ()
+                          (<span style="color: #00538b;">interactive</span>)
+                          (<span style="color: #00538b;">setq</span> mu4e-headers-fields
+                                `((<span style="color: #721045;">:human-date</span> . 25)
+                                  (<span style="color: #721045;">:flags</span> . 6)
+                                  (<span style="color: #721045;">:from</span> . 22)
+                                  (<span style="color: #721045;">:thread-subject</span> . ,(- (window-body-width) 70))
+                                  (<span style="color: #721045;">:size</span> . 7))))))
+  <span style="color: #721045;">:config</span>
+  (<span style="color: #00538b;">setq</span> mail-user-agent (mu4e-user-agent))
   (add-to-list 'mu4e-view-actions
-               '(<span style="color: #00c06f;">"ViewInBrowser"</span> . mu4e-action-view-in-browser) t)
-  (<span style="color: #00d3d0;">setq</span> mu4e-contexts
+               '(<span style="color: #145c33;">"ViewInBrowser"</span> . mu4e-action-view-in-browser) t)
+  (<span style="color: #00538b;">setq</span> mu4e-contexts
         (list
          (make-mu4e-context
-          <span style="color: #feacd0;">:name</span> <span style="color: #00c06f;">"user"</span>
-          <span style="color: #feacd0;">:enter-func</span> (<span style="color: #00d3d0;">lambda</span> () (mu4e-message <span style="color: #00c06f;">"Entering context user"</span>))
-          <span style="color: #feacd0;">:leave-func</span> (<span style="color: #00d3d0;">lambda</span> () (mu4e-message <span style="color: #00c06f;">"Leaving context user"</span>))
-          <span style="color: #feacd0;">:match-func</span>
-          (<span style="color: #00d3d0;">lambda</span> (msg)
-            (<span style="color: #00d3d0;">when</span> msg
-              (string-match <span style="color: #00c06f;">"user"</span>
-                            (mu4e-message-field msg <span style="color: #feacd0;">:maildir</span>))))
-          <span style="color: #feacd0;">:vars</span> '((mu4e-sent-folder . <span style="color: #00c06f;">"/user/Sent"</span>)
-                  (mu4e-drafts-folder . <span style="color: #00c06f;">"/user/Drafts"</span>)
-                  (mu4e-trash-folder . <span style="color: #00c06f;">"/user/Trash"</span>)
-                  (user-mail-address  . <span style="color: #00c06f;">"user@example.com"</span>)
-                  (user-full-name . <span style="color: #00c06f;">"user"</span>)
+          <span style="color: #721045;">:name</span> <span style="color: #145c33;">"user"</span>
+          <span style="color: #721045;">:enter-func</span> (<span style="color: #00538b;">lambda</span> () (mu4e-message <span style="color: #145c33;">"Entering context user"</span>))
+          <span style="color: #721045;">:leave-func</span> (<span style="color: #00538b;">lambda</span> () (mu4e-message <span style="color: #145c33;">"Leaving context user"</span>))
+          <span style="color: #721045;">:match-func</span>
+          (<span style="color: #00538b;">lambda</span> (msg)
+            (<span style="color: #00538b;">when</span> msg
+              (string-match <span style="color: #145c33;">"user"</span>
+                            (mu4e-message-field msg <span style="color: #721045;">:maildir</span>))))
+          <span style="color: #721045;">:vars</span> '((mu4e-sent-folder . <span style="color: #145c33;">"/user/Sent"</span>)
+                  (mu4e-drafts-folder . <span style="color: #145c33;">"/user/Drafts"</span>)
+                  (mu4e-trash-folder . <span style="color: #145c33;">"/user/Trash"</span>)
+                  (user-mail-address  . <span style="color: #145c33;">"user@example.com"</span>)
+                  (user-full-name . <span style="color: #145c33;">"user"</span>)
                   (mu4e-sent-messages-behavior . sent)
                   (mu4e-compose-signature . user-full-name)
                   (mu4e-compose-format-flowed . t)
-                  (smtpmail-queue-dir . <span style="color: #00c06f;">"~/.maildir/user/Queue/cur"</span>)
+                  (smtpmail-queue-dir . <span style="color: #145c33;">"~/.maildir/user/Queue/cur"</span>)
                   (message-send-mail-function . smtpmail-send-it)
-                  (smtpmail-smtp-user . <span style="color: #00c06f;">"user@example.com"</span>)
-                  (smtpmail-starttls-credentials . ((<span style="color: #00c06f;">"smtp.example.com"</span> 587 nil nil)))
-                  <span style="color: #a8a8a8;">;;</span><span style="color: #a8a8a8;">(smtpmail-auth-credentials . (expand-file-name "~/.authinfo.gpg"))</span>
-                  (smtpmail-default-smtp-server . <span style="color: #00c06f;">"smtp.example.com"</span>)
-                  (smtpmail-smtp-server . <span style="color: #00c06f;">"smtp.example.com"</span>)
+                  (smtpmail-smtp-user . <span style="color: #145c33;">"user@example.com"</span>)
+                  (smtpmail-starttls-credentials . ((<span style="color: #145c33;">"smtp.example.com"</span> 587 nil nil)))
+                  <span style="color: #505050;">;;</span><span style="color: #505050;">(smtpmail-auth-credentials . (expand-file-name "~/.authinfo.gpg"))</span>
+                  (smtpmail-default-smtp-server . <span style="color: #145c33;">"smtp.example.com"</span>)
+                  (smtpmail-smtp-server . <span style="color: #145c33;">"smtp.example.com"</span>)
                   (smtpmail-smtp-service . 587)
                   (smtpmail-debug-info . t)
                   (smtpmail-debug-verbose . t)
@@ -946,7 +954,7 @@ After your copy &amp; paste, let's get into it so you could tweak the options ac
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #feacd0;">:load-path</span> (<span style="color: #00d3d0;">lambda</span> () (expand-file-name <span style="color: #00c06f;">"site-lisp/mu4e"</span>
+<pre class="src src-emacs-lisp"><span style="color: #721045;">:load-path</span> (<span style="color: #00538b;">lambda</span> () (expand-file-name <span style="color: #145c33;">"site-lisp/mu4e"</span>
                                             user-emacs-directory))
 </pre>
 </div>
@@ -973,12 +981,12 @@ Then why do I write like that? It's cool I guess.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #00d3d0;">use-package</span> <span style="color: #b6a0ff;">mu4e-alert</span>
-      <span style="color: #feacd0;">:defer</span> t
-      <span style="color: #feacd0;">:config</span>
-      (<span style="color: #00d3d0;">when</span> (executable-find <span style="color: #00c06f;">"notify-send"</span>)
+<pre class="src src-emacs-lisp">(<span style="color: #00538b;">use-package</span> <span style="color: #5317ac;">mu4e-alert</span>
+      <span style="color: #721045;">:defer</span> t
+      <span style="color: #721045;">:config</span>
+      (<span style="color: #00538b;">when</span> (executable-find <span style="color: #145c33;">"notify-send"</span>)
         (mu4e-alert-set-default-style 'libnotify))
-      <span style="color: #feacd0;">:hook</span>
+      <span style="color: #721045;">:hook</span>
       ((after-init . mu4e-alert-enable-notifications)
        (after-init . mu4e-alert-enable-mode-line-display)))
 </pre>
@@ -995,8 +1003,8 @@ The two <code>after-init</code> hooks below is needed to send notification to de
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #00d3d0;">use-package</span> <span style="color: #b6a0ff;">epg</span>)
-(<span style="color: #00d3d0;">require</span> '<span style="color: #b6a0ff;">epa-file</span>)
+<pre class="src src-emacs-lisp">(<span style="color: #00538b;">use-package</span> <span style="color: #5317ac;">epg</span>)
+(<span style="color: #00538b;">require</span> '<span style="color: #5317ac;">epa-file</span>)
 </pre>
 </div>
 
@@ -1007,10 +1015,10 @@ correctly before using this.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #feacd0;">:bind</span>
-    ((<span style="color: #00c06f;">"C-c m"</span> . mu4e)
-     (<span style="color: #feacd0;">:map</span> mu4e-view-mode-map
-           (<span style="color: #00c06f;">"e"</span> . mu4e-view-save-attachment)))
+<pre class="src src-emacs-lisp"><span style="color: #721045;">:bind</span>
+    ((<span style="color: #145c33;">"C-c m"</span> . mu4e)
+     (<span style="color: #721045;">:map</span> mu4e-view-mode-map
+           (<span style="color: #145c33;">"e"</span> . mu4e-view-save-attachment)))
 </pre>
 </div>
 
@@ -1020,14 +1028,14 @@ attachments in mu4e.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #feacd0;">:custom</span> (mu4e-user-mail-address-list '(<span style="color: #00c06f;">"user@example.com"</span>
-<span style="color: #00c06f;">"user-alias1@example"</span> <span style="color: #00c06f;">"user-alias2@example"</span>))
+<pre class="src src-emacs-lisp"><span style="color: #721045;">:custom</span> (mu4e-user-mail-address-list '(<span style="color: #145c33;">"user@example.com"</span>
+<span style="color: #145c33;">"user-alias1@example"</span> <span style="color: #145c33;">"user-alias2@example"</span>))
 
-(mu4e-maildir (expand-file-name <span style="color: #00c06f;">"~/.maildir"</span>))
+(mu4e-maildir (expand-file-name <span style="color: #145c33;">"~/.maildir"</span>))
  (mu4e-view-show-addresses t)
 
-(mu4e-maildir-shortcuts '((<span style="color: #00c06f;">"/acc1/INBOX"</span> . ?f) (<span style="color: #00c06f;">"/acc2/INBOX"</span> . ?g) ))
- (mu4e-attachment-dir <span style="color: #00c06f;">"~/Downloads/MailAttachments"</span>)
+(mu4e-maildir-shortcuts '((<span style="color: #145c33;">"/acc1/INBOX"</span> . ?f) (<span style="color: #145c33;">"/acc2/INBOX"</span> . ?g) ))
+ (mu4e-attachment-dir <span style="color: #145c33;">"~/Downloads/MailAttachments"</span>)
 </pre>
 </div>
 
@@ -1040,7 +1048,7 @@ Now we're at the proper mailbox configuration.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Ilghar Kus</p>
-<p class="date">Created: 2022-11-20 Sun 02:02</p>
+<p class="date">Created: 2022-11-21 Mon 13:23</p>
 </div>
 </body>
 </html>
