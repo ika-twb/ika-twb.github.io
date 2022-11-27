@@ -1,0 +1,8 @@
+#+TITLE: Why Use Emacs When, You Know, VSCode with Vim Key Exists?
+
+I'll write more things here later, focusing on my personal experience.
+But before that, just take a look at this reddit comment.
+
+If the iframe didn't load, try refresh the page or check your connection to [[https://www.reddit.com/][Reddit]].
+
+#+HTML:<iframe id="reddit-embed" src="https://www.redditmedia.com/r/orgmode/comments/lcizik/does_orgmode_outside_of_emacs_make_sense/gm1vx7j/?depth=1&amp;showmore=false&amp;embed=true&amp;showtitle=true&amp;showmedia=false" sandbox="allow-scripts allow-same-origin allow-popups" style="border: none;" scrolling="no" width="640" height="958"></iframe>
