@@ -5,8 +5,11 @@
 * About
 
 - ID: =ilghar_kus= / =ilgharkus= / =ika=
+
   =ika= is an abbreviation, not related to the renowned weeb meme "I'll miku-miku you "
+
   =kus= is an abbreviation too, the original meaning is /Kali Usually Sucks/, not /Kill UrSelf/.
+
 - Current Status: Undergraduate
 - Environment (If you decide to hack me)
   - Gentoo on a Dell and FreeBSD on a ThinkPad
