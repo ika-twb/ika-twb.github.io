@@ -1,0 +1,19 @@
+#+TITLE: Blog Posts
+#+SUBTITLE: random posts, captured using =(org-captured)= and automatically updated.
+#+OPTIONS: toc:2 num:0 author:nil timestamp:nil
+
+
+
+* 2022
+
+** 2022-12 December
+
+*** 2022-12-08 Thursday
+**** First Post
+good.
+
+Entered on [2022-12-08 Thu 15:55]
+**** foo
+bar
+
+Entered on [2022-12-08 Thu 15:58]
