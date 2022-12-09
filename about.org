@@ -4,68 +4,21 @@
 #+OPTIONS: num:0 toc:nil
 #+MACRO: imglnk @@html:<a href="$1"><img align="left" src="$2"></a></br>@@
 * About
+Freedom-focused hacker, prefers UNIX style. I go by the name =ilghar_kus= / =ilgharkus= / =ika=.
 
-- ID: =ilghar_kus= / =ilgharkus= / =ika=
-  - =ika= is an abbreviation, not related to the renowned weeb meme "I'll miku-miku you "
-  - =kus= is an abbreviation too, the original meaning is /Kali Usually Sucks/, not /Kill UrSelf/.
-- Current Status: Undergraduate
-- Environment (If you decide to hack me)
-  - Gentoo on a Dell and FreeBSD on a ThinkPad
-  - GNU Emacs for almost everything
-  - i3wm on X
-- Mail
-  - Addr:  =ika [at] thewizardbay.cc=
-  - Encryption: Recommended
-  - [[file:media/ika.asc][PGP Key]] : =2CEC 4DF5 9A6D 4187 3D44  25FB F174 A60B 548D EC09=
+I write C, EmacsLisp, Python, Bash, Perl, Racket and Haskell, use Gentoo, Debian and FreeBSD for various computing tasks, and GNU Emacs to operate them.
 
+You can find me at =ika [at] thewizardbay.cc=. Encryptions are always welcomed.
 
-#+BEGIN_QUOTE
-What's your favourite...
-1. *operating system*  : Gentoo.
-2. *text editor*  : GNU Emacs.
-
-3. *programming language*  :
-
-   - Bash for quick scripts
-   - Perl for hacky scripts
-   - Haskell for math & FP
-   - C for Universal
-   - Python if I'm too lazy.
-
-4. *web browser*  : Nyxt; Links; LibreWolf for compatibility.
-
-5. *command-line shell* : Bash.
-
-i hope ure happy now [[https://sqt.wtf/~ullard/the-five-questions.html][ullard]].
-#+END_QUOTE
----------
-
-- Other Favourites:
-  - Album of All Time : Burzum - /Filosofem/
-  - Podcast : 2.5Admins
-  - Method of Killing Time : Emacs tinkering
-  - Games (Series) : Factorio, S.T.A.L.K.E.R., Xonotic, Dwarf Fortress
-  - Stimulant : Caffeine tablets
-  - Job : SysAdmin, Blue Team
-  -
-
+You could attract my attention by topics in these fields:
+- Free software
+- Emacs
+- InfoSec
+- SysAdmin
+- Neural-Symbolic AI
 
 * Find me in these places.
-
------
-
-{{{imglnk(ircs://irc.libera.chat:6697,media/libera_banner.png)}}}
-
-{{{imglnk(https://mastodon.sdf.org/@ika,media/mastodon_banner.png)}}}
-
-{{{imglnk(https://gitlab.com/ilghar_kus,media/gitlab_banner.png)}}}
-
-{{{imglnk(https://github.com/ika-twb,media/github_banner.png)}}}
-
-{{{imglnk(https://www.hackthebox.com/home/users/profile/75894,media/htb_banner.png)}}}
-
-{{{imglnk(https://codeforces.com/profile/ilghar_kus,media/codeforces_banner.png)}}}
-
-{{{imglnk(https://www.hackerrank.com/ilghar_kus,media/hackerrank_banner.png)}}}
-
------
+|-----------------------+-------------------------+--------------------|
+| [[irc://irc.libera.chat:6697][ika@irc.libera.chat]]   | [[https://emacs.ch/@ika][ika@emacs.ch]]            | [[https://sr.ht/~ika][~ika@sr.ht]]         |
+| [[https://gitlab.com/ilghar_kus][ilghar_kus@gitlab.com]] | [[https://www.hackthebox.com/home/users/profile/75894][ilgharkus@hackthebox.eu]] | [[https://github.com/ika-twb][ika-twb@github.com]] |
+|-----------------------+-------------------------+--------------------|
