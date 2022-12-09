@@ -1,5 +1,6 @@
 #+TITLE: Using Offlineimap + MU4E to Setup A Powerful Email Client
 #+AUTHOR: Ilghar Kus
+#+DATE: <2022-12-09 Fri>
 #+BEGIN_QUOTE
 <ika> if i haven't fallen into the fucking rabbithole of emacs
 
