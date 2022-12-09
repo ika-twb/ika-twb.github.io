@@ -10,7 +10,7 @@ I write C, EmacsLisp, Python, Bash, Perl, Racket and Haskell, use Gentoo, Debian
 
 You can find me at =ika [at] thewizardbay.cc=. Encryptions are always welcomed.
 
-You could attract my attention by topics in these fields:
+Don't hesitate to contact me if you have interesting topics in these fields:
 - Free software
 - Emacs
 - InfoSec
