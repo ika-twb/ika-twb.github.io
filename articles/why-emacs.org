@@ -1,4 +1,5 @@
 #+TITLE: Why Use Emacs When, You Know, VSCode with Vim Key Exists?
+#+DATE: <2022-11-28 Mon>
 
 I'll write more things here later, focusing on my personal experience.
 But before that, just take a look at this reddit comment.

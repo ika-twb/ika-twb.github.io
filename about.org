@@ -1,5 +1,6 @@
 #+TITLE:About
 #+AUTHOR: Ilgharkus
+#+DATE: <1970-01-01 Thu>
 #+OPTIONS: num:0 toc:nil
 #+MACRO: imglnk @@html:<a href="$1"><img align="left" src="$2"></a></br>@@
 * About
