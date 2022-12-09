@@ -1,4 +1,5 @@
 #+TITLE: Blog Posts
+#+DATE: <1970-01-01 Thu>
 #+SUBTITLE: random posts, captured using =(org-captured)= and automatically updated.
 #+OPTIONS: toc:2 num:0 author:nil timestamp:nil
 
