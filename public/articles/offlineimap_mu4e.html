@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-12-09 Fri 12:59 -->
+<!-- 2022-12-09 Fri 13:32 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Using Offlineimap + MU4E to Setup A Powerful Email Client</title>
@@ -202,25 +202,25 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org7ac11e8">Introduction</a></li>
-<li><a href="#org5ba2dbc">Setup guide: OfflineIMAP</a>
+<li><a href="#org448bffe">Introduction</a></li>
+<li><a href="#orgd469acb">Setup guide: OfflineIMAP</a>
 <ul>
-<li><a href="#orgf81d087">Installation</a></li>
-<li><a href="#org2b34ced">Configuration</a>
+<li><a href="#org4515eb5">Installation</a></li>
+<li><a href="#org96576a6">Configuration</a>
 <ul>
-<li><a href="#org7238dcf">[general]</a></li>
-<li><a href="#org2e08fb6">[mbnames]</a></li>
-<li><a href="#orgf8081c7">[Account example]</a></li>
-<li><a href="#orgc677a17">[Repository LocalExample]</a></li>
-<li><a href="#org492a76e">[Repository RemoteExample]</a></li>
+<li><a href="#orgb82ca7e">[general]</a></li>
+<li><a href="#org28f9485">[mbnames]</a></li>
+<li><a href="#org536f20c">[Account example]</a></li>
+<li><a href="#org2389560">[Repository LocalExample]</a></li>
+<li><a href="#orgcf5bb66">[Repository RemoteExample]</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org7c08f87">Setup guide: Mu &amp; Mu4e</a>
+<li><a href="#org35de1c5">Setup guide: Mu &amp; Mu4e</a>
 <ul>
-<li><a href="#org1ab7833">Mu</a></li>
-<li><a href="#orgf583e41">Mu4e</a></li>
+<li><a href="#org1b04638">Mu</a></li>
+<li><a href="#org1095322">Mu4e</a></li>
 </ul>
 </li>
 </ul>
@@ -240,9 +240,9 @@
 </p>
 </blockquote>
 
-<div id="outline-container-org7ac11e8" class="outline-2">
-<h2 id="org7ac11e8">Introduction</h2>
-<div class="outline-text-2" id="text-org7ac11e8">
+<div id="outline-container-org448bffe" class="outline-2">
+<h2 id="org448bffe">Introduction</h2>
+<div class="outline-text-2" id="text-org448bffe">
 <p>
 <a href="https://github.com/OfflineIMAP/offlineimap3">OfflineIMAP</a> is an email syncing software that downloads your emails from the
 remote ESP servers as an local directory, and will synchronize both sides
@@ -271,13 +271,13 @@ that Thunderbird is totally bloatware.)
 </div>
 </div>
 
-<div id="outline-container-org5ba2dbc" class="outline-2">
-<h2 id="org5ba2dbc">Setup guide: OfflineIMAP</h2>
-<div class="outline-text-2" id="text-org5ba2dbc">
+<div id="outline-container-orgd469acb" class="outline-2">
+<h2 id="orgd469acb">Setup guide: OfflineIMAP</h2>
+<div class="outline-text-2" id="text-orgd469acb">
 </div>
-<div id="outline-container-orgf81d087" class="outline-3">
-<h3 id="orgf81d087">Installation</h3>
-<div class="outline-text-3" id="text-orgf81d087">
+<div id="outline-container-org4515eb5" class="outline-3">
+<h3 id="org4515eb5">Installation</h3>
+<div class="outline-text-3" id="text-org4515eb5">
 <p>
 If you have the offlineimap package in your distro repo and it's
 written in python3 (python2 version is obsolete and archived, don't
@@ -316,9 +316,9 @@ Then you're good to go.
 </div>
 </div>
 
-<div id="outline-container-org2b34ced" class="outline-3">
-<h3 id="org2b34ced">Configuration</h3>
-<div class="outline-text-3" id="text-org2b34ced">
+<div id="outline-container-org96576a6" class="outline-3">
+<h3 id="org96576a6">Configuration</h3>
+<div class="outline-text-3" id="text-org96576a6">
 <p>
 The configutaion file have a default path of <code>~/.offlineimaprc</code>, and in the cloned
 repo you could find a <code>offlineimap.conf</code> file and a <code>offlineimap.conf.minimal</code> file.
@@ -332,9 +332,9 @@ document.
 </p>
 </div>
 
-<div id="outline-container-org7238dcf" class="outline-4">
-<h4 id="org7238dcf">[general]</h4>
-<div class="outline-text-4" id="text-org7238dcf">
+<div id="outline-container-orgb82ca7e" class="outline-4">
+<h4 id="orgb82ca7e">[general]</h4>
+<div class="outline-text-4" id="text-orgb82ca7e">
 <p>
 <code>general</code> segment is used to declare accounts, the python extension file, and
 other options related to the overall program-running and syncing mechanism.
@@ -400,18 +400,18 @@ And in the next-next section you need to declare the account-specific settings.
 </div>
 </div>
 
-<div id="outline-container-org2e08fb6" class="outline-4">
-<h4 id="org2e08fb6">[mbnames]</h4>
-<div class="outline-text-4" id="text-org2e08fb6">
+<div id="outline-container-org28f9485" class="outline-4">
+<h4 id="org28f9485">[mbnames]</h4>
+<div class="outline-text-4" id="text-org28f9485">
 <p>
 Mailbox name recording section, skipped cause I don't use it.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgf8081c7" class="outline-4">
-<h4 id="orgf8081c7">[Account example]</h4>
-<div class="outline-text-4" id="text-orgf8081c7">
+<div id="outline-container-org536f20c" class="outline-4">
+<h4 id="org536f20c">[Account example]</h4>
+<div class="outline-text-4" id="text-org536f20c">
 <p>
 This part is for specifying, of course, account related settings.
 </p>
@@ -509,9 +509,9 @@ configuration, especially with label-related configurations, which is also docum
 </div>
 </div>
 
-<div id="outline-container-orgc677a17" class="outline-4">
-<h4 id="orgc677a17">[Repository LocalExample]</h4>
-<div class="outline-text-4" id="text-orgc677a17">
+<div id="outline-container-org2389560" class="outline-4">
+<h4 id="org2389560">[Repository LocalExample]</h4>
+<div class="outline-text-4" id="text-org2389560">
 <p>
 This part is for setting up your local repository for mails.
 </p>
@@ -583,9 +583,9 @@ could be found in the doc.
 </div>
 </div>
 
-<div id="outline-container-org492a76e" class="outline-4">
-<h4 id="org492a76e">[Repository RemoteExample]</h4>
-<div class="outline-text-4" id="text-org492a76e">
+<div id="outline-container-orgcf5bb66" class="outline-4">
+<h4 id="orgcf5bb66">[Repository RemoteExample]</h4>
+<div class="outline-text-4" id="text-orgcf5bb66">
 <div class="org-src-container">
 <pre class="src src-python"><code>[Repository ika-remote]</code>
 <code><span style="color: #721045;">type</span> = IMAP</code>
@@ -810,13 +810,13 @@ Remember only use these options after you read the corresponding parts in the do
 </div>
 </div>
 
-<div id="outline-container-org7c08f87" class="outline-2">
-<h2 id="org7c08f87">Setup guide: Mu &amp; Mu4e</h2>
-<div class="outline-text-2" id="text-org7c08f87">
+<div id="outline-container-org35de1c5" class="outline-2">
+<h2 id="org35de1c5">Setup guide: Mu &amp; Mu4e</h2>
+<div class="outline-text-2" id="text-org35de1c5">
 </div>
-<div id="outline-container-org1ab7833" class="outline-3">
-<h3 id="org1ab7833">Mu</h3>
-<div class="outline-text-3" id="text-org1ab7833">
+<div id="outline-container-org1b04638" class="outline-3">
+<h3 id="org1b04638">Mu</h3>
+<div class="outline-text-3" id="text-org1b04638">
 <p>
 <code>Mu</code> does not need specific setup, just initiate a mail directory with
 your email addresses will be enough.
@@ -845,9 +845,9 @@ invoked as a post-sync hook to index all mails for <code>mu4e</code> to read.
 </p>
 </div>
 </div>
-<div id="outline-container-orgf583e41" class="outline-3">
-<h3 id="orgf583e41">Mu4e</h3>
-<div class="outline-text-3" id="text-orgf583e41">
+<div id="outline-container-org1095322" class="outline-3">
+<h3 id="org1095322">Mu4e</h3>
+<div class="outline-text-3" id="text-org1095322">
 <p>
 Mu4e is pretty easy to setup, since you only need it to display and search your already indexed mail.
 </p>
