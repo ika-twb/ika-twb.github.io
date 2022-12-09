@@ -1,5 +1,4 @@
 #+TITLE:About
-#+AUTHOR: Ilgharkus
 #+DATE: <1970-01-01 Thu>
 #+OPTIONS: num:0 toc:nil
 #+MACRO: imglnk @@html:<a href="$1"><img align="left" src="$2"></a></br>@@
@@ -9,7 +8,7 @@ Freedom-focused hacker, prefers UNIX style. I go by the name =ilghar_kus= / =ilg
 I write C, EmacsLisp, Python, Bash, Perl, Racket and Haskell, use Gentoo, Debian and FreeBSD for various computing tasks, and GNU Emacs to operate them.
 
 You can find me at =ika [at] thewizardbay.cc=. Encryptions are always welcomed.
-
+%ilgh
 Don't hesitate to contact me if you have interesting topics in these fields:
 - Free software
 - Emacs
