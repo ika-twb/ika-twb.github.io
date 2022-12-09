@@ -3,11 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-12-09 Fri 14:05 -->
+<!-- 2022-12-10 Sat 00:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Learning Perl(持续更新)</title>
-<meta name="author" content="ika" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -402,8 +401,8 @@ Perl内的字符串有两种表示形式， <code>Single-Quoted String Literals<
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl"><code>$<span style="color: #2544bb;">foo</span> = <span style="color: #145c33;">"bar"</span>;</code>
-<code>print <span style="color: #145c33;">"$foo is bar"</span>;</code>
+<pre class="src src-perl"><code>$<span style="color: #79a8ff;">foo</span> = <span style="color: #00c06f;">"bar"</span>;</code>
+<code>print <span style="color: #00c06f;">"$foo is bar"</span>;</code>
 </pre>
 </div>
 
@@ -422,7 +421,7 @@ Perl内的字符串有两种表示形式， <code>Single-Quoted String Literals<
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl"><code><span style="color: #145c33;">"hello"</span>.<span style="color: #145c33;">"world"</span> == <span style="color: #145c33;">"hel"</span>.<span style="color: #145c33;">"lowo"</span>.<span style="color: #145c33;">"rld"</span></code>
+<pre class="src src-perl"><code><span style="color: #00c06f;">"hello"</span>.<span style="color: #00c06f;">"world"</span> == <span style="color: #00c06f;">"hel"</span>.<span style="color: #00c06f;">"lowo"</span>.<span style="color: #00c06f;">"rld"</span></code>
 </pre>
 </div>
 
@@ -431,8 +430,8 @@ Perl内的字符串有两种表示形式， <code>Single-Quoted String Literals<
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl"><code><span style="color: #145c33;">"foo"</span> x 3 == <span style="color: #145c33;">"foo"</span> x <span style="color: #145c33;">"3"</span> == <span style="color: #145c33;">"foofoofoo"</span></code>
-<code><span style="color: #145c33;">"5"</span> x <span style="color: #145c33;">"3"</span> == 5 x <span style="color: #145c33;">"3"</span> == 5 x 3 == 5 x 3.3 == 5 x <span style="color: #145c33;">"3.3"</span> == 555</code>
+<pre class="src src-perl"><code><span style="color: #00c06f;">"foo"</span> x 3 == <span style="color: #00c06f;">"foo"</span> x <span style="color: #00c06f;">"3"</span> == <span style="color: #00c06f;">"foofoofoo"</span></code>
+<code><span style="color: #00c06f;">"5"</span> x <span style="color: #00c06f;">"3"</span> == 5 x <span style="color: #00c06f;">"3"</span> == 5 x 3 == 5 x 3.3 == 5 x <span style="color: #00c06f;">"3.3"</span> == 555</code>
 </pre>
 </div>
 <p>
@@ -461,8 +460,8 @@ For the most part, Perl automatically converts between numbers and strings as ne
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl"><code><span style="color: #145c33;">"12"</span> * <span style="color: #145c33;">"3"</span> == 12 * 3 == 36</code>
-<code><span style="color: #145c33;">"12foo"</span> * <span style="color: #145c33;">"3bar"</span> == 36</code>
+<pre class="src src-perl"><code><span style="color: #00c06f;">"12"</span> * <span style="color: #00c06f;">"3"</span> == 12 * 3 == 36</code>
+<code><span style="color: #00c06f;">"12foo"</span> * <span style="color: #00c06f;">"3bar"</span> == 36</code>
 </pre>
 </div>
 
@@ -495,7 +494,7 @@ For the most part, Perl automatically converts between numbers and strings as ne
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl"><code><span style="color: #505050;">#</span><span style="color: #505050;">!/usr/bin/perl -w</span></code>
+<pre class="src src-perl"><code><span style="color: #a8a8a8;">#</span><span style="color: #a8a8a8;">!/usr/bin/perl -w</span></code>
 </pre>
 </div>
 
@@ -504,7 +503,7 @@ For the most part, Perl automatically converts between numbers and strings as ne
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl"><code><span style="color: #505050;">#</span><span style="color: #505050;">!perl -w</span></code>
+<pre class="src src-perl"><code><span style="color: #a8a8a8;">#</span><span style="color: #a8a8a8;">!perl -w</span></code>
 </pre>
 </div>
 
@@ -513,8 +512,8 @@ For the most part, Perl automatically converts between numbers and strings as ne
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl"><code><span style="color: #505050;">#</span><span style="color: #505050;">!/usr/bin/perl</span></code>
-<code><span style="color: #00538b;">use</span> <span style="color: #5317ac;">warnings</span>;</code>
+<pre class="src src-perl"><code><span style="color: #a8a8a8;">#</span><span style="color: #a8a8a8;">!/usr/bin/perl</span></code>
+<code><span style="color: #00d3d0;">use</span> <span style="color: #b6a0ff;">warnings</span>;</code>
 </pre>
 </div>
 
@@ -523,8 +522,8 @@ For the most part, Perl automatically converts between numbers and strings as ne
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl"><code><span style="color: #505050;">#</span><span style="color: #505050;">!/usr/bin/perl</span></code>
-<code><span style="color: #00538b;">use</span> <span style="color: #5317ac;">diagnostics</span>;</code>
+<pre class="src src-perl"><code><span style="color: #a8a8a8;">#</span><span style="color: #a8a8a8;">!/usr/bin/perl</span></code>
+<code><span style="color: #00d3d0;">use</span> <span style="color: #b6a0ff;">diagnostics</span>;</code>
 </pre>
 </div>
 
@@ -574,14 +573,14 @@ A variable is a name for a container that holds one or more values. The name of 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl"><code>$<span style="color: #2544bb;">foo</span> = 3;</code>
-<code>$<span style="color: #2544bb;">foo</span> = $<span style="color: #2544bb;">foo</span> + 3;</code>
-<code>$<span style="color: #2544bb;">foo</span> += 3;</code>
-<code>$<span style="color: #2544bb;">foo</span> = <span style="color: #145c33;">"bar"</span>;</code>
-<code>$<span style="color: #2544bb;">foo</span> = $<span style="color: #2544bb;">foo</span> . <span style="color: #145c33;">"foo"</span>;</code>
-<code>$<span style="color: #2544bb;">foo</span> = $<span style="color: #2544bb;">foo</span> x 3;</code>
-<code>$<span style="color: #2544bb;">foo</span> x= 3;</code>
-<code>$<span style="color: #2544bb;">foo</span> .= <span style="color: #145c33;">"foo"</span>;</code>
+<pre class="src src-perl"><code>$<span style="color: #79a8ff;">foo</span> = 3;</code>
+<code>$<span style="color: #79a8ff;">foo</span> = $<span style="color: #79a8ff;">foo</span> + 3;</code>
+<code>$<span style="color: #79a8ff;">foo</span> += 3;</code>
+<code>$<span style="color: #79a8ff;">foo</span> = <span style="color: #00c06f;">"bar"</span>;</code>
+<code>$<span style="color: #79a8ff;">foo</span> = $<span style="color: #79a8ff;">foo</span> . <span style="color: #00c06f;">"foo"</span>;</code>
+<code>$<span style="color: #79a8ff;">foo</span> = $<span style="color: #79a8ff;">foo</span> x 3;</code>
+<code>$<span style="color: #79a8ff;">foo</span> x= 3;</code>
+<code>$<span style="color: #79a8ff;">foo</span> .= <span style="color: #00c06f;">"foo"</span>;</code>
 </pre>
 </div>
 
@@ -598,17 +597,17 @@ Perl中的 <code>print()</code> 函数与其他语言中的类似，而且可以
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl"><code>print <span style="color: #145c33;">"hello world\n"</span>;    <span style="color: #505050;"># &#36755;&#20986;&#20026; &#8220;hello world&#8221;&#20197;&#21450;&#19968;&#20010;&#26032;&#34892;&#12290;</span></code>
+<pre class="src src-perl"><code>print <span style="color: #00c06f;">"hello world\n"</span>;    <span style="color: #a8a8a8;"># &#36755;&#20986;&#20026; &#8220;hello world&#8221;&#20197;&#21450;&#19968;&#20010;&#26032;&#34892;&#12290;</span></code>
 <code></code>
-<code>print <span style="color: #145c33;">"the answer is "</span>;</code>
-<code>print 2*<span style="color: #2544bb;">3</span>;</code>
-<code>print <span style="color: #145c33;">".\n"</span>;    <span style="color: #505050;"># &#36755;&#20986;&#20026;&#8220;the answer is 6.&#8221;&#20197;&#21450;&#19968;&#20010;&#26032;&#34892;&#12290;</span></code>
+<code>print <span style="color: #00c06f;">"the answer is "</span>;</code>
+<code>print 2*<span style="color: #79a8ff;">3</span>;</code>
+<code>print <span style="color: #00c06f;">".\n"</span>;    <span style="color: #a8a8a8;"># &#36755;&#20986;&#20026;&#8220;the answer is 6.&#8221;&#20197;&#21450;&#19968;&#20010;&#26032;&#34892;&#12290;</span></code>
 <code></code>
-<code><span style="color: #505050;"># </span><span style="color: #505050;">&#24403;&#28982;&#20063;&#21487;&#20197;&#36825;&#20040;&#25805;&#20316;&#12290;</span></code>
+<code><span style="color: #a8a8a8;"># </span><span style="color: #a8a8a8;">&#24403;&#28982;&#20063;&#21487;&#20197;&#36825;&#20040;&#25805;&#20316;&#12290;</span></code>
 <code></code>
-<code>print <span style="color: #145c33;">"the answer is"</span>. 6*<span style="color: #2544bb;">7</span> .<span style="color: #145c33;">".\n"</span>;</code>
+<code>print <span style="color: #00c06f;">"the answer is"</span>. 6*<span style="color: #79a8ff;">7</span> .<span style="color: #00c06f;">".\n"</span>;</code>
 <code></code>
-<code><span style="color: #505050;"># </span><span style="color: #505050;">&#36755;&#20986;&#26159;&#30456;&#21516;&#30340;&#12290;</span></code>
+<code><span style="color: #a8a8a8;"># </span><span style="color: #a8a8a8;">&#36755;&#20986;&#26159;&#30456;&#21516;&#30340;&#12290;</span></code>
 </pre>
 </div>
 </div>
@@ -622,8 +621,8 @@ Perl中的 <code>print()</code> 函数与其他语言中的类似，而且可以
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl"><code>$<span style="color: #2544bb;">foo</span> = <span style="color: #145c33;">"bar"</span>;</code>
-<code>print <span style="color: #145c33;">"$foo is bar"</span>;</code>
+<pre class="src src-perl"><code>$<span style="color: #79a8ff;">foo</span> = <span style="color: #00c06f;">"bar"</span>;</code>
+<code>print <span style="color: #00c06f;">"$foo is bar"</span>;</code>
 </pre>
 </div>
 
@@ -646,12 +645,12 @@ Perl中的 <code>print()</code> 函数与其他语言中的类似，而且可以
 
 
 <div class="org-src-container">
-<pre class="src src-perl"><code>$<span style="color: #2544bb;">foo</span> = 1;</code>
-<code>$<span style="color: #2544bb;">foobar</span> = 2;</code>
-<code>print <span style="color: #145c33;">"$foos"</span>;        <span style="color: #505050;">#&#20250;&#36755;&#20986;&#8220;1s&#8221;</span></code>
-<code>print <span style="color: #145c33;">"$foobar"</span>;      <span style="color: #505050;">#&#20250;&#36755;&#20986;&#8220;2&#8221;</span></code>
-<code>print <span style="color: #145c33;">"$foo"</span>.<span style="color: #145c33;">"bar"</span>;   <span style="color: #505050;">#&#20250;&#36755;&#20986;&#8220;1bar&#8221;</span></code>
-<code>print <span style="color: #145c33;">"${foo}bar"</span>;    <span style="color: #505050;">#&#20250;&#36755;&#20986;&#8220;1bar&#8221;</span></code>
+<pre class="src src-perl"><code>$<span style="color: #79a8ff;">foo</span> = 1;</code>
+<code>$<span style="color: #79a8ff;">foobar</span> = 2;</code>
+<code>print <span style="color: #00c06f;">"$foos"</span>;        <span style="color: #a8a8a8;">#&#20250;&#36755;&#20986;&#8220;1s&#8221;</span></code>
+<code>print <span style="color: #00c06f;">"$foobar"</span>;      <span style="color: #a8a8a8;">#&#20250;&#36755;&#20986;&#8220;2&#8221;</span></code>
+<code>print <span style="color: #00c06f;">"$foo"</span>.<span style="color: #00c06f;">"bar"</span>;   <span style="color: #a8a8a8;">#&#20250;&#36755;&#20986;&#8220;1bar&#8221;</span></code>
+<code>print <span style="color: #00c06f;">"${foo}bar"</span>;    <span style="color: #a8a8a8;">#&#20250;&#36755;&#20986;&#8220;1bar&#8221;</span></code>
 </pre>
 </div>
 </div>
@@ -717,12 +716,12 @@ Perl中字符串的比较方法是从头至为比较单个字符的ASCII值，�
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl"><code><span style="color: #00538b;">if</span> (&lt;<span style="color: #5317ac;">condition</span>&gt;){</code>
-<code>    <span style="color: #505050;"># do something;</span></code>
-<code>}  <span style="color: #00538b;">elsif</span> (&lt;<span style="color: #5317ac;">condition</span>&gt;) {</code>
-<code>    <span style="color: #505050;"># do another something;</span></code>
-<code>}  <span style="color: #00538b;">else</span> {</code>
-<code>    <span style="color: #505050;"># ok let's do this;</span></code>
+<pre class="src src-perl"><code><span style="color: #00d3d0;">if</span> (&lt;<span style="color: #b6a0ff;">condition</span>&gt;){</code>
+<code>    <span style="color: #a8a8a8;"># do something;</span></code>
+<code>}  <span style="color: #00d3d0;">elsif</span> (&lt;<span style="color: #b6a0ff;">condition</span>&gt;) {</code>
+<code>    <span style="color: #a8a8a8;"># do another something;</span></code>
+<code>}  <span style="color: #00d3d0;">else</span> {</code>
+<code>    <span style="color: #a8a8a8;"># ok let's do this;</span></code>
 <code>}</code>
 </pre>
 </div>
@@ -749,7 +748,7 @@ Condition 返回的可以为True or False，当Condition为一个数字，除0�
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl"><code>$<span style="color: #2544bb;">foo</span> = &lt;<span style="color: #5317ac;">STDIN</span>&gt;;</code>
+<pre class="src src-perl"><code>$<span style="color: #79a8ff;">foo</span> = &lt;<span style="color: #b6a0ff;">STDIN</span>&gt;;</code>
 </pre>
 </div>
 
@@ -770,8 +769,8 @@ Condition 返回的可以为True or False，当Condition为一个数字，除0�
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl"><code>$<span style="color: #2544bb;">foo</span> = &lt;<span style="color: #5317ac;">STDIN</span>&gt;;</code>
-<code>chomp($<span style="color: #2544bb;">foo</span>);    <span style="color: #505050;"># &#36825;&#37324;&#30340;&#25324;&#21495;&#26159;&#21487;&#20197;&#30465;&#30053;&#30340;&#12290;</span></code>
+<pre class="src src-perl"><code>$<span style="color: #79a8ff;">foo</span> = &lt;<span style="color: #b6a0ff;">STDIN</span>&gt;;</code>
+<code>chomp($<span style="color: #79a8ff;">foo</span>);    <span style="color: #a8a8a8;"># &#36825;&#37324;&#30340;&#25324;&#21495;&#26159;&#21487;&#20197;&#30465;&#30053;&#30340;&#12290;</span></code>
 </pre>
 </div>
 
@@ -780,7 +779,7 @@ Condition 返回的可以为True or False，当Condition为一个数字，除0�
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl"><code>chomp($<span style="color: #2544bb;">foo</span>=&lt;<span style="color: #5317ac;">STDIN</span>&gt;);    <span style="color: #505050;">#&#36825;&#37324;&#30340;&#25324;&#21495;&#19981;&#21487;&#20197;&#30465;&#30053;&#12290;</span></code>
+<pre class="src src-perl"><code>chomp($<span style="color: #79a8ff;">foo</span>=&lt;<span style="color: #b6a0ff;">STDIN</span>&gt;);    <span style="color: #a8a8a8;">#&#36825;&#37324;&#30340;&#25324;&#21495;&#19981;&#21487;&#20197;&#30465;&#30053;&#12290;</span></code>
 </pre>
 </div>
 
@@ -798,8 +797,8 @@ Condition 返回的可以为True or False，当Condition为一个数字，除0�
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl"><code><span style="color: #00538b;">while</span>(&lt;<span style="color: #5317ac;">condition</span>&gt;){</code>
-<code>    <span style="color: #505050;"># do something;</span></code>
+<pre class="src src-perl"><code><span style="color: #00d3d0;">while</span>(&lt;<span style="color: #b6a0ff;">condition</span>&gt;){</code>
+<code>    <span style="color: #a8a8a8;"># do something;</span></code>
 <code>}</code>
 </pre>
 </div>
@@ -818,9 +817,9 @@ Perl的一个很有趣的特性便是这个 <code>undef</code> 值，它适用�
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl"><code>$<span style="color: #2544bb;">unassigned_variable</span> = <span style="color: #145c33;">"foo"</span>;</code>
+<pre class="src src-perl"><code>$<span style="color: #79a8ff;">unassigned_variable</span> = <span style="color: #00c06f;">"foo"</span>;</code>
 <code></code>
-<code>$<span style="color: #2544bb;">another_unassigned_variable</span> .= <span style="color: #145c33;">"foo"</span>;</code>
+<code>$<span style="color: #79a8ff;">another_unassigned_variable</span> .= <span style="color: #00c06f;">"foo"</span>;</code>
 </pre>
 </div>
 
@@ -864,8 +863,8 @@ Perl的一个很有趣的特性便是这个 <code>undef</code> 值，它适用�
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl"><code>@<span style="color: #2544bb; text-decoration: underline;">an_array</span> = qw<span style="color: #145c33;">[this that foo bar]</span>;    <span style="color: #505050;">#&#36825;&#26159;&#19968;&#20010;&#25968;&#21015;</span></code>
-<code>print $<span style="color: #2544bb;">an_array</span>[1];                   <span style="color: #505050;">#&#36755;&#20986; "that"</span></code>
+<pre class="src src-perl"><code>@<span style="color: #79a8ff; text-decoration: underline;">an_array</span> = qw<span style="color: #00c06f;">[this that foo bar]</span>;    <span style="color: #a8a8a8;">#&#36825;&#26159;&#19968;&#20010;&#25968;&#21015;</span></code>
+<code>print $<span style="color: #79a8ff;">an_array</span>[1];                   <span style="color: #a8a8a8;">#&#36755;&#20986; "that"</span></code>
 </pre>
 </div>
 
@@ -898,9 +897,9 @@ Perl调用数列元素的方式也很简单，例如：
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl"><code>$<span style="color: #2544bb;">foo</span>[0]=<span style="color: #145c33;">"foo"</span>;</code>
-<code>$<span style="color: #2544bb;">foo</span>[1]=<span style="color: #145c33;">"bar"</span>;</code>
-<code>print $<span style="color: #2544bb;">foo</span>[1];    <span style="color: #505050;">#&#36755;&#20986; "bar"</span></code>
+<pre class="src src-perl"><code>$<span style="color: #79a8ff;">foo</span>[0]=<span style="color: #00c06f;">"foo"</span>;</code>
+<code>$<span style="color: #79a8ff;">foo</span>[1]=<span style="color: #00c06f;">"bar"</span>;</code>
+<code>print $<span style="color: #79a8ff;">foo</span>[1];    <span style="color: #a8a8a8;">#&#36755;&#20986; "bar"</span></code>
 </pre>
 </div>
 
@@ -910,9 +909,9 @@ Perl调用数列元素的方式也很简单，例如：
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl"><code>$<span style="color: #2544bb;">foo</span>=<span style="color: #145c33;">"foo"</span>;</code>
-<code>$<span style="color: #2544bb;">foo</span>[0]=<span style="color: #145c33;">"bar"</span>;</code>
-<code>print $<span style="color: #2544bb;">foo</span>.$<span style="color: #2544bb;">foo</span>[0];    <span style="color: #505050;">#&#32467;&#26524;&#20250;&#36755;&#20986; "foobar"</span></code>
+<pre class="src src-perl"><code>$<span style="color: #79a8ff;">foo</span>=<span style="color: #00c06f;">"foo"</span>;</code>
+<code>$<span style="color: #79a8ff;">foo</span>[0]=<span style="color: #00c06f;">"bar"</span>;</code>
+<code>print $<span style="color: #79a8ff;">foo</span>.$<span style="color: #79a8ff;">foo</span>[0];    <span style="color: #a8a8a8;">#&#32467;&#26524;&#20250;&#36755;&#20986; "foobar"</span></code>
 </pre>
 </div>
 
@@ -926,10 +925,10 @@ Perl调用数列元素的方式也很简单，例如：
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl"><code>$<span style="color: #2544bb;">foo</span>[0]=<span style="color: #145c33;">"foo"</span>;</code>
-<code>$<span style="color: #2544bb;">foo</span>[1]=<span style="color: #145c33;">"bar"</span>;</code>
-<code>$<span style="color: #2544bb;">the_number</span>=1.618</code>
-<code>print $<span style="color: #2544bb;">foo</span>[$<span style="color: #2544bb;">the_number</span>-1].$<span style="color: #2544bb;">foo</span>[<span style="color: #145c33;">"1H4T3SCH00L"</span>]    <span style="color: #505050;">#&#32467;&#26524;&#20250;&#36755;&#20986; "foobar"</span></code>
+<pre class="src src-perl"><code>$<span style="color: #79a8ff;">foo</span>[0]=<span style="color: #00c06f;">"foo"</span>;</code>
+<code>$<span style="color: #79a8ff;">foo</span>[1]=<span style="color: #00c06f;">"bar"</span>;</code>
+<code>$<span style="color: #79a8ff;">the_number</span>=1.618</code>
+<code>print $<span style="color: #79a8ff;">foo</span>[$<span style="color: #79a8ff;">the_number</span>-1].$<span style="color: #79a8ff;">foo</span>[<span style="color: #00c06f;">"1H4T3SCH00L"</span>]    <span style="color: #a8a8a8;">#&#32467;&#26524;&#20250;&#36755;&#20986; "foobar"</span></code>
 </pre>
 </div>
 
@@ -939,10 +938,10 @@ Perl调用数列元素的方式也很简单，例如：
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl"><code>$<span style="color: #2544bb;">foo</span>[0]=0;</code>
-<code>$<span style="color: #2544bb;">foo</span>[1]=1;</code>
-<code><span style="color: #00538b;">if</span>(!defined($<span style="color: #2544bb;">foo</span>[99])){</code>
-<code>    print <span style="color: #145c33;">"Not defined!"</span>;}    <span style="color: #505050;">#&#32467;&#26524;&#20250;&#36755;&#20986; "Not defined!"</span></code>
+<pre class="src src-perl"><code>$<span style="color: #79a8ff;">foo</span>[0]=0;</code>
+<code>$<span style="color: #79a8ff;">foo</span>[1]=1;</code>
+<code><span style="color: #00d3d0;">if</span>(!defined($<span style="color: #79a8ff;">foo</span>[99])){</code>
+<code>    print <span style="color: #00c06f;">"Not defined!"</span>;}    <span style="color: #a8a8a8;">#&#32467;&#26524;&#20250;&#36755;&#20986; "Not defined!"</span></code>
 </pre>
 </div>
 </div>
@@ -956,10 +955,10 @@ Perl调用数列元素的方式也很简单，例如：
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl"><code>$<span style="color: #2544bb;">foo</span>[0]=<span style="color: #145c33;">"foo"</span>;</code>
-<code>$<span style="color: #2544bb;">foo</span>[1]=<span style="color: #145c33;">"bar"</span>;</code>
-<code>$<span style="color: #2544bb;">foo</span>[99]=<span style="color: #145c33;">"well that was quite a gap!"</span>;</code>
-<code><span style="color: #505050;"># </span><span style="color: #505050;">&#20174; $foo[2] &#21040; $foo[98] &#20043;&#38388;&#30340;&#20803;&#32032;&#22343;&#20026; undef</span></code>
+<pre class="src src-perl"><code>$<span style="color: #79a8ff;">foo</span>[0]=<span style="color: #00c06f;">"foo"</span>;</code>
+<code>$<span style="color: #79a8ff;">foo</span>[1]=<span style="color: #00c06f;">"bar"</span>;</code>
+<code>$<span style="color: #79a8ff;">foo</span>[99]=<span style="color: #00c06f;">"well that was quite a gap!"</span>;</code>
+<code><span style="color: #a8a8a8;"># </span><span style="color: #a8a8a8;">&#20174; $foo[2] &#21040; $foo[98] &#20043;&#38388;&#30340;&#20803;&#32032;&#22343;&#20026; undef</span></code>
 </pre>
 </div>
 </div>
