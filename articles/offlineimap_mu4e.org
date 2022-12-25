@@ -1,13 +1,11 @@
 #+TITLE: Using Offlineimap + MU4E to Setup A Powerful Email Client
 #+AUTHOR: Ilghar Kus
 #+DATE: <2022-12-09 Fri>
-#+BEGIN_QUOTE
+#+BEGIN_SRC
 <ika> if i haven't fallen into the fucking rabbithole of emacs
-
 <ika> who knows
-
 <ika> maybe ill go use mutt
-#+END_QUOTE
+#+END_SRC
 
 * Introduction
 [[https://github.com/OfflineIMAP/offlineimap3][OfflineIMAP]] is an email syncing software that downloads your emails from the
@@ -26,8 +24,8 @@ With OfflineIMAP as a backend synchronizer, and mu4e as a front-end
 interface and searcher, you could have a consistent, customized and
 fast experience dealing with emails, in your own and beloved text
 editor, and you won't ever need to suffer 30mins of 5000rpm fan noize
-of compiling thunderbird to update some feature you never use. (If you
-don't use a source-based Distro, at least we could agree on the part
+of compiling Thunderbird to update some feature you never use. (If you
+don't use a source-based distro, at least we could agree on the part
 that Thunderbird is totally bloatware.)
 
 * Setup guide: OfflineIMAP
@@ -304,7 +302,7 @@ Slightly better, but not recommended, even if you set corrent permission for tha
    valid Kerberos TGT, Offlineimap will figure out the rest all by
    itself, and fall back to password authentication if needed.
    #+END_QUOTE
-6. Use arbitraty python code.
+6. Use arbitrary python code.
 
   #+BEGIN_SRC python
      remotepasseval = mailpasswd("user@example.com")
@@ -507,7 +505,7 @@ The =(lambda () (expand-file-name))= part could be skipped and just use =site-li
 keyword =:load-path=, it automatically expand the filename within =user-emacs-directory= if the path is
 relative.
 
-Then why do I write like that? It's cool I guess.
+Then why do I write like that? It's cool I guess. Also λ is a good looking character so I enjoy having it in codes.
 
 #+BEGIN_SRC emacs-lisp
 (use-package mu4e-alert
