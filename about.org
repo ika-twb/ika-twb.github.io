@@ -2,22 +2,43 @@
 #+DATE: <1970-01-01 Thu>
 #+OPTIONS: num:0 toc:nil
 #+MACRO: imglnk @@html:<a href="$1"><img align="left" src="$2"></a></br>@@
-* About
-Freedom-focused hacker, prefers UNIX style. I go by the name =ilghar_kus= / =ilgharkus= / =ika=.
+* To Readers
+Greetings, I am Ilghar Kus, a freedom-focused hacker, a defender of
+digital rights and a devout practitioner of the UNIX philosophy. I go
+by many names, such as ika and Nodratis, but the essence remains the
+same - a steadfast commitment to the principles of freedom,
+transparency, and collaboration that underpin the spirit of the
+digital age.
 
-I write C, EmacsLisp, Python, Bash, Perl, Racket and Haskell, use Gentoo, Debian and FreeBSD for various computing tasks, and GNU Emacs to operate them.
+I am a practitioner of many programming languages such as C,
+EmacsLisp, Python, Bash, Perl, Racket, and Haskell, and I am an avid
+user of free software operating systems such as Gentoo, Debian, and
+FreeBSD. My weapon of choice for operating these systems is the
+incomparable GNU Emacs, the one true text editor that embodies the
+values of free software.
 
-You can find me at =ika [at] thewizardbay.cc= [[[file:media/ika.asc][PGP Pubkey]]] Encryptions are always welcome.
+I believe that access to technology and knowledge should be a basic
+human right, and users should have the freedom to run, study,
+distribute, and modify software.  I strive to promote this belief
+through my work and writing. I am always open to discussions on topics
+such as the sublime power of GNU Emacs, the ever-evolving field of
+InfoSec, the challenges and rewards of SysAdmin, and the exciting
+future of Neural-Symbolic AI.
 
-Don't hesitate to contact me if you have interesting topics in these fields:
-- Free software
-- Emacs
-- InfoSec
-- SysAdmin
-- Neural-Symbolic AI
+If you share my vision of a world where technology serves humanity,
+not the other way around, don't hesitate to reach out to me at =ika [at] thewizardbay.cc=.
+Encrypted communication is always welcome, and
+my [[file:media/ika.asc][PGP public key]] is readily available for those who seek secure and
+private correspondence.
+
+Join me in this quest for digital freedom, and together we can build a
+better future for all.
+
+Yours in freedom,
+
+Ilghar Kus
 
 * Find me in these places.
 |-----------------------+-------------------------+--------------------|
 | [[irc://irc.libera.chat:6697][ika@irc.libera.chat]]   | [[https://emacs.ch/@ika][ika@emacs.ch]]            | [[https://sr.ht/~ika][~ika@sr.ht]]         |
-| [[https://gitlab.com/ilghar_kus][ilghar_kus@gitlab.com]] | [[https://www.hackthebox.com/home/users/profile/75894][ilgharkus@hackthebox.eu]] | [[https://github.com/ika-twb][ika-twb@github.com]] |
 |-----------------------+-------------------------+--------------------|

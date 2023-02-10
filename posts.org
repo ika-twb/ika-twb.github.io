@@ -18,3 +18,12 @@ Entered on [2022-12-08 Thu 15:55]
 bar
 
 Entered on [2022-12-08 Thu 15:58]
+
+* 2023
+
+** 2023-01 January
+
+*** 2023-01-12 Thursday
+**** $\frac{1}{e}$ best choice
+[[https://en.wikipedia.org/wiki/Secretary_problem#1/e-law_of_best_choice]]
+Entered on [2023-01-12 Thu 20:43]
