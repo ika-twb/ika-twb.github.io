@@ -22,7 +22,7 @@ human right, and users should have the freedom to run, study,
 distribute, and modify software.  I strive to promote this belief
 through my work and writing. I am always open to discussions on topics
 such as the sublime power of GNU Emacs, the ever-evolving field of
-InfoSec, the challenges and rewards of SysAdmin, and the exciting
+information security, the challenges and rewards of system administration, and the exciting
 future of Neural-Symbolic AI.
 
 If you share my vision of a world where technology serves humanity,
