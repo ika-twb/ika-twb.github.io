@@ -3,10 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-12-10 Sat 00:31 -->
+<!-- 2023-02-08 Wed 12:26 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Why Use Emacs When, You Know, VSCode with Vim Key Exists?</title>
+<meta name="author" content="ika" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -190,26 +191,237 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
+  .org-svg { }
 </style>
 <style type="text/css"> html{max-width: 70ch;padding: 3em 1em;margin: auto;line-height: 1.75;font-size: 1.25em;} a:link{color:black;} a:visited{color:#565656;} aside{position: fixed; top: 30px; right: 30px;}</style>
 </head>
 <body>
 <div id="preamble" class="status">
-<p>Written by ika, posted on <a href="https://blog.thewizardbay.cc/">TheWizardBay</a>.</p><hr />
+<p>Written by ika, posted on <a href="https://blog.thewizardbay.cc/">TheWizardBay</a>.</p><hr /> 
 </div>
 <div id="content" class="content">
 <h1 class="title">Why Use Emacs When, You Know, VSCode with Vim Key Exists?</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgfbc0705">Preface</a></li>
+<li><a href="#org1d8eb20">What is Emacs?</a></li>
+<li><a href="#org8811895">Free as in Freedom</a></li>
+<li><a href="#orga7e45b3">Sharpen Your Axe</a></li>
+<li><a href="#org4f6832d">Code Is Not All</a></li>
+<li><a href="#org90c9744">Lisp</a></li>
+<li><a href="#orgd0e4ea3">All Your Thing Are Belong to Emacs</a></li>
+<li><a href="#orgae7c35a">Organized Life &amp; Workflow</a></li>
+<li><a href="#orgaed0627">Conclution</a>
+<ul>
+<li><a href="#orgc64dc28">Emacs vs. VSCode</a></li>
+<li><a href="#org1c55c65">Emacs vs. Vim</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfbc0705" class="outline-2">
+<h2 id="orgfbc0705">Preface</h2>
+<div class="outline-text-2" id="text-orgfbc0705">
 <p>
-I'll write more things here later, focusing on my personal experience.
-But before that, just take a look at this reddit comment.
+I found this comment on <a href="https://www.reddit.com/">Reddit</a> a few weeks ago, and it really resonated with my personal experience using Emacs in the last few years.
 </p>
 
 <p>
-If the iframe didn't load, try refresh the page or check your connection to <a href="https://www.reddit.com/">Reddit</a>.
+<i>If the iframe didn't load, try refresh the page or check your connection to <a href="https://www.reddit.com/">Reddit</a>.</i>
 </p>
 
 <iframe id="reddit-embed" src="https://www.redditmedia.com/r/orgmode/comments/lcizik/does_orgmode_outside_of_emacs_make_sense/gm1vx7j/?depth=1&amp;showmore=false&amp;embed=true&amp;showtitle=true&amp;showmedia=false" sandbox="allow-scripts allow-same-origin allow-popups" style="border: none;" scrolling="no" width="640" height="958"></iframe>
+
+<p>
+According to the <a href="https://survey.stackoverflow.co/2022/">2022 Developer Survey by Stackoverflow</a>, VSCode is <b>the</b>
+most popular IDE for developers with a ratio of 74.48% in 71,010
+responses, while Emacs is at 4.51%.  This figure is convincing from my
+point of view, as many of my colleagues and friends use VSCode daily
+and love the tool for its convenience, powerfulness and `just-werks'.
+Indeed, VSCode is good and has been recieving lots and lots
+of effort from developers all over the world to make it
+better (under Microsoft's supervision of course). And if you already
+obtain Vim keybindings as your own muscle memory, the combination of a
+modern and extensible IDE and a highly productive editing style would
+give you (might be) the best coding workflow ever.
+</p>
+
+<p>
+Then why should you use Emacs?
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1d8eb20" class="outline-2">
+<h2 id="org1d8eb20">What is Emacs?</h2>
+<div class="outline-text-2" id="text-org1d8eb20">
+<p>
+According to <a href="https://emacs.sexy/">Emacs is Sexy</a>, Emacs is a <b>highly extensible text editor</b>.
+It is built on a C core and provides a fully featured Lisp
+environment. Emacs is strongly competent for all things that are
+related to text manipulation. It comes with a fully capable GUI
+interface, so it's also good at text presentation. Most importantly,
+it is <b>Free Software</b>, you are free to run, copy, study, distribute,
+change &amp; improve it under the <a href="https://www.gnu.org/licenses/gpl.html">GNU General Public License</a>.
+It has a vibrant community, with lots of people sharing their experience,
+their workflow, and their code to make Emacs more and more powerful.
+</p>
+
+<p>
+For those that are unfamiliar with these words, here's a more down-to-earth translation:
+</p>
+
+<p>
+Any thing that has to do with texts, whether displaying it or editing it, Emacs could do it the way you want it to.
+</p>
+
+<p>
+If not, you could easily improve it to make it able to, freely. You truly <b>own</b> it.
+</p>
+
+<p>
+These descriptions seem light but few software utilities have reached this level. Emacs is one of them.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8811895" class="outline-2">
+<h2 id="org8811895">Free as in Freedom</h2>
+<div class="outline-text-2" id="text-org8811895">
+<p>
+Emacs is free software, the `free' means `<a href="https://www.gnu.org/philosophy/free-sw.en.html">Freedom</a>' instead of `free beer'.
+</p>
+
+<p>
+These properties lead to the vibrant community of Emacs' we have today.
+</p>
+
+<p>
+The more people come and share their experience, the more powerful the tool will become.
+</p>
+
+<p>
+Open-source products might be `<a href="https://github.blog/2022-06-08-sunsetting-atom/">sunsetted</a>', commercial corporations might lose interest, Emacs will always be here.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga7e45b3" class="outline-2">
+<h2 id="orga7e45b3">Sharpen Your Axe</h2>
+<div class="outline-text-2" id="text-orga7e45b3">
+<blockquote>
+<p>
+“Give me six hours to chop down a tree and I will spend the first four sharpening the axe.”
+</p>
+
+<p>
+― Abraham Lincoln
+</p>
+</blockquote>
+
+<p>
+It's always rightful to polish your tools from time to time.
+</p>
+
+<p>
+Hackers are lazy, they want to increase work efficiency and decrease unnecessary procedure so they can have more time to continue being lazy.
+</p>
+
+<p>
+If you have 6 hours to do some job, you should finish it in two hours and spend the rest of the time thinking how you can do it faster and better next time.
+</p>
+
+<p>
+Vanilla Emacs is this rod forged with really good steel. You could still do many things with this really good rod.
+However most people want a handy &amp; trusty multitool. You could buy tools made by other blacksmiths, hire them to make tools for you,
+or you can learn from their craftsmanship and modify your tools during your blacksmith journey. It
+doesn't matter if you are a professional blacksmith or a hobbyist, you learn how to modify your tools and do better work.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4f6832d" class="outline-2">
+<h2 id="org4f6832d">Code Is Not All</h2>
+<div class="outline-text-2" id="text-org4f6832d">
+<p>
+Emacs is a Text Editor, like Vim.
+</p>
+
+<p>
+It could be an IDE.
+</p>
+
+<p>
+It could be a front-end control panel for all the things you do on your computer.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org90c9744" class="outline-2">
+<h2 id="org90c9744">Lisp</h2>
+<div class="outline-text-2" id="text-org90c9744">
+<p>
+There's this enduring joke about how Emacs is an operating system rather than a text editor.
+</p>
+
+<p>
+It is a Lisp VM, to be more specific.
+</p>
+
+<p>
+Lisp is a good language.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd0e4ea3" class="outline-2">
+<h2 id="orgd0e4ea3">All Your Thing Are Belong to Emacs</h2>
+<div class="outline-text-2" id="text-orgd0e4ea3">
+<p>
+Emacs users tend to include more and more of their computing inside Emacs.
+</p>
+
+<p>
+It's easy to hack together a front end or just couple of functions to control those things outside of Emacs.
+</p>
+
+<p>
+Editing code, debugging, writing notes&amp;documentation, GTD and agenda, chatting, reading RSS feeds, reading ebooks, managing your files, recieving email,
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgae7c35a" class="outline-2">
+<h2 id="orgae7c35a">Organized Life &amp; Workflow</h2>
+<div class="outline-text-2" id="text-orgae7c35a">
+<p>
+Org Mode, yes, finally.
+</p>
+
+<p>
+Markup language, GTD software, writing software, shipped with an export &amp; publish engine that takes care of your formatting issues.
+This blog site you are looking at right now is fully generated by Org-mode.
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgaed0627" class="outline-2">
+<h2 id="orgaed0627">Conclution</h2>
+<div class="outline-text-2" id="text-orgaed0627">
+</div>
+<div id="outline-container-orgc64dc28" class="outline-3">
+<h3 id="orgc64dc28">Emacs vs. VSCode</h3>
+</div>
+
+<div id="outline-container-org1c55c65" class="outline-3">
+<h3 id="org1c55c65">Emacs vs. Vim</h3>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <hr /> <p>Would like to comment? Start a discussion in <a href="https://lists.sr.ht/~ika/public-inbox">my public inbox</a> by sending an email to <a href="mailto:~ika/public-inbox@lists.sr.ht">~ika/public-inbox@lists.sr.ht</a> [<a href="https://man.sr.ht/lists.sr.ht/etiquette.md">mailing list etiquette</a>]</p>
