@@ -14,7 +14,7 @@ you (might be) the best coding workflow ever.
 
 Then why should you use Emacs?
 * What is Emacs
-According to Emacs is Sexy, Emacs is a highly extensible text
+According to [[https://emacs.sexy][Emacs is Sexy]], Emacs is a highly extensible text
 editor. It is built on a C core and provides a fully featured Lisp
 environment. Emacs is strongly competent for all things that are
 related to text manipulation. It comes with a fully capable GUI
@@ -67,9 +67,9 @@ come. Whether you're a beginner or an experienced user, there is
 always something new to learn from the community and a way to
 contribute and give back.
 
-Open-source products might be `sunsetted'(like Atom the text editor), commercial corporations
+Open-source products might be `[[https://atom.io][sunsetted]]', commercial corporations
 might lose interest, Emacs will always be here, and we can expect it to continue to be a
-valuable tool for many generations to come..
+valuable tool for many generations to come.
 
 * Sharpen Your Axe
 #+BEGIN_QUOTE
