@@ -1,226 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<!-- 2023-02-12 Sun 15:24 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Why Use Emacs When, You Know, VSCode with Vim Keys Exists</title>
-<meta name="author" content="ika" />
-<meta name="generator" content="Org Mode" />
-<style>
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
-<style type="text/css"> html{max-width: 70ch;padding: 3em 1em;margin: auto;line-height: 1.75;font-size: 1.25em;} a:link{color:black;} a:visited{color:#565656;} aside{position: fixed; top: 30px; right: 30px;}</style>
-</head>
-<body>
-<div id="preamble" class="status">
-<p>Written by ika, posted on <a href="https://blog.thewizardbay.cc/">TheWizardBay</a>.</p><hr /> 
-</div>
-<div id="content" class="content">
-<h1 class="title">Why Use Emacs When, You Know, VSCode with Vim Keys Exists</h1>
-<div id="table-of-contents" role="doc-toc">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
-<ul>
-<li><a href="#orgfbc0705">Preface</a></li>
-<li><a href="#org4dcc075">What is Emacs</a></li>
-<li><a href="#org8811895">Free as in Freedom</a></li>
-<li><a href="#orga7e45b3">Sharpen Your Axe</a></li>
-<li><a href="#org4f6832d">Code Is Not All</a></li>
-<li><a href="#org90c9744">Lisp</a></li>
-<li><a href="#orgd0e4ea3">All Your Thing Are Belong to Emacs</a></li>
-<li><a href="#orgae7c35a">Organized Life &amp; Workflow</a></li>
-<li><a href="#org62b50cf">Conclusion</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgfbc0705" class="outline-2">
-<h2 id="orgfbc0705">Preface</h2>
-<div class="outline-text-2" id="text-orgfbc0705">
-<p>
+#+TITLE: Why Use Emacs When, You Know, VSCode with Vim Keys Exists
+* Preface
 According to the 2022 Developer Survey by Stackoverflow, VSCode is the
 most popular IDE for developers with a ratio of 74.48% in 71,010
 responses, while Emacs is at 4.51%. This figure is convincing from my
@@ -232,53 +11,32 @@ lots of effort from developers all over the world to make it better
 Vim keybindings as your own muscle memory, the combination of a modern
 and extensible IDE and a highly productive editing style would give
 you (might be) the best coding workflow ever.
-</p>
 
-<p>
 Then why should you use Emacs?
-</p>
-</div>
-</div>
-<div id="outline-container-org4dcc075" class="outline-2">
-<h2 id="org4dcc075">What is Emacs</h2>
-<div class="outline-text-2" id="text-org4dcc075">
-<p>
+* What is Emacs
 According to Emacs is Sexy, Emacs is a highly extensible text
 editor. It is built on a C core and provides a fully featured Lisp
 environment. Emacs is strongly competent for all things that are
 related to text manipulation. It comes with a fully capable GUI
 interface, so it's also good at text presentation. Most importantly,
 it is Free Software, you are free to run, copy, study, distribute,
-change &amp; improve it under the GNU General Public License. It has a
+change & improve it under the GNU General Public License. It has a
 vibrant community, with lots of people sharing their experience, their
 workflow, and their code to make Emacs more and more powerful.
-</p>
 
-<p>
 For those that are unfamiliar with these words, here's a more
 down-to-earth translation:
-</p>
 
-<p>
 Any thing that has to do with texts, whether displaying it or editing
 it, Emacs could do it the way you want it to.
-</p>
 
-<p>
 If not, you could easily improve it to make it able to, freely. You
 truly own it.
-</p>
 
-<p>
 These descriptions seem light but few software utilities have reached
 this level. Emacs is one of them.
-</p>
-</div>
-</div>
-<div id="outline-container-org8811895" class="outline-2">
-<h2 id="org8811895">Free as in Freedom</h2>
-<div class="outline-text-2" id="text-org8811895">
-<p>
+* Free as in Freedom
+
 Emacs is free software, the `free' means `Freedom' instead of `free
 beer'.This means that not only can it be downloaded and used for free,
 but users are also free to modify and distribute the software as they
@@ -287,9 +45,7 @@ ability to study, change, and distribute the software according to
 their own needs and preferences. This is in contrast to proprietary
 software, where the user is limited in their ability to modify or
 distribute the software.
-</p>
 
-<p>
 The freedom that comes with using Emacs is one of the key reasons why
 it has remained a popular and widely-used text editor for over three
 decades and why a large and active community has developed around
@@ -297,83 +53,57 @@ Emacs. This community contributes new features, bug fixes, and
 packages to enhance the functionality of the software. This
 has been instrumental in making Emacs one of the
 most flexible and customizable text editors available.
-</p>
 
-<p>
 The existence of a vibrant community also ensures that the software
 continues to evolve and improve over time. People come and share their
 experiences, workflow and configuration, so that other people could
 learn and collaborate.This leads to a self-sustaining cycle of growth
 and improvement, where everyone benefits from the collective knowledge
 and expertise of the community.
-</p>
 
-<p>
 The community's passion and commitment to the software ensures that it
 will continue to be developed and improved for many years to
 come. Whether you're a beginner or an experienced user, there is
 always something new to learn from the community and a way to
 contribute and give back.
-</p>
 
-<p>
 Open-source products might be `sunsetted'(like Atom the text editor), commercial corporations
 might lose interest, Emacs will always be here, and we can expect it to continue to be a
 valuable tool for many generations to come..
-</p>
-</div>
-</div>
 
-<div id="outline-container-orga7e45b3" class="outline-2">
-<h2 id="orga7e45b3">Sharpen Your Axe</h2>
-<div class="outline-text-2" id="text-orga7e45b3">
-<blockquote>
-<p>
-“Give me six hours to chop down a tree and I will spend the first
-four sharpening the axe.”
-</p>
+* Sharpen Your Axe
+#+BEGIN_QUOTE
+    “Give me six hours to chop down a tree and I will spend the first
+    four sharpening the axe.”
 
-<p>
-― Abraham Lincoln
-</p>
-</blockquote>
+    ― Abraham Lincoln
+#+END_QUOTE
 
-<p>
 Polishing your tools is always a smart move.
-</p>
 
-<p>
 Hackers are known for their laziness, but they're actually just highly
 efficient. They want to streamline their work processes so they can
 have more free time to continue being productive. By continually
 looking for ways to optimize their workflow and increase efficiency,
 they can make the most of their time and resources.
-</p>
 
-<p>
 If you're faced with a six-hour task, a hacker would aim to complete
 it in just two hours, then use the remaining time to figure out how to
 do it even faster and better next time. This drive for optimization
 and efficiency is a fundamental part of the hacker mentality, and it's
 not just beneficial for individuals. It drives technological
 advancements and fuels innovation in the tech world.
-</p>
 
-<p>
 We're surrounded by powerful tools for automation, and the methods and
 philosophy for optimizing workflows have never been better. It's a
 great time to take advantage of these tools on a personal level, and
 one tool you should definitely consider is Emacs.
-</p>
 
-<p>
 Some people may be intimidated by their first experience with Emacs,
 with its unconventional keybindings and 1990s-style GUI. But don't let
 that stop you. Before uninstalling the program and leaving a negative
 review, give it a chance.
-</p>
 
-<p>
 Think of Vanilla Emacs as a rod made of top-quality steel. You can
 still accomplish a lot with just the basics, but many users prefer a
 more versatile, all-in-one tool. You can buy tools made by others,
@@ -381,67 +111,45 @@ hire someone to make them for you, or learn the craft and modify your
 own tools as you go along. Whether you're a professional or a
 hobbyist, the key is to learn how to customize your tools for better
 results.
-</p>
-</div>
-</div>
 
-<div id="outline-container-org4f6832d" class="outline-2">
-<h2 id="org4f6832d">Code Is Not All</h2>
-<div class="outline-text-2" id="text-org4f6832d">
-<p>
+* Code Is Not All
 Have you ever stopped to
 think about all the different types of text you work with in a day?
 Whether it's writing emails, reading articles, or even jotting down
 notes, you likely spend a significant portion of your time working
 with text. And when it comes to working with code, it's important to
 have the right tools for the job.
-</p>
 
-<p>
 Emacs is a Text Editor, like Vim. Just like Vim, it's designed to make
 working with text as efficient and straightforward as possible. You
 could easily make edits, search for specific information, and even
 automate tasks with just a few keystrokes. And unlike some other text
 editors, Emacs is easily customizable, so you can configure it to work
 just the way you want it to.
-</p>
 
-<p>
 It could be an IDE. If you're looking for a tool that can help you
 write, test, and debug code, then Emacs could be an excellent
 option. With its support for multiple programming languages, you could
 easily use it as an integrated development environment (IDE) for all
 your coding needs. And with its customizable interface, you can make
 sure that the IDE works just the way you want it to.
-</p>
 
-<p>
 It could be a front-end control panel for all the things you do on
 your computer. With its support for plugins and scripts, you could use
 Emacs to automate all sorts of tasks, from managing your to-do list to
 organizing your files, making it easier to keep track of what you're working on and
 switch between tasks.
-</p>
 
-<p>
 In conclusion, the versatility and customization options of Emacs make
 it a valuable tool for managing all types of text, not just code,
 providing you with a more comprehensive text editor that can
 streamline your workflow and simplify your daily tasks.
-</p>
-</div>
-</div>
-<div id="outline-container-org90c9744" class="outline-2">
-<h2 id="org90c9744">Lisp</h2>
-<div class="outline-text-2" id="text-org90c9744">
-<p>
+* Lisp
 Have you ever heard the enduring joke about how Emacs is actually an
 operating system, not just a text editor? Well, there's actually some
 truth to that. You see, at its core, Emacs is a Lisp virtual machine,
 or a Lisp VM for short.
-</p>
 
-<p>
 Now, you may be thinking, what is a Lisp VM and why is it significant?
 Well, the truth is that Lisp is a really good programming
 language. It's been around for decades and has a long history of being
@@ -449,20 +157,13 @@ used for a variety of purposes, from scientific computing to
 artificial intelligence. By incorporating a Lisp VM, Emacs gains the
 power and flexibility of this versatile language, making it much more
 than just a simple text editor.
-</p>
 
-<p>
 So, the next time you hear the joke about how Emacs is an operating
 system, remember that there's actually some truth to it. With its
 built-in Lisp VM, it's much more than just a tool for editing text.
-</p>
-</div>
-</div>
 
-<div id="outline-container-orgd0e4ea3" class="outline-2">
-<h2 id="orgd0e4ea3">All Your Thing Are Belong to Emacs</h2>
-<div class="outline-text-2" id="text-orgd0e4ea3">
-<p>
+* All Your Thing Are Belong to Emacs
+
 Emacs has gained a reputation for being a highly versatile and
 flexible platform, and its users have a tendency to increasingly rely
 on it for a wide range of computing needs. The reason for this is
@@ -474,18 +175,14 @@ interactivity across different programs is unmatched by even the UNIX
 pipes, which were considered revolutionary in their own right. The
 ability to share source code between different packages provides even
 greater freedom and opens up an array of new possibilities for users.
-</p>
 
-<p>
 Another primary advantage of using Emacs is the ability to hack
 together a custom front-end for various tasks. Whether it's for
 controlling external functions or for managing specific workflows, the
 adaptability of Emacs makes it simple for users to craft their ideal
 environment. And as users become more familiar with the platform, they
 often find new and creative ways to extend its functionality.
-</p>
 
-<p>
 Emacs is not just a text editor, it's an all-in-one computing solution
 that can handle a wide range of tasks. From coding and debugging, to
 writing notes and documentation, to managing to-do lists, chatting
@@ -495,14 +192,9 @@ tool that streamlines many of the tasks that computer users face on a
 daily basis. The versatility and customization options offered by
 Emacs make it a highly efficient and flexible platform for a variety
 of workflows.
-</p>
-</div>
-</div>
 
-<div id="outline-container-orgae7c35a" class="outline-2">
-<h2 id="orgae7c35a">Organized Life &amp; Workflow</h2>
-<div class="outline-text-2" id="text-orgae7c35a">
-<p>
+* Organized Life & Workflow
+
 Org Mode, the versatile and feature-packed extension of the Emacs text
 editor, is finally here. With its markup language capabilities, Org
 Mode is not only a powerful GTD (Getting Things Done) software, but
@@ -513,9 +205,7 @@ very blog site you're viewing right now is fully generated by Org
 Mode. The power of Org Mode lies in its ability to simplify the
 publishing process, freeing up valuable time and energy for content
 creation.
-</p>
 
-<p>
 The Org Mode community is known for being one of the most dedicated
 and passionate groups of users around a specific tool. This is because
 Org Mode is more than just a tool for organizing information, it's a
@@ -524,9 +214,7 @@ aspect of their life, from their personal to-do list to their
 professional schedule. And as a result, Org Mode users tend to form a
 tight-knit community, sharing their workflows, tips, and lifestyles
 around the tool.
-</p>
 
-<p>
 This is not just a simple text editor or a task manager, it's a way of
 life. The users of Org Mode understand that it is more than just a
 tool for organizing information, but it is a tool for enhancing their
@@ -534,23 +222,15 @@ overall productivity and efficiency. With its markup language,
 built-in GTD software, and powerful export and publishing engine, Org
 Mode provides users with everything they need to keep their life in
 order and maintain their focus on the tasks that matter most.
-</p>
 
-<p>
 And as more and more users adopt Org Mode, the community continues to
 grow and evolve. People from all walks of life and all professions are
 discovering the power of this tool and the positive impact it can have
 on their daily routines. Whether you are a student, a professional, or
 simply someone looking to get more organized, Org Mode is a tool that
 you should definitely consider.
-</p>
-</div>
-</div>
 
-<div id="outline-container-org62b50cf" class="outline-2">
-<h2 id="org62b50cf">Conclusion</h2>
-<div class="outline-text-2" id="text-org62b50cf">
-<p>
+* Conclusion
 In conclusion, using Emacs as a text editor is a smart choice for
 anyone looking to increase their efficiency and streamline their
 workflow. With its rich history, active community, and powerful
@@ -560,12 +240,3 @@ you're a beginner or an experienced user, there's always something new
 to learn and a way to improve your setup. So, don't be intimidated by
 its unconventional default interface - give it a chance, sharpen your axe, and
 see what it can do for you.
-</p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<hr /> <p>Would like to comment? Start a discussion in <a href="https://lists.sr.ht/~ika/public-inbox">my public inbox</a> by sending an email to <a href="mailto:~ika/public-inbox@lists.sr.ht">~ika/public-inbox@lists.sr.ht</a> [<a href="https://man.sr.ht/lists.sr.ht/etiquette.md">mailing list etiquette</a>]</p>
-</div>
-</body>
-</html>
