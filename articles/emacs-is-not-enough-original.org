@@ -1,0 +1,1066 @@
+#+TITLE: Emacs is Not Enough
+/(Dear reader, I sometimes will call you "anon" in this article. Just
+treat it as a literary device./)
+
+/(*Warning*: This is going to be a _rant_. I don't really propose any
+solutions here, just expose some problems (which, really, apply to
+most text editors). For non-rants, please see the other articles, and
+[[./the-power-of-structure.html][the previous article]] for the
+project description.)/
+
+/(In response to this article, an
+[[https://lucidmanager.org/productivity/emacs-user-survey-results/][improvement]]was made for viewing the survey results. I was also adviced that there
+was CSV-mode in ELPA. I didn't know about it, but it really doesn't
+change anything. Like at all.)/
+
+/(Also, see this [[https://news.ycombinator.com/item?id=34375137#34384420][HackerNews discussion]], where I have responded to some questions.)/
+
+---
+@@html:<p class=epigraph>I have a feeling that the changes that
+would help are deeper issues than the shape of corners.
+<p class=epigraphAuthor>@@ -- Richard M. Stallman[fn::[[https://lists.gnu.org/archive/html/emacs-devel/2020-04/msg00885.html][Why is emacs so square?]]]
+@@html:@@
+
+The Emacs reputation has been that
+of a strange piece of software that grants you powers if you were to
+just take them.
+
+The crowd that gets attracted to it are the kind of users who find
+inefficiencies of interaction with the machine to be supremely
+annoying. That leads to much tinkering and workflow optimization.
+Everyone in that crowd is a power user.
+
+And what do you know, a certain level of comfort may, indeed, be
+reached if you invest yourself into the customization process.
+And I think anybody who cares about what they do is a power user at
+heart.
+
+@@html: <figure class=figRight> <img class=imgFigRight
+src=./img/brick.jpg /> <figcaption class=captionRight>@@ /Douglas
+Engelbart's precursor to the mouse. This one was simply used to
+convince people that tools matter./ @@html:@@
+
+Unfortunately, most of
+us have learned to cope too well with all the shitty tools we
+have. And, in the current culture, the cult of /just getting the job
+done/ is too prevalent to overcome that. The fear to take a dive for a
+long-term benefit overcomes any desire to be comfortable.
+
+And then there are the floaters, the passers-by. They judge Emacs
+solely by its features.
+
+But that's not how a power users judges it.  Instead, the power user
+judges a piece of software by what power it provides and what he could
+do with that power to help himself.
+
+So, really, the target audience of Emacs are power users, who often
+times end up being contributors to the ecosystem in one way or
+another.
+
+Emacs has gained a cult-status of sorts.  The landscape of programs
+that have positioned themselves quite the way Emacs does is quite
+empty. And that's probably why it has gained that status.
+
+Some are convinced it's immortal and can never be replaced.
+
+But it must be said that it's not Emacs that is somehow too good to be
+surviving for so long. It's just that everything else is so bad.
+
+---
+
+But let's start waaaay back.
+
+What do you remember as a kid, playing in a sandbox? A sand-pile in
+your backyard, with some other kids?  (I bet there were other kids
+there, you weren't a lonely weirdo playing in all that sand by
+yourself, were you?)
+
+What I remember is that a sand-pile by itself is never enough.  You
+need some water. Some larger rocks. Some sticks. Some grass, perhaps.
+And a bit of crude imagination to construct a stick figure or a car or
+something.  But I digress.
+
+Get a load of this:
+
+*Terry A. Davis of TempleOS draws sprites directly into his fucking terminal.*
+
+Look at this shit. LOOK!
+
+# TempleOS Intro to Graphics Programming, Transformations, and Device
+Context (dc) @@html:<a
+href=https://www.youtube.com/watch?v=2eK4QRH22Uk><img class=imgCenter
+src=./img/templeos-graphics.png />@@
+
+/It may even be 3D./
+
+That sprite is then embedded into the source code and may be
+referenced as a pointer.
+
+In his terminal,
+
+In his OS,
+
+Using his own compiler of Holy C (with his ACTUALLY useful
+improvements over C. That, for your interest, takes /Divine
+Intellect./),
+
+All running on a resolution of 640x480.
+
+Why 640x480?
+
+*Cause God said so.*
+
+That man [[https://www.youtube.com/watch?v=ZXn4njGgfkE][communicates with God]] through a random number generator.
+
+Terry is the High Priest.
+
+And he loves himself some simplicity.
+
+And listen, Terry may seem a little bit arrogant to you, but he
+actually is /the smartest programmer that ever lived/.
+
+In short, Terry is a decent person. Or was. Till those glowy CIA
+schmucks finally got him with a GODDAMNED TRAIN. And I would like to
+think, it would have taken NOTHING less than a BIG ASS SPEEDING TRAIN
+to do Terry in.
+
+Rest in piece, Terry Davis, a true preacher of God's Word.
+
+Eh. Anyhow.
+
+/(Yes, this article is still about Emacs, keep reading, anon.)/
+
+Terry preached that you should entertain God.
+
+Go rob a bank. Go write [[https://www.youtube.com/watch?v=CYQEfLaR4Pg][an advanced flight simulator]].  Or produce a soap opera (god loves those).
+
+I think that Terry viscerally understood that this god entertainment
+business would be an awful lot easier to be doing with graphics, and
+that's why it was so /integrated/ in TempleOS.
+
+---
+
+[[https://emacssurvey.org/][Emacs Survey]] is a funny thing: they ask you to fill it out /in a web browser/, then they [[https://emacs-survey.netlify.app/2020/][provide the results]] that
+you can only view /in a web browser/, and offer you to download CSV
+data to view it /in a spreadsheet application/.
+
+Or, well, of course, you could /just/ fill it out in w3m/lynx and then
+/be having fun/ reading it in /fundamental mode/. Then you could stamp
+out *AWESOME* on your forehead and wear a pair of horns. You
+could. You certainly could.
+
+/But you won't./
+
+Well, I mean, I spent 15 minutes typing out my written responses, and
+they just put a comma-separated file (CSV) out there?  How the hell do
+I even read a CSV file?  Do I have to install R or something?
+
+LibreOffice is messing up my rows.
+
+But I want a /premade interface/ for it, and I am confused as to why
+the authors haven't provided it for me.[fn:: I still find their survey
+useful, though.]
+
+Maybe because they don't care about the actual answers there, huh?
+Were the written responses just an exercise?
+
+Or, wait a second, why don't I go and /just read that CSV in Emacs/?
+Somehow, it wasn't the first thought that came to my mind, you see.
+
+But CSV /is/ text, isn't it?
+
+Well, [[https://melpa.org/#/?q=csv][lemme check]] real quick, because
+the everpotent Emacs must have a package for working with CSV files.
+
+OK. I see some parsers. Good. Some import library.  Nice. /NICE/. And
+an exporter to org-mode clock.
+
+Well, OK, but how tf do I read this shit?
+
+It looks like spaghetti when I look at it in fundamental mode.  And I
+get the feeling that my eyes are working a bit faster than Emacs can
+scroll.
+
+Well, alright, I don't see no /CSV-mode/ to arrange everything into a
+pretty table and then let me filter/sort/edit the damn thing.
+
+/But am I really asking for much?/
+
+Well, no. Thing is, you just can't do that in Emacs.
+
+Did you hear that?
+
+# @@html:<p class=centeredText>@@ */You can't./* # @@html:@@
+
+A table editor within emacs will be janky, it will be a slow heap of
+cowdung, outspreading and dispersing, channeling the fumes.
+
+And guess what, even *displaying* a structure like that would be a
+pain in the ass.
+
+And forget about editing it. (Think multi-line boxes for long text
+fields.)
+
+Yea, well, /technically/, it's doable. Alright. Org-mode has tables.
+You can even autoformat them after each edit.
+
+/But you don't want that thing to get that much larger than your
+literal thumbnail./
+
+And not that others haven't tried to do better. Take a look at this
+presentation: [[https://emacsconf.org/2019/talks/18/][Object oriented spreadsheets with example applications]]. Yeah, it's a pretty table
+alright. But the key quote there for the purposes of our discussion
+is:
+
+/It does need to be optimized. It can be a little bit sluggish./
+
+Oh, yes, /it can be/.
+
+FACT: /You can't have a usable table in Emacs. Even if its *all
+text*./
+
+Yeah, OK, anon, you don't care about tables. I do, but you
+don't. Fine.
+
+Maybe you care about Lisp. Maybe you even do some Common Lisp
+development from time to time.
+
+# * The Common Lisp Development Experience
+Well, I do Lisp programming in Emacs. Just about everyone does.
+
+One of the projects I am using is April. It's an APL compiler, and
+lets you work on arrays.
+
+So, I have macroexpanded April's internal
+~vex~ form, and the macroexpansion was 1.3MB at ~26000 lines of code.
+It's not important why that macroexpansion had to be that big. It
+simply was.
+
+And I wanted to see that expansion.
+
+Well, scrolling that thing was not fun, I will tell you that.  Neither
+was getting spammed with:
+
+~Parenthesis max limit reached.~
+And then with:
+
+~Error during redisplay: (jit-lock-function 1207370) signaled
+(args-out-of-range [nil nil nil nil nil nil nil nil nil nil nil nil
+nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil
+nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil
+nil nil 0 1 2 3 4 5 6 7 8 9 nil nil nil nil nil nil nil 10 11 12 13 14
+15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 nil nil
+nil nil nil nil 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27
+28 29 30 31 32 33 34 35 nil nil nil nil nil nil nil nil nil nil nil
+nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil
+nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil
+nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil
+nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil
+nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil
+nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil
+nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil
+nil nil nil] 8592)~
+
+Along with:
+
+~Timed out waiting for property-notify event [5 times]~
+
+and this:
+
+~eldoc error: (error Lisp nesting exceeds max-lisp-eval-depth)~
+
+What is all this?
+
+This is not /smooth/.
+
+This is not /snappy/.
+
+This is not /cool/.
+
+Which all begs the question.
+
+Everybody talks about how great Emacs is at Common Lisp.  When I
+started using it, the greatest part was Common Lisp.
+
+Here's the deal: Emacs is shit at Common Lisp. Slime or Sly, it
+doesn't matter.
+
+OK, forget about the 1.3MB macroexpansion.
+
+How about you go and rename all occurrences of a symbol in all files
+in your project? Well, guess what, that, too, is a pain in the ass.
+Even the built-in renaming facility bugs out on me for some reason (I
+don't remember it's name, because I don't even try to use it anymore).
+
+And how about importing the current qualified symbol at point into the
+~defpackage~ definition?
+
+/No. Too hard./
+
+I also like my s-expressions to vary in color based on the nesting
+levels. I use ~rainbow-blocks~ for that, and it works fairly well.
+
+Except, of course, when it suddenly stops working occasionally (for
+some reason unbeknownst to me) and the fontification gets all fucked.
+
+/Even if the parentheses are all balanced./
+
+Where did this myth come from, the idea that Emacs is some super duper
+shit for Lisp?  This shit is shit!
+
+And yeah, I am not reporting any
+of it.  The fixes are going to be cardboard patches on the hull of a
+sinking ship anyway.  If you look closely, /the whole ship/ is mess of
+cardboard boxes, glue and styrofoam.
+
+And, hey, by the way, what's that ~comint~ crap? Because, anon, using
+a REPL prompt is a real trip.
+
+Why is input not separate from the output?  Srsly, why the fuck are
+they in the same buffer?
+
+My ~evil-mode~ cursor behavior around that prompt is fucking
+ridiculous.  (And, I fear, not just because ~evil-mode~ is a buggy
+pile of crap.)
+
+Let me tell you: I shouldn't end up on that ~CL-USER>~ prompt with my
+cursor, /not like fucking ever/.  The output should be placed
+separately, ffs. The input place is simply not where the output should
+go in a read-eval-print-loop application.
+
+Why are they merged into the same place? Well, there's simply no other
+way of doing it, that's why.  Managing window positioning is simply
+too painful.
+
+So... what happened here? Do you know?
+
+Let me tell you what happened: /Emacs being decrepit/ is what
+happened.
+
+Look at ~CIDER~. It's many years old. I install it and what do I see?
+The REPL buffer is read-only half of the time.
+
+/And only some of the print statement output is printed in there./
+
+I have no clue why.
+
+Is this not a mess? Yes. A goddamn fucking mess.
+
+# * some more features
+Or, perhaps, ask yourself why you can't do stuff like /multinarrowing/
+(narrowing of multiple parts of a file).
+
+Or why you don't have /transclusion/ (having the same piece of data in
+various places at once).
+
+Or why Emacs can't do code indentation on proportional fonts.
+
+And, listen... when you are coding a function in Elisp, you are
+basically moving your pointer all over the buffer to do /anything at
+all/.
+
+Why are you doing that?
+
+That's /imperative/.
+
+More so, the fact of having to move the cursor/point all over the
+place is /worse/ than just being /imperative/.  Much worse. Ever heard
+of LOGO?
+
+Well, Elisp might as well be considered the LOGO of the Lisp world,
+and Emacs is its turtle of text editing.
+
+@@html:<img class=imgSmall src=./img/turtle.jpg />@@
+
+/Emacs: turtle programming for textual matrices/.
+
+@@html:<img class=imgSmall src=./img/turtle.gif />@@
+
+And, so: anything. Anything. Takes. Fucking. /Forever./ To accomplish.
+
+But there's more, anon. There's a lot more behind all this.
+
+Say, why is Elisp completion always so fucking slow?
+
+Why is every language mode so janky as fuck?
+
+/WHY IS EVERYTHING SO JANKY AF?/
+
+# And vector graphics? Nope, the best you can get is a GTK widget.
+# Well, no one is gonna be using that, lol. LMAO even.
+# * org mode
+
+And, hey, let me /not/ tell you about all the things that are wrong
+with [[https://orgmode.org/][Org-mode]]. Indentation gets routinely
+screwed. Try making a footnote with a link in it, find out how much
+jolly good fun that is. Tags don't allow dashes or spaces. Tables
+suck. Exporting is non-transparent. Working with code blocks
+(/org-babel/) is just as pure as pain as you can have in front of a
+computer screen these days. I could go on and on. It's not worth
+listing everything.
+
+Or, yeah, try truncating lines on the text-only paragraphs, but not on
+the code blocks.  Can't do it, can you?
+
+And I can't tell you how fucking tiring it is to be using links.  They
+aren't even autoupdating.  Any link to a heading will /expire/ as soon
+as you modify any path to that link.  So, I have to be doing custom
+identifiers /by hand/.
+
+And then, every time I hit
+~insert-heading-dwim~ in a moderately large file (not even that large
+at just 172kb), I have to wait for a full second before the heading
+appears in the tree. When you edit a list of items, checking an item
+at point will rescan the whole tree, because, hey, you gotta /rescan
+and recalculate all that stuff, right?/
+
+# * structure
+
+Anon, look, none of this would need to be so bad if the buffer were
+*structured*.
+
+> STRUCTURE is a an important word here. It will come up time and time
+  again if you keep reading.
+
+Emacs is an editor of textual data, isn't it? (Yeah, the kind where,
+hopefully, the lines aren't too long.)
+
+The data structure that Emacs uses is called a /gap buffer/.
+
+A gap buffer.
+
+/You can't really impose structure on it beyond that./
+
+That's it. That's the end of the line. /A gap buffer./
+
+There are no good mechanisms for imposing structure, except overlays
+or markers or regexps.  And neither is my idea of a good
+mechanism. All of it is just duct tape and WD-40.
+
+Overlays in emacs track the positions of a piece of string.  They work
+about as well as throwing mud at the wall and hoping it will stick,
+like trying to solder a copper wire to an aluminum contact, hoping
+everything will just stay put and not get loose later on. A quite
+expensive ugliness which has a very tangible impact on performance.
+
+This is why JSON files were slow until /core/ had to be hacked to
+throw in some optimizations.  Why did it have to be slow in the first
+place? Well: because highlighting with a regexp is a fucking bad idea.
+
+And, yeah, many people have accomplished plenty of mundane things with
+just duct tape and a can of WD.  Some are even proud of their redneck
+artistry.
+
+But it's not how you really build stuff.
+
+See, things like [[https://github.com/alphapapa/org-ql][org-ql]] (it
+lets you query an Org-mode buffer) *shouldn't have to exist*.
+
+*What you want is to /start with the structure/ and then simply
+/expose it to the extension author/. And it's not just about the
+extensions: /just about every user function requires some structural
+knowledge/.*
+
+And in a file where formal structure is expected for
+correct functioning, *it doesn't make sense /not/ to enforce it at all
+times*.  For a second, just think about what kind of /shit/ you have
+to go through to get anything working in a *structureless* document.
+Hmm, let's see: the obvious one is /parsing/.  And well, when
+something goes awry, and it will, throw in more parsing, but now with
+some /ad-hoc error handling/.  And then add /caching/, because, /hey,
+shit, this thing is working kinda slow, huh?/ Get back to more error
+handling and more parsing and /reparsing/, because that thing
+is... broken /again/? Maybe /optimize/ your compiler while you are it.
+Wait, what, /caching/ wasn't enough?  /Everything/ is still slow and
+works like crap?  Is it time for some /truly clever/ optimizations and
+techniques?  Time to /really-really/ roll those sleeves up?
+
+Ohhh, but, my friend, here your funny trip across the unstructureland
+hits something called *GRADE-A HEAVY METAL DUTY ASS OF REALITY*.  Like
+a flowery, pink-flavored air bubble, your dream shatters against that
+cast iron surface and with it go your any hopes of making anything
+work fast EVER AGAIN. And forget /fast/: /*well*/. Nothing will ever
+again work /*well*/.
+
+You have a realization:
+
+/The only way to truly subdue all the mess is to *enforce
+structure*. This is the only way to make it right./
+
+And by /structure/ I mean a /data structure/ which you can interface
+directly, with no extra copies in the middle.  Then your optimization
+goals are on a much higher level from the start, and, in fact, you
+probably won't even have to think about the performance anyway.
+
+Forget all that jackjob mud-hut garbage programming bullshit: no one
+has deserved THAT.
+
+Do you want to be robust and beautiful, as opposed to being half-assed
+and ugly?  Choose specialized structure, not a gap buffer.  And Emacs
+is gap buffers all the way through.
+
+And so, everything is a /string/ in Emacs.
+
+# * structural enforcement
+
+Structural enforcement and everything that relies on the knowledge of
+structural information is simply too hard when your representation of
+data is a string.
+
+Of course, enforcing structure in a buffer is not /technically/
+impossible. It's just too hard for the practical purposes for anyone
+to try or do meaningfully.
+
+Look, anon, the fact that most data we work with is structural is the
+reason why there are /major modes/ in Emacs.  The sole purpose of
+major modes is to deal with some particular /structure/ of the
+document at hand.
+
+Any major mode you can think of does that, except ~fundamental-mode~,
+which simply says we don't know what the document even /is/.
+
+# * choice of data structure in text editors
+---
+
+If you are building a text editor and find yourself asking a question
+like:
+
+/What's better: a gap buffer or a piece tree or a rope?/
+
+Then the correct answer is, of course:
+
+/Neither, most of the time/.
+
+Some people make it sound like it has to be a choice.
+
+/It doesn't./
+
+You have to make that decision based on the data you want to edit. You
+don't have to be locked into one single representation of everything,
+which, for some reason, is the running assumption for every text
+editor in existence.
+
+/That representation is a: *string*./
+
+Why don't we have specialized editors instead?
+
+I don't know, but certainly not because it's too hard. Making a decent
+specialized editor based on the fitting data structures is naturally
+easier than specializing a general editor to a specific task (not with
+the existing architectures anyhow).
+
+A universal data structure is often assumed to be good for building a
+common interface to every kind of text file.  But *nothing* prevents
+specialized editors from having a common interface like
+that. *Nothing.*
+
+---
+
+Look: *Emacs is just bad at textual interfaces.*
+
+Yeah, that's what people assume it's for, and therefore it must be
+good at it, but it isn't.
+
+There are no specialization mechanisms. Only the buffer, which is just
+a string.  You can't do complex things on a string and get very far.
+
+/Lack of structure breeds half-assed solutions./
+
+On top of that, Emacs promotes an imperative style of
+programming. Turtle turtle turtle.
+
+And no, there isn't some higher-level API interface to be had
+there. It's /also/ too hard.
+
+No wonder it takes forever to get anything done.  I have 200+ /todo/
+wishlist items for my Emacs config.[fn:: Listing them isn't terribly
+important for the discussion.]  A lot of people probably have more.
+
+Most of these items are trivial to imagine.
+
+But they are /not/ trivial to accomplish.
+
+# q and a
+---
+
+#+BEGIN_QUOTE
+-- /<Author Name>, your ass is a bit on fire, ain't it? What are you so riled up about?/
+#+END_QUOTE
+
+Nothing, friend, nothing. Or maybe just the fact that Emacs sucks
+giant balls.  Emacs is much like that [[https://www.youtube.com/watch?v=qTf3INXJMFY][Uncle Gubsy]] from your childhood.ee
+
+Not even that I care so much.  Sure, I have spent hours, days, weeks
+on its configuration.
+
+Oh, hell, who am I lying to? Not to the legion, that's for sure. But
+to myself maybe?
+
+Months, anon. /Months./
+
+As many people did.
+
+But all of that matters very little, to tell you the truth.  Because I
+ain't even close to feeling any sort of satisfaction.
+
+My Emacs experience started gauche. Years passed. It's still gauche.
+And my >3000-line ~.emacs~ setup will still feel gauche even if I were
+to have a body double who would babysit my config and fix anything and
+everything that annoys me, which, trust me anon, is way more than the
+meager 200 bullet points.
+
+But, I assure you, continuous effort still won't fix shit, not even
+one man's config.
+
+I have stopped adding these items.
+
+And, by the way, you ever hear about those guys who have, like, 2
+lines of Elisp for their config and they are happy?  Let me tell you
+something about them:
+
+Those aren't real Emacsers.  They are just posers. Floaters.
+
+Not constantly fucking around with your Emacs config is a
+non-idiomatic way of using emacs.  Period.
+
+We aren't going to listen to their opinion, they are jumping ship to
+/corporate express/ tomorrow anyway. So let's ignore that noise, OK?
+
+---
+
+So, where are we here, exactly?!
+
+/If Emacs sucked so bad, surely someone would have fixed it by now?/
+
+# * rewriting emacs
+
+Oh, boy. Rewriting Emacs is possibly the most tropey of all Emacs
+talk.
+
+Common Lisp people? They always want to /port fucking Emacs/ or
+/rewrite fucking Emacs/ or /copy from fucking Emacs/ or /just be the
+fucking Emacs in some way/.
+
+Or, wait for it...: how about /steal some Emacs code/ by basically
+wet-dreaming up some magic emulation layer! This idea is just as
+misguided as it is widespread. It echoes across chat-rooms and it
+distracts from the real problems.
+
+And then, yeah, "porting". Well:
+porting Emacs to some foreign ecosystem (such as Guile) would be even
+worse.  Any kind of merging will result in a problem of /homogeneity/.
+Even if it's Guile. Especially if it's Guile.
+
+Porting or importing or merging would be no less than a man-made
+disaster for the ecosystem.
+
+Nobody takes these discussions seriously, of course, because everybody
+understands that this kind of stuff is kind of /out there/, if not
+immediately ridiculous.
+
+And even if any of it were feasible: /it doesn't fucking fix
+anything/.
+
+You will never replace Elisp or fix Emacs if you are willing to port
+it. Porting it defeats the whole point of moving to a better system,
+because the systems would necessarily be incompatible. They would be
+incompatible because a vastly better system is the only kind that will
+actually make people move, and, so, it must be fundamentally
+different, therefore -- incompatible.
+
+Mind you, these aren't just some proposals about rewriting and
+porting, there are projects that do this.  And while the efforts are
+well-intended, they are futile!
+
+/The problem of Emacs is not a language problem./
+
+Certainly, Elisp isn't the sharpest of lisps, but it does the job.  In
+fact, it's probably the best part of Emacs.
+
+But one major mental block among all these discussions never fails to
+surface and that's: /packages/.
+
+#+BEGIN_QUOTE
+-- /Oh how do we possibly rewrite or port Emacs and all that *terribly* useful code?/
+#+END_QUOTE
+
+Look, anon: /Emacs doesn't have to be rewritten./
+
+The fact of the matter is: /*we don't want another Emacs*/.
+
+We want something radically different, something that supports /the
+structural approach/.
+
+Emacs is pretty much incompatible with this idea of being structured
+in any way. And so, all its 10 gazillion lines of Elisp are a
+liability, not an asset.
+
+Yes, I am saying that to have a better Lisp environment for text
+editing, we need to abandon ALL of elisp and ALL of Emacs.  /And don't
+look back./
+
+#+BEGIN_QUOTE
+-- /<Author Name>, but there are over 5000 packages?/
+#+END_QUOTE
+
+Oh, fuck that shit, anon! We don't need them.
+
+Fuck 5000 packages. Fuck twenty and a hundred thousand packages.
+
+None of it matters, I am telling you.
+
+If the foundation is rotten, I don't care how many man-hours have gone
+down the shitter trying to prove that foundation worthy.  At this
+point it's all sunk costs and damage control.
+
+Our end? We are just gonna be /inspired/ by how /inconsequential/ and
+/bad/ all of it is, no more.
+
+And, by the way, remember what I told you about imperative code?
+Well, here come the big fucking news: all of Elisp ever written is
+kind of crap.  I don't mean to be bashing the authors of said code,
+it's not their fault. But it is what it is.
+
+We want to flush it down the drain of eternity, not keep it.
+
+And let's look at some of these fucking packages anyway, just for the
+fuck of it.
+
+Trust me, they all look the same:
+
+- /beginend/: Redefine M-< and M-> for some modes
+- /belarus-holidays/: Belarus holidays with transfers
+- /cfrs/: Child-frame based read-string
+
+I.e. some fucking gibberish.
+
+The real interesting players are /Org-mode/ and /magit/. That's it.
+And since [[./c-programmers-wrote-git.html][Git is for bums]] anyhow, that just leaves Org-mode.
+
+/There are no large applications in Emacs. Emacs packages don't tend
+to solve difficult or large problems./
+
+And at the quality of the small things present - nothing of true value
+will be lost.
+
+Everything else is pretty much stopwatches, around 15 completion
+frameworks, a million half-assed language support packages, themes and
+whatever [[https://github.com/alphapapa/][alphapapa]] felt like writing or adopting this or the other day.
+
+/Dad-jokes/.
+
+/Tetris/.
+
+Anon, this shit is /lame/, can't you see?!
+
+The real good stuff is not so numerous and we can just steal it, but
+do it right this time over.
+
+And we don't need to be even looking /at the packages/, we need to be
+looking /at our experience using this software as a whole/.  That's
+the source of real value. Not code.
+
+#+BEGIN_QUOTE
+-- /But there's like 10 gorillion lines of Elisp code?!/
+#+END_QUOTE
+
+Yes and it /doesn't matter/. The current architecture of Emacs is
+simply incompatible with drastic improvements.  The platform is simply
+suboptimal. The best way is to abandon everything.
+
+And that's just for text. I haven't even mentioned anything about
+stuff like vector graphics.
+
+#+BEGIN_QUOTE
+-- /<Author Name>, why do you think a text editor needs graphics?/
+#+END_QUOTE
+
+A rookie question, but I shall answer it, it's illuminating.
+
+Because whoever said Emacs was a text editor, huh?  Emacs just happens
+to be a platform where people can (try to) build +decent+ textual
+interfaces.
+
+If it had graphics, that would have been used too.  People try to slap
+graphics onto it (like with GTK widgets[fn:: What joy.]), but none of
+it is idiomatic, of course, so nobody will use it. As expected.
+
+#+BEGIN_QUOTE
+-- /<Author Name>, if Emacs is so bad, why are you still using it?/
+#+END_QUOTE
+
+Because, dear anon, everything else is so so much more /shit/.
+
+#+BEGIN_QUOTE
+-- /<Author Name>, you mentioned Guile. What's the problem with extending Emacs with other languages? Isn't that powerful?/
+#+END_QUOTE
+
+Running everything on a virtual machine that would support more than
+Elisp is a /bad/ idea.  Those who think it's a good idea are mistaken
+about the target audience of Emacs: they forget that Emacs is
+primarily for power users.
+
+Once you have a bazaar of languages that can't interoperate well, you
+lose on power.  /And the one thing you don't want to do is try to
+snatch away power from the power user/.
+
+You may load a Lua interpreter in your Lisp image, or allow extensive
+FFI.  But no one is gaining any power from that, only some short-term
+convenience which will obstruct the power user later on.  You just
+can't start writing text functions in Lua or whatever and expect the
+target audience to be happy about it.
+
+I talk more about this in other articles and refer to this problem as
+/homogeneity/.
+
+#+BEGIN_QUOTE
+-- /<Author Name>, can't you just hack Emacs to be better?/
+#+END_QUOTE
+
+Nope.
+
+#+BEGIN_QUOTE
+-- /<Author Name>, aren't there structural editors already and don't they suck?/
+#+END_QUOTE
+
+There are structural editors out there. And, yes, they sucked and
+that's why they disappeared into obscurity. It was so because you
+couldn't use them like you could use Emacs, with the point freely
+running around everywhere.
+
+But that doesn't mean that they can't do it also or that they have to
+suck. I have proposed /seamless/ structural editing in [[./the-power-of-structure.html][the previous article]].
+
+#+BEGIN_QUOTE
+-- /<Author Name>, isn't writing specialized structural editors more difficult?/
+#+END_QUOTE
+
+No. In fact, it's easier because you can reuse such editors within
+each other. Structure is also conducive to the design of complex
+interaction and interoperation behaviors.
+
+#+BEGIN_QUOTE
+-- /<Author Name>, if there were many specialized editors, wouldn't you have to configure each one separately?/
+#+END_QUOTE
+
+The configuration of common elements (such as bindings for common
+commands) could be easily shared. All the editors would simply have to
+have some /common interface/ for textual manipulation.
+
+#+BEGIN_QUOTE
+-- /<Author Name>, but Emacs must have gotten something right, right?/
+#+END_QUOTE
+
+Oh, yessir, a few things.
+
+Lisp. Elisp might not have turned out to be the greatest dialect in
+existence. There are problems with multithreading, with namespaces,
+with a few other things. But, overall, it's usable and is, certainly,
+not the worst of problems that Emacs is facing right now.
+
+What else is good? Well, extensibility. To a degree. Emacs showed what
+interactive extensibility can be like and how it can serve us. I
+believe it showed that there are a lot of people who can appreciate it
+in personal computing.
+
+Previously, I also bashed the notion of buffers, but the idea of
+/everything being a buffer/ proved to be very handy.  That means
+everything has some common interface and is manipulated via the same
+set of commands. (Except the modeline. It was, apparently, too
+structured to implement non-structurally.)
+
+Is there anything to add to this? Probably not.
+
+#+BEGIN_QUOTE
+-- /It there really no point in reusing all that code from Emacs and its package system?/
+#+END_QUOTE
+
+Don't worry, anon, writing code is a sin, but dumping code down the
+drain is just about the most honorable thing a man can do.
+
+I will reiterate a little. But see, Emacs has /0/ structural
+awareness.
+
+And, so, all its packages and features only do 50% of what a user
+might want, and they are mostly pretty bad at that too.
+
+/Mediocre experience has become the norm./
+
+Emacs is good neither at specialization nor at embedding nor at
+integration.  For instance, you can't make a buffer where different
+regions have various modes. There are hacks for it, but they suck ass.
+
+All the Emacs tools only let you /get by/, they aren't reaching up to
+any stars in the sky.
+
+And if you can't specialize, you will be inefficient and clumsy
+forever.
+
+There isn't a point where things get radically better for Emacs.  Can
+you imagine to be building /ever more crap/ on top of it?
+
+I know I can't.
+
+I would rather have a few specialized tools that work 100% percent of
+the time or at least can be improved to that limit.  (And these tools
+have to be living within one system so they could integrate and
+interoperate with each other.)
+
+#+BEGIN_QUOTE
+-- /<Author Name>, can Emacs become structural?/
+#+END_QUOTE
+
+If you have read the [[./the-power-of-structure.html][previous
+article]], especially the /Rune/ section, you already know that I see
+/seamlessly-structural/ editing as the superior way of working with
+text.
+
+Hypothetically, could Emacs adopt that way of thinking? Let's just
+consider that for a second.
+
+Well, first of all, the core would have to become Lispy. But that's
+just a prerequisite.
+
+Then, some real expansion of what a /buffer/ means and is capable of
+doing would have to ensue.
+
+I mean, it would be like trying to turn a freight train into a
+helicopter with an assumption that, in the end, all the rails would
+have to still be attached to the wheels.
+
+And you get a homogeneity problem, this one worse than the "language
+rewrite" one.
+
+Although, in principle, I don't see why this couldn't be done
+backwards-compatibly.  But, in practice, it would be much easier +to
+just say that structural editing isn't worth it+ to start from
+scratch.
+
+And that's without even thinking about any kind of an overarching GUI
+toolkit, or a nice prototype system.
+
+And even if the core were to accommodate a fraction of the
+capabilities[fn:: Yeah, right: as if. Emacs core development is an
+extremely conservative business.], the whole rest of packages and code
+don't just automagically upgrade. But they do become /morally
+deprecated/.
+
+So, it's bye-bye Emacs either way.
+
+There is a foundational lack of flexibility in the foundations. And
+it's not just about C (that's not even the tenth of it). It's the
+defaults, the global state, the whole string-based model.
+
+And that model is /fucked/.
+
+I think, the one thing I don't like about Emacs core is that it is
+majorly API-driven.  I think really powerful cores don't give you an
+API, they give you building blocks.
+
+The only building block in Emacs is a buffer, and that one is
+basically a tape-driven Turing machine on steroids packaged for
+personal computing.
+
+---
+
+I am not really blaming or dismissing Emacs. It's an impressive piece
+of technology.
+
+But it's time for us to see that Emacs capabilities are bound by the
+constant edge cases you have to work through.  In other words,
+something will always be a little broken, a tad out of tune,
+etc. etc. and none of it is really about not being good enough. It's
+about the stuff underneath that's not good enough. The foundation
+guarantees you will have constant stream of inefficiencies and
+problems /at all times/.
+
+Not even to mention that due to the limitations of structurelessness,
+a lot of features will never be attempted /or even thought about/.
+
+What do we want instead? Composition of objects. Embeddable
+structures. Programmatic access to everything at the level /of what it
+is, and not just how it is represented/. And that's where you need to
+start to build your editor from: from the innate structure of any
+given object. Treating things as objects which have a textual
+interface! A specialized editor for each structure, many such editors
+interoperating and /consisting/ of other editors. That would yield
+both better interfaces, AND more control, AND it will eliminate the
+bloat, AND it will be fast. And, at last: it will be
+/simpler/. Because that's what flexibility coupled with structure
+gives you: power. And power can make complex things /simple/.
+
+Emacs has hit its ceiling in terms of how powerful its interfaces can
+be.
+
+And then there's the issue of performance.
+
+Editing this site's HTML reminded me of the true molasses-like
+horrors.  Except, of course, molasses, while being slow, is at least
+continuous and smooth. Emacs - not so much, /ha ha/.
+
+Let me give you one last example before I finish.
+
+Emacs highlights code on the fly -- stuff appears within the window
+rectangle, and it figures out what it has to do with it.  So take a
+look at the [[https://github.com/ahungry/fast-scroll][fast-scroll]]
+package. What does it do to make scrolling fast? Well, /it turns off
+syntax highlighting while you are scrolling./
+
+This is a perfect example why Emacs has persisted for so long - when
+things get tough, it lets you slog your way through just another
+day. And that's a big part of the reason why they call it a @@html:<a
+href=./img/editor-learning-curves.jpg>rabbit hole@@ - because no
+solution here ever works anywhere close to 100%.
+
+But there's /nothing/ that tells you that you have to stop.
+
+And then, most times, you are forced to cache what you parse if you
+want any kind of speed.
+
+Caching means complexity.
+
+Parsing means complexity.
+
+Complexity means bugs and slow development.
+
+Complexity means lack of clarity and a chronic inability to make stuff
+/just work/.
+
+That's not the programmer's fault. No, it's the fault of the system he
+has to deal with.  And it's just bad: the performance, the lack of
+structure. The chase for quality, elusive and everfading.
+
+And then it all rains down on the user's head, and all he knows is to
+"push through". That's what power users do.
+
+The whole situation is bad bad bad and you don't need any further
+convincing from me.
+
+And you know what else? I think powerful programs like Emacs aren't
+even meant for power users. Maybe they are meant for them to be
+entertaining God.
+
+And, I wager, if that's so, then God must have been bored out of his
+mind.
+
+And I think we are now seeing the fading trail of Emacs'
+trailblazing. And we have been seeing it for many years.
+
+People are fucking afraid to bury things for good.  They will keep
+carrying it, a cart full of bullshit, legacy, pain.  Throwing things
+away is the most relief a human gets, scalewise, and yet; some of the
+most pivotal of your own memories, oh dear anon, involve ditching
+something you once thought were too valuable.
+
+The Emacs myopia.
+
+You know it, you have seen it.  That's why they call it an OS, its
+adepts octopi.  Emacs is like an eyepiece that lets you see, but turns
+everything to shit.
+
+Emacs is powerful, but only to a point of crudeness.  It's not quite
+the Lisp machine that you thought it were.  Too limited for the modern
+world, it's nearing the point of bare inertia.  Smoldering at its
+core, a landfill in practical terms.
+
+Accept it, believe it, because it's the truth.

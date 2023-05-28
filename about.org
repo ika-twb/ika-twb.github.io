@@ -2,6 +2,7 @@
 #+DATE: <1970-01-01 Thu>
 #+OPTIONS: num:0 toc:nil
 #+MACRO: imglnk @@html:<a href="$1"><img align="left" src="$2"></a></br>@@
+
 * To Readers
 Greetings, I am Ilghar Kus, a freedom-focused hacker, a defender of
 digital rights and a devout practitioner of the UNIX philosophy. I go
@@ -37,6 +38,9 @@ better future for all.
 Yours in freedom,
 
 Ilghar Kus
+
+#+HTML: <center><iframe src="https://emacs.ch/@ika/110373541373175842/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen"></iframe><script src="https://emacs.ch/embed.js" async="async"></script></center>
+
 
 * Find me in these places.
 |-----------------------+-------------------------+--------------------|
