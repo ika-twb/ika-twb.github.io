@@ -1,5 +1,5 @@
 #+TITLE: TheWizardBay
-
+#+OPTIONS: toc:nil num:nil
 #+BEGIN_CENTER
 yeah i should write more.
 
@@ -12,26 +12,26 @@ Email [[mailto:ika@thewizardbay.cc][ika@thewizardbay.cc]]
 PGP   [[file:media/ika.asc][2CEC4DF59A6D41873D4425FBF174A60B548DEC09]]
 #+END_CENTER
 
-- 2023-05-28 - [[file:articles/20230515125508-lattice.org][[Notes] Lattice]]
+* 2023-05-28 - [[file:articles/20230515125508-lattice.org][[Notes] Lattice]]
 
   Them pricks and sneaky little mfs.
 
-- 2022-11-28 - [[file:articles/why-emacs.org][Why Use Emacs When, You Know, VSCode with Vim Keys Exists]]
+* 2022-11-28 - [[file:articles/why-emacs.org][Why Use Emacs When, You Know, VSCode with Vim Keys Exists]]
 
-  For average Joe & Jane Six-packs on why you might wanna use a piece of ancient software.
+  For average Joe & Jane McJavaScript on why you might wanna use a piece of ancient wierdy software.
 
-- 1970-01-01 - [[file:about.org][About]]
+* 1970-01-01 - [[file:about.org][About]]
 
   ``Abowtah mey!''
 
-- 1970-01-01 - [[file:posts.org][Blog Posts]]
+* 1970-01-01 - [[file:posts.org][Blog Posts]]
 
   Random posts.
 
-- 1970-01-01 - [[file:copyleft.org][Copyleft (README)]]
+* 1970-01-01 - [[file:copyleft.org][Copyleft (README)]]
 
   Learn em rules visitors!
 
-- 1970-01-01 - [[file:misc.org][Misc Links]]
+* 1970-01-01 - [[file:misc.org][Misc Links]]
 
   You know what ~``Misc''~ means rite?
