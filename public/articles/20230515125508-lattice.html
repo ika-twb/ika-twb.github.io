@@ -6,7 +6,7 @@
 <!-- 2023-05-28 Sun 14:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>TheWizardBay</title>
+<title>Lattice</title>
 <meta name="author" content="ika" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -194,84 +194,230 @@
   .org-svg { }
 </style>
 <style type="text/css"> html{max-width: 60em;font-family: sans-serif;padding: 3em 1em;margin: auto;line-height: 1.5;font-size: 1em;} a:link{color:black;} a:visited{color:#565656;} aside{position: fixed; top: 30px; right: 30px;}</style>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
 <b>TheWizardBay</b><br><p>Everything but the one you thought.</p><p><a href="/index.html">Home</a> <a href="/about.html">About</a> <a href="https://r.mtdv.me/sohereyago">Not sure what else to put here</a></p><hr />
 </div>
 <div id="content" class="content">
-<h1 class="title">TheWizardBay</h1>
-<div class="org-center">
+<h1 class="title">Lattice</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orga709498">Lattice (Order Theory)</a></li>
+<li><a href="#org71e6d9c">Lattice (Algebraic Structure)</a></li>
+<li><a href="#orgee8e0c9">Complete Lattice</a></li>
+<li><a href="#org2e24242">Bounded Lattice (有界格)</a>
+<ul>
+<li><a href="#orgcf32810">Complemented Lattice</a></li>
+</ul>
+</li>
+<li><a href="#org0543200">Distributive Lattice(分配格)</a></li>
+<li><a href="#org13144fc">Boole Lattice</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga709498" class="outline-2">
+<h2 id="orga709498">Lattice (Order Theory)</h2>
+<div class="outline-text-2" id="text-orga709498">
 <p>
-yeah i should write more.
+A lattice is an abstract structure that consists of a partially ordered set
+in which every pair of elements has a unique LUB and a unique GLB.
 </p>
 
 <p>
-imma write em werds when lizzie actually finishes his webring.
+\(a \lor b = lub(a,b)\) (join)
 </p>
 
 <p>
-<a href="about.html">About</a> <a href="posts.html">Posts</a> <a href="copyleft.html">Loicense</a> <a href="misc.html">Misc</a>
+\(a \land b = glb(a,b)\) (meet)
 </p>
 
 <p>
-Email <a href="mailto:ika@thewizardbay.cc">ika@thewizardbay.cc</a>
+in the case of a divisibility order, lub(a,b) is LCM(a,b), glb(a,b) is GCD(a,b)
 </p>
 
 <p>
-PGP   <a href="media/ika.asc">2CEC4DF59A6D41873D4425FBF174A60B548DEC09</a>
+this could be memoried by the method of "\(\lor\) opens up so it's upper bound, \(\land\) opens down
+so it's lower bound."
+</p>
+
+<p>
+<i>e.g.</i> A power set of a set, partially ordered by inclusion.
+</p>
+
+<p>
+<i>e.g.</i> Natural numbers, partially ordered by divisibility.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org71e6d9c" class="outline-2">
+<h2 id="org71e6d9c">Lattice (Algebraic Structure)</h2>
+<div class="outline-text-2" id="text-org71e6d9c">
+<p>
+\((L; \preceq)\) is a lattice, when:
+</p>
+
+<p>
+forall a,b in L, there is
+</p>
+<ol class="org-ol">
+<li>\(a \preceq a \lor b, a \land b \preceq a\).</li>
+<li>\(a \preceq b \Leftrightarrow a \lor b = b\).</li>
+<li>\(a \preceq b \Leftrightarrow a \land b = a\).</li>
+</ol>
+
+<p>
+so, two calculations \(\land\) and \(\lor\) are dual-operand operations on L != emptyset.
+</p>
+
+<p>
+thus there is some patterns of its operation.
+</p>
+
+<p>
+like
+</p>
+<ol class="org-ol">
+<li>Idempotent (幂等) : \(a \lor a = a, \ a \land a = a\).</li>
+<li>Commutative: \(a \lor b = b \lor a, \ a \land b = b \land a\).</li>
+<li>Associative: \(a \lor (b \lor c) = (a \lor b) \lor c, \ a \land (b \land c) = (a \land b) \land c\)</li>
+<li>Absorption:  \(a \lor (a \land b) = a \land (a \lor b) = a\).</li>
+</ol>
+
+<p>
+so when the four rules are valid, we could get \(a \land b = a \Leftrightarrow a \lor b = b\).
+</p>
+
+<p>
+it's come to a network now that the lattice as an algebraic structure (\([L; \lor,\land]\))
+corresponds to the lattice as an poset. (\([L; \preceq]\))
+</p>
+
+<p>
+It has the property of Isotony (保序性),
+in which when \(b \preceq c, \ a \land b \preceq a \land c, \ a \lor b \preceq a \lor c\).
+</p>
+
+<p>
+so there we could have a definition of sublattice.
+if T is a non-empty subset of L, and it has closure(封闭性) then it's a sublattice
+of L.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgee8e0c9" class="outline-2">
+<h2 id="orgee8e0c9">Complete Lattice</h2>
+<div class="outline-text-2" id="text-orgee8e0c9">
+<p>
+A complete lattice is a partially ordered set in which all subsets
+(infinite or finite)have both a supremum(join) and an infimum(meet).
+</p>
+
+<p>
+the LUB of the whole set (meet of L) is called the greatest element (最大元)，
+notated as 1.
+</p>
+
+<p>
+the GLB of the whole set (join of L) is called the least element (最小元),
+notated as 0.
+</p>
+
+<p>
+thus \(\forall x \in L, \ x \preceq 1, \ 0\preceq x\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2e24242" class="outline-2">
+<h2 id="org2e24242">Bounded Lattice (有界格)</h2>
+<div class="outline-text-2" id="text-org2e24242">
+<p>
+Bounded Lattice is a lattice that has a greatest element 1 and a smallest element 0.
+</p>
+
+<p>
+Thus it has the property of this:
+\(\forall a \in L, a \lor 1 = 1; \ a \land 0 = 0; \ a \land 1 = a; \ a \lor 0 = a\);
 </p>
 </div>
 
+<div id="outline-container-orgcf32810" class="outline-3">
+<h3 id="orgcf32810">Complemented Lattice</h3>
+<div class="outline-text-3" id="text-orgcf32810">
+<p>
+An element a in a bounded lattice, if there is also an element b in L that
+\(a \lor b = 1, \ a \land b = 0\), then b is a complement of a, notated as \(a'\).
+</p>
+
+<p>
+if forall a in L there is a' in L, then L is a Complemented Lattice.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0543200" class="outline-2">
+<h2 id="org0543200">Distributive Lattice(分配格)</h2>
+<div class="outline-text-2" id="text-org0543200">
+<p>
+Forall lattice there is a distributive inequality:
+</p>
+
 <ul class="org-ul">
-<li><p>
-2023-05-28 - <a href="articles/20230515125508-lattice.html">[Notes] Lattice</a>
-</p>
-
-<p>
-Them pricks and sneaky little mfs.
-</p></li>
-
-<li><p>
-2022-11-28 - <a href="articles/why-emacs.html">Why Use Emacs When, You Know, VSCode with Vim Keys Exists</a>
-</p>
-
-<p>
-For average Joe &amp; Jane Six-packs on why you might wanna use a piece of ancient software.
-</p></li>
-
-<li><p>
-1970-01-01 - <a href="about.html">About</a>
-</p>
-
-<p>
-``Abowtah mey!''
-</p></li>
-
-<li><p>
-1970-01-01 - <a href="posts.html">Blog Posts</a>
-</p>
-
-<p>
-Random posts.
-</p></li>
-
-<li><p>
-1970-01-01 - <a href="copyleft.html">Copyleft (README)</a>
-</p>
-
-<p>
-Learn em rules visitors!
-</p></li>
-
-<li><p>
-1970-01-01 - <a href="misc.html">Misc Links</a>
-</p>
-
-<p>
-You know what <code>``Misc''</code> means rite?
-</p></li>
+<li>\(a \lor (b \land c) \preceq (a \lor b) \land (a \lor c)\).</li>
+<li>\((a \land b) \lor (a \land c) \preceq a \land (b \lor c)\).</li>
 </ul>
+
+<p>
+When the \(\preceq\) becomes =, then the lattice is a Distributive Lattice.
+</p>
+
+<p>
+<i>e.g.</i> the powerset of an non-empty set \(S\), \([P(s); \lor,\land]\) is a distributive lattice.
+and there is a greatest element and a least element, thus it's a bounded lattice,
+also a complemented lattice.
+</p>
+
+<p>
+forall lattice \([L; \lor, \land]\), the following three statements are equal.
+</p>
+<ol class="org-ol">
+<li>\(\forall a,b,c \in L\), there is \(a \land (b \lor c) = (a \land b) \lor (a \land c)\);</li>
+<li>\(\forall a,b,c \in L\), there is \(a \lor (b \land c) = (a \lor b) \land (a \lor c)\);</li>
+<li>\(\forall a,b,c \in L\), there is \((a \land b) \lor (v \land c) \lor (c \land a) = (a \lor b) \land (b \lor c) \land (c \lor a)\).</li>
+<li>It doesnot have a sublattice that's isomorphic to M5 or N5.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org13144fc" class="outline-2">
+<h2 id="org13144fc">Boole Lattice</h2>
+<div class="outline-text-2" id="text-org13144fc">
+<p>
+A Boole Lattice is a complemented &amp; distributive lattice, notated as \((B; \preceq)\).
+</p>
+
+<p>
+When represented as an Algebraic Structure, it could be written as \((B; \lor, \land, ')\), in which ' is the complement operation.
+</p>
+
+<p>
+Boole Lattice has following properties:
+</p>
+<ol class="org-ol">
+<li>\(\forall a \in B\), a has only one complement.</li>
+<li>\((a \land b)' = a' \lor b', \ (a \lor b)' = a' \land b'\)</li>
+<li>\((a \land b) = 0 \Leftrightarrow a \preceq b'\)</li>
+</ol>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <hr /> <p>Would like to comment? Start a discussion in <a href="https://lists.sr.ht/~ika/public-inbox">my public inbox</a> by sending an email to <a href="mailto:~ika/public-inbox@lists.sr.ht">~ika/public-inbox@lists.sr.ht</a> [<a href="https://man.sr.ht/lists.sr.ht/etiquette.md">mailing list etiquette</a>]</p>
