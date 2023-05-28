@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-12-10 Sat 00:31 -->
+<!-- 2023-05-28 Sun 14:00 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Elements of Set Theory : The Note</title>
-<meta name="author" content="Ilghar Kus" />
+<title>LFS Project #01 &#x2013; 1. Preparation</title>
+<meta name="author" content="ika" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -191,176 +191,40 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
+  .org-svg { }
 </style>
-<style type="text/css"> html{max-width: 70ch;padding: 3em 1em;margin: auto;line-height: 1.75;font-size: 1.25em;} a:link{color:black;} a:visited{color:#565656;} aside{position: fixed; top: 30px; right: 30px;}</style>
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<style type="text/css"> html{max-width: 60em;font-family: sans-serif;padding: 3em 1em;margin: auto;line-height: 1.5;font-size: 1em;} a:link{color:black;} a:visited{color:#565656;} aside{position: fixed; top: 30px; right: 30px;}</style>
 </head>
 <body>
 <div id="preamble" class="status">
-<p>Written by ika, posted on <a href="https://blog.thewizardbay.cc/">TheWizardBay</a>.</p><hr />
+<b>TheWizardBay</b><br><p>Everything but the one you thought.</p><p><a href="/index.html">Home</a> <a href="/about.html">About</a> <a href="https://r.mtdv.me/sohereyago">Not sure what else to put here</a></p><hr />
 </div>
 <div id="content" class="content">
-<h1 class="title">Elements of Set Theory : The Note</h1>
-<p>
-This is my note during the reading
-of the book <i>Elements of Set Theory</i> by <i>Herbert B. Enderton</i> .
-</p>
-
-<p>
-The book is great.
-</p>
-
+<h1 class="title">LFS Project #01 &#x2013; 1. Preparation</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org3ca1dc1">Chapter 1 <i>INTRODUCTION</i></a>
-<ul>
-<li><a href="#orgffcb500">Baby Set Theory</a></li>
-<li><a href="#org4c02729">Sets - An Informal View</a></li>
-<li><a href="#org291923c">Classes</a></li>
-</ul>
-</li>
+<li><a href="#orge91423c">Introduction</a></li>
 </ul>
 </div>
 </div>
-
-<div id="outline-container-org3ca1dc1" class="outline-2">
-<h2 id="org3ca1dc1">Chapter 1 <i>INTRODUCTION</i></h2>
-<div class="outline-text-2" id="text-org3ca1dc1">
-</div>
-<div id="outline-container-orgffcb500" class="outline-3">
-<h3 id="orgffcb500">Baby Set Theory</h3>
-<div class="outline-text-3" id="text-orgffcb500">
+<div id="outline-container-orge91423c" class="outline-2">
+<h2 id="orge91423c">Introduction</h2>
+<div class="outline-text-2" id="text-orge91423c">
 <p>
-In a naive approach, here is some definition.
+Linux From Scratch (LFS) is an open-source project that has been
+available since 1999, providing a comprehensive guide for constructing
+a custom Linux operating system from the ground up. In this series of
+blog posts, we will explain the process of building an LFS system on a
+x86<sub>64</sub> architecture QEMU virtual machine.  We will present the
+essential components, installation procedures, and configuration steps
+in a clear and concise manner. These posts are intended for advanced
+users who seek to customize their Linux system or gain a better
+understanding of its components. By the end of following the steps
+outlined in this post, readers will have a fully functional LFS system
+that they have built from scratch.
 </p>
-<ul class="org-ul">
-<li>A <i>set</i> is a collection of things(called its <i>members</i> or <i>elements</i>),
-and the collection being regarded as a singel object.</li>
-<li>\(t\in A\) means \(t\) is a member of \(A\), and \(t\notin A\) means \(t\) is not a member of \(A\).</li>
-<li><p>
-\(A==B\) could be translated that \(A\) has the exact same members as \(B\), in which case,
-\(A\) could be \(\{2,3,5,7\}\) and \(B\) could be the set of all solutions to the equation
-\(x^4-17x^3+101x^2-247x+210=0\)
-</p>
-
-<p>
-to which, we say:
-</p></li>
-</ul>
-
-<p>
-<b>Principle of Extensionality</b> \(\quad\) If two sets have exactly the same members,
-then they are equal.
-</p>
-
-<p>
-In a less naive approach, we could say:
-</p>
-
-<p>
-<b>Principle of Extensionality</b> \(\quad\) If \(A\) and \(B\) are sets s.t. for \(\forall t\)
-\[
-   t\in A \iff t\in B
-   \]
-then \(A=B\).
-</p>
-
-<ul class="org-ul">
-<li>Empty set, noted as \(\emptyset\), has no members at all.
-and it's the only set with no members.</li>
-
-<li>\(\emptyset \in \{\emptyset\}\) and \(\emptyset \notin \emptyset\), so \(\emptyset \neq \{\emptyset\}\)</li>
-
-<li><b>Union and Intersection</b> \(\quad\) noted respectively as \(\cup\) and \(\cap\),
-means all elements of \(A\) and/or \(B\) and all elements of \(A\) and \(B\)</li>
-
-<li>The set of all subsets of \(A\) is noted as <i>power set</i> \(\mathscr{P} A\) of \(A\),
-also could be noted as \(2^{A}\)</li>
-
-<li><i>Method of abstraction</i> \(\quad\) is a very flexible way of naming a set.
-Notation used for the set of all objects \(x\) s.t. the condition P(x) holds is
-\[
-     \{x|P(x)\}
-     \]</li>
-</ul>
-
-<p>
-This method causes two disastrous paradoxes in set theory, which is
-</p>
-<ul class="org-ul">
-<li><b>Berry's Paradox</b> \(\quad\) an expression which is self-referenced negatively</li>
-<li><b>Russell's Paradox</b> \(\quad\) exemplified by \[\{x|x\notin x\}\]</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org4c02729" class="outline-3">
-<h3 id="org4c02729">Sets - An Informal View</h3>
-<div class="outline-text-3" id="text-org4c02729">
-<p>
-None of the later work will depend on this informal description.
-</p>
-
-<p>
-Skip if you want.
-</p>
-
-<p>
-First we gather around all the things that are not sets
-but we want to have as members of our sets, call such things as atoms.
-Atoms are not sets of any kind. We put all of those atoms in a set
-which could be noted as \(A\), it is the first set in out description.
-</p>
-
-<p>
-And now imagine a hierarchy
-\[
-   V_0 \subseteq V_1 \subseteq V_2 \subseteq \cdot\cdot\cdot
-   \]
-of sets, and we take \(V_0 = A\), the set of all atoms, and we difine
-the rest of the sets recursively, for example:
-\[
-   V_1 = V_0 \cup \mathscr{P}V_0 = A \cup \mathscr{P}A
-   \]
-so, the general formula for constructing this hierarchy of sets would be:
-\[
-   V_{n+1} = V_n \cup \mathscr{P}V_n
-   \]
-Thus we obtain $V<sub>0</sub>, V<sub>1</sub>, V<sub>2</sub>,&#x2026;.$, but this infinite hierarchy
-does not include enough sets. For example, the infinite set
-\[
-   \{\emptyset,\{\emptyset\},\{\{\emptyset\}\},...\}
-   \]
-but we have \(\emptyset \in V_1\),$\{ &empty; \} &isin; V<sub>2</sub> $, etc.
-To remedy this lack, we contrust an infinite union
-\[
-   V_{\omega} = V_0\cup V_1 \cup \cdot\cdot\cdot
-   \]
-and then let \(V_{\omega+1} = V_{\omega} \cup \mathscr{P}V_{\omega}\),
-and in general for any \(\alpha\),
-\[
-   V_{\alpha+1} = V_{\alpha} \cup \mathscr{P} V_{\alpha}
-   \]
-so we could conclude that for each set \(S\), \(\exists \alpha\) s.t. \(S \in V_{\alpha}\)
-</p>
-
-<p>
-And for now, if we banish the atoms, instead take \(A=\emptyset\), and here is the ordinals.
-</p>
-</div>
-</div>
-
-
-<div id="outline-container-org291923c" class="outline-3">
-<h3 id="org291923c">Classes</h3>
-<div class="outline-text-3" id="text-org291923c">
-<p>
-There is no "set of all sets", which is later presented as a theorem, provable from the axioms.
-</p>
-</div>
 </div>
 </div>
 </div>

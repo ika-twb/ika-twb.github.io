@@ -1,4 +1,5 @@
 #+TITLE: Why Use Emacs When, You Know, VSCode with Vim Keys Exists
+#+DATE: <2022-11-28 Mon>
 * Preface
 According to the 2022 Developer Survey by Stackoverflow, VSCode is the
 most popular IDE for developers with a ratio of 74.48% in 71,010

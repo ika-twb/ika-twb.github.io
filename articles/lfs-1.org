@@ -1,0 +1,13 @@
+#+TITLE: LFS Project #01 -- 1. Preparation
+* Introduction
+Linux From Scratch (LFS) is an open-source project that has been
+available since 1999, providing a comprehensive guide for constructing
+a custom Linux operating system from the ground up. In this series of
+blog posts, we will explain the process of building an LFS system on a
+x86_64 architecture QEMU virtual machine.  We will present the
+essential components, installation procedures, and configuration steps
+in a clear and concise manner. These posts are intended for advanced
+users who seek to customize their Linux system or gain a better
+understanding of its components. By the end of following the steps
+outlined in this post, readers will have a fully functional LFS system
+that they have built from scratch.
