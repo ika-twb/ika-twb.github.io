@@ -1,9 +1,9 @@
 #+TITLE: TheWizardBay
 #+OPTIONS: toc:nil num:nil
 #+BEGIN_CENTER
-yeah i should write more.
-
-imma write em werds when lizzie actually finishes his webring.
+#+HTML:<hr />
+#+HTML:<h1> R.I.P. T.J. Kaczynski</h1>
+#+HTML:<p> Legends and Minds live forever.</p>
 
 [[file:about.org][About]] [[file:posts.org][Posts]] [[file:copyleft.org][Loicense]] [[file:misc.org][Misc]]
 
