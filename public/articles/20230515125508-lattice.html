@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-05-28 Sun 14:29 -->
+<!-- 2023-06-11 Sun 13:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lattice</title>
@@ -191,7 +191,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
+  .org-svg { width: 90%; }
 </style>
 <style type="text/css"> html{max-width: 60em;font-family: sans-serif;padding: 3em 1em;margin: auto;line-height: 1.5;font-size: 1em;} a:link{color:black;} a:visited{color:#565656;} aside{position: fixed; top: 30px; right: 30px;}</style>
 <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -206,23 +206,23 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga709498">Lattice (Order Theory)</a></li>
-<li><a href="#org71e6d9c">Lattice (Algebraic Structure)</a></li>
-<li><a href="#orgee8e0c9">Complete Lattice</a></li>
-<li><a href="#org2e24242">Bounded Lattice (有界格)</a>
+<li><a href="#org6312a30">Lattice (Order Theory)</a></li>
+<li><a href="#orgb0400da">Lattice (Algebraic Structure)</a></li>
+<li><a href="#org4194ebf">Complete Lattice</a></li>
+<li><a href="#orgce2a2c5">Bounded Lattice (有界格)</a>
 <ul>
-<li><a href="#orgcf32810">Complemented Lattice</a></li>
+<li><a href="#org07f957c">Complemented Lattice</a></li>
 </ul>
 </li>
-<li><a href="#org0543200">Distributive Lattice(分配格)</a></li>
-<li><a href="#org13144fc">Boole Lattice</a></li>
+<li><a href="#orgdce22fd">Distributive Lattice(分配格)</a></li>
+<li><a href="#org1191dd8">Boole Lattice</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orga709498" class="outline-2">
-<h2 id="orga709498">Lattice (Order Theory)</h2>
-<div class="outline-text-2" id="text-orga709498">
+<div id="outline-container-org6312a30" class="outline-2">
+<h2 id="org6312a30">Lattice (Order Theory)</h2>
+<div class="outline-text-2" id="text-org6312a30">
 <p>
 A lattice is an abstract structure that consists of a partially ordered set
 in which every pair of elements has a unique LUB and a unique GLB.
@@ -255,9 +255,9 @@ so it's lower bound."
 </div>
 </div>
 
-<div id="outline-container-org71e6d9c" class="outline-2">
-<h2 id="org71e6d9c">Lattice (Algebraic Structure)</h2>
-<div class="outline-text-2" id="text-org71e6d9c">
+<div id="outline-container-orgb0400da" class="outline-2">
+<h2 id="orgb0400da">Lattice (Algebraic Structure)</h2>
+<div class="outline-text-2" id="text-orgb0400da">
 <p>
 \((L; \preceq)\) is a lattice, when:
 </p>
@@ -311,9 +311,9 @@ of L.
 </div>
 </div>
 
-<div id="outline-container-orgee8e0c9" class="outline-2">
-<h2 id="orgee8e0c9">Complete Lattice</h2>
-<div class="outline-text-2" id="text-orgee8e0c9">
+<div id="outline-container-org4194ebf" class="outline-2">
+<h2 id="org4194ebf">Complete Lattice</h2>
+<div class="outline-text-2" id="text-org4194ebf">
 <p>
 A complete lattice is a partially ordered set in which all subsets
 (infinite or finite)have both a supremum(join) and an infimum(meet).
@@ -335,9 +335,9 @@ thus \(\forall x \in L, \ x \preceq 1, \ 0\preceq x\).
 </div>
 </div>
 
-<div id="outline-container-org2e24242" class="outline-2">
-<h2 id="org2e24242">Bounded Lattice (有界格)</h2>
-<div class="outline-text-2" id="text-org2e24242">
+<div id="outline-container-orgce2a2c5" class="outline-2">
+<h2 id="orgce2a2c5">Bounded Lattice (有界格)</h2>
+<div class="outline-text-2" id="text-orgce2a2c5">
 <p>
 Bounded Lattice is a lattice that has a greatest element 1 and a smallest element 0.
 </p>
@@ -348,9 +348,9 @@ Thus it has the property of this:
 </p>
 </div>
 
-<div id="outline-container-orgcf32810" class="outline-3">
-<h3 id="orgcf32810">Complemented Lattice</h3>
-<div class="outline-text-3" id="text-orgcf32810">
+<div id="outline-container-org07f957c" class="outline-3">
+<h3 id="org07f957c">Complemented Lattice</h3>
+<div class="outline-text-3" id="text-org07f957c">
 <p>
 An element a in a bounded lattice, if there is also an element b in L that
 \(a \lor b = 1, \ a \land b = 0\), then b is a complement of a, notated as \(a'\).
@@ -363,9 +363,9 @@ if forall a in L there is a' in L, then L is a Complemented Lattice.
 </div>
 </div>
 
-<div id="outline-container-org0543200" class="outline-2">
-<h2 id="org0543200">Distributive Lattice(分配格)</h2>
-<div class="outline-text-2" id="text-org0543200">
+<div id="outline-container-orgdce22fd" class="outline-2">
+<h2 id="orgdce22fd">Distributive Lattice(分配格)</h2>
+<div class="outline-text-2" id="text-orgdce22fd">
 <p>
 Forall lattice there is a distributive inequality:
 </p>
@@ -397,9 +397,9 @@ forall lattice \([L; \lor, \land]\), the following three statements are equal.
 </div>
 </div>
 
-<div id="outline-container-org13144fc" class="outline-2">
-<h2 id="org13144fc">Boole Lattice</h2>
-<div class="outline-text-2" id="text-org13144fc">
+<div id="outline-container-org1191dd8" class="outline-2">
+<h2 id="org1191dd8">Boole Lattice</h2>
+<div class="outline-text-2" id="text-org1191dd8">
 <p>
 A Boole Lattice is a complemented &amp; distributive lattice, notated as \((B; \preceq)\).
 </p>

@@ -1,7 +1,6 @@
-#+TITLE: R.I.P. T.J. Kaczynski
+#+TITLE: TheWizardBay
 #+OPTIONS: toc:nil num:nil
 #+BEGIN_CENTER
-#+HTML:<p> Legends and Minds live forever.</p>
 
 [[file:about.org][About]] [[file:posts.org][Posts]] [[file:copyleft.org][Loicense]] [[file:misc.org][Misc]]
 
