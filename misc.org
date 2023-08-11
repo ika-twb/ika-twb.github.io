@@ -1,2 +1,5 @@
-#+TITLE: Misc Links
+#+TITLE: Misc
 #+DATE: <1970-01-01 Thu>
+
+#+ATTR_HTML: :width 400
+[[file:media/agplv3.png]]

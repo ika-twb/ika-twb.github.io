@@ -86,9 +86,6 @@ Ilghar Kus
 
 #+HTML: <center><iframe src="https://emacs.ch/@ika/110373541373175842/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen"></iframe><script src="https://emacs.ch/embed.js" async="async"></script></center>
 
-#+ATTR_HTML: :width 400
-[[file:media/agplv3.png]]
-
 * Find me in these places.
 |-----------------------+-------------------------+--------------------|
 | [[irc://irc.libera.chat:6697][ika@irc.libera.chat]]   | [[https://emacs.ch/@ika][ika@emacs.ch]]            | [[https://sr.ht/~ika][~ika@sr.ht]]         |
