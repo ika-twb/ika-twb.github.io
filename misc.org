@@ -3,3 +3,7 @@
 
 #+ATTR_HTML: :width 400
 [[file:media/agplv3.png]]
+
+----------
+
+[[file:media/wizard-practice-casting.png]]
