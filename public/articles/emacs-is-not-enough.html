@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-06-21 Wed 05:53 -->
+<!-- 2023-09-28 Thu 18:37 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Emacs Is Not Enough</title>
@@ -191,7 +191,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
+  .org-svg { }
 </style>
 <style type="text/css"> html{max-width: 60em;font-family: sans-serif;padding: 3em 1em;margin: auto;line-height: 1.5;font-size: 1em;} a:link{color:black;} a:visited{color:#565656;} aside{position: fixed; top: 30px; right: 30px;}</style>
 </head>
@@ -205,14 +205,14 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgf4b603c">译者序</a></li>
-<li><a href="#orgdbedb93">原文</a></li>
+<li><a href="#org307bd77">译者序</a></li>
+<li><a href="#orgefd1eb5">原文</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf4b603c" class="outline-2">
-<h2 id="orgf4b603c">译者序</h2>
-<div class="outline-text-2" id="text-orgf4b603c">
+<div id="outline-container-org307bd77" class="outline-2">
+<h2 id="org307bd77">译者序</h2>
+<div class="outline-text-2" id="text-org307bd77">
 <p>
 这是一篇翻译。Emacs 属于那种很奇怪的软件, 只要你愿意接受, 它可以提供你无
 穷的力量. 它的用户画像也很独特, 这些用户很讨厌人机交互的低效, 于是他们会
@@ -223,11 +223,9 @@
 </p>
 </div>
 </div>
-
-
-<div id="outline-container-orgdbedb93" class="outline-2">
-<h2 id="orgdbedb93">原文</h2>
-<div class="outline-text-2" id="text-orgdbedb93">
+<div id="outline-container-orgefd1eb5" class="outline-2">
+<h2 id="orgefd1eb5">原文</h2>
+<div class="outline-text-2" id="text-orgefd1eb5">
 <p>
 <i>(亲爱的读者, 我有些时候可能会叫你 “老铁”, 请务必不要慌张, 这只是一种文学技巧. )</i>
 </p>
@@ -277,7 +275,7 @@ Emacs 属于那种很奇怪的软件, 只要你愿意接受, 它可以提供你�
 </p>
 
 
-<div id="org3396a52" class="figure">
+<div id="org46125b0" class="figure">
 <p><img src="media/brick.jpg" alt="brick.jpg" />
 </p>
 <p><span class="figure-number">Figure 1: </span><i><a href="https://zh.wikipedia.org/zh-hans/%E9%81%93%E6%A0%BC%E6%8B%89%E6%96%AF%C2%B7%E6%81%A9%E6%A0%BC%E5%B0%94%E5%B7%B4%E7%89%B9">Douglas Engelbart</a> 的 <a href="https://www.dougengelbart.org/pubs/augment-3906.html#Figure-2">铅笔比喻</a>, 即“工具很重要”</i></p>
@@ -349,7 +347,7 @@ Terry A. Davis 的 TempleOS 可以直接在终端里面绘制精灵图.
 </p>
 
 
-<div id="orgff292e4" class="figure">
+<div id="org0d360d3" class="figure">
 <p><img src="media/templeos-graphics.png" alt="templeos-graphics.png" width="50%" height="50%" />
 </p>
 <p><span class="figure-number">Figure 2: </span>TAD 在终端打印的十字架精灵图, 用来<a href="https://www.youtube.com/watch?v=2eK4QRH22Uk">演示 TempleOS 中的图形编程</a>.</p>
@@ -599,8 +597,8 @@ Emacs 里面实现的表格编辑器会非常垃圾. 如同一小堆新鲜的牛
 和
 </p>
 
-<pre class="example">
-<code>Error during redisplay: (jit-lock-function 1207370) signaled</code>
+<div class="org-src-container">
+<pre class="src src-nil"><code>Error during redisplay: (jit-lock-function 1207370) signaled</code>
 <code>(args-out-of-range [nil nil nil nil nil nil nil nil nil nil nil nil</code>
 <code>nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil</code>
 <code>nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil</code>
@@ -617,6 +615,7 @@ Emacs 里面实现的表格编辑器会非常垃圾. 如同一小堆新鲜的牛
 <code>nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil</code>
 <code>nil nil nil] 8592)</code>
 </pre>
+</div>
 
 <p>
 霸屏的体验也很差.
@@ -778,7 +777,7 @@ REPL 的 Buffer 一般的情况下都是只读状态.
 
 
 
-<div id="org6a827e1" class="figure">
+<div id="org185029e" class="figure">
 <p><img src="media/turtle.jpg" alt="turtle.jpg" width="50%" height="50%" />
 </p>
 </div>
@@ -788,7 +787,7 @@ REPL 的 Buffer 一般的情况下都是只读状态.
 </p>
 
 
-<div id="org4f9c915" class="figure">
+<div id="org56f431f" class="figure">
 <p><img src="media/turtle.gif" alt="turtle.gif" width="50%" height="50%" />
 </p>
 </div>

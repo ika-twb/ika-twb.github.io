@@ -1,13 +1,17 @@
 #+TITLE: TheWizardBay
 #+OPTIONS: toc:nil num:nil
-#+BEGIN_CENTER
 
+#+BEGIN_CENTER
 [[file:about.org][About]] [[file:posts.org][Posts]] [[file:copyleft.org][Loicense]] [[file:misc.org][Misc]]
 
 Email [[mailto:ika@thewizardbay.cc][ika@thewizardbay.cc]]
 
 PGP   [[file:media/ika.asc][2CEC4DF59A6D41873D4425FBF174A60B548DEC09]]
 #+END_CENTER
+
+#+BEGIN_EXPORT html
+<center><a href="https://www.gnu.org/gnu40"><img src="https://www.gnu.org/gnu40/GNU40_badge-sm.png" alt="[ Celebrate 40 years of GNU! ]" /></a></center>
+#+END_EXPORT
 
 - 2023-05-28 - [[file:articles/20230515125508-lattice.org][[Notes] Lattice]]
 
