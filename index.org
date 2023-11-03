@@ -9,10 +9,6 @@ Email [[mailto:ika@thewizardbay.cc][ika@thewizardbay.cc]]
 PGP   [[file:media/ika.asc][2CEC4DF59A6D41873D4425FBF174A60B548DEC09]]
 #+END_CENTER
 
-#+BEGIN_EXPORT html
-<center><a href="https://www.gnu.org/gnu40"><img src="https://www.gnu.org/gnu40/GNU40_badge-sm.png" alt="[ Celebrate 40 years of GNU! ]" /></a></center>
-#+END_EXPORT
-
 - 1970-01-01 - [[file:about.org][About]]
 
   /``Abowtah mey!''/
