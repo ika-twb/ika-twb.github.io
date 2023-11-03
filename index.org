@@ -8,11 +8,3 @@ Email [[mailto:ika@thewizardbay.cc][ika@thewizardbay.cc]]
 
 PGP   [[file:media/ika.asc][2CEC4DF59A6D41873D4425FBF174A60B548DEC09]]
 #+END_CENTER
-
-- 1970-01-01 - [[file:about.org][About]]
-
-- 1970-01-01 - [[file:posts.org][Blog Posts]]
-
-- 1970-01-01 - [[file:copyleft.org][Copyleft (README)]]
-
-- 1970-01-01 - [[file:misc.org][Misc Links]]
