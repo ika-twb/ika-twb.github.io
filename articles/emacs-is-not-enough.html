@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-11-03 Fri 15:02 -->
+<!-- 2023-12-11 Mon 14:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Emacs Is Not Enough</title>
@@ -193,7 +193,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
-<style type="text/css"> html{max-width: 55em;font-family: sans-serif;padding: 3em 1em;margin: auto;line-height: 1.5;font-size: 1em;} a:link{color:black;} a:visited{color:#565656;} aside{position: fixed; top: 30px; right: 30px;}</style>
+<style type="text/css"> html{max-width: 40rem;font-family: serif;padding: 4em 1em;margin: auto;line-height: 1.5;font-size: 18px;} a:link{color:black;} a:visited{color:#565656;} aside{position: fixed; top: 30px; right: 30px;} code {font-size: 15px;}</style>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -205,27 +205,22 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org661d74a">译者序</a></li>
-<li><a href="#orgd8f9851">原文</a></li>
+<li><a href="#org91e8208">译者序</a></li>
+<li><a href="#org58fec1d">原文</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org661d74a" class="outline-2">
-<h2 id="org661d74a">译者序</h2>
-<div class="outline-text-2" id="text-org661d74a">
+<div id="outline-container-org91e8208" class="outline-2">
+<h2 id="org91e8208">译者序</h2>
+<div class="outline-text-2" id="text-org91e8208">
 <p>
-这是一篇翻译。Emacs 属于那种很奇怪的软件, 只要你愿意接受, 它可以提供你无
-穷的力量. 它的用户画像也很独特, 这些用户很讨厌人机交互的低效, 于是他们会
-花很多时间在软件上修修补补, 优化自己的工作流. 他们每个人都是高手用户. 你
-知道吗, 如果你投入一定时间去配置自己的工具, 确实可以让你的使用体验舒适那
-么一点. 我认为所有那些关心自己按了几下键盘动了几次鼠标的人, 内心都是一个
-高手用户.
+这是一篇翻译。
 </p>
 </div>
 </div>
-<div id="outline-container-orgd8f9851" class="outline-2">
-<h2 id="orgd8f9851">原文</h2>
-<div class="outline-text-2" id="text-orgd8f9851">
+<div id="outline-container-org58fec1d" class="outline-2">
+<h2 id="org58fec1d">原文</h2>
+<div class="outline-text-2" id="text-org58fec1d">
 <p>
 <i>(亲爱的读者, 我有些时候可能会叫你 “老铁”, 请务必不要慌张, 这只是一种文学技巧. )</i>
 </p>
@@ -275,7 +270,7 @@ Emacs 属于那种很奇怪的软件, 只要你愿意接受, 它可以提供你�
 </p>
 
 
-<div id="orgd0ec759" class="figure">
+<div id="org0f1c09c" class="figure">
 <p><img src="media/brick.jpg" alt="brick.jpg" />
 </p>
 <p><span class="figure-number">Figure 1: </span><i><a href="https://zh.wikipedia.org/zh-hans/%E9%81%93%E6%A0%BC%E6%8B%89%E6%96%AF%C2%B7%E6%81%A9%E6%A0%BC%E5%B0%94%E5%B7%B4%E7%89%B9">Douglas Engelbart</a> 的 <a href="https://www.dougengelbart.org/pubs/augment-3906.html#Figure-2">铅笔比喻</a>, 即“工具很重要”</i></p>
@@ -347,14 +342,14 @@ Terry A. Davis 的 TempleOS 可以直接在终端里面绘制精灵图.
 </p>
 
 
-<div id="org8fa57fb" class="figure">
+<div id="org0146acb" class="figure">
 <p><img src="media/templeos-graphics.png" alt="templeos-graphics.png" width="50%" height="50%" />
 </p>
 <p><span class="figure-number">Figure 2: </span>TAD 在终端打印的十字架精灵图, 用来<a href="https://www.youtube.com/watch?v=2eK4QRH22Uk">演示 TempleOS 中的图形编程</a>.</p>
 </div>
 
 <p>
-/甚至还能是 3D 图形! /
+<i>甚至还能是 3D 图形!</i>
 </p>
 
 <p>
@@ -777,7 +772,7 @@ REPL 的 Buffer 一般的情况下都是只读状态.
 
 
 
-<div id="orgb0ded08" class="figure">
+<div id="orgc12fac4" class="figure">
 <p><img src="media/turtle.jpg" alt="turtle.jpg" width="50%" height="50%" />
 </p>
 </div>
@@ -787,7 +782,7 @@ REPL 的 Buffer 一般的情况下都是只读状态.
 </p>
 
 
-<div id="orgfd22ec4" class="figure">
+<div id="org9abb59b" class="figure">
 <p><img src="media/turtle.gif" alt="turtle.gif" width="50%" height="50%" />
 </p>
 </div>
@@ -903,23 +898,701 @@ Emacs 里面的 Overlay 会跟踪字符串的位置. 它们的工作原理就像
 </p>
 
 <p>
-在一个需要形式化的结构才能正确工作的文件里，
-如果你不强制在任何时候都推行结构化，那整件事就没有任何意义。
-想想看，你要做些什么丑陋的事情才能让一个 <b>没有任何结构</b> 的文档正常工作。
-嗯，我第一个想到的就是解析。然后如果出现什么问题（而且肯定会出现），再加点
-解析进去，同时再来点特殊错误处理。然后在加点缓存机制，因为“啊这，这玩意儿跑得有点慢哈”。
-然后再转回来加点错误处理，更多的解析和重解析，因为“啊这，它怎么又坏了？”
-或许顺手再优化一下你的编译器。啊这，加了缓存还不够吗？怎么什么东西都又慢又难用啊。
-马萨卡，终于要展示真正牛逼的优化技巧了么。难道卷起袖子觉醒升华的时刻要到来了吗？
+在一个需要形式化的结构才能正确工作的文件里, 如果你不强制在任何时候都推行
+结构化, 那整件事就没有任何意义。想想看, 你要做些什么丑陋的事情才能让一个 <b>没有任何结构</b>
+的文档正常工作。嗯, 我第一个想到的就是解析。然后如果出现什
+么问题（而且肯定会出现）, 再加点解析进去, 同时再来点特殊错误处理。然后在
+加点缓存机制, 因为“啊这, 这玩意儿跑得有点慢哈”。然后再转回来加点错误处理,
+更多的解析和重解析, 因为“啊这, 它怎么又坏了？”或许顺手再优化一下你的编译
+器。啊这, 加了缓存还不够吗？怎么什么东西都又慢又难用啊。马萨卡, 终于要展
+示真正牛逼的优化技巧了么。难道卷起袖子觉醒升华的时刻要到来了吗？
 </p>
 
 <p>
-嗯，你先别急，给你介绍一下有个 <b>24K纯钛合金一百万流明核弹级杀伤力亮瞎你狗眼</b> 的东西叫 <b>残酷现实</b>.
+嗯, 你先别急, 给你介绍一下有个 <b>24K纯钛合金一百万流明核弹级杀伤力亮瞎你狗
+眼</b> 的东西叫 <b>残酷现实</b>.
 </p>
 
 <p>
-你那阳光彩虹小白马的美好幻想在现实落下的一瞬间如同万米高空跳伞的镜子一般摔的粉碎，你那万事万物皆可迭代优化
-的美好愿景也一同消逝。
+你那阳光彩虹小白马的美好幻想在现实落下的一瞬间如同万米高空跳伞的镜子一般
+摔的粉碎, 你那万事万物皆可迭代优化的美好愿景也一同消逝。不用想着去优化速度了,
+先试试让它正常工作：它再也没办法正常工作了。
+</p>
+
+<p>
+你就会意识到：
+</p>
+
+<p>
+扫除这个烂摊子的唯一方法就是 <b>强制实施结构</b> , 这是唯一能让它正常工作的方法。
+</p>
+
+<p>
+这里的 <i>结构</i> 是指一个你可以直接和它交互的数据结构, 没有中间商赚差价的那种。
+然后, 你的那些优化目标从一开始就处于一个较高的层级, 事实上你可能根本不需要去
+考虑性能的问题了。
+</p>
+
+<p>
+忘掉那些乱七八糟的编程奇技淫巧, 没人应该去受那种罪。
+</p>
+
+<p>
+你想要的是强健和漂亮的程序, 还是半吊子的丑陋代码？ 选个专用的结构,  而不是 gap buffer。
+Emacs的本质就是一个又一个的gap buffer。
+</p>
+
+<p>
+还有,  Emacs里的所有东西本质上都是 <i>字符串</i> 。
+</p>
+
+<p>
+当你经手的数据都是字符串的时候,  在其之上推行结构化以及任何基于结构的功能就变得太难了。
+当然, 在一个 buffer 里面强制结构化并不是不可能, 但是如果你想写个比较实际的功能就会完全不值得。
+</p>
+
+<p>
+Major mode 之所以存在就是因为我们经手的大部分数据都是有内在结构的。Major mode 存在的唯一目的
+就是处理有特定结构的数据。
+</p>
+
+<p>
+你能想到的所有 Major mode 都是这样,  除了 <code>fundamental-mode</code>, 它只会告诉你它不知道这个文件是啥东西。
+</p>
+
+<p>
+&#x2014;
+</p>
+
+<p>
+如果你在造自己的文本编辑器, 然后你发现自己在问类似这种问题：
+</p>
+
+<p>
+<i>我应该选哪个： gap buffer？ 树？ 要不要再拿个绳子吊死自己？</i>
+</p>
+
+<p>
+正确答案当然是：
+</p>
+
+<p>
+<i>都不是,  至少在大部分情况下。</i>
+</p>
+
+<p>
+有些人就是喜欢像小孩子一样做选择。
+</p>
+
+<p>
+明明可以全都要。
+</p>
+
+<p>
+你应该根据你要编辑的数据去选择对应的数据结构。你不需要把自己限制到一个结构里面尝试着用它表示所有的数据。
+很奇怪的是似乎当今所有的编辑器都喜欢这么做。
+</p>
+
+<p>
+<i>他们用的数据结构是： <b>字符串</b> 。</i>
+</p>
+
+<p>
+我们为啥不用专门的编辑器去编辑专门格式的文件呢？
+</p>
+
+<p>
+我也不知道, 但肯定不是因为这种方法太难了。为一个文件格式写一个量身打造的专用编辑器肯定要比
+魔改一个通用编辑器简单（至少在不用当今的那些架构的情况下）。
+</p>
+
+<p>
+人们通常认为一个通用的数据结构有益于设计一个对各种的文本文件都通用的接口, 但专用编辑器没理由不能
+拥有一样的通用接口。
+</p>
+
+<p>
+<b>Emacs就是不擅长文本处理。</b>
+</p>
+
+<p>
+人们通常以为 Emacs 就是用来做文本处理的, 所以它肯定很擅长这些, 但它就是不行。
+</p>
+
+<p>
+它没有专用的处理机制。只有 Buffer, 本质上就是字符串。 你没办法在字符串上面
+搞什么骚操作, 可以偶尔搞些奇技淫巧但也就只能做那些了。
+</p>
+
+<p>
+<i>结构的缺失会滋生半吊子的解决方案。</i>
+</p>
+
+<p>
+最重要的是, Emacs 促使你去用一种命令式的编程风格。 <i>小乌龟小乌龟小乌龟</i>
+</p>
+
+<p>
+而且, 没有什么高级的API接口可以用。那搞起来也太难了。
+</p>
+
+<p>
+难怪什么事都要花那么长的时间才能完成。 我的 Emacs 配置里面现在有两百多个
+todo。 <sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup>
+还有很多人比我都多。
+</p>
+
+<p>
+大部分的 todo 看起来都很容易。
+</p>
+
+<p>
+但是真的要实现就很难。
+</p>
+
+<p>
+&#x2014;
+</p>
+
+<blockquote>
+<p>
+&#x2013; <i>&lt;作者名&gt;, 你×××了是吧, 啥东西让你这么激动？</i>
+</p>
+</blockquote>
+
+<p>
+没啥, 真的, 没啥。或许就是因为 Emacs 太糟糕了。
+</p>
+
+<p>
+也不是我很关心。我当然也在我的 Emacs 配置上面浪费了几百个小时。
+</p>
+
+<p>
+好吧我也不知道自己在骗谁, 肯定不是骗别人了, 那就是在骗我自己。
+</p>
+
+<p>
+事实是几千个小时, 那是好几个月。
+</p>
+
+<p>
+就像大部分人一样。
+</p>
+
+<p>
+但说实话那些折腾也没什么价值。我根本不觉得我有一丁点得心应手的感觉。
+</p>
+
+<p>
+我的 Emacs 刚开始感觉很难用。几年过去了, 它依旧很难用。我的三千多行的 <code>.emacs</code>
+依旧感觉很难用, 就算我有个替身一天到晚帮我折腾我的配置, 磨平任何硌到我的地方, 虽然这种工作量
+比 200多个 todo 要大的多, 它还是很难用。
+</p>
+
+<p>
+但我可以说的是, 这种苦劲解决不了任何问题, 何况是一个配置。
+</p>
+
+<p>
+我已经不再往里面加新的 todo 了。
+</p>
+
+<p>
+还有, 你听说过那种配置只有几行还觉得用的很开心的人吗？
+</p>
+
+<p>
+那些不是真的 Emacs 用户。他们只是在装逼。
+</p>
+
+<p>
+你如果没有一直在折腾你的 Emacs 配置, 那你就不是一个合格的 Emacs用户。
+</p>
+
+<p>
+我不会去听他们的意见, 他们明天估计就会发篇博客宣布自己出走去 VSCode 阵营了。就先忽略那帮人好吧。
+</p>
+
+<p>
+&#x2014;
+</p>
+
+<p>
+行吧我们到哪儿了？
+</p>
+
+<p>
+<i>如果 Emacs 这么烂,  为啥就没人去修好它呢？</i>
+</p>
+
+<p>
+呵呵。 重写 Emacs 可能是所有 Emacs 讨论里面最常见的陈词滥调了。
+</p>
+
+<p>
+那帮写 Common Lisp 的？ 他们总想着要 <i>移植他妈的Emacs</i> 或者 <i>重写他妈的Emacs</i> 或者
+<i>复制他妈的 Emacs</i> 或者 <i>以某种方式成为Emacs</i> 。
+</p>
+
+<p>
+或者： YY 出来一个魔法一般的兼容层然后就可以 <i>从 Emacs 那里偷点代码过来</i> ！ 这个想法的
+无理程度和其传播广度不相上下。 它不停地在各种群聊里出现, 借机将人们的目光从真正的问题上转移开。
+</p>
+
+<p>
+还有, 啊对, “移植” 。 将Emacs移植到某种外部生态 （比如 Guile）将会更糟糕。
+任何种类的合并都会导致 <i>同质性</i> 问题, 即使是 Guile,  尤其是 Guile。
+</p>
+
+<p>
+移植/导入/合并 本质上就是对生态的一场人造灾难。
+</p>
+
+<p>
+当然, 没人会把这种讨论当真。因为所有人都明白这种东西已经有人尝试做过了, 而且尝试的结果并不好。
+</p>
+
+<p>
+就算可以做出来, 也不会解决任何问题。
+</p>
+
+<p>
+如果你想的是移植 Emacs,  你永远也不可能替换 Elisp 或者修好 Emacs。 移植的想法本质上就否定了
+将 Emacs 转移到一个更好的系统上的意义, 因为这些系统必然不兼容。一个比当前远远更好的系统才会迫使人们转移,
+所以它们必然会有本质上的区别。故, 必然不会兼容。
+</p>
+
+<p>
+你应该知道,  人们不仅仅是提议要重写或者移植,  已经有几个项目在这么做了。虽然这些努力都是好意的, 但是它们完全都是徒劳。
+</p>
+
+<p>
+Emacs的问题不仅仅是语言层次上的。
+</p>
+
+<p>
+当然,  Elisp 不是 Lisp 方言里面最好用的, 但是它够用。 事实上, Elisp 可能是 Emacs 最好的部分。
+</p>
+
+<p>
+但在所有这些讨论中, 总有一个主要的心理障碍不断浮现, 那就是： <i>插件</i> 。
+</p>
+
+<blockquote>
+<p>
+&#x2013; <i>但我们怎么可能重写或移植Emacs以及所有那些 <b>超级</b> 有用的代码呢？</i>
+</p>
+</blockquote>
+
+<p>
+听着： <i>Emacs不需要被重写。</i>
+</p>
+
+<p>
+事实是： <i><b>我们不想要另一个Emacs</b></i> 。
+</p>
+
+<p>
+我们想要的是某种本质上不同的东西, 一种支持 <i>结构化方法</i> 的东西。
+</p>
+
+<p>
+Emacs与这种结构化的想法几乎不兼容。所以, 那些数十亿行的 Elisp 代码是一种负担, 而不是资产。
+</p>
+
+<p>
+为了拥有一个更好的文本编辑Lisp环境, 我们需要放弃所有的Elisp和所有的Emacs。 <i>并且永远不要回头。</i>
+</p>
+
+<blockquote>
+<p>
+&#x2013; <i>&lt;作者名&gt;, 但是有5000多个包呢？</i>
+</p>
+</blockquote>
+
+<p>
+呵呵, 去他妈的吧。我们根本不需要他们。
+</p>
+
+<p>
+去他妈的 5000 多个包, 去他妈的几万个几十万个包。
+</p>
+
+<p>
+我告诉你, 这些都不重要。
+</p>
+
+<p>
+如果基底都已经腐烂了,  我根本不在乎有多少人费了多少个小时去证明这个基底是值得的。
+这一切都是沉没成本和损害控制。
+</p>
+
+<p>
+还有, 记得我跟你说命令式代码的事情吗？ 我再来个王炸：所有被写出来的 Elisp 代码都挺垃圾的。
+我不是在批评这些代码的作者, 这不是他们的错, 但事实就是这样。
+</p>
+
+<p>
+我们想把这些代码倒进下水道, 而不是留着。
+</p>
+
+<p>
+让我们来看看一些 Elisp 代码,  单纯为了好玩。
+</p>
+
+<p>
+相信我,  他们看起来都是一样的东西：
+</p>
+
+<ul class="org-ul">
+<li><i>beginend</i>: 为某些 mode 重定义 M-&lt; and M-&gt; 。</li>
+<li><i>belarus-holidays</i>: 白俄罗斯假期, 包括调休。</li>
+<li><i>cfrs</i>: 基于子窗口的字符串读取。</li>
+</ul>
+
+<p>
+换句话说, 就是一些垃圾。
+</p>
+
+<p>
+真正有意思的也就只有 <i>Org-mode</i> 和 <i>magit</i> 。就这些了。
+而且由于<a href="https://project-mage.org/c-programmers-wrote-git.html">Git是给低等人用的</a>, 这就只剩下Org-mode了。
+</p>
+
+<p>
+<i>Emacs中没有大型应用程序。Emacs包通常不解决比较复杂的或大规模的问题。</i>
+</p>
+
+<p>
+而且鉴于这些小插件的质量 —— 我们不会丢失真正有价值的东西。
+</p>
+
+<p>
+其他的东西也就是什么秒表, 十几个补全框架, 几万个半吊子的编程语言支持, 主题配色, 以及任何 <a href="https://github.com/alphapapa/">alphapapa</a> 突发奇想写出来的东西。
+</p>
+
+<p>
+<i>冷笑话</i> 。
+</p>
+
+<p>
+<i>俄罗斯方块</i> 。
+</p>
+
+<p>
+你难道看不出来这都是些没用的东西吗？
+</p>
+
+<p>
+真正有用的东西两只手就数的过来, 我们可以直接偷走, 但是这次要好好做。
+</p>
+
+<p>
+而且我们根本不需要去看那些包, 我们只需要回想一下自己用这个软件的体验。那些才是估值这些包的正确方法, 而不是去看代码。
+</p>
+
+<blockquote>
+<p>
+&#x2013; <i>但是那是好几十亿行的 Elisp 代码诶！</i>
+</p>
+</blockquote>
+
+<p>
+你说的对, 但都是废话。Emacs 当前的架构根本不足以支撑这么重大的更改。这个平台不是最优解。最好的方法就是扔掉所有包袱。
+</p>
+
+<p>
+而且这些仅仅是关于文本的, 我还没有提到别的东西, 比如矢量图。
+</p>
+
+<blockquote>
+<p>
+&#x2013; <i>&lt;作者名&gt;, 你为啥会觉得一个文本编辑器需要图形支持呢？</i>
+</p>
+</blockquote>
+
+<p>
+菜鸟问题, 但我还是会回答, 因为这个问题很有启发性。
+</p>
+
+<p>
+谁说 Emacs 是个文本编辑器了？ Emacs 恰好只是一个人们可以构建 <del>好用的</del> 文本界面的平台。
+</p>
+
+<p>
+如果它有好的图形支持,  人们当然也会去用它。 人们尝试着给它粘上去图形支持 （比如 GTK 部件 <sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backlink">4</a></sup>）
+但这些都不是最佳实践,  所以没人回去用它。正如预期。
+</p>
+
+<blockquote>
+<p>
+&#x2013; <i>&lt;作者名&gt;, 如果 Emacs 这么烂,  为什么你还在用呢？</i>
+</p>
+</blockquote>
+
+<p>
+因为剩下的东西都是更难用的一坨狗屎。
+</p>
+
+
+<blockquote>
+<p>
+&#x2013; <i>&lt;作者名&gt;, 你刚才提到 Guile,  用别的编程语言扩展 Emacs 难道不好吗？ 不是会让 Emacs 更强大吗？</i>
+</p>
+</blockquote>
+
+<p>
+在虚拟机上运行除了 Elisp 以外的任何东西都是个 <i>坏主意</i> 。那些认为这个想法很好的人都忘了 Emacs 的主要受众：
+他们忘了 Emacs 是给高手用户用的。
+</p>
+
+<p>
+当你有一大坨没办法很好协作语言粘在了一起,  你就被剥夺了控制力。 <i>你最不想做的就是剥夺高手用户的控制力。</i>
+</p>
+
+<p>
+你可以在你的 Lisp 镜像里加载一个 Lua 解释器, 或者允许扩展性FFI。但没人能从这些东西里面获得更强大的力量,
+只能获得一些短效的便利, 而给以后的高手用户平添障碍。 你不可能用 Lua 写最基本的文本函数并指望你的受众接纳它。
+</p>
+
+<p>
+我在其他文章中更详细地谈论了这个问题, 并将这个问题称为 <i>同质性</i> 。
+</p>
+
+<blockquote>
+<p>
+&#x2013; <i>&lt;作者名&gt;, 你真的没办法用什么奇技淫巧去改善Emacs吗？</i>
+</p>
+</blockquote>
+
+<p>
+做不到。
+</p>
+
+
+<blockquote>
+<p>
+&#x2013; <i>&lt;作者名&gt;, 不是已经有很多结构化编辑器了吗, 他们不都很烂吗？</i>
+</p>
+</blockquote>
+
+<p>
+确实有结构化编辑器存在。是的, 它们确实很烂, 因此没有人去用它们。
+之所以没有人去用是因为你无法像用 Emacs 那样用它们, 让光标在整个程序里跳来跳去。
+</p>
+
+<p>
+但这并不意味着它们也做不到, 或者它们必须很烂。我在<a href="https://project-mage.org/the-power-of-structure.html">前一篇文章</a>中提出了 <i>无缝</i> 的结构化编辑。
+</p>
+
+
+<blockquote>
+<p>
+&#x2013; <i>&lt;作者名&gt;, 专用的结构化编辑器难道哦啊不是更难写吗？</i>
+</p>
+</blockquote>
+
+<p>
+不是。其实更简单, 因为你可以在不同地方复用编辑器。
+结构化也有利于复杂交互和互操作行为的设计。
+</p>
+
+
+<blockquote>
+<p>
+&#x2013; <i>&lt;作者名&gt;, 如果有很多专用编辑器, 你难道不需要给每个都单独写配置吗？</i>
+</p>
+</blockquote>
+
+<p>
+通用机制的配置（比如快捷键绑定）可以共用。所有的编辑器都需要提供一个文本处理的通用接口。
+</p>
+
+<blockquote>
+<p>
+&#x2013; <i>&lt;作者名&gt;, 但 Emacs 肯定是做对了一些事情的对吧？</i>
+</p>
+</blockquote>
+
+<p>
+是的, 有好几件事情。
+</p>
+
+<p>
+Lisp。Elisp 可能没能成为现存最伟大的 Lisp 方言。它在多线程、命名空间以及
+其他方面存在一些问题。但总的来说, 它还够用, 而且肯定不是Emacs目前面临
+的最糟糕的问题。
+</p>
+
+<p>
+还有的话, 可扩展性。在一定程度上。Emacs展示了交互式可扩展性可以是什么样
+的, 以及它如何为我们服务。我觉得它展现了有很多人可以在个人计算平台中喜欢上这种可扩展性。
+</p>
+
+<p>
+之前, 我也批评了 Buffer 的概念, 但是 <i>一切都是Buffer</i> 的想法被证明非常方便。
+这意味着每个东西都有一套共同的界面, 并通过相同的一套命令来操作。（除了
+modeline 。它太结构化了, 无法通过非结构化方式实现。）
+</p>
+
+<p>
+还有什么需要补充的吗？可能没有了。
+</p>
+
+<blockquote>
+<p>
+&#x2013; <i>Emacs及其插件生态中的那些代码真的没有一点意义吗？</i>
+</p>
+</blockquote>
+
+<p>
+写新的代码是一种罪过, 但把代码扔掉可能是人们能做的最光荣的事情。
+</p>
+
+<p>
+我会稍微重申一下。但可以确定的是 Emacs <i>没有</i> 结构化意识。
+</p>
+
+<p>
+因此, 它所有的插件和功能只能做到用户想要的50%, 大多数连 50% 都达不到。
+</p>
+
+<p>
+<i>平庸的体验已成为常态。</i>
+</p>
+
+<p>
+Emacs既不擅长专用化, 也不擅长嵌入, 更不擅长整合。
+比如, 你没办法创建一个不同区域使用不同 mode 的 buffer。有些奇技淫巧, 但它们很烂。
+</p>
+
+<p>
+Emacs里的所有工具只能让你 <i>勉强应付</i> , 它们并没有带来任何伟大的东西。
+</p>
+
+<p>
+如果你不能专用化, 你将永远效率低下, 你的程序将永远难用。
+</p>
+
+<p>
+Emacs里面没有一个部分会发生本质上的改善。你敢想象在其之上 <i>不断构建更多的垃圾</i> 吗？
+</p>
+
+<p>
+至少我不敢。
+</p>
+
+<p>
+我宁愿有一些专用化的工具, 它们在100%的时间都有效, 或者至少可以改进到那个极限。
+（这些工具必须生活在一个系统内, 以便它们能够相互集成和互操作。）
+</p>
+
+<blockquote>
+<p>
+&#x2013; <i>&lt;作者名&gt;, Emacs 可以变得结构化吗？</i>
+</p>
+</blockquote>
+
+<p>
+如果你已经阅读了<a href="https://project-mage.org/the-power-of-structure.html">前一篇文章</a>, 尤其是关于 <i>Rune</i> 的部分,
+你就会知道我认为 <i>无缝结构化</i> 编辑是处理文本的更优方式。
+</p>
+
+<p>
+Emacs能采用这种思维方式吗？让我们思考一下。
+</p>
+
+<p>
+首先, Emacs 的核心必须变得更像Lisp。但这只是前提。
+</p>
+
+<p>
+其次, 需要真正地扩展 <i>buffer</i> 的定义和能力。
+</p>
+
+<p>
+这就像试图把一列货运火车变成直升机, 同时计划所有的轨道最终还得连接在车轮上。
+</p>
+
+<p>
+你会遇到同质性问题, 这比“换个语言重写”更难解决。
+</p>
+
+<p>
+原则上我不觉得这不能通过向后兼容的方式解决。但实际上,  <del>直接放弃结构化编辑</del> 从头开始写要更简单。
+</p>
+
+<p>
+这还没考虑到任何完整的GUI框架, 或一个能用的原型系统。
+</p>
+
+<p>
+即使 Emacs 的核心能够接纳其中极小一部分功能<sup><a id="fnr.5" class="footref" href="#fn.5" role="doc-backlink">5</a></sup>,
+整个生态的包和代码也不会自己更新。但它们确实在 <i>道德层面</i> 上过时了。
+</p>
+
+<p>
+所以, 无论如何, 再见, Emacs。
+</p>
+
+<p>
+Emacs 本质上就缺失灵活性。而且不仅仅是C的问题（那甚至不占所有问题的十分之一）。
+是默认设置, 全局状态, 整个基于字符串的模型。
+</p>
+
+<p>
+而那个模型 <i>搞砸了</i> 。
+</p>
+
+<p>
+我不喜欢Emacs核心的一点是它主要是由API驱动的。
+我认为真正强大的核心不会给你一个API, 而是给你砖让你自己建房子。
+</p>
+
+<p>
+在Emacs中唯一的构建块是 buffer, 而那基本上是一个为个人计算平台包装的、以磁带驱动的图灵机。
+</p>
+
+<p>
+&#x2014;
+</p>
+
+<p>
+我并不是在责怪或否定Emacs。它无疑是一款令人印象深刻的软件。
+</p>
+
+<p>
+但同时我们需要看到, Emacs的能力受到不断出现的边缘案例的束缚。
+换句话说, 总会有些东西稍微有点问题, 这并不真的是因为它不够好。
+问题在于底层不够好。底层保证了你将永远有不断的效率低下和问题 <i>随时出现</i> 。
+</p>
+
+<p>
+更不用说由于缺少结构性带来的限制, 很多功能永远不会被尝试,  <i>甚至不会被想到</i> 。
+</p>
+
+<p>
+我们想要的是什么呢？可组合的对象。可嵌入的结构。
+在 <i>是什么, 而不仅仅是如何表示</i> 的层面上对一切进行程序化访问。
+这就是你需要从哪里开始构建你的编辑器：从任何给定对象的固有结构开始。
+把事物视为具有文本界面的对象！
+针对每种结构的专门编辑器, 许多这样的编辑器相互操作并/由/其他编辑器组成。
+这将产生更好的界面, 更多的控制权, 消除冗余, 提高速度。
+最后：它会/更简单/。因为这就是灵活性与结构结合所给你的：力量。而力量可以使复杂的事物/简单化/。
+</p>
+
+<p>
+Emacs在其界面能够多么强大的方面已经达到了极限。
+</p>
+
+<p>
+然后还有性能的问题。
+</p>
+
+<p>
+编辑这个网站的HTML让我想起了真正的糖蜜般的恐怖。
+当然, 糖蜜虽然慢, 至少是连续和平滑的。Emacs则不然, /哈哈/。
 </p>
 </div>
 </div>
@@ -931,11 +1604,17 @@ Emacs 里面的 Overlay 会跟踪字符串的位置. 它们的工作原理就像
 
 <div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">我觉得那些统计结果其实还是挺有用的.</p></div></div>
 
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">目前的讨论应该不怎么需要我把它们一项一项列出来。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">多么美好的回忆。</p></div></div>
+
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5" role="doc-backlink">5</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">嗯哼, Emacs核心开发是一个极其保守的工作。</p></div></div>
+
 
 </div>
 </div></div>
 <div id="postamble" class="status">
-<hr /> <p>Would like to comment? Start a discussion in <a href="https://lists.sr.ht/~ika/public-inbox">my public inbox</a> by sending an email to <a href="mailto:~ika/public-inbox@lists.sr.ht">~ika/public-inbox@lists.sr.ht</a> [<a href="https://man.sr.ht/lists.sr.ht/etiquette.md">mailing list etiquette</a>]</p>
+<hr /> <p>Would like to comment? Start a discussion in <a href="https://lists.sr.ht/~ika/public-inbox">my public inbox</a> by sending an email to <a href="mailto:~ika/public-inbox@lists.sr.ht"><code>~ika/public-inbox@lists.sr.ht</code></a> [<a href="https://man.sr.ht/lists.sr.ht/etiquette.md">mailing list etiquette</a>]</p>
 </div>
 </body>
 </html>
