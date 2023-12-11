@@ -1,0 +1,22 @@
+#+TITLE: TheWizardBay
+#+OPTIONS: toc:nil num:nil
+
+#+BEGIN_CENTER
+[[file:about.org][About]] [[file:copyleft.org][Loicense]] [[file:misc.org][Misc]]
+
+Email [[mailto:ika@thewizardbay.cc][ika@thewizardbay.cc]]
+
+PGP   [[file:media/ika.asc][2CEC4DF59A6D41873D4425FBF174A60B548DEC09]]
+#+END_CENTER
+* Articles
+- Lorem
+- Ipsum
+- [[file:articles/index.org][More]]
+* Weekly Posts
+- Lorem
+- Ipsum
+- [[file:weekly/index.org][More]]
+* Book Reviews
+- Lorem
+- Ipsum
+- [[file:books/index.org][More]]
