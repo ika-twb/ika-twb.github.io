@@ -6,7 +6,7 @@
 
 Email [[mailto:ika@thewizardbay.cc][ika@thewizardbay.cc]]
 
-PGP   [[file:media/ika.asc][2CEC4DF59A6D41873D4425FBF174A60B548DEC09]]
+PGP   [[file:media/ika.asc][2CEC 4DF5 9A6D 4187 3D44 25FB F174 A60B 548D EC09]]
 #+END_CENTER
 * Articles
 - Lorem
