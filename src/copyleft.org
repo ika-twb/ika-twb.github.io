@@ -18,5 +18,5 @@
 
 
 * Stack
-- This site uses  [[https://docs.gitlab.com/ee/user/project/pages/index.html][GitLab Pages]].
+- This site uses [[https://codeberg.page/][Codeberg Pages]].
 - This site is generated using  [[https://orgmode.org/][Org Mode]], licensed under [[https://www.gnu.org/licenses/gpl-3.0.html][GNU Public Licence ver.3.0+]].
