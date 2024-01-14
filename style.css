@@ -1,52 +1,6 @@
-/* Gentium Book Plus Regular */
-/* @font-face { */
-/* 	font-family: "Gentium Book Plus"; */
-/* 	src: url('fonts/GentiumBookPlus-Regular.woff2') format('woff2'), */
-/* 		 url('fonts/GentiumBookPlus-Regular.ttf') format('truetype'); */
-/* 	font-weight: normal; */
-/* 	font-style: normal; */
-/* } */
-
-/* @font-face { */
-/* 	font-family: "Gentium Book Plus"; */
-/* 	src: url('fonts/GentiumBookPlus-Italic.woff2') format('woff2'), */
-/* 		 url('fonts/GentiumBookPlus-Italic.ttf') format('truetype'); */
-/* 	font-weight: normal; */
-/* 	font-style: italic; */
-/* } */
-
-/* /\* Gentium Book Plus Bold *\/ */
-/* @font-face { */
-/* 	font-family: "Gentium Book Plus"; */
-/* 	src: url('fonts/GentiumBookPlus-Bold.woff2') format('woff2'), */
-/* 		 url('fonts/GentiumBookPlus-Bold.ttf') format('truetype'); */
-/* 	font-weight: bold; */
-/* 	font-style: normal; */
-/* } */
-
-/* @font-face { */
-/* 	font-family: "Gentium Book Plus"; */
-/* 	src: url('fonts/GentiumBookPlus-BoldIralic.woff2') format('woff2'), */
-/* 		 url('fonts/GentiumBookPlus-BoldIralic.ttf') format('truetype'); */
-/* 	font-weight: 700; */
-/* 	font-style: italic; */
-/* } */
-
-/* @font-face { */
-/* 	font-family: "CommitMono"; */
-/* 	src: url('fonts/CommitMono.woff2') format('woff2'), */
-/* 		 url('fonts/CommitMono.ttf') format('truetype'); */
-/* } */
-
-/* @font-face { */
-/* 	font-family: "ChillDuanHeiSongPro"; */
-/* 	src: url('fonts/ChillDuanHeiSongPro.woff2') format('woff2'), */
-/* 		 url('fonts/ChillDuanHeiSongPro.otf') format('opentype'); */
-/* } */
-
 html{
 	max-width: 40rem;
-	font-family: /* Gentium Book Plus, ChillDuanHeiSongPro,  */ serif;
+	font-family: serif;
 	padding: 4em 1em;
 	margin: auto;
 	line-height: 1.5;
@@ -64,6 +18,6 @@ aside{
 	right: 30px;
 }
 code{
-	font-family: /* CommitMono, */ monospace;
+	font-family: monospace;
 	font-size: 15px;
 }
