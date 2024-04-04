@@ -80,3 +80,5 @@ Onward.
 |-------------------+---------------+------------|
 | [[https://codeberg.org/ika][~ika@codeberg.org]] | [[https://emacs.ch/@ika][@ika@emacs.ch]] | [[https://sr.ht/~ika][~ika@sr.ht]] |
 |-------------------+---------------+------------|
+
+[[file:media/built_emacs_logo_warning.png]] [[file:media/powered_by_org_mode.png]]
