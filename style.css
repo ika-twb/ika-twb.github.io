@@ -1,0 +1,45 @@
+@font-face {
+	font-family: Hyperlegible;
+	src: url(fonts/Atkinson-Hyperlegible-Regular-102a.woff2);
+}
+@font-face {
+	font-family: Hyperlegible;
+	src: url(fonts/Atkinson-Hyperlegible-Bold-102a.woff2);
+	font-weight: bold;
+}
+@font-face {
+	font-family: Hyperlegible;
+	src: url(fonts/Atkinson-Hyperlegible-Italic-102a.woff2);
+	font-style: italic;
+}
+@font-face {
+	font-family: Hyperlegible;
+	src: url(fonts/Atkinson-Hyperlegible-BoldItalic-102a.woff2);
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: CommitMono;
+	src: url(fonts/CommitMono.woff2);
+}
+
+html{
+	max-width: 60rem;
+	font-family: Hyperlegible, sans-serif;
+	padding: 4em 1em;
+	margin: auto;
+	line-height: 1.5;
+	font-size: 18px;
+}
+a:link{
+	color:black;
+}
+a:visited{
+	color:#565656;
+}
+
+code{
+	font-family: CommitMono, monospace;
+	font-size: 15px;
+}
