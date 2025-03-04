@@ -1,0 +1,557 @@
+#+TITLE: Using Offlineimap + MU4E to Setup A Powerful Email Client
+#+AUTHOR: Ilghar Kus
+#+DATE: <2022-12-09 Fri>
+#+BEGIN_SRC
+<ika> if i haven't fallen into the fucking rabbithole of emacs
+<ika> who knows
+<ika> maybe ill go use mutt
+#+END_SRC
+
+* Introduction
+[[https://github.com/OfflineIMAP/offlineimap3][OfflineIMAP]] is an email syncing software that downloads your emails from the
+remote ESP servers as an local directory, and will synchronize both sides
+using IMAP protocol. You can use OfflineIMAP to setup multiple accounts with
+their own local mail directory, remote host, refresh rate, filter, hooks, etc.
+It's also extensible using Python, so you could automatically play your
+favourite true crime podcast episode everytime you get a new email.
+
+Mu4e is a mail client for emacs, shipped with Mu as a mail indexer and searcher
+to deal with your various maildirs and mail files. It's fully documented,
+asynchronous, support encryption, flow-optimized interface, and extensible,
+using Elisp of course.
+
+With OfflineIMAP as a backend synchronizer, and mu4e as a front-end
+interface and searcher, you could have a consistent, customized and
+fast experience dealing with emails, in your own and beloved text
+editor, and you won't ever need to suffer 30mins of 5000rpm fan noize
+of compiling Thunderbird to update some feature you never use. (If you
+don't use a source-based distro, at least we could agree on the part
+that Thunderbird is totally bloatware.)
+
+* Setup guide: OfflineIMAP
+** Installation
+If you have the offlineimap package in your distro repo and it's
+written in python3 (python2 version is obsolete and archived, don't
+use that, either the package or the language), you could just download
+and install it using the package manager that came with the distro.
+
+If you're using Gentoo, however, the =offlineimap= package is not
+included in the =gentoo= repo, so unless you wrote your own ebuild file
+or you find one in other people's overlay, you have to download the
+code from the [[https://github.com/OfflineIMAP/offlineimap3][GitHub repo]].
+
+Clone the repo using =git=:
+
+#+BEGIN_SRC sh
+  $ git clone https://github.com/OfflineIMAP/offlineimap3
+#+END_SRC
+
+Then create a symbolic link of it to dir =~/.local/bin/=
+
+#+BEGIN_SRC sh
+  $ ln -s /path/to/offlineimap3/offlineimap.py ${HOME}/.local/bin/offlineimap
+#+END_SRC
+
+Then you're good to go.
+
+** Configuration
+The configutaion file have a default path of =~/.offlineimaprc=, and in the cloned
+repo you could find a =offlineimap.conf= file and a =offlineimap.conf.minimal= file.
+
+The first file is a detailed documentation with all the options, explainations
+and usage given, although the method of documentation in config files as comment
+lines was always spurned by me, this file by it self is written as an exellent
+document.
+
+*** [general]
+=general= segment is used to declare accounts, the python extension file, and
+other options related to the overall program-running and syncing mechanism.
+
+For the example below i'll use a test account =example@example.com=. And be aware
+that I won't demonstrate any other options provided by the program than the ones
+that my configuration file is using right now, so it is recommended to peruse
+the example config file if you want to use other features.
+
+#+BEGIN_SRC python
+  [general]
+  accounts = example
+  pythonfile = ~/.offlineimap_ext.py
+  maxsyncaccounts = 1
+#+END_SRC
+
+=accounts= is the part that you declare all your accounts, seperated by comma.
+The name you used here do not have to be your username at your ESP or your
+email account. It's just needed for account settings later in the config file.
+
+=pythonfile= is used to declare the python program you use to extend the program
+capability. It's imported and interpreted during parsing the config file,
+before running any core mechanism. You can basically use this to do anything
+you want, in my case it's used for extracting passwords from gpg encrypted files.
+
+=maxsyncaccounts= is used to specify the max amount of concurrent syncing, the
+developers and I both recommend this amount to be one, whether you decide to run
+multiple offlineimap instances for multiple accounts or using one instance for all
+accounts. The reason is that later in the section of post-sync hook, we need to
+call =mu= to index the mail directory for changes, and it cannot be ran concurrently
+with multiple instances.
+
+The common practice (or at least the common-sense practice that I use) is writing
+multiple configuration files for multiple accounts of yours, store it in some common-sense
+place like =~/.config/offlineimap/=, then add multiple entries in startup file of your
+desktop environment or window manager. /e.g./ for i3wm, I add this line into my i3config:
+
+#+BEGIN_SRC sh
+  exec --no-startup-id ${HOME}/.local/bin/offlineimap -c ${HOME}/.config/offlineimap/account1.conf 2>${HOME}/logs/offlineimap.account1.log
+#+END_SRC
+
+Offlineimap does not print any texts to stdout, all of its output is directed to stderr so that's what
+the =2>LOG_FILE= part is for.
+
+And in the next-next section you need to declare the account-specific settings.
+
+*** [mbnames]
+Mailbox name recording section, skipped cause I don't use it.
+
+*** [Account example]
+This part is for specifying, of course, account related settings.
+
+First of all there's two repository that you need to specify,
+a local one, and a remote one.
+
+#+BEGIN_SRC python
+  localrepository = LocalExample
+  remoterepository = RemoteExample
+#+END_SRC
+
+The repo name in here doesn't need to match up with anything,
+other than the name in the [Repository] section below.
+
+#+BEGIN_SRC python
+  autorefresh = 1
+  quick = 10
+  postsynchook = mu index
+#+END_SRC
+
+Offlineimap could run indefinitely, as long as you don't kill it.
+Such mechanism enables the feature of automatic syncing with the remote server,
+specified in the =autorefresh= variable. The time here uses unit of minute, and
+supports fractional values like 3.25. I set it up for 1min/refresh because sometimes
+I just dont want to wait for 5 minutes to get that "hey i sent it to your email" file.
+You can definitely change this according to your personal use: If this is for that subscribing
+email account and you need to receive verification codes from time to time because you are
+just too confident about your memory to use a password manager, then set it up like 1 or 0.2
+(which is 1 minute or 12 seconds), or if this is for that "relatives-only" email address that you
+can't stand being disturbed everytime your aunties send a xoxo email, set it up to 60, or 1440
+(which is 1 hour or 1 day).
+
+If your system uses systemd, it's probably better to use the systemd timer
+instead of this mechanism, for the sake of integrity and better system management.
+
+Option =quick= is used for replacing a number of full updates by /quick/ syncing, the number
+stands for "do this many quick syncs before doing a FULL update", in which a FULL update
+means to fetch ALL flags for all messages, and quick syncs are only performed when a =Maildir=
+folder has changed or IMAP folder received or delete a message. If this number is =0=, it's never,
+if =-1=, then always.
+
+Option =postsynchook= offers a feature to run a shell one-liner after the a sync.
+Here the =mu= program is called to index the maildir.
+
+You can also add a notification command here, such as =notify-send=,
+to send a desktop popup, but given the condition that a mail sync
+doesn't neccessarily mean new emails, you could save that for the later part.
+
+Other Options such as:
+- =maxsize= for size-limited mail syncing
+- =maxage= for date-specified mail syncing
+- =presynchook= for commands to be executed before syncing
+- =proxy= for , obviously, proxy
+- =authproxy= to use autoproxy connection, that is only use proxy for authentication but not for IMAP.
+  #+BEGIN_QUOTE
+  Useful to bypass the GFW in China.
+  #+END_QUOTE
+  says the doc.
+
+all of which could be found in the doc.
+
+*To be noticed*, if you're using Gmail there's a whole other category for gmail account
+configuration, especially with label-related configurations, which is also documented in the =offlineimap.conf=.
+
+*** [Repository LocalExample]
+This part is for setting up your local repository for mails.
+
+#+BEGIN_SRC python
+  [Repository LocalExample]
+  type = Maildir
+  localfolders = ~/.maildir/example
+  utime_from_header = yes
+  filename_use_mail_timestamp = yes
+#+END_SRC
+
+Each repo needs a type declaration, since this is your local mail directory, its type should be =Maildir=.
+If you're using Gmail, this can be =GmailMaildir=.
+
+=localfolders= is for specifying the folder to be your local repo. You
+could use other directories like =~/Maildir= or =~/mail= , as long as you
+keep it organized and secure.
+
+=utime_from_header= is useful when you want to filter emails based on
+date, but doesn't want to parse the each message content. Turning this
+on will set the modification time of mails basing on the =Date= header,
+and is not compatible with quick mode option =-q= for =GmailMaildir= type
+repos.
+
+=filename_use_mail_timestamp= is a similar feature, which base the
+filename prefix to the =Date= header of the message, thus if fetching is
+done in multithreaded environment, the filename could still be in
+order and thus your mailbox.
+
+There are also other options, such as:
+- =sep= for specifying "folder separator character", which is inserted
+  in-between the components of the tree.
+  #+BEGIN_QUOTE
+  If you want your folders to be nested directories, set it to "/".
+  'sep' is ignored for IMAP repositories, as it is queried
+  automatically.  Otherwise, default value is ".".
+  #+END_QUOTE
+- =startdate= for specifying start date of messages to be synced, the
+  format is like =1970-01-01=
+- =sync_deletes= syncs your local mail-deletes to the remote server,
+  default is =yes=
+- =restoreatime= to restore your last access time if you don't want it
+  to be tampered by offlineimap
+- =customflag_x= to add letter =x= in the maildir filename if the
+  specified keyword is found in the FLAGS.  =x= could be one of the
+  letters in =[a-z]=
+
+could be found in the doc.
+
+*** [Repository RemoteExample]
+
+#+BEGIN_SRC python
+  [Repository ika-remote]
+  type = IMAP
+  remotehost = example.com
+  remoteuser = user@example.com
+  remotepasseval = mailpasswd("user@example.com")
+  sslcacertfile = /path/to/ca-certificates.crt
+  #folderfilter = lambda foldername: foldername in ['INBOX', 'Sent']
+  newmail_hook = lambda: os.system("cvlc --play-and-stop --play-and-exit ~/Videos/mail.mp3 > /dev/null 2>&1")
+#+END_SRC
+
+=type= is obvious, but only =IMAP= and =Gmail= is supported.
+
+=remotehost= for specifying, of course, remote hostname, and =remoteuser= is for specifying the username
+you use on that remote host. =remoteport= could also be used to specify port, if it isn't the default one.
+
+You could also use =remote_identity= if you want to tell the server to be treated as some other user
+(assuming the server allows that), and this variable is only used for SASL PLAIN auth mechanism, so in most cases
+you won't need this.
+
+=sslcacertfile= is the CA cert file for ssl connection. Options like =sslclientcert=, =sslclientkey=,
+=cert_fingerprint=, =ssl_version= and TLS-related options could be found in the doc. These are all
+optional *except* =sslcacertfile= if you want to use SSL to connect to the remotehost. Offlineimap also
+supports STARTTLS and you can use it as long as the remotehost also supports it.
+
+The use of STARTTLS or SSL is specified in =starttls= and =ssl= with the supported value of =<yes|no>=
+
+=newmail_hook= is a lambda function to run when there's a new email, here I added a command which plays a notification sound in the background.
+
+*Here's the most important part in this guide*, which is how to tell offlineimap your email password.
+
+1. The simplist and the dumbest way, hardcode it in the config file.
+   #+BEGIN_SRC python
+     remotepass = h4ck_m3_c4use_m3_st00p1d
+   #+END_SRC
+If you choose this, please close this guide and go use Outlook or Thunderbird.
+
+Just for the sake of completeness, remember to escape =%= by typing =%%=.
+
+2. A slightly less dumber way, store it in another one-liner file.
+#+BEGIN_SRC python
+  remotepassfile = ~/Password.IMAP.Account1
+#+END_SRC
+Slightly better, but not recommended, even if you set corrent permission for that password file.
+
+3. No password in the file and store it in =~/.netrc=.
+   In this case you don't need to specify anything but storing it in the [[https://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-file.html][netrc]] file.
+   Some UNIX hackers like this method, but the con is you can only specify one user for one machine.
+
+   If you have different accounts in one email service provider, there's a workaround from [[https://community.hpe.com/t5/hp-ux-general/netrc-multiple-logins-per-machine-possible/m-p/2683504/highlight/true#M40744][Patrick Wallek]],
+   which is adding alias for the hostname of your ESP in the =/etc/hosts= file, /e.g./ MachineA and MachineB
+   for =example.com=, then add both entries of two different username to the =netrc= file, like this
+   #+BEGIN_SRC sh
+     machine MachineA user user1 password p455w0rd1
+     machine MachineB user user2 password p455w0rd2
+   #+END_SRC
+
+   Then specify =MachineA= as =remotehost= for Account =user1=, =MachineB= as =remotehost= for Account =user2=.
+
+   The procedure for three or more users is similar.
+
+   *And also remember to set correct permission (600) for your =netrc= file.*
+
+4. Use a preauthtunnel.
+   Don't know what this is about and if you don't setup your own imaphost you shouldn't be using this method
+   because it requires you to ssh into your host and invoke a program.
+
+5. Use a valid Kerberos TGT.
+   I don't use that so here's the introduction from the doc:
+   #+BEGIN_QUOTE
+   If you are using Kerberos and have the Python gssapi package
+   installed, you should not specify a remotepass.  If the user has a
+   valid Kerberos TGT, Offlineimap will figure out the rest all by
+   itself, and fall back to password authentication if needed.
+   #+END_QUOTE
+6. Use arbitrary python code.
+
+  #+BEGIN_SRC python
+     remotepasseval = mailpasswd("user@example.com")
+  #+END_SRC
+
+   This =mailpasswd= function is defined in the python file that should be declared in the =[general]= section as =pythonfile=,
+   it is a function that extracts your password from a gpg-encrypted file.
+
+   Here's my python file:
+  #+BEGIN_SRC python
+    #!/usr/bin/env python3
+
+    import os
+    import subprocess
+
+    def mailpasswd(acct):
+        path = "~/.emails.gpg"
+        args = ["gpg", "--use-agent", "--quiet", "--batch", "-d", path]
+        try:
+            plainpassl = subprocess.check_output(args).strip().decode('ascii').split("\n")
+            for each in plainpassl:
+                if acct in each:
+                    return each.split(" ")[1]
+        except subprocess.CalledProcessError:
+            return ""
+        except Exception as e:
+            print("[x] Error:" + e)
+
+    if __name__ == "__main__":
+        pass
+  #+END_SRC
+
+   I'm using an =~/.email= file that have the following structure:
+
+   #+BEGIN_SRC python
+  username1 password1
+  username2 password2
+  username3 password3
+  ......
+   #+END_SRC
+
+   in which username is what you specify in =remoteuser=.
+
+   Then I encrypt it using gpg, and delete the original plaintext file.
+
+   Everytime a password is needed,  =mailpasswd()= function takes the username as =acct=, then invoke =gpg=
+   to decrypt the file to string, then parse it to find the corresponding password for =acct=.
+
+   This is a workable method, and you could always design a better system than mine.
+
+Other than the options listed above, there are other options like:
+- =auth_mechanisms= for specifying it, if you use Gmail then you could specify it as =XOAUTH2=,
+  there are other types but this option is optional and the default value should be fine.
+- =reference= for specifying "folder root" which is needed by some IMAP servers.
+- =iflefolders= which is a array to specify the mailboxes you want to monitor using IDLE command
+  for new messages. Check doc for usage.
+- =usecompression= which is enabled by default to use compressed connection for faster downloads.
+- =maxconnections= for multiple conncetions to perform multiple synchronization.
+- =singlethreadperfolder= for ensure single thread is used to sync each folder.
+- =holdconnectionopen=, to hold connection open.
+- =keepalive=, keepalive time in seconds.
+- =expunge=, mark locally-deleted messages on remote server instead of actually deleting them.
+- =nametrans=, a lambda function to translate folder names.
+- =folderfilter=, a lambda function to determine which folders to sync.
+- =folderincludes= to include exceptional folders to sync.
+- =dynamic_folderfilter= to invoke folderfilter on each run.
+- =createfolders= to disable if you don't want any folders to be created on remote repo.
+- =sync_deletes= to sync remote deletion to local repo.
+- =foldersort= a lambda function to sort folders, applied after =nametrans=. The default is alphabetically-sorting.
+- =readonly= to enable one-way sync in which this repo will not be modified, useful when creating a IMAP server backup.
+
+Remember only use these options after you read the corresponding parts in the doc *AND* clearly know what you're doing.
+
+* Setup guide: Mu & Mu4e
+** Mu
+=Mu= does not need specific setup, just initiate a mail directory with
+your email addresses will be enough.
+
+By the time of this article was written, the latest stable version in
+Gentoo Official Repo is =1.8.10=, which is the version I'm currently
+using.
+
+If you don't want to use the latest version, at least pick a version
+after =1.7.0=, the software got a huge update and a lot of things were
+set obsolete since that version.
+
+#+BEGIN_SRC sh
+mu init --maildir=/path/to/maildir --my-address=user1@example.com --my-address=user2@example.com .....
+#+END_SRC
+
+After this, each time you do a sync with OfflineIMAP, =mu index= will be
+invoked as a post-sync hook to index all mails for =mu4e= to read.
+** Mu4e
+Mu4e is pretty easy to setup, since you only need it to display and search your already indexed mail.
+
+If you use =use-package=, the whole configuration is here:
+
+#+BEGIN_SRC emacs-lisp
+  (use-package mu4e
+    :load-path (lambda () (expand-file-name "site-lisp/mu4e"
+                                            user-emacs-directory))
+    :commands (mu4e)
+    :init
+    (use-package mu4e-alert
+      :defer t
+      :config
+      (when (executable-find "notify-send")
+        (mu4e-alert-set-default-style 'libnotify))
+      :hook
+      ((after-init . mu4e-alert-enable-notifications)
+       (after-init . mu4e-alert-enable-mode-line-display)))
+    (use-package mu4e-overview :defer t)
+    (use-package epg)
+    (require 'epa-file)
+    :bind
+    (("C-c m" . mu4e)
+     (:map mu4e-view-mode-map
+           ("e" . mu4e-view-save-attachment)))
+    :custom
+    (mu4e-user-mail-address-list '("user@example.com"
+                                   "user-alias1@example"
+                                   "user-alias2@example"))
+
+    (mu4e-maildir (expand-file-name "~/.maildir"))
+    (mu4e-view-show-addresses t)
+
+    (mu4e-maildir-shortcuts
+     '(("/acc1/INBOX" . ?f)
+       ("/acc2/INBOX" . ?g)
+       ))
+    (mu4e-attachment-dir  "~/Downloads/MailAttachments")
+    :hook
+    ((mu4e-view-mode . visual-line-mode)
+     (mu4e-compose-mode . (lambda ()
+                            (visual-line-mode)
+                            (use-hard-newlines -1)
+                            (flyspell-mode)))
+     (mu4e-view-mode . (lambda ()
+                         (local-set-key (kbd "<tab>") 'shr-next-link)
+                         (local-set-key (kbd "<backtab>") 'shr-previous-link)))
+     (mu4e-headers-mode . (lambda ()
+                            (interactive)
+                            (setq mu4e-headers-fields
+                                  `((:human-date . 25)
+                                    (:flags . 6)
+                                    (:from . 22)
+                                    (:thread-subject . ,(- (window-body-width) 70))
+                                    (:size . 7))))))
+    :config
+    (setq mail-user-agent (mu4e-user-agent))
+    (add-to-list 'mu4e-view-actions
+                 '("ViewInBrowser" . mu4e-action-view-in-browser) t)
+    (setq mu4e-contexts
+          (list
+           (make-mu4e-context
+            :name "user"
+            :enter-func (lambda () (mu4e-message "Entering context user"))
+            :leave-func (lambda () (mu4e-message "Leaving context user"))
+            :match-func
+            (lambda (msg)
+              (when msg
+                (string-match "user"
+                              (mu4e-message-field msg :maildir))))
+            :vars '((mu4e-sent-folder . "/user/Sent")
+                    (mu4e-drafts-folder . "/user/Drafts")
+                    (mu4e-trash-folder . "/user/Trash")
+                    (user-mail-address  . "user@example.com")
+                    (user-full-name . "user")
+                    (mu4e-sent-messages-behavior . sent)
+                    (mu4e-compose-signature . user-full-name)
+                    (mu4e-compose-format-flowed . t)
+                    (smtpmail-queue-dir . "~/.maildir/user/Queue/cur")
+                    (message-send-mail-function . smtpmail-send-it)
+                    (smtpmail-smtp-user . "user@example.com")
+                    (smtpmail-starttls-credentials . (("smtp.example.com" 587 nil nil)))
+                    ;;(smtpmail-auth-credentials . (expand-file-name "~/.authinfo.gpg"))
+                    (smtpmail-default-smtp-server . "smtp.example.com")
+                    (smtpmail-smtp-server . "smtp.example.com")
+                    (smtpmail-smtp-service . 587)
+                    (smtpmail-debug-info . t)
+                    (smtpmail-debug-verbose . t)
+                    )))))
+#+END_SRC
+
+After your copy & paste, let's get into it so you could tweak the options according to your own use.
+
+#+BEGIN_SRC emacs-lisp
+  :load-path (lambda () (expand-file-name "site-lisp/mu4e"
+                                              user-emacs-directory))
+#+END_SRC
+
+Specific to your package manager and software repo, the path of folder
+that contains Elisp code for =mu4e= may vary.
+
+In Gentoo, when you install =net-mail/mu=, mu4e will be installed at =/usr/share/emacs/site-lisp=,
+you could just soft link the entire =mu4e/= directory to your =.emacs.d/site-lisp/= or wherever you store your random elisp file and folders found from all over the Internet, this way when your =mu= got updated by the
+package manager you could still use the corresponding version of =mu4e= automatically.
+
+The =(lambda () (expand-file-name))= part could be skipped and just use =site-lisp/mu4e=, since for
+keyword =:load-path=, it automatically expand the filename within =user-emacs-directory= if the path is
+relative.
+
+Then why do I write like that? It's cool I guess. Also λ is a good looking character and I enjoy having it in codes.
+
+#+BEGIN_SRC emacs-lisp
+(use-package mu4e-alert
+      :defer t
+      :config
+      (when (executable-find "notify-send")
+        (mu4e-alert-set-default-style 'libnotify))
+      :hook
+      ((after-init . mu4e-alert-enable-notifications)
+       (after-init . mu4e-alert-enable-mode-line-display)))
+#+END_SRC
+
+Package declaration inside a package, don't expect you to do the same but it just werks.
+=mu4e-alert= is a package for sending desktop notification. Checkout what's the notification system
+for your own system is, then change the executable name and alert style.
+
+The two =after-init= hooks below is needed to send notification to desktop and modeline.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package epg)
+  (require 'epa-file)
+#+END_SRC
+
+=epg= is a built-in library for EasyPG, used for PGP encryption. And =epa-file= is part of Emacs, it offers
+all sorts of functions for email encryption, decryption, signing and verifying. You need to setup your gpg
+correctly before using this.
+
+#+BEGIN_SRC emacs-lisp
+:bind
+    (("C-c m" . mu4e)
+     (:map mu4e-view-mode-map
+           ("e" . mu4e-view-save-attachment)))
+#+END_SRC
+
+Two key-bindings, one is on =global-map= for firing up =mu4e= whenever I need it, the other is to view
+attachments in mu4e.
+
+#+BEGIN_SRC emacs-lisp
+  :custom (mu4e-user-mail-address-list '("user@example.com"
+  "user-alias1@example" "user-alias2@example"))
+
+  (mu4e-maildir (expand-file-name "~/.maildir"))
+   (mu4e-view-show-addresses t)
+
+  (mu4e-maildir-shortcuts '(("/acc1/INBOX" . ?f) ("/acc2/INBOX" . ?g) ))
+   (mu4e-attachment-dir "~/Downloads/MailAttachments")
+#+END_SRC
+
+Now we're at the proper mailbox configuration.
