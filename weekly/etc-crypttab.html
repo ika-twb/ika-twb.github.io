@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-03-13 Thu 10:09 -->
+<!-- 2025-03-12 Wed 23:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>TheWizardBay</title>
+<title>Using /etc/crypttab for Encrypted Volumes</title>
 <meta name="author" content="ika" />
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
@@ -201,44 +201,185 @@
 <p><a href="/index.html">Home</a> <a href="/about.html">About</a></p><hr />
 </div>
 <div id="content" class="content">
-<h1 class="title">TheWizardBay</h1>
-<div class="org-center">
+<h1 class="title">Using /etc/crypttab for Encrypted Volumes</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgb7ea2c0">What is /etc/crypttab?</a></li>
+<li><a href="#orge61a6b2">How It Works</a></li>
+<li><a href="#orgb377771">Key Features and Use Cases</a></li>
+<li><a href="#org70c7c68">Why Use It?</a></li>
+<li><a href="#orgf029fbb">Final Thoughts</a></li>
+</ul>
+</div>
+</div>
 <p>
-<a href="about.html">About</a> <a href="copyleft.html">Loicense</a> <a href="misc.html">Misc</a>
+I was cloning a laptop drive using <code>dd</code> the other day to transfer the data
+to another drive for use in a different laptop. It’s disorienting to use
+two identical and familiar systems—your brain treats them as the same,
+but you can’t help but realize they’re not the same machine.
 </p>
 
 <p>
-Email <a href="mailto:ika@thewizardbay.cc">ika@thewizardbay.cc</a>
+Once the cloning was complete and the drive installed in the spare
+laptop, the system failed to boot properly and dropped into emergency
+mode. After some troubleshooting, I discovered I had used a device path
+instead of a partition UUID in <code>/etc/crypttab</code> for the encrypted root
+partition. That’s when I realized I’d never fully understood the purpose
+of this file. While it’s not complex, it’s an important topic and worth
+covering in a post. Here's the result.
+</p>
+<div id="outline-container-orgb7ea2c0" class="outline-2">
+<h2 id="orgb7ea2c0">What is /etc/crypttab?</h2>
+<div class="outline-text-2" id="text-orgb7ea2c0">
+<p>
+Think of <code>/etc/crypttab</code> as the encrypted volume equivalent of <code>/etc/fstab</code>.
+It defines how encrypted partitions should be unlocked and mapped during
+boot. It works in conjunction with <code>systemd</code> and <code>cryptsetup</code>, ensuring
+encrypted volumes are available when needed.
+</p>
+</div>
+</div>
+<div id="outline-container-orge61a6b2" class="outline-2">
+<h2 id="orge61a6b2">How It Works</h2>
+<div class="outline-text-2" id="text-orge61a6b2">
+<p>
+Each line in <code>/etc/crypttab</code> follows this format:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil"><code>volume-name encrypted-device key-file options</code>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li><code>volume-name</code>: The mapped name of the decrypted volume, appearing in <code>/dev/mapper/</code>.</li>
+<li><code>encrypted-device</code>: The underlying encrypted partition (e.g., <code>/dev/sdb1</code> or a UUID path).</li>
+<li><code>key-file</code> Can be <code>none</code> (manual entry), a key file path, or <code>tmp</code> for a random key.</li>
+<li><code>options</code>: Parameters passed to <code>cryptsetup</code>, such as <code>luks</code>, <code>discard</code>, or <code>timeout</code>.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb377771" class="outline-2">
+<h2 id="orgb377771">Key Features and Use Cases</h2>
+<div class="outline-text-2" id="text-orgb377771">
+<ol class="org-ol">
+<li><p>
+Automatic Unlock with a Key File
 </p>
 
 <p>
-PGP   <a href="media/ika.asc">2CEC 4DF5 9A6D 4187 3D44 25FB F174 A60B 548D EC09</a>
+If you store a key file in a secure location, you can configure <code>/etc/crypttab</code> to unlock the partition at boot:
 </p>
+
+<div class="org-src-container">
+<pre class="src src-nil"><code>mysecuredisk UUID=1234-5678 /root/keyfile luks</code>
+</pre>
 </div>
-<div id="outline-container-org6729381" class="outline-2">
-<h2 id="org6729381">Articles</h2>
-<div class="outline-text-2" id="text-org6729381">
+
+<p>
+Ensure the key file is only accessible by <code>root</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil"><code>chmod 600 /root/keyfile</code>
+</pre>
+</div>
+
+<p>
+Then rebuild the initramfs to include the key:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil"><code>sudo update-initramfs -u</code>
+</pre>
+</div></li>
+
+<li><p>
+Encrypted Swap to Prevent Data Leakage
+</p>
+
+<p>
+Linux swap partitions can leak sensitive data. Encrypt swap dynamically with a random key on each boot:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil"><code>cryptswap /dev/sda3 /dev/urandom swap,offset=1024</code>
+</pre>
+</div>
+
+<p>
+Since the key is not persistent, data disappears after reboot.
+</p></li>
+
+<li><p>
+Remote Unlocking via SSH
+</p>
+
+<p>
+If a server reboots and you need to unlock its encrypted disk remotely:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil"><code>remotevault /dev/sdc1 /etc/keys/remote.key luks,network</code>
+</pre>
+</div>
+
+<p>
+Combine this with <code>dropbear</code> SSH in initramfs for remote unlocking.
+</p></li>
+
+<li><p>
+Skipping Password Prompt During Boot with Initramfs
+</p>
+
+<p>
+By default, LUKS-encrypted root partitions require a password at boot. To bypass this:
+</p>
+
 <ul class="org-ul">
-<li><a href="articles/offlineimap_mu4e.html">Using Offlineimap + MU4E to Setup A Powerful Email Client</a></li>
+<li>Ensure the key file is correctly specified in <code>/etc/crypttab</code>.</li>
+<li><p>
+Add the key file to the initramfs:
+</p>
+<div class="org-src-container">
+<pre class="src src-nil"><code>echo "FILES=/root/keyfile" &gt;&gt; /etc/initramfs-tools/conf.d/cryptsetup</code>
+</pre>
+</div></li>
+<li><p>
+Update the initramfs:
+</p>
+<div class="org-src-container">
+<pre class="src src-nil"><code>sudo update-initramfs -u</code>
+</pre>
+</div></li>
+<li>Now the encrypted partition unlocks without user input during boot.</li>
+</ul></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org70c7c68" class="outline-2">
+<h2 id="org70c7c68">Why Use It?</h2>
+<div class="outline-text-2" id="text-org70c7c68">
+<ul class="org-ul">
+<li>Automates unlocking encrypted partitions, reducing downtime and manual intervention.</li>
+<li>Essential for headless servers, remote systems, and automated deployments.</li>
+<li>Prevents boot delays while maintaining security.</li>
+<li>Works seamlessly with <code>systemd</code> to ensure encrypted volumes are ready before mounting.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1cd427b" class="outline-2">
-<h2 id="org1cd427b">Weekly Posts</h2>
-<div class="outline-text-2" id="text-org1cd427b">
-<ul class="org-ul">
-<li><a href="weekly/etc-crypttab.html">Using <code>/etc/crypttab</code> for Encrypted Volumes</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org2b2de06" class="outline-2">
-<h2 id="org2b2de06">Book Reviews</h2>
-<div class="outline-text-2" id="text-org2b2de06">
-<ul class="org-ul">
-<li>Lorem</li>
-<li>Ipsum</li>
-<li><a href="books/index.html">More</a></li>
-</ul>
+<div id="outline-container-orgf029fbb" class="outline-2">
+<h2 id="orgf029fbb">Final Thoughts</h2>
+<div class="outline-text-2" id="text-orgf029fbb">
+<p>
+If you're using LUKS encryption, mastering <code>/etc/crypttab</code> is a must. It
+streamlines encrypted volume management, integrates with initramfs for
+early boot unlocking, and ensures security without compromising
+usability. Properly configured, it saves time while keeping your data
+protected.
+</p>
 </div>
 </div>
 </div>
