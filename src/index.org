@@ -9,14 +9,14 @@ Email [[mailto:ika@thewizardbay.cc][ika@thewizardbay.cc]]
 PGP   [[file:media/ika.asc][2CEC 4DF5 9A6D 4187 3D44 25FB F174 A60B 548D EC09]]
 #+END_CENTER
 * Articles
-- <2022-12-09 Fri> [[file:articles/offlineimap_mu4e.org][Using Offlineimap + MU4E to Setup A Powerful Email Client]]
+- [[file:articles/offlineimap_mu4e.org][Using Offlineimap + MU4E to Setup A Powerful Email Client]]
 # - Lorem
 # - Ipsum
 # - [[file:articles/index.org][More]]
 * Weekly Posts
-- Lorem
-- Ipsum
-- [[file:weekly/index.org][More]]
+- [[file:weekly/etc-crypttab.org][Using ~/etc/crypttab~ for Encrypted Volumes]]
+# - Ipsum
+# - [[file:weekly/index.org][More]]
 * Book Reviews
 - Lorem
 - Ipsum

@@ -1,0 +1,107 @@
+#+TITLE: Using /etc/crypttab for Encrypted Volumes
+
+I was cloning a laptop drive using =dd= the other day to transfer the data
+to another drive for use in a different laptop. It’s disorienting to use
+two identical and familiar systems—your brain treats them as the same,
+but you can’t help but realize they’re not the same machine.
+
+Once the cloning was complete and the drive installed in the spare
+laptop, the system failed to boot properly and dropped into emergency
+mode. After some troubleshooting, I discovered I had used a device path
+instead of a partition UUID in =/etc/crypttab= for the encrypted root
+partition. That’s when I realized I’d never fully understood the purpose
+of this file. While it’s not complex, it’s an important topic and worth
+covering in a post. Here's the result.
+
+
+* What is /etc/crypttab?
+
+Think of =/etc/crypttab= as the encrypted volume equivalent of =/etc/fstab=.
+It defines how encrypted partitions should be unlocked and mapped during
+boot. It works in conjunction with =systemd= and =cryptsetup=, ensuring
+encrypted volumes are available when needed.
+
+* How It Works
+
+Each line in =/etc/crypttab= follows this format:
+
+#+BEGIN_SRC
+volume-name encrypted-device key-file options
+#+END_SRC
+
+- =volume-name=: The mapped name of the decrypted volume, appearing in =/dev/mapper/=.
+- =encrypted-device=: The underlying encrypted partition (e.g., =/dev/sdb1= or a UUID path).
+- =key-file= Can be =none= (manual entry), a key file path, or =tmp= for a random key.
+- =options=: Parameters passed to =cryptsetup=, such as =luks=, =discard=, or =timeout=.
+
+* Key Features and Use Cases
+
+1. Automatic Unlock with a Key File
+
+   If you store a key file in a secure location, you can configure =/etc/crypttab= to unlock the partition at boot:
+
+   #+BEGIN_SRC
+   mysecuredisk UUID=1234-5678 /root/keyfile luks
+   #+END_SRC
+
+   Ensure the key file is only accessible by =root=:
+
+   #+BEGIN_SRC
+   chmod 600 /root/keyfile
+   #+END_SRC
+
+   Then rebuild the initramfs to include the key:
+
+   #+BEGIN_SRC
+   sudo update-initramfs -u
+   #+END_SRC
+
+2. Encrypted Swap to Prevent Data Leakage
+
+   Linux swap partitions can leak sensitive data. Encrypt swap dynamically with a random key on each boot:
+
+   #+BEGIN_SRC
+   cryptswap /dev/sda3 /dev/urandom swap,offset=1024
+   #+END_SRC
+
+   Since the key is not persistent, data disappears after reboot.
+
+3. Remote Unlocking via SSH
+
+   If a server reboots and you need to unlock its encrypted disk remotely:
+
+   #+BEGIN_SRC
+   remotevault /dev/sdc1 /etc/keys/remote.key luks,network
+   #+END_SRC
+
+   Combine this with =dropbear= SSH in initramfs for remote unlocking.
+
+4. Skipping Password Prompt During Boot with Initramfs
+
+   By default, LUKS-encrypted root partitions require a password at boot. To bypass this:
+
+   - Ensure the key file is correctly specified in =/etc/crypttab=.
+   - Add the key file to the initramfs:
+     #+BEGIN_SRC
+     echo "FILES=/root/keyfile" >> /etc/initramfs-tools/conf.d/cryptsetup
+     #+END_SRC
+   - Update the initramfs:
+     #+BEGIN_SRC
+     sudo update-initramfs -u
+     #+END_SRC
+   - Now the encrypted partition unlocks without user input during boot.
+
+* Why Use It?
+
+- Automates unlocking encrypted partitions, reducing downtime and manual intervention.
+- Essential for headless servers, remote systems, and automated deployments.
+- Prevents boot delays while maintaining security.
+- Works seamlessly with =systemd= to ensure encrypted volumes are ready before mounting.
+
+* Final Thoughts
+
+If you're using LUKS encryption, mastering =/etc/crypttab= is a must. It
+streamlines encrypted volume management, integrates with initramfs for
+early boot unlocking, and ensures security without compromising
+usability. Properly configured, it saves time while keeping your data
+protected.
