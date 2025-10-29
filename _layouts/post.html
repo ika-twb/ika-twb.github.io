@@ -1,32 +1,12 @@
 ---
 layout: default
 ---
-<aside id="toc">
-  <h2>Table of Contents</h2>
-  <ul></ul>
-</aside>
 <article>
   <h1>{{ page.title }}</h1>
   <p class="post-meta">{{ page.date | date: "%B %-d, %Y" }}{% if page.categories %} | Categories: 
     {% for category in page.categories %}
-      <a href="/categories/{{ category | downcase }}">{{ category }}</a>{% if forloop.last == false %}, {% endif %}
+      {{ category }}{% if forloop.last == false %}, {% endif %}
     {% endfor %}
   {% endif %}</p>
   {{ content }}
 </article>
-<script>
-const toc = document.querySelector('#toc ul');
-if(toc) {
-  const headers = document.querySelectorAll('article h2, article h3');
-  headers.forEach(h => {
-    const li = document.createElement('li');
-    li.style.marginLeft = h.tagName === 'H3' ? '1rem' : '0';
-    const a = document.createElement('a');
-    a.href = '#' + h.id;
-    a.textContent = h.textContent;
-    li.appendChild(a);
-    toc.appendChild(li);
-  });
-}
-</script>
-

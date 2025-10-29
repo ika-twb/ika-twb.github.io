@@ -1,72 +1,60 @@
-/* Fonts */
-body { font-family: 'Inter', sans-serif; color: #222; background: #fafafa; line-height: 1.65; font-size: 18px; }
-h1, h2, h3 { font-family: 'Roboto', sans-serif; font-weight: 500; margin-top: 2em; margin-bottom: 0.5em; }
+/* Webfonts */
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
-/* Layout */
-body { max-width: 750px; margin: auto; padding: 3rem 1rem; }
-main { padding-top: 1rem; }
-
-/* Header */
-header { margin-bottom: 3rem; }
-header h1 a { text-decoration: none; color: #111; }
-nav a { margin-right: 1.5rem; color: #007acc; text-decoration: none; }
-nav a:hover { text-decoration: underline; }
-
-/* Posts */
-.post-meta { font-size: 0.9em; color: #555; margin-bottom: 2em; }
-
-/* Links */
-a { color: #007acc; text-decoration: none; }
-a:hover { text-decoration: underline; }
-/* a:link{
-	color:black;
+/* Base */
+html {
+  max-width: 50rem;
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  padding: 4em 1em;
+  margin: auto;
+  line-height: 1.5;
+  font-size: 18px;
+  background: #fafafa;
+  color: #222;
 }
-a:visited{
-	color:#565656;
-} */
 
-/* Paragraphs & Lists */
-p { margin-bottom: 1.5em; }
-ul, ol { margin-bottom: 1.5em; padding-left: 1.5em; }
-
-/* Code & Preformatted Text */
-code, pre { font-family: 'IBM Plex Mono', monospace; background: #f5f5f5; padding: 0.2em 0.5em; border-radius: 4px; }
-pre { padding: 1em; overflow-x: auto; margin-bottom: 1.5em; }
-
-/* Blockquotes */
-blockquote { border-left: 3px solid #007acc; padding-left: 1em; color: #555; font-style: italic; background: #f9f9f9; margin: 1.5em 0; }
-
-/* Notes / Warnings */
-.note { border-left: 3px solid #007acc; padding-left: 1em; background: #f0f8ff; color: #222; margin: 1.5em 0; }
-.warning { border-left: 3px solid #d9534f; padding-left: 1em; background: #fff5f5; color: #a94442; margin: 1.5em 0; }
-
-/* Footer */
-footer { margin-top: 4rem; text-align: center; font-size: 0.9em; color: #555; }
-
-body.dark-mode {
-  background: #121212;
-  color: #eee;
+/* Links — subtle, modern gray-blue tone */
+a {
+  color: #225;
+  text-decoration: underline;
+  text-decoration-color: #bbb;
+  text-underline-offset: 2px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
-body.dark-mode a { color: #4ea3f1; }
-body.dark-mode pre, body.dark-mode code { background: #1e1e1e; color: #f8f8f2; }
-body.dark-mode blockquote { background: #1e1e1e; border-left-color: #4ea3f1; }
-body.dark-mode .note { background: #1b2838; border-left-color: #4ea3f1; color: #eee; }
-body.dark-mode .warning { background: #3b1e1e; border-left-color: #e06c75; color: #eee; }
+a:hover {
+  color: #000;
+  text-decoration-color: #666;
+}
 
-#toc {
-  position: sticky;
-  top: 2rem;
-  margin-bottom: 2rem;
-  padding: 1rem;
-  background: #f9f9f9;
-  border: 1px solid #ddd;
+/* Headings — consistent with original spacing */
+h1, h2, h3 {
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  font-weight: bold;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  line-height: 1.25;
+}
+
+/* Code */
+code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 15px;
+  background: #f5f5f5;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}
+pre {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 15px;
+  background: #f5f5f5;
+  padding: 1em;
   border-radius: 6px;
+  overflow-x: auto;
+  position: relative;
+  margin-bottom: 1.5em;
 }
-body.dark-mode #toc { background: #1b1b1b; border-color: #333; color: #eee; }
-#toc ul { list-style: none; padding-left: 0; }
-#toc a { text-decoration: none; color: #007acc; }
-#toc a:hover { text-decoration: underline; }
 
+/* Copy button */
 .copy-btn {
   position: absolute;
   top: 8px;
@@ -81,18 +69,34 @@ body.dark-mode #toc { background: #1b1b1b; border-color: #333; color: #eee; }
   opacity: 0;
   transition: opacity 0.2s ease;
 }
-pre:hover .copy-btn {
-  opacity: 1;
-}
-.copy-btn:hover {
-  background: #ddd;
+pre:hover .copy-btn { opacity: 1; }
+.copy-btn:hover { background: #ddd; }
+
+/* Blockquotes — softer tone */
+blockquote {
+  border-left: 3px solid #ccc;
+  padding-left: 1em;
+  color: #555;
+  background: #f9f9f9;
+  margin: 1.5em 0;
+  border-radius: 4px;
 }
 
-/* Dark mode version */
-body.dark-mode .copy-btn {
-  background: #2b2b2b;
+/* Lists & paragraphs */
+p { margin-bottom: 1.5em; }
+ul, ol { padding-left: 1.5em; margin-bottom: 1.5em; }
+
+/* Dark mode (optional) */
+html.dark-mode {
+  background: #121212;
   color: #eee;
 }
-body.dark-mode .copy-btn:hover {
-  background: #3b3b3b;
-}
+
+html.dark-mode a { color: #aae; }
+html.dark-mode pre, html.dark-mode code { background: #1e1e1e; color: #f8f8f2; }
+html.dark-mode blockquote { background: #1e1e1e; border-left-color: #4ea3f1; color: #ccc; }
+html.dark-mode .note { background: #1b2838; border-left-color: #4ea3f1; color: #eee; }
+html.dark-mode .warning { background: #3b1e1e; border-left-color: #e06c75; color: #eee; }
+html.dark-mode .copy-btn { background: #2b2b2b; color: #eee; }
+html.dark-mode .copy-btn:hover { background: #3b3b3b; }
+

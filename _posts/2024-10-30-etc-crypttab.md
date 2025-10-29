@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Using /etc/crypttab for Encrypted Volumes"
-date: 2025-10-30
+date: 2024-10-30
 categories: [Tutorial, Technical]
 ---
 
