@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }} - TheWizardBay</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  {% include header.html %}
+  <main>
+    {{ content }}
+  </main>
+  {% include footer.html %}
+    <script>
+    const toggle = document.getElementById('darkModeToggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('dark-mode', document.body.classList.contains('dark-mode'));
+    });
+    if (localStorage.getItem('dark-mode') === 'true') {
+      document.body.classList.add('dark-mode');
+    }
+  </script>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("pre > code").forEach(codeBlock => {
+    const pre = codeBlock.parentNode;
+    const button = document.createElement("button");
+    button.className = "copy-btn";
+    button.type = "button";
+    button.innerText = "Copy";
+
+    button.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(codeBlock.textContent);
+        button.innerText = "Copied!";
+        setTimeout(() => button.innerText = "Copy", 2000);
+      } catch {
+        button.innerText = "Error";
+      }
+    });
+
+    pre.style.position = "relative";
+    pre.appendChild(button);
+  });
+});
+</script>
+
+</script>
+
+</body>
+
+</html>

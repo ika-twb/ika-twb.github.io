@@ -1,0 +1,12 @@
+---
+layout: default
+title: Categories
+permalink: /categories/
+---
+<h1>Categories</h1>
+<ul>
+  {% assign sorted_categories = site.categories | sort %}
+  {% for category in sorted_categories %}
+    <li><a href="/categories/{{ category[0] | downcase }}/">{{ category[0] }}</a> ({{ category[1].size }})</li>
+  {% endfor %}
+</ul>
