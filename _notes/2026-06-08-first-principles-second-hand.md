@@ -2,6 +2,8 @@
 layout: note
 date: 2026-06-08
 ---
+# First Principles, Second-Hand Guides
+
 I've been thinking about why i'd be (so as not to seem accusing anybody) awkward or straight up stressed out when throwing myself into things i haven't done before.
 
 my chronic anxiety contributes to part of that, but what contributed to my chronic anxiety in the first place?
