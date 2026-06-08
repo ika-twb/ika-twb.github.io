@@ -104,6 +104,12 @@ ul, ol { padding-left: 1.5em; margin-bottom: 1.5em; }
 .note-date a:hover { color: #555; }
 .note-entry p:last-child { margin-bottom: 0; }
 .empty-feed { color: #999; }
+.read-more {
+  font-size: 0.9em;
+  color: #999;
+  text-decoration: none;
+}
+.read-more:hover { color: #555; }
 
 /* Articles list */
 .post-list { list-style: none; padding-left: 0; }
@@ -122,6 +128,8 @@ html.dark-mode blockquote { background: #1e1e1e; border-left-color: #4ea3f1; col
 html.dark-mode .note { background: #1b2838; border-left-color: #4ea3f1; color: #eee; }
 html.dark-mode .note-entry { border-bottom-color: #2a2a2a; }
 html.dark-mode .note-date { color: #666; }
+html.dark-mode .read-more { color: #666; }
+html.dark-mode .read-more:hover { color: #ccc; }
 html.dark-mode .post-list .date { color: #666; }
 html.dark-mode .warning { background: #3b1e1e; border-left-color: #e06c75; color: #eee; }
 html.dark-mode .copy-btn { background: #2b2b2b; color: #eee; }

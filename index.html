@@ -12,7 +12,14 @@ permalink: /
     {% for note in sorted_notes %}
     <div class="note-entry">
       <time class="note-date"><a href="{{ note.url }}">{{ note.date | date: "%b %-d, %Y" }}</a></time>
-      {{ note.content }}
+      {% assign paragraphs = note.content | split: '</p>' %}
+      {% assign p_count = paragraphs.size | minus: 1 %}
+      {% if p_count > 4 %}
+        {{ paragraphs | slice: 0, 2 | join: '</p>' }}</p>
+        <p><a href="{{ note.url }}" class="read-more">read more →</a></p>
+      {% else %}
+        {{ note.content }}
+      {% endif %}
     </div>
     {% endfor %}
   {% endif %}
