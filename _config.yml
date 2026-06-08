@@ -1,8 +1,13 @@
 title: "TheWizardBay"
 description: "Keep the wizards at bay"
-baseurl: ""          # empty for root, /repo-name for project page
-url: "https://blog.thewizardbay.cc"  # the base hostname & protocol for your site
+baseurl: ""
+url: "https://blog.thewizardbay.cc"
 
 markdown: kramdown
-theme: null           # custom CSS
-permalink: /posts/:title/   # shortest possible permalink
+theme: null
+permalink: /posts/:title/
+
+collections:
+  notes:
+    output: true
+    permalink: /notes/:year/:month/:day/:title/

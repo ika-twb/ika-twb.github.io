@@ -86,6 +86,30 @@ blockquote {
 p { margin-bottom: 1.5em; }
 ul, ol { padding-left: 1.5em; margin-bottom: 1.5em; }
 
+/* Notes feed */
+.notes-feed { margin-top: 0.5em; }
+.note-entry {
+  margin-bottom: 2em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid #e8e8e8;
+}
+.note-entry:last-child { border-bottom: none; }
+.note-date {
+  font-size: 0.8em;
+  color: #999;
+  display: block;
+  margin-bottom: 0.4em;
+}
+.note-date a { color: inherit; text-decoration: none; }
+.note-date a:hover { color: #555; }
+.note-entry p:last-child { margin-bottom: 0; }
+.empty-feed { color: #999; }
+
+/* Articles list */
+.post-list { list-style: none; padding-left: 0; }
+.post-list li { margin-bottom: 1.5em; }
+.post-list .date { font-size: 0.85em; color: #999; margin-left: 0.5em; }
+
 /* Dark mode (optional) */
 html.dark-mode {
   background: #121212;
@@ -96,6 +120,9 @@ html.dark-mode a { color: #aae; }
 html.dark-mode pre, html.dark-mode code { background: #1e1e1e; color: #f8f8f2; }
 html.dark-mode blockquote { background: #1e1e1e; border-left-color: #4ea3f1; color: #ccc; }
 html.dark-mode .note { background: #1b2838; border-left-color: #4ea3f1; color: #eee; }
+html.dark-mode .note-entry { border-bottom-color: #2a2a2a; }
+html.dark-mode .note-date { color: #666; }
+html.dark-mode .post-list .date { color: #666; }
 html.dark-mode .warning { background: #3b1e1e; border-left-color: #e06c75; color: #eee; }
 html.dark-mode .copy-btn { background: #2b2b2b; color: #eee; }
 html.dark-mode .copy-btn:hover { background: #3b3b3b; }

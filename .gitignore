@@ -41,3 +41,7 @@ validation-report.json
 
 # Folders to ignore
 node_modules
+.gstack/
+
+# Jekyll
+Gemfile.lock

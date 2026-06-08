@@ -1,0 +1,15 @@
+---
+layout: default
+title: Articles
+permalink: /articles/
+---
+
+<ul class="post-list">
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+      <span class="date">{{ post.date | date: "%B %-d, %Y" }}</span>
+      <p>{{ post.excerpt | strip_html | truncate: 150 }}</p>
+    </li>
+  {% endfor %}
+</ul>

@@ -4,22 +4,16 @@ title: Home
 permalink: /
 ---
 
-<h1>TheWizardBay</h1>
-<ul class="post-list">
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-      <span class="date">{{ post.date | date: "%B %-d, %Y" }}</span>
-      <p>{{ post.excerpt | strip_html | truncate: 150 }}</p>
-      {% if post.categories %}
-        <p class="post-categories">
-          Categories: 
-          {% for category in post.categories %}
-            {{ category }}{% if forloop.last == false %}, {% endif %}
-          {% endfor %}
-        </p>
-      {% endif %}
-    </li>
-  {% endfor %}
-</ul>
-
+<div class="notes-feed">
+  {% assign sorted_notes = site.notes | sort: 'date' | reverse %}
+  {% if sorted_notes.size == 0 %}
+    <p class="empty-feed">Nothing here yet.</p>
+  {% else %}
+    {% for note in sorted_notes %}
+    <div class="note-entry">
+      <time class="note-date"><a href="{{ note.url }}">{{ note.date | date: "%b %-d, %Y" }}</a></time>
+      {{ note.content }}
+    </div>
+    {% endfor %}
+  {% endif %}
+</div>
