@@ -20,6 +20,8 @@ I write here for the same reason I always did. I tend to forget things — not j
 
 ## Find me
 
-- GitHub
-- LinkedIn
-- Twitter
+- [GitHub](https://github.com/ika-twb)
+- [Codeberg](https://codeberg.org/ika)
+- [Sourcehut](https://sr.ht/~ika)
+- [Mastodon](https://mastodon.sdf.org/@ika)
+- [emacs.ch/@ika](https://emacs.ch/@ika) (gone but not forgotten)
