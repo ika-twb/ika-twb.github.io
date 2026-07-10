@@ -1,3 +1,7 @@
+---
+layout: note
+date: 2026-07-10
+---
 # Site Reliability Engineering: A Field Primer
 
 Notes from the Google SRE book, my own work experience and various resources online.
