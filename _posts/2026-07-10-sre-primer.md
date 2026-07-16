@@ -1,5 +1,5 @@
 ---
-layout: note
+layout: post
 date: 2026-07-10
 ---
 # Site Reliability Engineering: A Field Primer
