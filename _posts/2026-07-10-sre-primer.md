@@ -1,8 +1,9 @@
 ---
 layout: post
+title: "Site Reliability Engineering: A Field Primer"
 date: 2026-07-10
+categories: [Notes, SRE, Guides]
 ---
-# Site Reliability Engineering: A Field Primer
 
 Notes from the Google SRE book, my own work experience and various resources online.
 
